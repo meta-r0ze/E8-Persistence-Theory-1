@@ -1,0 +1,58 @@
+\documentclass[aps,prd,twocolumn,showpacs,superscriptaddress,groupedaddress,nofootinbib]{revtex4-2}  
+
+% Packages you will need
+\usepackage{amsmath}  % Math formulas
+\usepackage{amssymb}  % Math symbols (like \mathbb, \mathcal)
+\usepackage{graphicx} % Images
+\usepackage{hyperref} % Hyperlinks
+\usepackage{bm}       % Bold math
+\usepackage{booktabs} % For professional table formatting
+\usepackage{array}    % For better column definitions
+\usepackage{tabularx, siunitx}
+\usepackage[noabbrev]{cleveref} % Load this LAST in your preamble
+
+\begin{document}
+
+% Title Area
+\title{The $E_8$-Persistence Theory I: Universal Couplings and the Geometric Substrate}
+
+\author{Kate Lenore Meyer}
+\affiliation{Independent Researcher} % Or your institution if applicable
+%\email{your.email@example.com}
+
+\date{\today}
+
+\input{E8-Persistence Theory I/0_abstract}
+
+\maketitle % Generates the title block
+
+% Main Content
+\input{E8-Persistence Theory I/1_introduction}
+\input{E8-Persistence Theory I/2_ie}
+\input{E8-Persistence Theory I/3_Geometric_Cascade}
+
+\part* {System I: The Invariant Substrate}
+\input{E8-Persistence Theory I/4_Derivation_of_the_Substrate}
+\input{E8-Persistence Theory I/5_LagrangianOfPersistence}
+
+\part* {System II: The Geometric Impedance ($\alpha^{-1}$)}
+\input{E8-Persistence Theory I/6_persistence_condition}
+
+\part* {System III: The Effective Field Limits}
+\input{E8-Persistence Theory I/saturation_limit}
+\input{E8-Persistence Theory I/partition_ratio}
+\input{E8-Persistence Theory I/structural_floor}
+\input{E8-Persistence Theory I/attenuation_scale}
+
+\input{E8-Persistence Theory I/conclusion}
+
+\begin{acknowledgments}
+The author is an independent researcher and received no external funding for this work. 
+
+I would like to thank my friends and family for their patience and support throughout decades of discussions as I tried to understand everything I encountered.
+\end{acknowledgments}
+
+% Bibliography
+\bibliography{references} % Points to a references.bib file
+
+\end{document}
