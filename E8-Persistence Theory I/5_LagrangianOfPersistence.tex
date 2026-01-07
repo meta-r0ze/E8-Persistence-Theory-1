@@ -44,9 +44,9 @@ By mapping the entropic functionals of Informational Energetics to field operato
 To transition from discrete information theory to continuous field theory, we identify the functional forms of Topological Density ($\mathbf{K}$) and Gradient Flux ($\lambda$) for a generic field $\Psi$:
 
 \begin{enumerate}
-    \item \textbf{Topological Density ($\mathbf{K}$):} Corresponds to the local information density (probability amplitude).
+    \item \textbf{Topological Density ($\mathbf{K}$):} The local information density required to define a state. For unitary probability conservation, this must be the quadratic invariant:
     $$ \mathbf{K}[\Psi] \propto \Psi^\dagger \Psi $$
-    \item \textbf{Transition Flux ($\lambda$):} Corresponds to the gauge-covariant rate of state change (gradient energy).
+    \item \textbf{Transition Flux ($\lambda$):} The rate of state change. To satisfy the \textbf{Protocol Constraint} (local gauge invariance defined by $\sigma$), ordinary gradients $\partial_\mu$ must be promoted to covariant derivatives $D_\mu$. Thus, the scalar flux is the contraction:
     $$ \lambda[\Psi] \propto (D_\mu \Psi)^\dagger (D^\mu \Psi) $$
 \end{enumerate}
 
@@ -132,5 +132,6 @@ The lattice is not infinite; it is bounded by the topological limit $\chi$. The 
 
 This formalizes the selection principle not as a decision-maker, but as the stress term that arises when the complexity $\mathbf{K}$ approaches the state space limit $C_{node}$ bits. When $\mathbf{K} \to C_{node}$, the energy cost diverges, creating the "Ultraviolet Cutoff" naturally. The lattice does not need renormalization, it is already finite.
 
-\subsection{Conclusion}
-No other Lagrangian structure satisfies $\delta S_\Phi = 0$ while respecting the geometric constraints $\{D, \Delta, \nu, \sigma, \chi\}$. The Standard Model is not merely \textit{consistent} with the lattice, it is \textbf{required} by it.
+This term acts as a \textbf{Soft Ultraviolet Cutoff}. Unlike standard QFT which requires manual renormalization to handle infinities, the lattice naturally suppresses high-energy states where $\mathbf{K} \to C_{node}$ by assigning them infinite metabolic cost.
+
+\textbf{Conclusion:} The Standard Model Lagrangian is identified as the \textbf{Unique Minimal Solution} to the Entropic Action. Any simpler Lagrangian fails to support the invariants $\{\nu, \sigma, \chi\}$; any more complex Lagrangian contains terms that are either topologically forbidden or dissipate energy unnecessarily (violating $\delta S_\Phi = 0$).
