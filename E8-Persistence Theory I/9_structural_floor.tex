@@ -1,4 +1,4 @@
-\section{The Structural Floor: The Higgs Sector ($v, G_F, \lambda, m_H$, $y_e$)}
+\section{The Structural Floor: The Higgs Sector ($v, G_F, \lambda, m_H$, $y_e$)} \label{sec:Structural_Floor}
 
 \textbf{The Standard Model Ansatz:} In the Standard Model, the electroweak sector is parameterized by three independent inputs: the Higgs vacuum expectation value ($v$), the Fermi Constant ($G_F$), and the Higgs self-coupling ($\lambda$). While these determine the Higgs mass ($m_H = \sqrt{2\lambda}v$), the values themselves are empirical measurements without theoretical constraints.
 
@@ -19,10 +19,10 @@ $$ I_s = (\Delta \cdot D) + \nu = (43 \times 4) + 16 = \mathbf{188} $$
 \subsubsection{Numerical Result}
 Substituting the invariants:
 \begin{equation}
-v = (2 \cdot 43^2 - 188) \cdot 137.035999 \cdot 0.51099 \text{ MeV}
+v = (2 \cdot 43^2 - 188) \cdot \ExecuteMetaData[src/results.tex]{AlphaInvVal} \cdot 0.51099 \text{ MeV}
 \end{equation}
 \begin{equation}
-v = 3510 \cdot 137.036 \cdot 0.511 \text{ MeV} \approx \mathbf{245.79 \text{ GeV}}
+v = 3510 \cdot \ExecuteMetaData[src/results.tex]{AlphaInvVal} \cdot 0.51099 \text{ MeV} \approx = \ExecuteMetaData[src/results.tex]{HiggsVEVVal} \text{ GeV}
 \end{equation}
 
 \begin{itemize}
@@ -33,7 +33,7 @@ v = 3510 \cdot 137.036 \cdot 0.511 \text{ MeV} \approx \mathbf{245.79 \text{ GeV
 
 \textbf{Interpretation of Discrepancy:} The $0.18\%$ difference ($\approx 430$ MeV) quantifies the boundary between \textbf{Tree-Level Geometry} and \textbf{Quantum Loop Corrections}. Rather than an error, this residual aligns with the expected magnitude of the QCD quark condensate ($\langle \bar{q}q \rangle \sim 300\text{--}400$ MeV). The derivation correctly identifies the bare geometric floor, while the experimental value includes the dynamical stiffening from the strong interaction.
 
-\subsection{The Fermi Constant (\texorpdfstring{$G_F$}{G_F})}
+\subsection{The Fermi Constant (\texorpdfstring{$G_F$}{GF})}
 
 \textbf{The Geometric Derivation:} $G_F$ is the inverse squared cross-section of the stability floor. In the Standard Model, $G_F = \frac{1}{\sqrt{2}v^2}$. In the $E_8$ framework, the normalization factor $\sqrt{2}$ is identified not as a convention, but as the square root of the Topological Boundary ($\chi=2$).
 
@@ -53,7 +53,7 @@ G_F = \frac{1}{\sqrt{2} (245.79)^2} \approx \mathbf{1.1705 \times 10^{-5} \text{
 
 This confirms that the strength of the Weak Interaction is strictly determined by the inverse surface area of the vacuum potential.
 
-\subsection{The Higgs Self-Coupling ($\lambda$)}
+\subsection{The Higgs Self-Coupling (\texorpdfstring{$\lambda$}{lambda})}
 
 \textbf{The Geometric Derivation:} The self-coupling $\lambda$ determines the rigidity of the vacuum field. We derive this not from mass fitting, but from the \textbf{Bandwidth Allocation Principle}.
 
@@ -74,7 +74,7 @@ Every coupling represents a claim on the finite capacity of the lattice. $\lambd
 
 \textbf{Physical Implication:} The Higgs field, though colorless, inherits its rigidity from the vacuum's resource allocation. It cannot self-interact more strongly without stealing bandwidth allocated to the Strong Force ($\sigma - \chi$). This is the first structural explanation for why the Higgs coupling takes this specific value.
 
-\subsection{Closure: The Higgs Mass ($m_H$)}
+\subsection{Closure: The Higgs Mass (\texorpdfstring{$m_H$}{mH})}
 
 Having derived $v$ and $\lambda$ independently from geometric invariants, we can now output the mass of the Higgs boson. This is not a fit; it is the closure of the geometric system.
 
@@ -112,7 +112,7 @@ $$ \frac{5}{3} \cdot \frac{0.511 \text{ MeV}}{245,790 \text{ MeV}} \approx 1.666
 
 \textbf{Physical Interpretation:} The electron exists at the absolute limit of the vacuum's resolution. It is lighter than the theoretical floor ($PM$) by the factor $3/5$ precisely because it is colorless. It does not require the vacuum to resolve the Strong Force channels ($\sigma-\chi=3$) to maintain its existence. This structurally explains the hierarchy between the electroweak scale ($v$) and the matter scale ($m_e$).
 
-\subsection{The Resolution Floor: Electron Yukawa Coupling ($y_e$)}
+\subsection{The Resolution Floor: Electron Yukawa Coupling (\texorpdfstring{$y_e$}{ye})}
 The final component of the electroweak sector is the coupling of the vacuum field to the lightest charged particle. In the Standard Model, this is the Electron Yukawa coupling ($y_e$), defining the minimum interaction strength required for a particle to acquire rest mass.
 
 In the $E_8$-Persistence framework, this coupling is not arbitrary; it is the physical manifestation of the \textbf{Persistence Margin ($PM$)} derived in the vacuum impedance equation (Eq. \ref{eq:alpha_inverse}). It represents the smallest non-zero bit of mass the lattice can resolve against thermal noise.

@@ -1,4 +1,4 @@
-\documentclass[aps,prd,twocolumn,showpacs,superscriptaddress,groupedaddress,nofootinbib]{revtex4-2}  
+\documentclass[aps,prd,twocolumn,showpacs,superscriptaddress,groupedaddress,nofootinbib,english]{revtex4-2}  
 
 % Packages you will need
 \usepackage{amsmath}  % Math formulas
@@ -9,7 +9,16 @@
 \usepackage{booktabs} % For professional table formatting
 \usepackage{array}    % For better column definitions
 \usepackage{tabularx, siunitx}
+\usepackage[ngerman, main=english]{babel}
 \usepackage[noabbrev]{cleveref} % Load this LAST in your preamble
+\usepackage{catchfilebetweentags} 
+
+\makeatletter
+\let\l@de\l@ngerman
+\makeatother
+\makeatletter
+\let\l@en\l@english
+\makeatother
 
 \begin{document}
 
@@ -27,6 +36,7 @@
 \maketitle % Generates the title block
 
 % Main Content
+\input{E8-Persistence Theory I/src/results}
 \input{E8-Persistence Theory I/1_introduction}
 \input{E8-Persistence Theory I/2_ie}
 \input{E8-Persistence Theory I/3_Geometric_Cascade}
