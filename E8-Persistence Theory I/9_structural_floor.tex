@@ -19,10 +19,10 @@ $$ I_s = (\Delta \cdot D) + \nu = (43 \times 4) + 16 = \mathbf{188} $$
 \subsubsection{Numerical Result}
 Substituting the invariants:
 \begin{equation}
-v = (2 \cdot 43^2 - 188) \cdot \ExecuteMetaData[src/results.tex]{AlphaInvVal} \cdot 0.51099 \text{ MeV}
+v = (2 \cdot 43^2 - 188) \cdot \ExecuteMetaData[src/results.tex]{AlphaInvVal} \cdot \ExecuteMetaData[src/results.tex]{MeMeVPrint} \text{ MeV}
 \end{equation}
 \begin{equation}
-v = 3510 \cdot \ExecuteMetaData[src/results.tex]{AlphaInvVal} \cdot 0.51099 \text{ MeV} \approx = \ExecuteMetaData[src/results.tex]{HiggsVEVVal} \text{ GeV}
+v = 3510 \cdot \ExecuteMetaData[src/results.tex]{AlphaInvVal} \cdot \ExecuteMetaData[src/results.tex]{MeMeVPrint} \text{ MeV} \approx = \ExecuteMetaData[src/results.tex]{HiggsVEVVal} \text{ GeV}
 \end{equation}
 
 \begin{itemize}
@@ -87,11 +87,11 @@ Substituting the derived integer values:
 m_H = \sqrt{2 \left(\frac{3}{23}\right)} \cdot (245.79 \text{ GeV})
 \end{equation}
 \begin{equation}
-m_H = \sqrt{0.2608} \cdot 245.79 \approx 0.5107 \cdot 245.79 \approx \mathbf{125.5 \text{ GeV}}
+m_H = \sqrt{0.2608} \cdot 245.79 \approx 0.5107 \cdot 245.79 \approx \mathbf{125.54 \text{ GeV}}
 \end{equation}
 
 \begin{itemize}
-    \item \textbf{Geometric Prediction:} $125.5$ GeV
+    \item \textbf{Geometric Prediction:} $125.54$ GeV
     \item \textbf{Experimental Value:} $125.25 \pm 0.17$ GeV
 \end{itemize}
 
@@ -108,7 +108,7 @@ PM \approx \left( \frac{\sigma}{\sigma - \chi} \right) \frac{m_e}{v} = \frac{5}{
 \end{equation}
 
 \textbf{Validation:}
-$$ \frac{5}{3} \cdot \frac{0.511 \text{ MeV}}{245,790 \text{ MeV}} \approx 1.666 \cdot (2.079 \times 10^{-6}) \approx \mathbf{3.47 \times 10^{-6}} $$
+$$ \frac{5}{3} \cdot \frac{\ExecuteMetaData[src/results.tex]{MeMeVPrint} \text{ MeV}}{245,790 \text{ MeV}} \approx 1.666 \cdot (2.079 \times 10^{-6}) \approx \mathbf{3.47 \times 10^{-6}} $$
 
 \textbf{Physical Interpretation:} The electron exists at the absolute limit of the vacuum's resolution. It is lighter than the theoretical floor ($PM$) by the factor $3/5$ precisely because it is colorless. It does not require the vacuum to resolve the Strong Force channels ($\sigma-\chi=3$) to maintain its existence. This structurally explains the hierarchy between the electroweak scale ($v$) and the matter scale ($m_e$).
 
@@ -128,7 +128,7 @@ y_{e, geo} \approx 2.91 \times 10^{-6}
 \end{equation}
 
 \begin{itemize}
-    \item \textbf{Standard Model Calculation:} $y_e = \frac{\sqrt{2} m_e}{v} = \frac{1.414 \cdot 0.511 \text{ MeV}}{246 \text{ GeV}} \approx 2.93 \times 10^{-6}$.
+    \item \textbf{Standard Model Calculation:} $y_e = \frac{\sqrt{2} m_e}{v} = \frac{1.414 \cdot \ExecuteMetaData[src/results.tex]{MeMeVPrint} \text{ MeV}}{246 \text{ GeV}} \approx 2.93 \times 10^{-6}$.
     \item \textbf{Correspondence:} The geometric margin matches the physical coupling to within \textbf{0.7\%}.
 \end{itemize}
 
