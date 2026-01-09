@@ -2,21 +2,21 @@
 
 \textbf{The Standard Model Ansatz:} The Strong Coupling Constant $\alpha_s$ is a free parameter fitted to scattering data. Standard physics offers no structural explanation for the hierarchy $\alpha_s \gg \alpha$, nor a mechanism to derive the specific value $\alpha_s(M_Z) \approx 0.1179$ \cite{denterria_strong_2024}.
 
-\textbf{The $E_8$-Persistence Derivation:} We derive $\alpha_s$ as the \textbf{Channel Saturation Limit}. Unlike electromagnetism, which utilizes a fraction of the vacuum's impedance, the Strong Interaction represents the complete saturation of the available chiral state space.
+\textbf{The $E_8$-Persistence Derivation:} We derive $\alpha_s$ as the \textbf{Channel Saturation Limit}. The Persistence Principle dictates that while Electromagnetism operates as a low-entropy signal (using minimal bandwidth), the Strong Interaction represents the upper bound of the lattice's information carrying capacity.
 
-\subsection{The Geometric Derivation}
+\subsection{The Bandwidth Constraint}
+We define the Strong Coupling not as a force strength, but as the ratio of the \textbf{Total Active State Capacity} to the \textbf{Vacuum Impedance}. To maintain a confined color-singlet state, the vacuum must fully saturate the available geometry.
 
-We define the Strong Coupling at the $Z$-boson scale as the ratio of the \textbf{Total Active State Capacity} to the \textbf{Vacuum Impedance}. The total substrate load ($N_{QCD}$) of a confined color-singlet consists of two geometric components:
-
+The total substrate load ($N_{QCD}$) is mandated by two persistence requirements:
 \begin{enumerate}
-    \item \textbf{Chiral Saturation ($\nu$):} A confined state requires the synchronization of the full chiral rank ($\nu=16$).
+    \item \textbf{Chiral Saturation ($\nu$):} A confined state requires the synchronization of the full chiral rank ($\nu=16$) to prevent information leakage.
     \item \textbf{Manifold Coupling ($1/D$):} Unlike free gauge fields, color fields are confined. To localize a color charge within a $D$-dimensional manifold requires a geometric normalization factor of $1/D$ to satisfy flux conservation limits.
 \end{enumerate}
 
-The coupling is derived by normalizing this total load by the vacuum impedance ($\alpha^{-1}$):
+The coupling is derived by normalizing this total load by the vacuum impedance ($\alpha^{-1}$), representing the \textbf{Maximum Admittance} of the system:
 
 \begin{equation}
-\alpha_s(M_Z) = \frac{N_{QCD}}{\alpha^{-1}} = \frac{\nu + 1/D}{\alpha^{-1}}
+\alpha_s(M_Z) = \frac{\text{Max Capacity}}{\text{Impedance}} = \frac{\nu + 1/D}{\alpha^{-1}}
 \end{equation}
 
 \subsection{Numerical Result}
@@ -25,13 +25,11 @@ The coupling is derived by normalizing this total load by the vacuum impedance (
 \end{equation}
 
 \begin{itemize}
-\item \textbf{Experimental Value:} $0.1179 \pm 0.0009$ (PDG World Average)
-\item \textbf{Precision:} Consistent with the world average to within \textbf{$1\sigma$}.
+\item \textbf{Experimental Value:} $\ExecuteMetaData[src/results.tex]{AlphaSExperimentalValue} \pm 0.0009$ (PDG World Average)
+\item \textbf{Accuracy:} \ExecuteMetaData[src/results.tex]{AlphaSAccText}
 \end{itemize}
 
-\subsection{Physical Interpretation: Bandwidth vs. Force}
-
-This derivation offers a radical reinterpretation of the strong force. $\alpha_s$ is $\approx 137 \times \alpha$ not because the force is arbitrarily ``stronger,'' but because the \textbf{Channel Occupation} is higher.
+\textbf{Physical Interpretation:} This confirms that the Strong Force is not arbitrarily "strong." It is simply the state where the channel utilization ($\approx 16.25$) overcomes the vacuum impedance ($\approx 137$), saturating the link.
 
 \begin{itemize}
     \item \textbf{Electromagnetism ($\alpha$):} A signal utilizing a single channel ($1/137$ of capacity).

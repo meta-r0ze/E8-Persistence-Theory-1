@@ -1,48 +1,36 @@
 \section{The Partition Ratio: Weak Mixing Angle (\texorpdfstring{$\sin^2 \theta_W$}{sin2thetaW})} \label{sec:Partition_Ratio}
 
-\textbf{The Standard Model Ansatz:} The Weak Mixing Angle is a free parameter defining the rotation between the $U(1)_Y$ and $SU(2)_L$ sectors. It determines the partition of the unified electroweak force into the electromagnetic and weak components.
+\textbf{The Standard Model Ansatz:} The Weak Mixing Angle is a free parameter defining the rotation between the $U(1)_Y$ and $SU(2)_L$ sectors. It determines the partition of the unified electroweak force into the electromagnetic and weak components. Standard physics relies on the Weak Mixing Angle as an empirical input ($s^2_W \approx 0.223$) to satisfy the mass ratio $M_W/M_Z$. However, it offers no geometric origin for this specific magnitude, nor a mechanism to resolve the experimental tension between the value derived from direct mass measurements ($0.22291 \pm 0.00011$) \cite{PhysRevD.110.030001} and the value derived from global electroweak fits ($0.22354 \pm 0.00006$) \cite{PhysRevD.110.030001}.
 
-Standard physics relies on the Weak Mixing Angle as an empirical input ($s^2_W \approx 0.223$) to satisfy the mass ratio $M_W/M_Z$. However, it offers no geometric origin for this specific magnitude, nor a mechanism to resolve the experimental tension between the value derived from direct mass measurements ($0.22291 \pm 0.00011$) \cite{PhysRevD.110.030001} and the value derived from global electroweak fits ($0.22354 \pm 0.00006$) \cite{PhysRevD.110.030001}.
+\textbf{The $E_8$-Persistence Derivation:} The Weak Mixing Angle is derived as the \textbf{Resonance Partition Fraction}. To minimize Entropic Action, the lattice must efficiently route information between the Resonant Core (Lattice, the Signal) and the Geometric Infrastructure (Projection, the Carrier).
 
-\textbf{The $E_8$-Persistence Derivation:} In this framework, the Weak Mixing Angle is derived as the \textbf{Resonance Partition Fraction}. We demonstrate that the tension is not experimental error, but the geometric distinction between the \textbf{Discrete Hardware} (Lattice) and the \textbf{Continuous Geometry} (Projection).
-
-\subsection{The Geometric Derivation}
-
-We calculate the mixing angle as the ratio of the \textbf{Active Resonance Signal} to the \textbf{Total Geometric Infrastructure} required to support it.
-
-\subsubsection{The Components}
+\subsection{The Allocation Principle}
+The mixing angle represents the fraction of the total coordination budget ($D\Delta + \nu + \sigma$) that is dedicated to the active resonance ($\Delta$).
 
 \begin{enumerate}
-    \item \textbf{The Signal (Numerator):} The Heegner Resonance ($\Delta = 43$). This represents the fundamental frequency of the lattice. The Weak interaction, being the force of transmutation and decay, couples directly to this resonant heartbeat of the vacuum.
-    
-    \item \textbf{The Infrastructure (Denominator):} The Total Electroweak Capacity is the sum of the Manifold Projection, the Chiral Channels, and the Interaction Symmetry:
+    \item \textbf{The Signal ($\Delta$):} The Heegner Resonance ($\Delta = 43$). This represents the fundamental frequency of the lattice. The Weak interaction, being the force of transmutation and decay, couples directly to this resonant heartbeat of the vacuum.
+    \item \textbf{The Infrastructure:} The total geometric overhead required to support that signal.
     \begin{itemize}
         \item \textbf{Manifold Projection ($D\Delta$):} The projection of the resonance onto the 4D spacetime manifold ($4 \times 43 = 172$).
         \item \textbf{Chiral Channels ($\nu$):} The available channel capacity for fermion information ($\nu = 16$).
         \item \textbf{Interaction Order ($\sigma$):} The symmetry overhead required for unification ($\sigma = 5$).
     \end{itemize}
+
 \end{enumerate}
 
-\subsubsection{The Partition Formula}
-
-The mixing angle is defined as the fraction of the lattice resonance relative to the total coordination budget:
+The Persistence Principle requires that the electroweak force partitions itself according to this structural ratio to maintain impedance matching:
 
 \begin{equation}
-\sin^2 \theta_W = \frac{\Delta}{D\Delta + \nu + \sigma}
+\sin^2 \theta_W = \frac{\text{Active Resonance}}{\text{Total Infrastructure}} = \frac{\Delta}{D\Delta + \nu + \sigma}
 \end{equation}
 
 \subsection{Numerical Result}
-
-Substituting the invariant values:
-
 \begin{equation}
-\sin^2 \theta_W = \frac{43}{4(43) + 16 + 5} = \frac{43}{193} \approx = \ExecuteMetaData[src/results.tex]{WeakAngleVal}
+\sin^2 \theta_W = \frac{43}{4(43) + 16 + 5} = \frac{43}{193} \approx \mathbf{\ExecuteMetaData[src/results.tex]{WeakAngleVal}}
 \end{equation}
 
-This geometric value resolves the experimental tension by aligning strictly with the \textbf{Direct Mass Measurement} (the physical particle), distinguishable from the Global Fit (the geometry field) and the Running Coupling (dynamic loops):
-
 \begin{itemize}
-    \item \textbf{Geometric Prediction (Integer):} \ExecuteMetaData[src/results.tex]{WeakAngleVal}
+    \item \textbf{Geometric Prediction:} \ExecuteMetaData[src/results.tex]{WeakAngleVal}
     \item \textbf{Experimental (Direct Mass)}: $0.22291 \pm 0.00011$ \cite{PhysRevD.110.030001}
     \item \textbf{Experimental (Global Fit)}: $0.22354 \pm 0.00006$
     \item \textbf{Experimental ($\overline{MS}$ Running)}: $0.23122$
@@ -50,6 +38,9 @@ This geometric value resolves the experimental tension by aligning strictly with
     \item \textbf{Experimental Value (On-Shell):} $\approx 0.223$ (Depends on renormalization scheme)
     \item \textbf{Precision:} Matches the on-shell definition to within \textbf{0.05\%}.
 \end{itemize}
+
+\textbf{Physical Interpretation:} The tension between the On-Shell value ($\approx 0.223$) and the $\overline{MS}$ value ($\approx 0.231$) is resolved. The lattice invariants define the \textbf{Bare Geometric Partition} (On-Shell), while the effective running includes dynamic loops.
+
 
 
 \subsection{Recursive Validation: The Cost of Time}

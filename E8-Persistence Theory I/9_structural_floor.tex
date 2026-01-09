@@ -100,15 +100,17 @@ m_H = \sqrt{2\lambda} v
 
 Substituting the derived integer values:
 \begin{equation}
-m_H = \sqrt{2 \left(\frac{3}{23}\right)} \cdot (245.79 \text{ GeV})
+m_H = \sqrt{2 \left(\frac{3}{23}\right)} \cdot (\ExecuteMetaData[src/results.tex]{HiggsVEVVal} \text{ GeV})
 \end{equation}
 \begin{equation}
-m_H = \sqrt{0.2608} \cdot 245.79 \approx 0.5107 \cdot 245.79 \approx \mathbf{125.54 \text{ GeV}}
+m_H = \sqrt{0.2608} \cdot \ExecuteMetaData[src/results.tex]{HiggsVEVVal}
+     \approx \mathbf{\ExecuteMetaData[src/results.tex]{HiggsMassVal} \text{ GeV}}
 \end{equation}
 
 \begin{itemize}
-    \item \textbf{Geometric Prediction:} $125.54$ GeV
+    \item \textbf{Geometric Prediction:} $\ExecuteMetaData[src/results.tex]{HiggsMassVal}$ GeV
     \item \textbf{Experimental Value:} $125.25 \pm 0.17$ GeV
+    \item \textbf{Accuracy:} \ExecuteMetaData[src/results.tex]{HiggsMassAccText}
 \end{itemize}
 
 \subsection{The Electron Connection: The Resolution Floor}
@@ -140,12 +142,12 @@ y_e = PM_{geo} \approx \frac{1}{H_{full} \cdot (\sigma + 1) \cdot \Delta^2}
 
 Using the geometric value $PM_{geo} \approx 2.908 \times 10^{-6}$:
 \begin{equation}
-y_{e, geo} \approx 2.91 \times 10^{-6}
+y_{e, geo} \approx \ExecuteMetaData[src/results.tex]{ElectronYukawaVal}
 \end{equation}
 
 \begin{itemize}
-    \item \textbf{Standard Model Calculation:} $y_e = \frac{\sqrt{2} m_e}{v} = \frac{1.414 \cdot \ExecuteMetaData[src/results.tex]{MeMeVPrint} \text{ MeV}}{246 \text{ GeV}} \approx 2.93 \times 10^{-6}$.
-    \item \textbf{Correspondence:} The geometric margin matches the physical coupling to within \textbf{0.7\%}.
+    \item \textbf{Standard Model Calculation:} $y_e = \frac{\sqrt{2} m_e}{v} = \frac{1.414 \cdot \ExecuteMetaData[src/results.tex]{MeMeVPrint} \text{ MeV}}{246 \text{ GeV}} \approx \ExecuteMetaData[src/results.tex]{ElectronYukawaExperimentalValue}$.
+    \item \textbf{Accuracy:} \ExecuteMetaData[src/results.tex]{ElectronYukawaAccText}
 \end{itemize}
 
 This confirms that the electron mass is not random; it sits exactly at the thermodynamic resolution floor of the $E_8$ lattice. Any lighter charged particle would have a coupling smaller than $PM$, making it indistinguishable from vacuum fluctuations (massless).
