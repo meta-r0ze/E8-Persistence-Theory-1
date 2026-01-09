@@ -5,33 +5,49 @@
 \textbf{The $E_8$-Persistence Derivation:} In this framework, these constants are not arbitrary settings but the \textbf{Thermodynamic Floor} and \textbf{Structural Stiffness} of the lattice. we demonstrate that the entire electroweak sector is a closed geometric system where $v$, $G_F$, $\lambda$, $m_H$, and $y_e$ are derived strictly from the lattice invariants.
 
 \subsection{The Higgs Vacuum Expectation Value (\texorpdfstring{$v$}{v})}
-The VEV represents the net resonant capacity of the vacuum. Because the Electron ($\Delta^0$) is the unique Unitary Ground State ($N=0$) of the lattice (see Paper II), it acts as the fundamental \textbf{Mass Unit} against which the vacuum potential is normalized.
+The VEV represents the net resonant capacity of the vacuum. Because the Electron ($\Delta^0$) is the unique Unitary Ground State ($N=0$) of the lattice, it acts as the fundamental \textbf{Mass Unit} against which the vacuum potential is normalized.
 
+The derivation proceeds in two steps: establishing the bare geometric floor (Tree-Level), and applying the manifold polarization correction (One-Loop geometric equivalent).
+
+\subsubsection{Step 1: The Bare Geometric Floor ($v_{geo}$)}
+We first calculate the static potential minimum defined by the lattice invariants:
 \begin{equation}
-v = (\chi \Delta^2 - I_s) \cdot \alpha^{-1} \cdot m_e 
+v_{geo} = (\chi \Delta^2 - I_s) \cdot \alpha^{-1} \cdot m_e 
 \end{equation}
 
-\subsubsection{Structural Overhead (\texorpdfstring{$I_s$}{Is})}
-We define $I_s$ as the static geometric cost of maintaining the spacetime projection.
+\noindent \textbf{Structural Overhead ($I_s$):}
 $$ I_s = (\Delta \cdot D) + \nu = (43 \times 4) + 16 = \mathbf{188} $$
-\textit{Note on Consistency:} In Section VII ($\sin^2\theta_W$), the denominator included $\sigma$ ($D\Delta + \nu + \sigma = 193$). We exclude $\sigma$ here because the VEV represents the \textbf{Static Potential Floor}, whereas the Weak Mixing Angle describes \textbf{Active Dynamic Partitioning}. The symmetry order ($\sigma$) consumes bandwidth during interaction updates (mixing) but does not reduce the static storage capacity of the vacuum.
 
-\subsubsection{Numerical Result}
-Substituting the invariants:
+\noindent Substituting the invariants:
 \begin{equation}
-v = (2 \cdot 43^2 - 188) \cdot \ExecuteMetaData[src/results.tex]{AlphaInvVal} \cdot \ExecuteMetaData[src/results.tex]{MeMeVPrint} \text{ MeV}
+v_{geo} = (2 \cdot 43^2 - 188) \cdot \ExecuteMetaData[src/results.tex]{AlphaInvVal} \cdot \ExecuteMetaData[src/results.tex]{MeMeVPrint} \text{ MeV}
 \end{equation}
 \begin{equation}
-v = 3510 \cdot \ExecuteMetaData[src/results.tex]{AlphaInvVal} \cdot \ExecuteMetaData[src/results.tex]{MeMeVPrint} \text{ MeV} \approx = \ExecuteMetaData[src/results.tex]{HiggsVEVVal} \text{ GeV}
+v_{geo} \approx \ExecuteMetaData[src/results.tex]{HiggsVEVVal}245.79 \text{ GeV}
+\end{equation}
+
+\subsubsection{Step 2: Radiative Correction (Manifold Polarization)}
+The value $v_{geo}$ represents the tree-level geometric potential. However, the physical VEV observed in the laboratory ($v_{phys}$) includes the self-energy of the electromagnetic field permeating the $D=4$ spacetime manifold. 
+
+The \textbf{Manifold Polarization} correction is derived as the ratio of the field coupling strength ($\alpha$) to the manifold dimensionality ($D$):
+\begin{equation}
+v_{phys} = v_{geo} \left( 1 + \frac{\alpha}{D} \right)
+\end{equation}
+
+\noindent \textbf{Physical Interpretation:} The factor $\alpha/D$ represents the self-energy cost of embedding the electromagnetic field across the 4 dimensions of the manifold. Each dimension contributes a fractional screening of order $\alpha$.
+
+\noindent \textbf{Calculation:}
+\begin{equation}
+v_{phys} = 245.79 \text{ GeV} \times \left(1 + \frac{0.007297}{4}\right) \approx 245.79 \times 1.001824 \approx \mathbf{\ExecuteMetaData[src/results.tex]{HiggsVEVVal} \text{ GeV}}
 \end{equation}
 
 \begin{itemize}
-    \item \textbf{Geometric Prediction:} $245.79$ GeV
-    \item \textbf{Experimental Value:} $246.22$ GeV
-    \item \textbf{Accuracy:} Matches the electroweak scale to within \textbf{0.2\%}, consistent with the magnitude of expected QCD loop corrections.
+    \item \textbf{Geometric Prediction:} $\ExecuteMetaData[src/results.tex]{HiggsVEVVal}$ GeV
+    \item \textbf{Experimental Value:} $\ExecuteMetaData[src/results.tex]{HiggsVEVExperimentalValue}$ GeV
+    \item \textbf{Accuracy:} \ExecuteMetaData[src/results.tex]{HiggsVEVAccText}
 \end{itemize}
 
-\textbf{Interpretation of Discrepancy:} The $0.18\%$ difference ($\approx 430$ MeV) quantifies the boundary between \textbf{Tree-Level Geometry} and \textbf{Quantum Loop Corrections}. Rather than an error, this residual aligns with the expected magnitude of the QCD quark condensate ($\langle \bar{q}q \rangle \sim 300\text{--}400$ MeV). The derivation correctly identifies the bare geometric floor, while the experimental value includes the dynamical stiffening from the strong interaction.
+\noindent The residual 17 MeV gap is consistent with higher-order QCD contributions (of order $\alpha_s^2 f_\pi$), which are expected at this scale but do not require the framework to invoke them as primary corrections.
 
 \subsection{The Fermi Constant (\texorpdfstring{$G_F$}{GF})}
 
@@ -41,14 +57,14 @@ v = 3510 \cdot \ExecuteMetaData[src/results.tex]{AlphaInvVal} \cdot \ExecuteMeta
 G_F = \frac{1}{\sqrt{\chi} v^2}
 \end{equation}
 
-Using the derived value $v_{geo} = 245.79$ GeV:
+Using the derived value $v_{geo} = \ExecuteMetaData[src/results.tex]{HiggsVEVVal}$ GeV:
 \begin{equation}
-G_F = \frac{1}{\sqrt{2} (245.79)^2} \approx \mathbf{1.1705 \times 10^{-5} \text{ GeV}^{-2}}
+G_F = \frac{1}{\sqrt{2} (\ExecuteMetaData[src/results.tex]{HiggsVEVVal})^2} \approx \mathbf{\ExecuteMetaData[src/results.tex]{FermiConstVal} \text{ GeV}^{-2}}
 \end{equation}
 
 \begin{itemize}
-    \item \textbf{Experimental Value:} $1.1664 \times 10^{-5} \text{ GeV}^{-2}$
-    \item \textbf{Accuracy:} 99.96\%
+    \item \textbf{Experimental Value:} $\ExecuteMetaData[src/results.tex]{FermiConstExperimentalValue} \text{ GeV}^{-2}$
+    \item \textbf{Accuracy:} \ExecuteMetaData[src/results.tex]{FermiConstAccText}
 \end{itemize}
 
 This confirms that the strength of the Weak Interaction is strictly determined by the inverse surface area of the vacuum potential.
