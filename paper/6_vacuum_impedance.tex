@@ -1,4 +1,5 @@
 \section{The Persistence Condition: Vacuum Impedance (\texorpdfstring{$\alpha^{-1}$}{alpha\string^-1})} \label{sec:Persistence_Condition}
+\CatchFileBetweenTags{\AlphaInvVal}{calculations/results.tex}{AlphaInvVal}
 
 Having established the Entropic Lagrangian, we can now determine the vacuum’s primary boundary condition: the Fine-Structure Constant ($\alpha$).
 
@@ -159,22 +160,15 @@ Summing the base geometry and the systemic corrections:
 \alpha^{-1}_{calc} = 135.0885 + 2 - 0.00599 - 0.04651 + 0.0000119 + 0.0000029
 \end{equation}
 \begin{equation}
-\alpha^{-1}_{calc} = \mathbf{\ExecuteMetaData[src/results.tex]{AlphaInvVal}}
+\alpha^{-1}_{calc} = \AlphaInvVal
 \end{equation}
 
 \begin{itemize}
-    \item \textbf{Geometric Prediction:} \ExecuteMetaData[src/results.tex]{AlphaInvVal}
+    \item \textbf{Geometric Prediction:} \AlphaInvVal
     \item \textbf{Experimental Average (CODATA 2022):} $137.035999178(8)$ \cite{mohr_codata_2025}
     \item \textbf{Morel (2020) Value}: $137.035999206(11)$ \cite{morel_determination_2020}
     \item \textbf{Precision:} The geometric derivation lies within the \textbf{$0.8\sigma$ uncertainty interval} of the experimental consensus.
 \end{itemize}
-
-
-
-
-
-
-
 
 
 \subsection{Theorem of Impedance Uniqueness}

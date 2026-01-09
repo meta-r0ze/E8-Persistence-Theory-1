@@ -1,4 +1,22 @@
 \section{The Structural Floor: The Higgs Sector (\texorpdfstring{$v, G_F, \lambda, m_H$, $y_e$}{vgflambdamhye})} \label{sec:Structural_Floor}
+\CatchFileBetweenTags{\AlphaInvVal}{calculations/results.tex}{AlphaInvVal}
+\CatchFileBetweenTags{\MeMeVPrint}{calculations/results.tex}{MeMeVPrint}
+
+\CatchFileBetweenTags{\HiggsVEVVal}{calculations/results.tex}{HiggsVEVVal}
+\CatchFileBetweenTags{\HiggsVEVExperimentalValue}{calculations/results.tex}{HiggsVEVExperimentalValue}
+\CatchFileBetweenTags{\HiggsVEVAccText}{calculations/results.tex}{HiggsVEVAccText}
+
+\CatchFileBetweenTags{\FermiConstVal}{calculations/results.tex}{FermiConstVal}
+\CatchFileBetweenTags{\FermiConstAccText}{calculations/results.tex}{FermiConstAccText}
+\CatchFileBetweenTags{\FermiConstExperimentalValue}{calculations/results.tex}{FermiConstExperimentalValue}
+
+\CatchFileBetweenTags{\HiggsMassVal}{calculations/results.tex}{HiggsMassVal}
+\CatchFileBetweenTags{\HiggsMassAccText}{calculations/results.tex}{HiggsMassAccText}
+
+\CatchFileBetweenTags{\ElectronYukawaVal}{calculations/results.tex}{ElectronYukawaVal}
+\CatchFileBetweenTags{\ElectronYukawaExperimentalValue}{calculations/results.tex}{ElectronYukawaExperimentalValue}
+\CatchFileBetweenTags{\ElectronYukawaAccText}{calculations/results.tex}{ElectronYukawaAccText}
+
 
 \textbf{The Standard Model Ansatz:} In the Standard Model, the electroweak sector is parameterized by three independent inputs: the Higgs vacuum expectation value ($v$), the Fermi Constant ($G_F$), and the Higgs self-coupling ($\lambda$). While these determine the Higgs mass ($m_H = \sqrt{2\lambda}v$), the values themselves are empirical measurements without theoretical constraints.
 
@@ -19,10 +37,6 @@ v_{geo} = (\chi \Delta^2 - I_s) \cdot \alpha^{-1} \cdot m_e
 $$ I_s = (\Delta \cdot D) + \nu = (43 \times 4) + 16 = \mathbf{188} $$
 
 \noindent Substituting the invariants:
-
-\CatchFileBetweenTags{\AlphaInvVal}{src/results.tex}{AlphaInvVal}
-\CatchFileBetweenTags{\HiggsVEVVal}{src/results.tex}{HiggsVEVVal}
-\CatchFileBetweenTags{\MeMeVPrint}{src/results.tex}{MeMeVPrint}
 
 \begin{equation}
 v_{geo} = (2 \cdot 43^2 - 188) \cdot \AlphaInvVal \cdot \MeMeVPrint \text{ MeV}
@@ -50,9 +64,9 @@ v_{phys} &= 245.789 \text{ GeV} \times \left(1 + \frac{0.007297}{4}\right) \\
 \end{equation}
 
 \begin{itemize}
-    \item \textbf{Geometric Prediction:} $\ExecuteMetaData[src/results.tex]{HiggsVEVVal}$ GeV
-    \item \textbf{Experimental Value:} $\ExecuteMetaData[src/results.tex]{HiggsVEVExperimentalValue}$ GeV
-    \item \textbf{Accuracy:} \ExecuteMetaData[src/results.tex]{HiggsVEVAccText}
+    \item \textbf{Geometric Prediction:} $\HiggsVEVVal$ GeV
+    \item \textbf{Experimental Value:} $\HiggsVEVExperimentalValue$ GeV
+    \item \textbf{Accuracy:} $\HiggsVEVAccText$
 \end{itemize}
 
 \noindent The residual 17 MeV gap is consistent with higher-order QCD contributions (of order $\alpha_s^2 f_\pi$), which are expected at this scale but do not require the framework to invoke them as primary corrections.
@@ -65,14 +79,14 @@ v_{phys} &= 245.789 \text{ GeV} \times \left(1 + \frac{0.007297}{4}\right) \\
 G_F = \frac{1}{\sqrt{\chi} v^2}
 \end{equation}
 
-Using the derived value $v_{geo} = \ExecuteMetaData[src/results.tex]{HiggsVEVVal}$ GeV:
+Using the derived value $v_{geo} = \HiggsVEVVal$ GeV:
 \begin{equation}
-G_F = \frac{1}{\sqrt{2} (\ExecuteMetaData[src/results.tex]{HiggsVEVVal})^2} \approx \mathbf{\ExecuteMetaData[src/results.tex]{FermiConstVal} \text{ GeV}^{-2}}
+G_F = \frac{1}{\sqrt{2} (\HiggsVEVVal)^2} \approx \mathbf{\FermiConstVal \text{ GeV}^{-2}}
 \end{equation}
 
 \begin{itemize}
-    \item \textbf{Experimental Value:} $\ExecuteMetaData[src/results.tex]{FermiConstExperimentalValue} \text{ GeV}^{-2}$
-    \item \textbf{Accuracy:} \ExecuteMetaData[src/results.tex]{FermiConstAccText}
+    \item \textbf{Experimental Value:} $\FermiConstExperimentalValue \text{ GeV}^{-2}$
+    \item \textbf{Accuracy:} \FermiConstAccText
 \end{itemize}
 
 This confirms that the strength of the Weak Interaction is strictly determined by the inverse surface area of the vacuum potential.
@@ -108,17 +122,17 @@ m_H = \sqrt{2\lambda} v
 
 Substituting the derived integer values:
 \begin{equation}
-m_H = \sqrt{2 \left(\frac{3}{23}\right)} \cdot (\ExecuteMetaData[src/results.tex]{HiggsVEVVal} \text{ GeV})
+m_H = \sqrt{2 \left(\frac{3}{23}\right)} \cdot (\HiggsVEVVal \text{ GeV})
 \end{equation}
 \begin{equation}
-m_H = \sqrt{0.2608} \cdot \ExecuteMetaData[src/results.tex]{HiggsVEVVal}
-     \approx \mathbf{\ExecuteMetaData[src/results.tex]{HiggsMassVal} \text{ GeV}}
+m_H = \sqrt{0.2608} \cdot \HiggsVEVVal
+     \approx \mathbf{\HiggsMassVal \text{ GeV}}
 \end{equation}
 
 \begin{itemize}
-    \item \textbf{Geometric Prediction:} $\ExecuteMetaData[src/results.tex]{HiggsMassVal}$ GeV
+    \item \textbf{Geometric Prediction:} $\HiggsMassVal$ GeV
     \item \textbf{Experimental Value:} $125.25 \pm 0.17$ GeV
-    \item \textbf{Accuracy:} \ExecuteMetaData[src/results.tex]{HiggsMassAccText}
+    \item \textbf{Accuracy:} \HiggsMassAccText
 \end{itemize}
 
 \subsection{The Electron Connection: The Resolution Floor}
@@ -134,7 +148,7 @@ PM \approx \left( \frac{\sigma}{\sigma - \chi} \right) \frac{m_e}{v} = \frac{5}{
 \end{equation}
 
 \textbf{Validation:}
-$$ \frac{5}{3} \cdot \frac{\ExecuteMetaData[src/results.tex]{MeMeVPrint} \text{ MeV}}{245,790 \text{ MeV}} \approx 1.666 \cdot (2.079 \times 10^{-6}) \approx \mathbf{3.47 \times 10^{-6}} $$
+$$ \frac{5}{3} \cdot \frac{\MeMeVPrint \text{ MeV}}{245,790 \text{ MeV}} \approx 1.666 \cdot (2.079 \times 10^{-6}) \approx \mathbf{3.47 \times 10^{-6}} $$
 
 \textbf{Physical Interpretation:} The electron exists at the absolute limit of the vacuum's resolution. It is lighter than the theoretical floor ($PM$) by the factor $3/5$ precisely because it is colorless. It does not require the vacuum to resolve the Strong Force channels ($\sigma-\chi=3$) to maintain its existence. This structurally explains the hierarchy between the electroweak scale ($v$) and the matter scale ($m_e$).
 
@@ -150,12 +164,12 @@ y_e = PM_{geo} \approx \frac{1}{H_{full} \cdot (\sigma + 1) \cdot \Delta^2}
 
 Using the geometric value $PM_{geo} \approx 2.908 \times 10^{-6}$:
 \begin{equation}
-y_{e, geo} \approx \ExecuteMetaData[src/results.tex]{ElectronYukawaVal}
+y_{e, geo} \approx \ElectronYukawaVal
 \end{equation}
 
 \begin{itemize}
-    \item \textbf{Standard Model Calculation:} $y_e = \frac{\sqrt{2} m_e}{v} = \frac{1.414 \cdot \ExecuteMetaData[src/results.tex]{MeMeVPrint} \text{ MeV}}{246 \text{ GeV}} \approx \ExecuteMetaData[src/results.tex]{ElectronYukawaExperimentalValue}$.
-    \item \textbf{Accuracy:} \ExecuteMetaData[src/results.tex]{ElectronYukawaAccText}
+    \item \textbf{Standard Model Calculation:} $y_e = \frac{\sqrt{2} m_e}{v} = \frac{1.414 \cdot \MeMeVPrint \text{ MeV}}{246 \text{ GeV}} \approx \ElectronYukawaExperimentalValue$.
+    \item \textbf{Accuracy:} $\ElectronYukawaAccText$
 \end{itemize}
 
 This confirms that the electron mass is not random; it sits exactly at the thermodynamic resolution floor of the $E_8$ lattice. Any lighter charged particle would have a coupling smaller than $PM$, making it indistinguishable from vacuum fluctuations (massless).

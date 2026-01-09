@@ -1,4 +1,7 @@
 \section{The Attenuation Scale: Gravity and the Planck Mass (\texorpdfstring{$\alpha_G, M_P$}{alphaGMP})} \
+\CatchFileBetweenTags{\AlphaInvVal}{calculations/results.tex}{AlphaInvVal}
+\CatchFileBetweenTags{\MeMeVPrint}{calculations/results.tex}{MeMeVPrint}
+
 \textbf{The Standard Model Ansatz:} Gravity is traditionally treated as a distinct force described by General Relativity, operating with a coupling constant $G$ that is inexplicably $10^{40}$ times weaker than the gauge forces. This extreme disparity, known as the Hierarchy Problem, forces the Planck Mass ($M_P \approx 10^{19}$ GeV) to be inserted as a manual scaling limit with no connection to the electron scale ($m_e \approx 0.5$ MeV).
 
 \textbf{The $E_8$-Persistence Derivation:} Gravity is not a weak force; it is an \textbf{Attenuated Signal}. We derive the gravitational coupling as the Persistence Cost of propagating a signal from the geometric core of the lattice ($\Delta/2$) to the manifold surface. We identify $\alpha_G$ as the signal loss incurred by propagating from the core to the surface, and we derive the Planck Mass not as a fundamental input, but as the \textbf{Unity Threshold}—the mass scale required to overcome this attenuation.
@@ -85,7 +88,7 @@ M_P = \frac{m_e}{\sqrt{B_{res}}} \cdot \alpha^{-\Delta/4}
 
 \subsubsection{Numerical Result}
 \begin{equation}
-M_P = \frac{\ExecuteMetaData[src/results.tex]{MeMeVPrint} \text{ MeV}}{\sqrt{15.326}} \cdot (\ExecuteMetaData[src/results.tex]{AlphaInvVal})^{10.75}
+M_P = \frac{\MeMeVPrint \text{ MeV}}{\sqrt{15.326}} \cdot (\AlphaInvVal)^{10.75}
 \end{equation}
 \begin{equation}
 M_P \approx 0.1305 \text{ MeV} \cdot (9.35 \times 10^{22}) \approx \mathbf{1.22 \times 10^{19} \text{ GeV}}

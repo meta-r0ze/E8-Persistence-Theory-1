@@ -1,4 +1,8 @@
 \section{The Saturation Limit: Strong Coupling (\texorpdfstring{$\alpha_s$}{alphas})} \label{sec:Saturation_Limit}
+\CatchFileBetweenTags{\AlphaInvVal}{calculations/results.tex}{AlphaInvVal}
+\CatchFileBetweenTags{\AlphaSVal}{calculations/results.tex}{AlphaSVal}
+\CatchFileBetweenTags{\AlphaSExperimentalValue}{calculations/results.tex}{AlphaSExperimentalValue}
+\CatchFileBetweenTags{\AlphaSAccText}{calculations/results.tex}{AlphaSAccText}
 
 \textbf{The Standard Model Ansatz:} The Strong Coupling Constant $\alpha_s$ is a free parameter fitted to scattering data. Standard physics offers no structural explanation for the hierarchy $\alpha_s \gg \alpha$, nor a mechanism to derive the specific value $\alpha_s(M_Z) \approx 0.1179$ \cite{denterria_strong_2024}.
 
@@ -21,12 +25,12 @@ The coupling is derived by normalizing this total load by the vacuum impedance (
 
 \subsection{Numerical Result}
 \begin{equation}
-\alpha_s(M_Z) = \frac{16 + 0.25}{\ExecuteMetaData[src/results.tex]{AlphaInvVal}} \approx \mathbf{\ExecuteMetaData[src/results.tex]{AlphaSVal}}
+\alpha_s(M_Z) = \frac{16 + 0.25}{\AlphaInvVal} \approx \mathbf{\AlphaSVal}
 \end{equation}
 
 \begin{itemize}
-\item \textbf{Experimental Value:} $\ExecuteMetaData[src/results.tex]{AlphaSExperimentalValue} \pm 0.0009$ (PDG World Average)
-\item \textbf{Accuracy:} \ExecuteMetaData[src/results.tex]{AlphaSAccText}
+\item \textbf{Experimental Value:} $\AlphaSExperimentalValue \pm 0.0009$ (PDG World Average)
+\item \textbf{Accuracy:} \AlphaSAccText
 \end{itemize}
 
 \textbf{Physical Interpretation:} This confirms that the Strong Force is not arbitrarily "strong." It is simply the state where the channel utilization ($\approx 16.25$) overcomes the vacuum impedance ($\approx 137$), saturating the link.
@@ -95,7 +99,7 @@ Substituting the invariants $\chi=2$ and $\sigma=5$:
 This confirms that the geometric structure of the $E_8$ lattice naturally reproduces the standard QED scaling law.
 
 \subsubsection{Prediction at the Z-Pole}
-We can now calculate the value of $\alpha^{-1}$ at the $Z$-boson scale by subtracting the "Screening Fog" from our static geometric value (\ExecuteMetaData[src/results.tex]{AlphaInvVal}). The amount of screening removed is determined by summing the electric charges ($Q^2$) of all particles lighter than the $Z$-boson (leptons and quarks) weighted by the geometric coefficient derived above.
+We can now calculate the value of $\alpha^{-1}$ at the $Z$-boson scale by subtracting the "Screening Fog" from our static geometric value (\AlphaInvVal). The amount of screening removed is determined by summing the electric charges ($Q^2$) of all particles lighter than the $Z$-boson (leptons and quarks) weighted by the geometric coefficient derived above.
 
 \begin{equation}
 \alpha^{-1}(M_Z) = \alpha^{-1}_{geo} - \left[ \frac{1}{3\pi} \sum_f Q_f^2 \ln\left(\frac{M_Z^2}{m_f^2}\right) \right]
@@ -104,7 +108,7 @@ We can now calculate the value of $\alpha^{-1}$ at the $Z$-boson scale by subtra
 Using standard particle masses for the summation:\footnote{The summation $\approx 8.1$ accounts for the 3 lepton generations and 5 quark flavors active at this energy scale.}
 
 \begin{equation}
-\alpha^{-1}(M_Z) \approx \ExecuteMetaData[src/results.tex]{AlphaInvVal} - 8.1 \approx \mathbf{128.9}
+\alpha^{-1}(M_Z) \approx \AlphaInvVal - 8.1 \approx \mathbf{128.9}
 \end{equation}
 
 \begin{itemize}
