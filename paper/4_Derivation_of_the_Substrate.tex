@@ -42,16 +42,10 @@ The Persistence Principle ($\lambda \to 0$) necessitates a causal ordering of st
 
 \begin{enumerate}
     \item \textbf{The Temporal Tax ($T$): The Negative Eigenvalue ($-1$)}
-    To define a causal update sequence, one dimension must be distinguished as the axis of change. In Special Relativity, the invariant interval $ds^2 = -c^2dt^2 + dx^2$ assigns a negative sign to the time component.
-    \begin{itemize}
-        \item \textbf{IE Mapping:} In Informational Energetics, this negative sign represents the \textbf{Temporal Tax}. It is the entropic cost of "becoming." Movement along this axis is irreversible and mandatory, representing the continuous metabolic burn (Entropy) required to update the system state.
-    \end{itemize}
-
+    To define a causal update sequence, one dimension must be distinguished as the axis of change. In Special Relativity, the invariant interval $ds^2 = -c^2dt^2 + dx^2$ assigns a negative sign to the time component. It is the entropic cost of "becoming." Movement along this axis is irreversible and mandatory, representing the continuous metabolic burn (Entropy) required to update the system state.
+    
     \item \textbf{The Persistence Margin ($PM$): The Positive Eigenvalues ($+3$)}
-    The remaining three dimensions form the spatial volume. Unlike time, movement in space is reversible and voluntary.
-    \begin{itemize}
-        \item \textbf{IE Mapping:} These positive eigenvalues represent the \textbf{Persistence Margin}. They provide the \textit{Volumetric Capacity} required to store structural information (Knots) and buffer energy reserves. Space is the "Margin" where the system exists between updates.
-    \end{itemize}
+    The remaining three dimensions form the spatial volume. Unlike time, movement in space is reversible and voluntary. They provide the \textit{Volumetric Capacity} required to store structural information (Knots) and buffer energy reserves. Space is the "Margin" where the system exists between updates.
 \end{enumerate}
 
 Thus, the physical spacetime signature $(-+++)$ is the unique geometric solution that accommodates the $\nu=16$ lattice capacity while enforcing the arrow of time and is the geometric implementation of the IE cost structure: One dimension of Tax ($T$) funding three dimensions of Existence ($PM$).
@@ -145,14 +139,21 @@ While the other invariants emerge from the static topology of the projection, th
 
 \textit{Note: These three filters are logically independent. Unitarity constrains algebraic structure, Causality constrains projection geometry, and Solvency constrains thermodynamics. The order of application is presentational; all three must be satisfied simultaneously.}
 
-\paragraph{Step 1: The Unitarity Filter ($h=1$)} For a quantum vacuum to preserve information (Unitarity), the decomposition of any composite state into prime factors must be unique. In algebraic number theory, this property exists only in quadratic fields $\mathbb{Q}(\sqrt{-d})$ with \textbf{Class Number $h=1$}. If $h > 1$, prime decomposition is non-unique (e.g., states can decay via multiple ambiguous paths), theoretically allowing information loss.
+\paragraph{Step 1: The Unitarity Filter (Information Conservation)}
+For a quantum vacuum to preserve unitarity ($U^\dagger U = I$), the evolution of any state must be strictly reversible. In an informational substrate, reversibility implies that the history of a composite state must be uniquely retrievable from its current configuration.
+
+We model the lattice states as integers within the quadratic field $\mathbb{Q}(\sqrt{-\Delta})$. If the field has Class Number $h > 1$, it fails to be a Unique Factorization Domain (UFD), creating informational ambiguities.
 
 \begin{itemize}
-    \item \textbf{Constraint:} $\Delta$ must be a Heegner Number.
-    \item \textbf{Search Space:} $\{1, 2, 3, 7, 11, 19, 43, 67, 163\}$.
+    \item \textbf{The Ambiguity Problem:} In a field with $h>1$ (e.g., $d=5$), a composite state like ``6'' factors non-uniquely: $6 = 2 \times 3$ and $6 = (1+\sqrt{-5})(1-\sqrt{-5})$.
+    \item \textbf{Physical Interpretation:} Consider a composite particle (state ``6'') formed via two distinct scattering channels: Channel A combines two prime inputs ($2 \times 3$), while Channel B combines a conjugate pair. In a $h>1$ field, the final state retains no record of which channel created it. The S-matrix connecting initial and final states becomes non-invertible—a direct violation of unitarity.
+    \item \textbf{The Requirement:} To ensure lossless information propagation, the substrate must be a Principal Ideal Domain ($h=1$).
 \end{itemize}
 
-\textit{Physical Motivation:} The connection between algebraic class numbers and physical unitarity is motivated by the observation that both encode the uniqueness of decomposition—algebraic (primes) and physical (quantum states).
+\textbf{Constraint:} $\Delta$ must be a Heegner Number.
+\textbf{Search Space:} $\{1, 2, 3, 7, 11, 19, 43, 67, 163\}$.
+
+\noindent\textit{Note:} The restriction to imaginary quadratic fields ($\mathbb{Q}(\sqrt{-\Delta})$) arises from the requirement that the lattice support oscillatory (wave-like) solutions rather than exponential (unstable) modes.
 
 \paragraph{Step 2: The Causality Filter (Non-Aliasing)}
 
