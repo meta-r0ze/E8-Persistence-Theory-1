@@ -1,4 +1,4 @@
-\section{The Persistence Condition: Vacuum Impedance (\texorpdfstring{$\alpha^{-1}$}{alpha\string^-1})} \label{sec:Persistence_Condition}
+\section{The Persistence Condition: Vacuum Impedance (\texorpdfstring{$\alpha^{-1}$}{alpha\string^-1})} \label{sec:Vacuum_Impedance}
 \CatchFileBetweenTags{\AlphaInvVal}{calculations/results.tex}{AlphaInvVal}
 
 Having established the Entropic Lagrangian, we can now determine the vacuum’s primary boundary condition: the Fine-Structure Constant ($\alpha$).
@@ -18,7 +18,7 @@ Having established the Entropic Lagrangian, we can now determine the vacuum’s 
 + \,\underbrace{\frac{1}{H_{full} \cdot (\sigma + 1) \cdot \Delta^2}}_{PM}
 \end{split}
 \end{equation}
-Each term corresponds to a strict unitarity requirement; removing any single component results in a universe that is acausal, unstable, or massless. We posit that this is the \textbf{Unique Minimal Solution}.
+We now derive each term in sequence. 
 
 \subsection{The Impedance Ansatz}
 For a topological defect (particle) to exist stably, its geometric structure must balance against the vacuum's resistance to deformation. We define the Geometric Impedance $Z$ as the Entropic Action cost per unit of topological charge ($Q_{top}$):
@@ -68,7 +68,7 @@ The physical lattice is not ideal; it is discrete and resource-constrained. We d
 \begin{equation}
 - \underbrace{\frac{1}{D\Delta - \sigma}}_{MI}
 \end{equation}
-The lattice possesses 5-fold internal symmetry ($\sigma=5$) which must project onto a 4-dimensional spacetime manifold ($D=4$). This geometric mismatch creates friction. The system minimizes this drag by aligning the manifold geometry ($D\Delta$) with the internal symmetry axes. This term represents the \textbf{Strain Relief} provided by this alignment.
+The lattice possesses 5-fold internal symmetry ($\sigma=5$) which must project onto a 4-dimensional spacetime manifold ($D=4$). This geometric mismatch creates friction. The system minimizes this drag by aligning the manifold geometry ($D\Delta$) with the internal symmetry axes. This term represents the Strain Relief provided by this alignment.
 
 $$ C_{res} = D\Delta - \sigma = 172 - 5 = 167 $$
 In network theory, Impedance ($Z$) is the inverse of Admittance ($Y$). Since $C_{res}$ represents the available degrees of freedom (Admittance) for alignment, the impedance reduction is the reciprocal:
@@ -109,13 +109,16 @@ This value represents the vacuum without particles. To instantiate the discrete 
 + \underbrace{\frac{1}{N^3} \cdot \frac{\chi}{\sigma} \cdot \left( 1 - \frac{\sigma}{D\Delta} \right)}_{T}
 \end{equation}
 
-The Weak interaction enables state transitions (Time). Unlike the gauge field which exists everywhere, a state transition (Time) is a localized update. The impedance cost $T$ is the probability that a random fluctuation successfully accesses the transition channel. This is Landauer's Limit applied to the lattice. We model this as the joint probability of three independent filter conditions:
+The Weak interaction enables state transitions (Time). Unlike the gauge field which exists everywhere, a state transition (Time) is a localized update. The impedance cost $T$ is the probability that a random fluctuation successfully accesses the transition channel. 
+
+A state transition must satisfy three independent geometric constraints, each contributing a probability factor:
 
 \begin{enumerate}
     \item \textbf{Volumetric Addressing ($1/N^3$):} The system must select the specific node $(x,y,z)$ within the lattice's 3-dimensional projection. The probability of selecting the correct coordinate from the total state capacity ($N=32$) is $1/N^3$.
     \item \textbf{Boundary Selection ($\chi/\sigma$):} The transition probability scales with the Topological Boundary ($\chi=2$) to the Interaction Symmetry ($\sigma=5$). Only signals coupling to the boundary can effect a persistent change.
     \item \textbf{Bandwidth Availability ($1 - \sigma/D\Delta$):} The fraction of the projected manifold capacity available for signal propagation after the symmetry overhead is subtracted.
 \end{enumerate}
+This is Landauer's Limit applied to the lattice.
 
 \begin{equation}
 Z_T = \frac{1}{N^3} \cdot \frac{\chi}{\sigma} \cdot \left(1 - \frac{\sigma}{D\Delta}\right) \approx +1.185 \times 10^{-5}
