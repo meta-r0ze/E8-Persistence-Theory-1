@@ -11,7 +11,7 @@ The system is governed by the **Principle of Minimal Entropic Action**. The prob
 P(\psi) = \frac{1}{Z} e^{-S_{E_8}(\psi)} \quad \text{where} \quad Z = \sum_{\psi \in \Omega} e^{-S_{E_8}(\psi)}
 \end{equation}
 
-Here, $S_{E_8}$ is the **Informational Action**, defined as the sum of penalties for information loss. This acts as the "Ice Rule" for the substrate: only configurations that preserve information (zero penalty) are permitted to form the macroscopic vacuum.
+Here, $S_{E_8}$ is the Informational Action. This functional acts as the lattice \textbf{``Ice Rule''}: it assigns infinite entropic cost to any configuration that violates the geometric invariants, ensuring that only the state satisfying $\mathbb{S}$ survives in the thermodynamic limit ($\beta \to \infty$).
 
 \subsubsection{The Informational Hamiltonian}
 We define the effective Hamiltonian $H_{info}$ as a sum of four penalty potentials corresponding to the Persistence Filters: Unitarity, Causality, Solvency, and Symmetry.
@@ -64,7 +64,7 @@ The macroscopic vacuum is the ensemble average of all configurations:
 \langle \Psi \rangle = \lim_{\beta \to \infty} \frac{\sum \psi e^{-\beta H_{info}}}{\sum e^{-\beta H_{info}}}
 \end{equation}
 
-Quantum corrections to the derived coupling constants (such as the running of $\alpha$) act as **Finite-Size Effects** of order $1/\Delta \sim 2\%$, arising because the physical lattice has a finite resonant depth rather than being truly infinite.
+Quantum corrections to the derived coupling constants (such as the running of $\alpha$) act as Finite-Size Effects of order $1/\Delta \sim 2\%$, arising because the physical lattice has a finite resonant depth rather than being truly infinite.
 
 \subsubsection{Conclusion: The Gibbs State}
 By imposing the intersection of the zero-cost domains, the only macroscopic state with non-vanishing probability is the configuration characterized by the complete invariant set $\mathbb{S} = \{D=4, \Delta=43, \nu=16, \sigma=5, \chi=2\}$.
@@ -79,7 +79,7 @@ This configuration uniquely determines:
 
 The Standard Model is not chosen; it is the \textbf{Gibbs State} of the $E_8$ lattice.
 
-\subsection{Transfer-Matrix Calculation of the Beta Function}
+\subsection{Transfer-Matrix Calculation of the Beta Function} \label{sec:transfer_matrix}
 
 To validate the dynamic behavior of the vacuum, we calculate the scaling evolution of the couplings using the \textbf{Transfer Matrix Method}. We treat the 4D spacetime manifold as a Tensor Network constructed from the contraction of the $E_8$ lattice unit cells.
 

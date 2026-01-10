@@ -1,11 +1,13 @@
 \section{The Partition Ratio: Weak Mixing Angle (\texorpdfstring{$\sin^2 \theta_W$}{sin2thetaW})} \label{sec:Partition_Ratio}
 \CatchFileBetweenTags{\AlphaInvVal}{calculations/results.tex}{AlphaInvVal}
 \CatchFileBetweenTags{\WeakAngleVal}{calculations/results.tex}{WeakAngleVal}
+\CatchFileBetweenTags{\JarlskogVal}{calculations/results.tex}{JarlskogVal}
+\CatchFileBetweenTags{\JarlskogAccText}{calculations/results.tex}{JarlskogAccText}
 
 
 \textbf{The Standard Model Ansatz:} The Weak Mixing Angle is a free parameter defining the rotation between the $U(1)_Y$ and $SU(2)_L$ sectors. It determines the partition of the unified electroweak force into the electromagnetic and weak components. Standard physics relies on the Weak Mixing Angle as an empirical input ($s^2_W \approx 0.223$) to satisfy the mass ratio $M_W/M_Z$. However, it offers no geometric origin for this specific magnitude, nor a mechanism to resolve the experimental tension between the value derived from direct mass measurements ($0.22291 \pm 0.00011$) \cite{navas_review_2024} and the value derived from global electroweak fits ($0.22354 \pm 0.00006$) \cite{navas_review_2024}.
 
-\textbf{The $E_8$-Persistence Derivation:} The Weak Mixing Angle is derived as the \textbf{Resonance Partition Fraction}. To minimize Entropic Action, the lattice must efficiently route information between the Resonant Core (Lattice, the Signal) and the Geometric Infrastructure (Projection, the Carrier).
+\textbf{The $E_8$-Persistence Derivation:} The Weak Mixing Angle is derived as the Geometric On-Shell Ratio (Resonance Partition Fraction). To minimize Entropic Action, the lattice must efficiently route information between the Resonant Core (Lattice, the Signal) and the Geometric Infrastructure (Projection, the Carrier).
 
 \subsection{The Allocation Principle}
 The mixing angle represents the fraction of the total coordination budget ($D\Delta + \nu + \sigma$) that is dedicated to the active resonance ($\Delta$).
@@ -68,3 +70,44 @@ $$ T_{check} \approx (5.325 \times 10^{-5}) \cdot (0.2228) \approx \mathbf{1.186
 
 \subsection{Physical Interpretation}
 The derivation matches the \textbf{On-Shell definition} ($s^2_W \equiv 1 - M_W^2/M_Z^2$) to within 0.05\%. This identification is structurally required: because the $W$ and $Z$ bosons are fundamental lattice resonances, their mass ratio is fixed by the static integer invariants ($\Delta, \sigma$). The higher values observed in effective schemes (like $\overline{MS} \approx 0.231$) include dynamic vacuum polarization loops ("running"). The lattice invariants define the \textbf{Bare Geometric Ratio} at the pole mass, which corresponds physically to the On-Shell scheme.
+
+
+\subsection{The Jarlskog Invariant: Time Asymmetry}
+\label{sec:JarlskogInvariant}
+
+\textbf{The Standard Model Ansatz:} The Jarlskog Invariant ($J$) quantifies CP violation—the fundamental asymmetry between matter and antimatter. It is an empirical parameter extracted from the CKM matrix ($J_{\text{exp}} \approx 3.0 \times 10^{-5}$) with no theoretical prediction for its magnitude.
+
+\textbf{The $E_8$-Persistence Derivation:} We have identified the Weak Force as the mechanism of state transition (Time) and derived the metabolic cost of a generic weak transition as the \textbf{Temporal Tax} ($T \approx 1.185 \times 10^{-5}$, Eq. \ref{eq:temporal_tax}). This tax represents the entropic cost paid to the vacuum for each state update.
+
+However, $T$ represents a \emph{scalar} transition cost. Time asymmetry requires a \emph{directional} bias, a preference for forward over backward transitions. This directionality emerges from the geometric projection of the 5-fold lattice symmetry ($\sigma = 5$) onto the 4-dimensional manifold.
+
+\subsubsection{The Golden Projection}
+
+The continuous projection of $E_8$ into 4D space via $H_4$ geometry involves the Golden Ratio ($\phi = \frac{1+\sqrt{5}}{2}$). This projection creates an irreducible geometric tension: 5-fold rotational symmetry cannot tile 4D space perfectly. The resulting \emph{frustration} manifests as a preferred direction in state transitions.
+
+The area of this geometric mismatch scales as $\phi^2$ (the golden area). Time asymmetry is therefore the Temporal Tax amplified by this projection area:
+
+\begin{equation}
+    J_{\text{geo}} = \phi^2 \cdot T_{\text{geo}}
+    \label{eq:jarlskog_geo}
+\end{equation}
+
+\subsubsection{Numerical Result}
+
+Substituting the derived values ($\phi = 1.618033989...$, $T_{\text{geo}} = 1.18518 \times 10^{-5}$):
+
+\begin{equation}
+    J_{\text{geo}} = (1.618033989)^2 \cdot (1.18518 \times 10^{-5}) \approx \JarlskogVal
+\end{equation}
+
+\begin{itemize}
+    \item \textbf{Geometric Prediction:} $\JarlskogVal$
+    \item \textbf{Experimental Value (PDG):} $3.08^{+0.15}_{-0.20} \times 10^{-5}$
+    \item \textbf{Accuracy:} \JarlskogAccText
+\end{itemize}
+
+\subsubsection{Physical Interpretation}
+
+This derivation establishes that CP violation is not an arbitrary feature of quark mixing, but a \emph{geometric necessity} of projecting a 5-fold symmetric lattice onto 4D spacetime. The arrow of time (matter-antimatter asymmetry) is the geometric price paid for embedding $E_8$ in our universe.
+
+\textbf{Forward Link to Paper III:} The CKM matrix elements must conspire to produce exactly this value of $J$. Paper III demonstrates that the derived mixing angles satisfy this constraint to within $0.3\%$, confirming that flavor mixing is the mechanical implementation of this geometric boundary condition.

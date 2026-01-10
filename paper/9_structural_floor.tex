@@ -17,7 +17,6 @@
 \CatchFileBetweenTags{\ElectronYukawaExperimentalValue}{calculations/results.tex}{ElectronYukawaExperimentalValue}
 \CatchFileBetweenTags{\ElectronYukawaAccText}{calculations/results.tex}{ElectronYukawaAccText}
 
-
 \textbf{The Standard Model Ansatz:} In the Standard Model, the electroweak sector is parameterized by three independent inputs: the Higgs vacuum expectation value ($v$), the Fermi Constant ($G_F$), and the Higgs self-coupling ($\lambda$). While these determine the Higgs mass ($m_H = \sqrt{2\lambda}v$), the values themselves are empirical measurements without theoretical constraints.
 
 \textbf{The $E_8$-Persistence Derivation:} In this framework, these constants are not arbitrary settings but the \textbf{Thermodynamic Floor} and \textbf{Structural Stiffness} of the lattice. We derive the entire electroweak sector in sequence: the vacuum expectation value ($v$), Fermi constant ($G_F$), self-coupling ($\lambda$), Higgs mass ($m_H$), and electron Yukawa ($y_e$). Each follows from the preceding, forming a closed geometric system.
@@ -152,26 +151,30 @@ $$ \frac{5}{3} \cdot \frac{\MeMeVPrint \text{ MeV}}{245,790 \text{ MeV}} \approx
 
 \textbf{Physical Interpretation:} The electron exists at the absolute limit of the vacuum's resolution. It is lighter than the theoretical floor ($PM$) by the factor $3/5$ precisely because it is colorless. It does not require the vacuum to resolve the Strong Force channels ($\sigma-\chi=3$) to maintain its existence. This structurally explains the hierarchy between the electroweak scale ($v$) and the matter scale ($m_e$).
 
+
 \subsection{The Resolution Floor: Electron Yukawa Coupling (\texorpdfstring{$y_e$}{ye})}
 The final component of the electroweak sector is the coupling of the vacuum field to the lightest charged particle. In the Standard Model, this is the Electron Yukawa coupling ($y_e$), defining the minimum interaction strength required for a particle to acquire rest mass.
 
-In the $E_8$-Persistence framework, this coupling is not arbitrary; it is the physical manifestation of the \textbf{Persistence Margin ($PM$)} derived in the vacuum impedance equation (Eq. \ref{eq:alpha_inverse}). It represents the smallest non-zero bit of mass the lattice can resolve against thermal noise.
+In the $E_8$-Persistence framework, this coupling is not arbitrary; it is the physical manifestation of the Persistence Margin ($PM$) derived in the vacuum impedance equation (Eq. \ref{eq:alpha_inverse}). It represents the smallest non-zero bit of mass the lattice can resolve against thermal noise.
 
-We define the geometric Yukawa coupling as the ratio of the Persistence Margin to the geometric aperture of the weak force ($\sqrt{2}$):
+We identify the geometric Yukawa coupling directly with the Persistence Margin.
 \begin{equation}
-y_e = PM_{geo} \approx \frac{1}{H_{full} \cdot (\sigma + 1) \cdot \Delta^2}
+    y_e = PM_{geo} = \frac{1}{H_{full} \cdot (\sigma + 1) \cdot \Delta^2}
 \end{equation}
 
 Using the geometric value $PM_{geo} \approx 2.908 \times 10^{-6}$:
 \begin{equation}
-y_{e, geo} \approx \ElectronYukawaVal
+    y_{e, geo} \approx \ElectronYukawaVal
 \end{equation}
+
+\textbf{Comparison to Standard Model:}
+In the Standard Model, the Yukawa coupling is related to the electron mass ($m_e$) and vacuum expectation value ($v$) by the Higgs doublet normalization factor $\sqrt{2}$:
 
 \begin{itemize}
     \item \textbf{Standard Model Calculation:} $y_e = \frac{\sqrt{2} m_e}{v} = \frac{1.414 \cdot \MeMeVPrint \text{ MeV}}{246 \text{ GeV}} \approx \ElectronYukawaExperimentalValue$.
-    \item \textbf{Accuracy:} $\ElectronYukawaAccText$
+    \item \textbf{Accuracy:} \ElectronYukawaAccText
 \end{itemize}
 
-This confirms that the electron mass is not random; it sits exactly at the thermodynamic resolution floor of the $E_8$ lattice. Any lighter charged particle would have a coupling smaller than $PM$, making it indistinguishable from vacuum fluctuations (massless).
+\textbf{Physical Interpretation:} The electron mass is not random; it sits exactly at the thermodynamic resolution floor of the $E_8$ lattice ($PM$). The factor of $\sqrt{2}$ in the mass equation ($m_e = v \cdot PM / \sqrt{2}$) represents the geometric aperture of the Weak Force acting on this minimum resolution bit. Any lighter charged particle would have a coupling smaller than $PM$, making it indistinguishable from vacuum fluctuations (massless).
  
 \textbf{Conclusion:} The entire electroweak sector ($v, G_F, \lambda, m_H$, $y_e$) emerges from the interplay of the lattice invariants $\{ \Delta, \nu, \sigma, \chi \}$ with the vacuum impedance $\alpha^{-1}$. No free parameters are required.

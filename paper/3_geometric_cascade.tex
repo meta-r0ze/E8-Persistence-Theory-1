@@ -1,6 +1,40 @@
 \section{The Systems Specifications: The Geometric Cascade}
 
+\CatchFileBetweenTags{\InvHSys}{calculations/results.tex}{InvHSys}
+\CatchFileBetweenTags{\InvHFull}{calculations/results.tex}{InvHFull}
+\CatchFileBetweenTags{\InvN}{calculations/results.tex}{InvN}
+
 \CatchFileBetweenTags{\AlphaInvVal}{calculations/results.tex}{AlphaInvVal}
+
+\CatchFileBetweenTags{\AlphaSVal}{calculations/results.tex}{AlphaSVal}
+\CatchFileBetweenTags{\AlphaSEq}{calculations/results.tex}{AlphaSEq}
+
+\CatchFileBetweenTags{\HiggsVEVVal}{calculations/results.tex}{HiggsVEVVal}
+\CatchFileBetweenTags{\HiggsVEVEq}{calculations/results.tex}{HiggsVEVEq}
+
+\CatchFileBetweenTags{\FermiConstVal}{calculations/results.tex}{FermiConstVal}
+\CatchFileBetweenTags{\FermiConstEq}{calculations/results.tex}{FermiConstEq}
+
+\CatchFileBetweenTags{\HiggsMassVal}{calculations/results.tex}{HiggsMassVal}
+\CatchFileBetweenTags{\HiggsMassEq}{calculations/results.tex}{HiggsMassEq}
+
+\CatchFileBetweenTags{\ElectronYukawaVal}{calculations/results.tex}{ElectronYukawaVal}
+\CatchFileBetweenTags{\ElectronYukawaEq}{calculations/results.tex}{ElectronYukawaEq}
+
+\CatchFileBetweenTags{\WeakAngleVal}{calculations/results.tex}{WeakAngleVal}
+\CatchFileBetweenTags{\WeakAngleEq}{calculations/results.tex}{WeakAngleEq}
+
+\CatchFileBetweenTags{\PlanckMassVal}{calculations/results.tex}{PlanckMassVal}
+\CatchFileBetweenTags{\PlanckMassEq}{calculations/results.tex}{PlanckMassEq}
+
+\CatchFileBetweenTags{\GravCouplingVal}{calculations/results.tex}{GravCouplingVal}
+\CatchFileBetweenTags{\GravCouplingEq}{calculations/results.tex}{GravCouplingEq}
+
+\CatchFileBetweenTags{\HiggsLambdaVal}{calculations/results.tex}{HiggsLambdaVal}
+\CatchFileBetweenTags{\HiggsLambdaEq}{calculations/results.tex}{HiggsLambdaEq}
+
+\CatchFileBetweenTags{\JarlskogVal}{calculations/results.tex}{JarlskogVal}
+\CatchFileBetweenTags{\JarlskogEq}{calculations/results.tex}{JarlskogEq}
 
 Before deriving the Lagrangian dynamics or the specific coupling values, we present the System Specification: the immutable integer constraints outputted from The Invariant Substrate, from which all subsequent physics emerges.
 \begin{equation}
@@ -41,10 +75,10 @@ The following tables outline the architectural layers of the $E_8$ lattice proje
 \multicolumn{5}{c}{\textit{These 5 integers are the sole inputs exported to System II.}} \\
 \bottomrule
 
-\multicolumn{5}{l}{\textit{The Derived Capacities (Used in Systems II \& III)}} \\
-\textbf{Substrate ($S$)} & Systemic Channel & $H_{sys} = \nu+\sigma+\chi$ & \textbf{23} & \textbf{Active Bandwidth:} Sum of active pillars. \\
-\textbf{Substrate ($S$)} & Full Budget & $H_{full} = H_{sys} + 2D$ & \textbf{31} & \textbf{Total Load:} Including spacetime overhead. \\
-\textbf{Substrate ($S$)} & State Space & $N = 2\nu$ & \textbf{32} & \textbf{Bit Depth:} Total available node addresses. \\
+\multicolumn{5}{l}{\textit{The Derived Capacities}} \\
+\textbf{Substrate ($S$)} & Systemic Channel & $H_{sys} = \nu+\sigma+\chi$ & \textbf{\InvHSys} & \textbf{Active Bandwidth:} Sum of active pillars. \\
+\textbf{Substrate ($S$)} & Full Budget & $H_{full} = H_{sys} + 2D$ & \textbf{\InvHFull} & \textbf{Total Load:} Including spacetime overhead. \\
+\textbf{Substrate ($S$)} & State Space & $N = 2\nu$ & \textbf{\InvN} & \textbf{Bit Depth:} Total available node addresses. \\
 \end{tabular}
 \end{table*}
 
@@ -72,7 +106,7 @@ The following tables outline the architectural layers of the $E_8$ lattice proje
 \textbf{Margin ($PM$)} & Resolution & $PM_{geo}$ (Eq. \ref{eq:alpha_inverse}) & $+10^{-6}$ & Minimum energy to define a mass state. \\
 \midrule
 \multicolumn{5}{c}{\textbf{Active Output Set} $\mathbb{O} = \{ \alpha^{-1} \approx \AlphaInvVal, \ T, \ PM \}$} \\
-\multicolumn{5}{c}{\textit{This impedance acts as an input for the Effective Field Limits in System III.}} \\
+\multicolumn{5}{c}{\textit{This impedance acts as an input for the Effective Field Limits in System IV.}} \\
 \bottomrule
 \end{tabular}
 \end{table*}
@@ -90,23 +124,33 @@ The following tables outline the architectural layers of the $E_8$ lattice proje
 \textbf{Substrate ($S$)} & Invariant Substrate & System I & $\mathbb{S}$ & Metric constraints of the 4D projection. \\
 \textbf{Substrate ($S$)} & Input Impedance ($\alpha^{-1}_{geo}$) & System II & $\mathbb{O}$ & \textbf{Baseline Cost:} The vacuum resistance. \\
 \midrule
-\textbf{Energy Vessel ($\Delta E$)} & Gravity ($\alpha_G$) & $B_{res} \cdot \alpha^{\Delta/2}$ & $\mathbf{1.75} \times 10^{-45}$ & \textbf{Bulk Attenuation:} Signal loss across lattice depth. \\
-\textbf{Energy Vessel ($\Delta E$)} & Planck Mass ($M_P$) & $m_e / \sqrt{\alpha_G}$ & $\mathbf{1.22} \times 10^{19}$ GeV & \textbf{Unity Threshold:} The scale where $\alpha_G \to 1$ \\
+\textbf{Energy Vessel ($\Delta E$)} & Gravity ($\alpha_G$) &
+    $\GravCouplingEq$ & $\GravCouplingVal$ & \textbf{Bulk Attenuation:} Signal loss across lattice depth. \\
+\textbf{Energy Vessel ($\Delta E$)} & Planck Mass ($M_P$) &
+    $\PlanckMassEq$ & $\mathbf{\PlanckMassVal}$ GeV & \textbf{Unity Threshold:} The scale where $\alpha_G \to 1$ \\
 \addlinespace
-\textbf{Info. Model ($\Delta I$)} & Higgs VEV ($v$) & $(\chi\Delta^2 - I_s)\alpha^{-1}$ & $\mathbf{245.79}$ GeV & \textbf{Stability Floor:} The potential minimum \\
-\textbf{Info. Model ($\Delta I$)} & Fermi Const. ($G_F$) & $1 / (\sqrt{2}v^2)$ & $\mathbf{1.17} \times 10^{-5}$ & \textbf{Interaction Area:} The weak cross-section \\
-\textbf{Info. Model ($\Delta I$)} & Higgs Mass ($m_H$) & $\sqrt{2\lambda} v$ & $\mathbf{125.5}$ GeV & \textbf{Scalar Mass:} The excitation of the floor \\
+\textbf{Info. Model ($\Delta I$)} & Higgs VEV ($v$) & 
+    $\HiggsVEVEq$ & $\mathbf{\HiggsVEVVal}$ GeV & \textbf{Stability Floor:} The potential minimum \\
+\textbf{Info. Model ($\Delta I$)} & Fermi Const. ($G_F$) &
+    $\FermiConstEq$ & $\mathbf{\FermiConstVal}$ & \textbf{Interaction Area:} The weak cross-section \\
+\textbf{Info. Model ($\Delta I$)} & Higgs Mass ($m_H$) &
+    $\HiggsMassEq$ & $\mathbf{\HiggsMassVal}$ GeV & \textbf{Scalar Mass:} The excitation of the floor \\
 \addlinespace
-\textbf{Protocol ($MI$)} & Strong Force ($\alpha_s$) & $(\nu + 1/D) / \alpha^{-1}$ & $\mathbf{0.1186}$ & \textbf{Saturation:} Full channel occupancy load \\
-\textbf{Protocol ($MI$)} & Weak Angle ($\theta_W$) & $\Delta / (D\Delta + \dots)$ & $\mathbf{0.2228}$ & \textbf{Partition:} Resonance fraction of total bandwidth \\
+\textbf{Protocol ($MI$)} & Strong Force ($\alpha_s$) &
+    $\AlphaSEq$ & $\mathbf{\AlphaSVal}$ & \textbf{Saturation:} Full channel occupancy load \\
+\textbf{Protocol ($MI$)} & Weak Angle ($\theta_W$) &
+    $\WeakAngleEq$ & $\mathbf{\WeakAngleVal}$ & \textbf{Partition:} Resonance fraction of total bandwidth \\
 \textbf{Protocol ($MI$)} & W Boson Mass ($M_W$) & $M_Z \sqrt{1 - \sin^2\theta_W}$ & $\mathbf{80.395}$ GeV & \textbf{Weak Range:} Protocol screening length. \\
 \textbf{Protocol ($MI$)} & Cabibbo Angle ($\theta_C$) & $\arcsin(\sqrt{m_d/m_s})$ & $\mathbf{0.2248}$ & \textbf{Flavor Aperture:} Leakage between generations. \\
-\textbf{Governor ($G$)} & Self-Coupling ($\lambda$) & $(\sigma - \chi) / H_{sys}$ & $\mathbf{0.1304}$ & \textbf{Vacuum Rigidity:} Resistance to field deformation \\
+\textbf{Governor ($G$)} & Self-Coupling ($\lambda$) &
+    $\HiggsLambdaEq$ & $\mathbf{\HiggsLambdaVal}$ & \textbf{Vacuum Rigidity:} Resistance to field deformation \\
 \textbf{Governor ($G$)} & QCD Beta Func. ($\beta_0$) & $11 - \frac{2}{3}n_f$ & $\mathbf{Function}$ & \textbf{Field Rigidity:} Vacuum anti-screening limit. \\
 \addlinespace
 \multicolumn{5}{l}{\textit{The Thermodynamic Taxes}} \\
-\textbf{Temporal Tax ($T$)} & Jarlskog Inv. ($J$) & $\phi^2 \cdot T_{geo}$ & $\mathbf{3.08} \times 10^{-5}$ & \textbf{Time Asymmetry:} Cost of the Chiral Diode. \\
-\textbf{Margin ($PM$)} & Yukawa ($y_e$) & $\sqrt{2} m_e / v$ & $\mathbf{2.94} \times 10^{-6}$ & \textbf{Resolution Floor:} Minimum coupled mass. \\
+\textbf{Temporal Tax ($T$)} & Jarlskog Inv. ($J$) &
+    $\JarlskogEq$ & $\mathbf{\JarlskogVal}$ & \textbf{Time Asymmetry:} Cost of the Chiral Diode. \\
+\textbf{Margin ($PM$)} & Yukawa ($y_e$) &
+    $\ElectronYukawaEq$ & $\mathbf{\ElectronYukawaVal}$ & \textbf{Resolution Floor:} Minimum coupled mass. \\
 \midrule
 \multicolumn{5}{c}{\textbf{Active Output Set} $\mathbb{C} = \{ \alpha_G, M_P, v, \alpha_s, \theta_W,  m_H, \theta_C, \lambda, J, y_e \}$} \\
 \multicolumn{5}{c}{\textit{These constants form the boundary conditions for the Matter Spectrum in System IV.}} \\

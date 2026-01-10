@@ -1,6 +1,8 @@
 \section{The Attenuation Scale: Gravity and the Planck Mass (\texorpdfstring{$\alpha_G, M_P$}{alphaGMP})} \
 \CatchFileBetweenTags{\AlphaInvVal}{calculations/results.tex}{AlphaInvVal}
 \CatchFileBetweenTags{\MeMeVPrint}{calculations/results.tex}{MeMeVPrint}
+\CatchFileBetweenTags{\ResidualCapVal}{calculations/results.tex}{ResidualCapVal}
+
 
 \textbf{The Standard Model Ansatz:} Gravity is traditionally treated as a distinct force described by General Relativity, operating with a coupling constant $G$ that is inexplicably $10^{40}$ times weaker than the gauge forces. This extreme disparity, known as the Hierarchy Problem, forces the Planck Mass ($M_P \approx 10^{19}$ GeV) to be inserted as a manual scaling limit with no connection to the electron scale ($m_e \approx 0.5$ MeV).
 
@@ -32,7 +34,7 @@ B_{res} = \nu - \frac{\chi}{\sigma-\chi} - \alpha
     \item \textbf{Gauge Load ($\alpha \approx 0.007$):} The active impedance of the electromagnetic field.
 \end{itemize}
 \begin{equation}
-B_{res} \approx 16 - 0.666 - 0.007 \approx \mathbf{15.326}
+B_{res} \approx 16 - 0.666 - 0.007 \approx \mathbf{\ResidualCapVal}
 \end{equation}
 
 \subsection{Harmonic Attenuation (The Lattice Depth)}

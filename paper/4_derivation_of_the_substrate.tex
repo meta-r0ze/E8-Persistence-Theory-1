@@ -157,6 +157,10 @@ We model the lattice states as integers within the quadratic field $\mathbb{Q}(\
 \textbf{Constraint:} $\Delta$ must be a Heegner Number.
 \textbf{Search Space:} $\{1, 2, 3, 7, 11, 19, 43, 67, 163\}$.
 
+We model the lattice states as integers within the quadratic field $\mathbb{Q}(\sqrt{-\Delta})$. If the field has Class Number $h > 1$, it fails to be a Unique Factorization Domain (UFD), creating informational ambiguities.
+
+By the \textbf{Stark-Heegner Theorem}, there exist exactly nine integers (Heegner Numbers) where $h=1$. This theorem mathematically restricts our search space to the finite set $\{1, 2, 3, 7, 11, 19, 43, 67, 163\}$, ensuring no other solutions exist.
+
 \noindent\textit{Note:} The restriction to imaginary quadratic fields ($\mathbb{Q}(\sqrt{-\Delta})$) arises from the requirement that the lattice support oscillatory (wave-like) solutions rather than exponential (unstable) modes.
 
 \paragraph{Step 2: The Causality Filter (Non-Aliasing)}
