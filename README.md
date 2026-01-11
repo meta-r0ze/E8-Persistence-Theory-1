@@ -11,5 +11,5 @@ A core tenet of this work is that the physical constants are computational outpu
 ### 2. Generate the Constants
 To regenerate the values for $\alpha^{-1}$, $\alpha_s$, $G_F$, etc., run:
 ```bash
-python calculations/main.py
+python calculations/constants.py
 ```
