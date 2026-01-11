@@ -36,6 +36,12 @@
 \CatchFileBetweenTags{\JarlskogVal}{calculations/results.tex}{JarlskogVal}
 \CatchFileBetweenTags{\JarlskogEq}{calculations/results.tex}{JarlskogEq}
 
+\CatchFileBetweenTags{\WBosonMassVal}{calculations/results.tex}{WBosonMassVal}
+\CatchFileBetweenTags{\WBosonMassEq}{calculations/results.tex}{WBosonMassEq}
+
+\CatchFileBetweenTags{\CabibboAngleVal}{calculations/results.tex}{CabibboAngleVal}
+\CatchFileBetweenTags{\CabibboAngleEq}{calculations/results.tex}{CabibboAngleEq}
+
 Before deriving the Lagrangian dynamics or the specific coupling values, we present the System Specification: the immutable integer constraints outputted from The Invariant Substrate, from which all subsequent physics emerges.
 \begin{equation}
 \mathbb{S} = \{ D=4, \Delta=43, \sigma=5, \nu=16, \chi=2 \}
@@ -125,7 +131,7 @@ The following tables outline the architectural layers of the $E_8$ lattice proje
 \textbf{Substrate ($S$)} & Input Impedance ($\alpha^{-1}_{geo}$) & System II & $\mathbb{O}$ & \textbf{Baseline Cost:} The vacuum resistance. \\
 \midrule
 \textbf{Energy Vessel ($\Delta E$)} & Gravity ($\alpha_G$) &
-    $\GravCouplingEq$ & $\GravCouplingVal$ & \textbf{Bulk Attenuation:} Signal loss across lattice depth. \\
+    $\GravCouplingEq$ & $\mathbf{\GravCouplingVal}$ & \textbf{Bulk Attenuation:} Signal loss across lattice depth. \\
 \textbf{Energy Vessel ($\Delta E$)} & Planck Mass ($M_P$) &
     $\PlanckMassEq$ & $\mathbf{\PlanckMassVal}$ GeV & \textbf{Unity Threshold:} The scale where $\alpha_G \to 1$ \\
 \addlinespace
@@ -140,8 +146,10 @@ The following tables outline the architectural layers of the $E_8$ lattice proje
     $\AlphaSEq$ & $\mathbf{\AlphaSVal}$ & \textbf{Saturation:} Full channel occupancy load \\
 \textbf{Protocol ($MI$)} & Weak Angle ($\theta_W$) &
     $\WeakAngleEq$ & $\mathbf{\WeakAngleVal}$ & \textbf{Partition:} Resonance fraction of total bandwidth \\
-\textbf{Protocol ($MI$)} & W Boson Mass ($M_W$) & $M_Z \sqrt{1 - \sin^2\theta_W}$ & $\mathbf{80.395}$ GeV & \textbf{Weak Range:} Protocol screening length. \\
-\textbf{Protocol ($MI$)} & Cabibbo Angle ($\theta_C$) & $\arcsin(\sqrt{m_d/m_s})$ & $\mathbf{0.2248}$ & \textbf{Flavor Aperture:} Leakage between generations. \\
+\textbf{Protocol ($MI$)} & W Boson Mass ($M_W$) &
+    $\WBosonMassEq$ & $\mathbf{\WBosonMassVal}$ GeV & \textbf{Weak Range:} Protocol screening length. \\
+\textbf{Protocol ($MI$)} & Cabibbo Angle ($\theta_C$) &
+    $\CabibboAngleEq$ & $\mathbf{\CabibboAngleVal}$ & \textbf{Flavor Aperture:} Leakage between generations. \\
 \textbf{Governor ($G$)} & Self-Coupling ($\lambda$) &
     $\HiggsLambdaEq$ & $\mathbf{\HiggsLambdaVal}$ & \textbf{Vacuum Rigidity:} Resistance to field deformation \\
 \textbf{Governor ($G$)} & QCD Beta Func. ($\beta_0$) & $11 - \frac{2}{3}n_f$ & $\mathbf{Function}$ & \textbf{Field Rigidity:} Vacuum anti-screening limit. \\

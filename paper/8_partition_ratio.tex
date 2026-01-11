@@ -4,6 +4,9 @@
 \CatchFileBetweenTags{\JarlskogVal}{calculations/results.tex}{JarlskogVal}
 \CatchFileBetweenTags{\JarlskogAccText}{calculations/results.tex}{JarlskogAccText}
 
+\CatchFileBetweenTags{\CabibboAngleVal}{calculations/results.tex}{CabibboAngleVal}
+\CatchFileBetweenTags{\CabibboAngleEq}{calculations/results.tex}{CabibboAngleEq}
+
 
 \textbf{The Standard Model Ansatz:} The Weak Mixing Angle is a free parameter defining the rotation between the $U(1)_Y$ and $SU(2)_L$ sectors. It determines the partition of the unified electroweak force into the electromagnetic and weak components. Standard physics relies on the Weak Mixing Angle as an empirical input ($s^2_W \approx 0.223$) to satisfy the mass ratio $M_W/M_Z$. However, it offers no geometric origin for this specific magnitude, nor a mechanism to resolve the experimental tension between the value derived from direct mass measurements ($0.22291 \pm 0.00011$) \cite{navas_review_2024} and the value derived from global electroweak fits ($0.22354 \pm 0.00006$) \cite{navas_review_2024}.
 
@@ -77,7 +80,7 @@ The derivation matches the \textbf{On-Shell definition} ($s^2_W \equiv 1 - M_W^2
 
 \textbf{The Standard Model Ansatz:} The Jarlskog Invariant ($J$) quantifies CP violation—the fundamental asymmetry between matter and antimatter. It is an empirical parameter extracted from the CKM matrix ($J_{\text{exp}} \approx 3.0 \times 10^{-5}$) with no theoretical prediction for its magnitude.
 
-\textbf{The $E_8$-Persistence Derivation:} We have identified the Weak Force as the mechanism of state transition (Time) and derived the metabolic cost of a generic weak transition as the \textbf{Temporal Tax} ($T \approx 1.185 \times 10^{-5}$, Eq. \ref{eq:temporal_tax}). This tax represents the entropic cost paid to the vacuum for each state update.
+\textbf{The $E_8$-Persistence Derivation:} We have identified the Weak Force as the mechanism of state transition (Time) and derived the metabolic cost of a generic weak transition as the \textbf{Temporal Tax} ($T \approx 1.185 \times 10^{-5}$, Eq. \ref{eq:alpha_inv_TemporalTax}). This tax represents the entropic cost paid to the vacuum for each state update.
 
 However, $T$ represents a \emph{scalar} transition cost. Time asymmetry requires a \emph{directional} bias, a preference for forward over backward transitions. This directionality emerges from the geometric projection of the 5-fold lattice symmetry ($\sigma = 5$) onto the 4-dimensional manifold.
 
@@ -111,3 +114,23 @@ Substituting the derived values ($\phi = 1.618033989...$, $T_{\text{geo}} = 1.18
 This derivation establishes that CP violation is not an arbitrary feature of quark mixing, but a \emph{geometric necessity} of projecting a 5-fold symmetric lattice onto 4D spacetime. The arrow of time (matter-antimatter asymmetry) is the geometric price paid for embedding $E_8$ in our universe.
 
 \textbf{Forward Link to Paper III:} The CKM matrix elements must conspire to produce exactly this value of $J$. Paper III demonstrates that the derived mixing angles satisfy this constraint to within $0.3\%$, confirming that flavor mixing is the mechanical implementation of this geometric boundary condition.
+
+\subsection{The Flavor Aperture: Cabibbo Angle (\texorpdfstring{$\theta_C$}{thetaC})}
+While the Weak Angle ($\theta_W$) governs the partition of forces, the Cabibbo Angle ($\theta_C$) governs the partition of generations (Flavor Mixing). In the Standard Model, this is an empirical parameter ($\sin\theta_C \approx 0.225$).
+
+In the $E_8$-Persistence framework, this angle represents the Geometric Leakage between the first and second resonant tiers of the lattice. It is determined by the ratio of the circular interface ($\pi$) to the active channel width ($\nu - \chi$):
+
+\begin{equation}
+    \sin \theta_C = \frac{\pi}{\nu - \chi} + \frac{\alpha}{\nu}
+\end{equation}
+
+\begin{equation}
+    \sin \theta_C = \frac{\pi}{14} + \frac{\alpha}{16} \approx \mathbf{\CabibboAngleVal}
+\end{equation}
+
+\begin{itemize}
+    \item \textbf{Experimental Value (PDG 2024):} $0.22500 \pm 0.00067$
+    \item \textbf{Accuracy:} The geometric prediction captures \textbf{99.9\%} of the observed mixing.
+\end{itemize}
+
+\textbf{Implication:} This confirms that flavor mixing is not random; it is the inevitable ``crosstalk" between lattice layers defined by the channel invariants.
