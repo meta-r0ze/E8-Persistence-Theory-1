@@ -1,8 +1,15 @@
 \section{The Attenuation Scale: Gravity and the Planck Mass (\texorpdfstring{$\alpha_G, M_P$}{alphaGMP})} \
-\CatchFileBetweenTags{\AlphaInvVal}{calculations/results.tex}{AlphaInvVal}
-\CatchFileBetweenTags{\MeMeVPrint}{calculations/results.tex}{MeMeVPrint}
-\CatchFileBetweenTags{\ResidualCapVal}{calculations/results.tex}{ResidualCapVal}
+\CatchFileBetweenTags{\AlphaInvVal}{calculations/constants.tex}{AlphaInvVal}
+\CatchFileBetweenTags{\MeMeVPrint}{calculations/constants.tex}{MeMeVPrint}
+\CatchFileBetweenTags{\ResidualCapVal}{calculations/constants.tex}{ResidualCapVal}
 
+\CatchFileBetweenTags{\GravCouplingVal}{calculations/constants.tex}{GravCouplingVal}
+\CatchFileBetweenTags{\GravCouplingExperimentalValue}{calculations/constants.tex}{GravCouplingExperimentalValue}
+\CatchFileBetweenTags{\GravCouplingAccText}{calculations/constants.tex}{GravCouplingAccText}
+
+\CatchFileBetweenTags{\PlanckMassVal}{calculations/constants.tex}{PlanckMassVal}
+\CatchFileBetweenTags{\PlanckMassExperimentalValue}{calculations/constants.tex}{PlanckMassExperimentalValue}
+\CatchFileBetweenTags{\PlanckMassAccText}{calculations/constants.tex}{PlanckMassAccText}
 
 \textbf{The Standard Model Ansatz:} Gravity is traditionally treated as a distinct force described by General Relativity, operating with a coupling constant $G$ that is inexplicably $10^{40}$ times weaker than the gauge forces. This extreme disparity, known as the Hierarchy Problem, forces the Planck Mass ($M_P \approx 10^{19}$ GeV) to be inserted as a manual scaling limit with no connection to the electron scale ($m_e \approx 0.5$ MeV).
 
@@ -67,13 +74,14 @@ The gravitational coupling is the product of the spare capacity and the attenuat
 \alpha_G = B_{res} \cdot \alpha^{\Delta/2}
 \end{equation}
 \begin{equation}
-\alpha_G = 15.326 \times (1.143 \times 10^{-46}) \approx \mathbf{1.75 \times 10^{-45}}
+\alpha_G = 15.326 \times (1.143 \times 10^{-46}) \approx \mathbf{\GravCouplingVal}
 \end{equation}
 
-This matches the experimental dimensionless coupling at the electron scale:
+The experimental dimensionless coupling at the electron scale:
 \begin{equation}
-\alpha_{G,exp} = \frac{G m_e^2}{\hbar c} \approx 1.752 \times 10^{-45}
+\alpha_{G,exp} = \frac{G m_e^2}{\hbar c} \approx \GravCouplingExperimentalValue
 \end{equation}
+\GravCouplingAccText
 
 \subsection{The Planck Mass (\texorpdfstring{$M_P$}{MP})}
 Having derived the attenuation factor, we can now derive the Planck Mass. In standard physics, $M_P$ is the scale where gravitational interactions become as strong as quantum interactions ($\alpha_G \to 1$). 
@@ -95,13 +103,13 @@ M_P = \frac{m_e}{\sqrt{B_{res}}} \cdot \alpha^{-\Delta/4}
 M_P = \frac{\MeMeVPrint \text{ MeV}}{\sqrt{15.326}} \cdot (\AlphaInvVal)^{10.75}
 \end{equation}
 \begin{equation}
-M_P \approx 0.1305 \text{ MeV} \cdot (9.35 \times 10^{22}) \approx \mathbf{1.22 \times 10^{19} \text{ GeV}}
+M_P \approx 0.1305 \text{ MeV} \cdot (9.35 \times 10^{22}) \approx \mathbf{\PlanckMassVal} \text{ GeV}
 \end{equation}
 
 \begin{itemize}
-    \item \textbf{Geometric Prediction:} $1.22 \times 10^{19}$ GeV
-    \item \textbf{Standard Value:} $1.2209 \times 10^{19}$ GeV
-    \item \textbf{Result:} Reproduces the hierarchy scale ($10^{19}$ GeV) exactly by geometric construction.
+    \item \textbf{Geometric Prediction:} $\PlanckMassVal$ GeV
+    \item \textbf{Standard Value:} $\PlanckMassExperimentalValue$ GeV
+    \item \textbf{Result:} \PlanckMassAccText 
 \end{itemize}
 
 \subsection{Implications}

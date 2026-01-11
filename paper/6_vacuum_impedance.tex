@@ -1,9 +1,9 @@
 \section{The Persistence Condition: Vacuum Impedance (\texorpdfstring{$\alpha^{-1}$}{alpha\string^-1})} \label{sec:Vacuum_Impedance}
-\CatchFileBetweenTags{\AlphaInvVal}{calculations/results.tex}{AlphaInvVal}
-\CatchFileBetweenTags{\VonKlitzingVal}{calculations/results.tex}{VonKlitzingVal}
-\CatchFileBetweenTags{\VonKlitzingExperimentalValue}{calculations/results.tex}{VonKlitzingExperimentalValue}
+\CatchFileBetweenTags{\AlphaInvVal}{calculations/constants.tex}{AlphaInvVal}
 
-Von Klitzing Constant (\texorpdfstring{$R_K$}{RK}
+\CatchFileBetweenTags{\VonKlitzingVal}{calculations/constants.tex}{VonKlitzingVal}
+\CatchFileBetweenTags{\VonKlitzingExperimentalValue}{calculations/constants.tex}{VonKlitzingExperimentalValue}
+\CatchFileBetweenTags{\VonKlitzingAccText}{calculations/constants.tex}{VonKlitzingAccText}
 
 Having established the Entropic Lagrangian, we determine the vacuum's primary boundary condition: the Fine-Structure Constant ($\alpha$) at the zero-momentum limit ($q^2 \to 0$).
 
@@ -166,7 +166,10 @@ Z_{PM} = \frac{1}{H_{full} \cdot (\sigma + 1) \cdot \Delta^2} \approx +2.91 \tim
 \subsection{Numerical Result}
 Summing the base geometry and the systemic corrections:
 \begin{equation}
-\alpha^{-1}_{calc} = 135.0885 + 2 - 0.00599 - 0.04651 + 0.0000119 + 0.0000029
+\begin{split}
+\alpha^{-1}_{calc} = \\
+& 135.0885 + 2 - 0.00599 - 0.04651 + 0.0000119 + 0.0000029
+\end{split}
 \end{equation}
 \begin{equation}
 \alpha^{-1}_{calc} = \AlphaInvVal
