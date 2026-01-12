@@ -642,15 +642,14 @@ def main():
 
     # --- Cabibbo Angle (Flavor Aperture) ---
     cabibbo_base = PI / (NU - CHI)
-    cabibbo_correction = ALPHA_GEO / NU
-    SIN_THETA_C_GEO = cabibbo_base + cabibbo_correction
+    SIN_THETA_C_GEO = cabibbo_base
     
     print_derivation(
         name="Cabibbo Angle Magnitude (|V_us|)",
         tag="CabibboAngle",
-        formula_sym="pi/(nu-chi) + alpha/nu",
-        latex_sym=r"\frac{\pi}{\nu - \chi} + \frac{\alpha}{\nu}",
-        formula_num=f"{cabibbo_base:.4f} + {cabibbo_correction:.4f}",
+        formula_sym="pi/(nu-chi)",
+        latex_sym=r"\frac{\pi}{\nu - \chi}",
+        formula_num=f"{cabibbo_base:.4f}",
         result=SIN_THETA_C_GEO,
         latex_mode=LATEX_MODE,
         ref_key="vus",
