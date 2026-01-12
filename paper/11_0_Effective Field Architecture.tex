@@ -7,7 +7,7 @@ This architecture manages information flow from the lattice substrate to observa
 \subsection{The Two-Tier Structure}
 
 \subsubsection{Tier 1: The Geometric Partitions (Control Logic)}
-The dimensionless control ratios ($\alpha_s, \theta_W, \theta_C, J$) allocate the system bandwidth ($\nu = 16$). These parameters determine \textbf{what fraction} of the vacuum capacity couples to each force. (See Table \ref{tab:system_GeometricPartitions}).
+The dimensionless control ratios ($\alpha_s, \theta_W, \theta_C, J$) allocate the system bandwidth ($\nu = 16$). These parameters determine \textbf{what fraction} of the vacuum capacity couples to each force.
 
 \subsubsection{Tier 2: The Dimensional Regulators (Infrastructure)}
 Two nested persistent subsystems step down the raw lattice resonance ($\Delta = 43$) to create stable energy scales:
@@ -15,7 +15,8 @@ Two nested persistent subsystems step down the raw lattice resonance ($\Delta = 
     \item \textbf{The Surface Regulator (Higgs System):} Regulates the electroweak scale ($v \approx 246$ GeV), enabling matter mass generation.
     \item \textbf{The Bulk Regulator (Gravity System):} Regulates the geometry scale ($M_P \approx 10^{19}$ GeV), attenuating bulk signals across the lattice depth ($r = \Delta/2$).
 \end{enumerate}
-(See Table \ref{tab:system_DimensionalRegulators}).
+
+(See Table \ref{tab:system_EffectiveFieldLimits}).
 
 \subsection{Proof of Global Persistence}
 
@@ -23,7 +24,7 @@ For this architecture to exist stably, it must minimize Entropic Action ($\delta
 
 We verify this condition is satisfied at three distinct levels:
 
-\subsubsection{1. Bandwidth Conservation (The Chiral Limit)}
+\subsubsection{Bandwidth Conservation (The Chiral Limit)}
 The total allocated capacity must exactly match the hardware limit ($\nu = 16$) without overflow. Rearranging the Residual Capacity equation from Section \ref{sec:Bulk_Attenuator}:
 \begin{equation}
 \underbrace{B_{res}}_{\text{Gravity}} + \underbrace{\frac{\chi}{\sigma-\chi}}_{\text{Boundary Storage}} + \underbrace{\alpha}_{\text{Gauge}} = \nu
@@ -34,7 +35,7 @@ Substituting the derived loads:
 \end{equation}
 This confirms that Gravity is not an extra force, but the \textbf{inevitable consequence} of using the remaining bandwidth. In a $\nu=16$ universe, after allocating $0.666$ for boundary storage and $0.007$ for gauge load, exactly $15.326$ units remain—and this residual defines the gravitational coupling via $\alpha_G = B_{res} \cdot \alpha^{\Delta/2}$.
 
-\subsubsection{2. Surface Impedance Match (Higgs Subsystem)}
+\subsubsection{Surface Impedance Match (Higgs Subsystem)}
 The Higgs regulator must match the Weak aperture ($\sigma + 1 = 6$). As proven in Section \ref{sec:Structural_Floor}:
 \begin{equation}
 Z_H = \frac{1}{\lambda} e^{-2\lambda} \approx 5.97 \approx (\sigma + 1) \quad (\text{Error } < 0.6\%)
@@ -51,5 +52,3 @@ This confirms the bulk architecture perfectly compensates for lattice attenuatio
 \subsection*{Conclusion}
 
 \textbf{The Effective Field Architecture is globally solvent.} The dimensionless ratios (Tier 1) and energy scales (Tier 2) are not independent parameters—they are the unique solution to the global impedance matching problem. The system persists because it transfers information from the lattice core ($r = \Delta/2$) to the surface ($r = 0$) with minimal dissipative loss.
-
-Having established internal consistency through three independent closure conditions, we now proceed to \textbf{external validation}: The following section performs a zero-degree-of-freedom global fit against experimental data, testing whether the derived architecture matches the physical universe.
