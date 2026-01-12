@@ -1,11 +1,13 @@
 \CatchFileBetweenTags{\CabibboAngleVal}{calculations/constants.tex}{CabibboAngleVal}
 \CatchFileBetweenTags{\CabibboAngleExperimentalValue}{calculations/constants.tex}{CabibboAngleExperimentalValue}
 \CatchFileBetweenTags{\CabibboAngleEq}{calculations/constants.tex}{CabibboAngleEq}
+\CatchFileBetweenTags{\CabibboAngleAccText}{calculations/constants.tex}{CabibboAngleAccText}
+
 
 \subsection{The Flavor Aperture: Cabibbo Angle (\texorpdfstring{$\theta_C$}{thetaC})}
-While the Weak Angle ($\theta_W$) governs the partition of forces, the Cabibbo Angle ($\theta_C$) governs the partition of generations (Flavor Mixing). In the $E_8$-Persistence framework, this represents the **Geometric Leakage** between the resonant tiers of the lattice.
+While the Weak Angle ($\theta_W$) governs the partition of forces, the Cabibbo Angle ($\theta_C$) governs the partition of generations (Flavor Mixing). In the $E_8$-Persistence framework, this represents the Geometric Leakage between the resonant tiers of the lattice.
 
-The leakage is determined by the ratio of the circular interface ($\pi$) to the active channel width of the flavor sector. The flavor width is the Total Chiral Capacity ($\nu$) minus the Topological Boundary ($\chi$):
+The leakage is determined by the ratio of the circular interface ($\pi$) to the active channel width of the flavor sector. The flavor width is the Total Chiral Capacity ($\nu$) minus the Topological Boundary ($\chi$). The angle $\pi/14$ is the "Aperture" that allows matter to transition between generations.
 
 \begin{equation}
 \sin \theta_C = \frac{\text{Interface}}{\text{Flavor Channel}} = \frac{\pi}{\nu - \chi}
@@ -17,9 +19,7 @@ Substituting $\nu=16$ and $\chi=2$:
 \end{equation}
 
 \begin{itemize}
-    \item \textbf{Geometric Prediction:} \CabibboAngleExperimentalValue
-    \item \textbf{Experimental Value:} $0.2250 \pm 0.0007$
-    \item \textbf{Agreement:} Within $1\sigma$.
+    \item \textbf{Geometric Prediction:} \CabibboAngleVal
+    \item \textbf{Experimental Value:} \CabibboAngleExperimentalValue
+    \item \textbf{Agreement:} \CabibboAngleAccText
 \end{itemize}
-
-\textbf{Physical Function:} Flavor mixing is not a random quantum rotation. It is the inevitable geometric result of fitting a circular interaction ($\pi$) into a linear channel of width 14. The angle $\pi/14$ is the "Aperture" that allows matter to transition between generations.
