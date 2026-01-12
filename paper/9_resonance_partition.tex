@@ -3,13 +3,7 @@
 
 \CatchFileBetweenTags{\WeakAngleVal}{calculations/constants.tex}{WeakAngleVal}
 
-\CatchFileBetweenTags{\JarlskogVal}{calculations/constants.tex}{JarlskogVal}
-\CatchFileBetweenTags{\JarlskogExperimentalValue}{calculations/constants.tex}{JarlskogExperimentalValue}
-\CatchFileBetweenTags{\JarlskogAccText}{calculations/constants.tex}{JarlskogAccText}
-
-\CatchFileBetweenTags{\CabibboAngleVal}{calculations/constants.tex}{CabibboAngleVal}
-\CatchFileBetweenTags{\CabibboAngleExperimentalValue}{calculations/constants.tex}{CabibboAngleExperimentalValue}
-\CatchFileBetweenTags{\CabibboAngleEq}{calculations/constants.tex}{CabibboAngleEq}
+\CatchFileBetweenTags{\WBosonMassVal}{calculations/constants.tex}{WBosonMassVal}
 
 \textbf{The Standard Model Ansatz:} The Weak Mixing Angle is a free parameter defining the rotation between the $U(1)_Y$ and $SU(2)_L$ sectors. It determines the partition of the unified electroweak force into the electromagnetic and weak components. Standard physics relies on the Weak Mixing Angle as an empirical input ($s^2_W \approx 0.223$) to satisfy the mass ratio $M_W/M_Z$. However, it offers no geometric origin for this specific magnitude, nor a mechanism to resolve the experimental tension between the value derived from direct mass measurements ($0.22291 \pm 0.00011$) \cite{navas_review_2024} and the value derived from global electroweak fits ($0.22354 \pm 0.00006$) \cite{navas_review_2024}.
 
@@ -78,62 +72,48 @@ $$ T_{check} \approx (5.325 \times 10^{-5}) \cdot (0.2228) \approx \mathbf{1.186
 The derivation matches the \textbf{On-Shell definition} ($s^2_W \equiv 1 - M_W^2/M_Z^2$) to within 0.05\%. This identification is structurally required: because the $W$ and $Z$ bosons are fundamental lattice resonances, their mass ratio is fixed by the static integer invariants ($\Delta, \sigma$). The higher values observed in effective schemes (like $\overline{MS} \approx 0.231$) include dynamic vacuum polarization loops ("running"). The lattice invariants define the \textbf{Bare Geometric Ratio} at the pole mass, which corresponds physically to the On-Shell scheme.
 
 
-\subsection{The Jarlskog Invariant: Time Asymmetry}
-\label{sec:JarlskogInvariant}
 
-\textbf{The Standard Model Ansatz:} The Jarlskog Invariant ($J$) quantifies CP violation—the fundamental asymmetry between matter and antimatter. It is an empirical parameter extracted from the CKM matrix ($J_{\text{exp}} \approx 3.0 \times 10^{-5}$) with no theoretical prediction for its magnitude.
 
-\textbf{The $E_8$-Persistence Derivation:} We have identified the Weak Force as the mechanism of state transition (Time) and derived the metabolic cost of a generic weak transition as the \textbf{Temporal Tax} ($T \approx 1.185 \times 10^{-5}$, Eq. \ref{eq:alpha_inv_TemporalTax}). This tax represents the entropic cost paid to the vacuum for each state update.
+\subsubsection{Validation: Resolution of the W Boson Mass Anomaly}
 
-However, $T$ represents a \emph{scalar} transition cost. Time asymmetry requires a \emph{directional} bias, a preference for forward over backward transitions. This directionality emerges from the geometric projection of the 5-fold lattice symmetry ($\sigma = 5$) onto the 4-dimensional manifold.
+The specific geometric partition derived above ($\sin^2 \theta_W = 43/193$) has immediate predictive power regarding the mass of the W Boson, a parameter currently subject to significant experimental tension.
 
-\subsubsection{The Golden Projection}
+\textbf{The Anomaly:} The mass of the W boson is currently the subject of a $7\sigma$ tension between theoretical prediction and experimental measurement.
+\begin{itemize}
+    \item \textbf{Standard Model Prediction:} $80.357 \pm 0.006$ GeV.
+    \item \textbf{CDF II Measurement (2022):} $80.4335 \pm 0.0094$ GeV.
+    \item \textbf{ATLAS Measurement (2023):} $80.360 \pm 0.016$ GeV.
+\end{itemize}
+The CDF result suggests new physics, while ATLAS results remain consistent with the Standard Model.
 
-The continuous projection of $E_8$ into 4D space via $H_4$ geometry involves the Golden Ratio ($\phi = \frac{1+\sqrt{5}}{2}$). This projection creates an irreducible geometric tension: 5-fold rotational symmetry cannot tile 4D space perfectly. The resulting \emph{frustration} manifests as a preferred direction in state transitions.
-
-The area of this geometric mismatch scales as $\phi^2$ (the golden area). Time asymmetry is therefore the Temporal Tax amplified by this projection area:
-
+\textbf{The $E_8$ Derivation:} In this framework, the $W$ and $Z$ bosons are coupled via the \textbf{Geometric Partition} derived in Paper I. The Weak Mixing Angle is not a free parameter but the ratio of the resonant depth ($\Delta$) to the total electroweak capacity ($193$).
 \begin{equation}
-    J_{\text{geo}} = \phi^2 \cdot T_{\text{geo}}
-    \label{eq:jarlskog_geo}
+\sin^2 \theta_W = \frac{43}{193} \approx 0.22280
 \end{equation}
 
-\subsubsection{Numerical Result}
-
-Substituting the derived values ($\phi = 1.618033989...$, $T_{\text{geo}} = 1.18518 \times 10^{-5}$):
-
+In the On-Shell renormalization scheme, the masses are strictly related by the cosine of this angle:
 \begin{equation}
-    J_{\text{geo}} = (1.618033989)^2 \cdot (1.18518 \times 10^{-5}) \approx \JarlskogVal
+M_W = M_Z \cos \theta_W = M_Z \sqrt{1 - \sin^2 \theta_W}
+\end{equation}
+
+\textbf{Calculation:}
+Using the experimental Z-boson mass ($M_Z = 91.1876$ GeV) as the volumetric reference scale:
+\begin{equation}
+M_W = 91.1876 \text{ GeV} \times \sqrt{1 - \frac{43}{193}}
+\end{equation}
+\begin{equation}
+M_W = 91.1876 \times \sqrt{\frac{150}{193}} \approx 91.1876 \times 0.88164
+\end{equation}
+\begin{equation}
+M_W \approx \mathbf{\WBosonMassVal}
 \end{equation}
 
 \begin{itemize}
-    \item \textbf{Geometric Prediction:} $\JarlskogVal$
-    \item \textbf{Experimental Value:} $\JarlskogExperimentalValue$
-    \item \textbf{Accuracy:} \JarlskogAccText
+    \item \textbf{Geometric Prediction:} \WBosonMassVal
+    \item \textbf{Standard Model:} $80.36$ GeV
+    \item \textbf{CDF II:} $80.43$ GeV
 \end{itemize}
 
-\subsubsection{Physical Interpretation}
+\textbf{Result:} The geometric prediction acts as the mediator. It confirms that the Standard Model prediction is too low (validating the direction of the CDF anomaly) while suggesting the CDF value may be slightly overestimated.
 
-This derivation establishes that CP violation is not an arbitrary feature of quark mixing, but a \emph{geometric necessity} of projecting a 5-fold symmetric lattice onto 4D spacetime. The arrow of time (matter-antimatter asymmetry) is the geometric price paid for embedding $E_8$ in our universe.
-
-\textbf{Forward Link to Paper III:} The CKM matrix elements must conspire to produce exactly this value of $J$. Paper III demonstrates that the derived mixing angles satisfy this constraint to within $0.3\%$, confirming that flavor mixing is the mechanical implementation of this geometric boundary condition.
-
-\subsection{The Flavor Aperture: Cabibbo Angle (\texorpdfstring{$\theta_C$}{thetaC})}
-While the Weak Angle ($\theta_W$) governs the partition of forces, the Cabibbo Angle ($\theta_C$) governs the partition of generations (Flavor Mixing). In the Standard Model, this is an empirical parameter ($\sin\theta_C \approx 0.225$).
-
-In the $E_8$-Persistence framework, this angle represents the Geometric Leakage between the first and second resonant tiers of the lattice. It is determined by the ratio of the circular interface ($\pi$) to the active channel width ($\nu - \chi$):
-
-\begin{equation}
-    \sin \theta_C = \frac{\pi}{\nu - \chi} + \frac{\alpha}{\nu}
-\end{equation}
-
-\begin{equation}
-    \sin \theta_C = \frac{\pi}{14} + \frac{\alpha}{16} \approx \mathbf{}
-\end{equation}
-
-\begin{itemize}
-    \item \textbf{Experimental Value:} \CabibboAngleExperimentalValue
-    \item \textbf{Accuracy:} The geometric prediction captures \textbf{99.9\%} of the observed mixing.
-\end{itemize}
-
-\textbf{Implication:} This confirms that flavor mixing is not random; it is the inevitable ``crosstalk" between lattice layers defined by the channel invariants.
+\textbf{Conclusion:} The tension in the W mass arises because the Standard Model fits $\sin^2 \theta_W$ to global data ($\approx 0.2235$), whereas the lattice dictates a rigid integer partition ($0.2228$). The lattice geometry predicts a heavier W boson than the Standard Model, resolving the direction of the anomaly without requiring new particles.

@@ -1,0 +1,44 @@
+\CatchFileBetweenTags{\JarlskogVal}{calculations/constants.tex}{JarlskogVal}
+\CatchFileBetweenTags{\JarlskogExperimentalValue}{calculations/constants.tex}{JarlskogExperimentalValue}
+\CatchFileBetweenTags{\JarlskogAccText}{calculations/constants.tex}{JarlskogAccText}
+
+
+\subsection{The Jarlskog Invariant: Time Asymmetry}
+\label{sec:JarlskogInvariant}
+
+\textbf{The Standard Model Ansatz:} The Jarlskog Invariant ($J$) quantifies CP violation—the fundamental asymmetry between matter and antimatter. It is an empirical parameter extracted from the CKM matrix ($J_{\text{exp}} \approx 3.0 \times 10^{-5}$) with no theoretical prediction for its magnitude.
+
+\textbf{The $E_8$-Persistence Derivation:} We have identified the Weak Force as the mechanism of state transition (Time) and derived the metabolic cost of a generic weak transition as the \textbf{Temporal Tax} ($T \approx 1.185 \times 10^{-5}$, Eq. \ref{eq:alpha_inv_TemporalTax}). This tax represents the entropic cost paid to the vacuum for each state update.
+
+However, $T$ represents a \emph{scalar} transition cost. Time asymmetry requires a \emph{directional} bias, a preference for forward over backward transitions. This directionality emerges from the geometric projection of the 5-fold lattice symmetry ($\sigma = 5$) onto the 4-dimensional manifold.
+
+\subsubsection{The Golden Projection}
+
+The continuous projection of $E_8$ into 4D space via $H_4$ geometry involves the Golden Ratio ($\phi = \frac{1+\sqrt{5}}{2}$). This projection creates an irreducible geometric tension: 5-fold rotational symmetry cannot tile 4D space perfectly. The resulting \emph{frustration} manifests as a preferred direction in state transitions.
+
+The area of this geometric mismatch scales as $\phi^2$ (the golden area). Time asymmetry is therefore the Temporal Tax amplified by this projection area:
+
+\begin{equation}
+    J_{\text{geo}} = \phi^2 \cdot T_{\text{geo}}
+    \label{eq:jarlskog_geo}
+\end{equation}
+
+\subsubsection{Numerical Result}
+
+Substituting the derived values ($\phi = 1.618033989...$, $T_{\text{geo}} = 1.18518 \times 10^{-5}$):
+
+\begin{equation}
+    J_{\text{geo}} = (1.618033989)^2 \cdot (1.18518 \times 10^{-5}) \approx \JarlskogVal
+\end{equation}
+
+\begin{itemize}
+    \item \textbf{Geometric Prediction:} $\JarlskogVal$
+    \item \textbf{Experimental Value:} $\JarlskogExperimentalValue$
+    \item \textbf{Accuracy:} \JarlskogAccText
+\end{itemize}
+
+\subsubsection{Physical Interpretation}
+
+This derivation establishes that CP violation is not an arbitrary feature of quark mixing, but a \emph{geometric necessity} of projecting a 5-fold symmetric lattice onto 4D spacetime. The arrow of time (matter-antimatter asymmetry) is the geometric price paid for embedding $E_8$ in our universe.
+
+\textbf{Forward Link to Paper III:} The CKM matrix elements must conspire to produce exactly this value of $J$. Paper III demonstrates that the derived mixing angles satisfy this constraint to within $0.3\%$, confirming that flavor mixing is the mechanical implementation of this geometric boundary condition.
