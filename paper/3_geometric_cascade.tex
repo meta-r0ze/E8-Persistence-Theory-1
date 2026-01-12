@@ -52,8 +52,10 @@ The following tables outline the architectural layers of the $E_8$ lattice proje
     \item \textbf{\hyperref[tab:system_InvariantSubstrate]{System I}:} The Lattice Substrate (5 invariants).
     \item \textbf{\hyperref[tab:system_EntropicAction]{System II}:} The Entropic Dynamics (Lagrangian).
     \item \textbf{\hyperref[tab:system_GeometricImpedance]{System III}:} The Geometric Impedance ($\alpha^{-1}$).
-    \item \textbf{\hyperref[tab:system_EffectiveFieldLimits]{System IV}:} The Effective Field Limits (Standard Model Constants).
-    \item \textbf{\hyperref[tab:system_ArchitectureOfMatter]{System V}:} Architecture of Matter (Particles)
+    \item \textbf{\hyperref[tab:system_SurfaceRegulator]{System IV}:} The Surface Regulator (Higgs Field)
+    \item \textbf{\hyperref[tab:system_BulkRegulator]{System V}:} The Bulk Regulator (Gravity).  
+    \item \textbf{\hyperref[tab:system_EffectiveFieldLimits]{System VI}:} The Effective Field Limits (Standard Model Constants).
+    \item \textbf{\hyperref[tab:system_ArchitectureOfMatter]{System VII}:} Architecture of Matter (Particles)
 \label{}
 
 \end{itemize}
@@ -83,7 +85,6 @@ The following tables outline the architectural layers of the $E_8$ lattice proje
 \multicolumn{5}{c}{\textbf{Active Invariant Set} $\mathbb{S} = \{ \Delta=43, \nu=16, \sigma=5, D=4, \chi=2 \}$} \\
 \multicolumn{5}{c}{\textit{These 5 integers are the sole inputs exported to System II.}} \\
 \bottomrule
-
 \multicolumn{5}{l}{\textit{The Derived Capacities}} \\
 \textbf{Substrate ($S$)} & Systemic Channel & $H_{sys} = \nu+\sigma+\chi$ & \textbf{\InvHSys} & \textbf{Active Bandwidth:} Sum of active pillars. \\
 \textbf{Substrate ($S$)} & Full Budget & $H_{full} = H_{sys} + 2D$ & \textbf{\InvHFull} & \textbf{Total Load:} Including spacetime overhead. \\
@@ -94,7 +95,7 @@ The following tables outline the architectural layers of the $E_8$ lattice proje
 
 \begin{table*}[h]
 \centering
-\caption{\textbf{System II: The Geometric Impedance ($\alpha^{-1}$).} Geometric costs required to sustain a coherent signal against the entropy of the manifold. }
+\caption{\textbf{System III: The Geometric Impedance ($\alpha^{-1}$).} Geometric costs required to sustain a coherent signal against the entropy of the manifold. }
 \label{tab:system_GeometricImpedance}
 \renewcommand{\arraystretch}{1.5}
 \setlength{\tabcolsep}{6pt}
@@ -122,7 +123,62 @@ The following tables outline the architectural layers of the $E_8$ lattice proje
 
 \begin{table*}[h]
 \centering
-\caption{\textbf{System IV: The Effective Field Limits.} The physical constants of the Standard Model derived as the operational outputs of the Vacuum Impedance on the $E_8$ lattice.}
+\caption{\textbf{System IV: The Surface Regulator (Higgs Field).} The nested persistent system that impedance-matches the lattice resonance to the weak force aperture, creating the Mass Scale.}
+\label{tab:system_SurfaceRegulator}
+\renewcommand{\arraystretch}{1.5}
+\setlength{\tabcolsep}{6pt}
+\begin{tabular}{@{} l l c r l @{}} 
+\toprule
+\textbf{IE Pillar} & \textbf{Component} & \textbf{Derivation} & \textbf{Value} & \textbf{Physical Function} \\
+\midrule
+\textbf{Substrate ($S$)} & Electroweak Condensate & System I & $\mathbb{C}_{vac}$ & The scalar fluid filling the lattice. \\
+\midrule
+\textbf{Energy Vessel ($\Delta E$)} & VEV ($v$) & $(\chi \Delta^2 - I_s)\alpha^{-1}m_e$ & $\mathbf{246}$ GeV & \textbf{Capacity:} The regulator energy depth. \\
+\textbf{Info. Model ($\Delta I$)} & Charge Identity & $Y=1/\Delta^0$ & $\mathbf{+1}$ & \textbf{Identity:} Scalar ground state (Hypercharge). \\
+\textbf{Protocol ($MI$)} & Self-Coupling ($\lambda$) & $\frac{\sigma-\chi-1/\Delta}{H_{sys}}$ & $\mathbf{0.129}$ & \textbf{Coordination:} Bandwidth for self-interaction. \\
+\textbf{Governor ($G$)} & Potential Governor & $\lambda |\phi|^4$ & Potential & \textbf{Stability:} Prevents field divergence. \\
+\addlinespace
+\multicolumn{5}{l}{\textit{The Thermodynamic Taxes}} \\
+\textbf{Temporal Tax ($T$)} & Instability ($T_H$) & $2\lambda$ & $\mathbf{0.259}$ & \textbf{Symmetry Breaking:} Cost of the false vacuum ($\mu^2$). \\
+\textbf{Margin ($PM$)} & Yukawa Floor ($y_e$) & $PM_{geo}$ & $\mathbf{10^{-6}}$ & \textbf{Resolution:} Minimum coupled mass (Electron). \\
+\midrule
+\multicolumn{5}{c}{\textbf{Closure Condition:} $Z_H = \lambda^{-1} e^{-T_H} \approx 6 = (\sigma+1)$} \\
+\multicolumn{5}{c}{\textit{The system impedance matches the Weak Interaction Aperture.}} \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\begin{table*}[h]
+\centering
+\caption{\textbf{System V: The Bulk Regulator (Gravity).} The nested persistent system that attenuates bulk signals across the lattice depth, creating the Geometry Scale.}
+\label{tab:system_BulkRegulator}
+\renewcommand{\arraystretch}{1.5}
+\setlength{\tabcolsep}{6pt}
+\begin{tabular}{@{} l l c r l @{}} 
+\toprule
+\textbf{IE Pillar} & \textbf{Component} & \textbf{Derivation} & \textbf{Value} & \textbf{Physical Function} \\
+\midrule
+\textbf{Substrate ($S$)} & Lattice Bulk & System I & $E_8$ & The high-dimensional geometric core. \\
+\midrule
+\textbf{Energy Vessel ($\Delta E$)} & Planck Mass ($M_P$) & $m_e / \sqrt{\alpha_G}$ & $\mathbf{10^{19}}$ GeV & \textbf{Capacity:} The Unity Threshold ($\alpha_G \to 1$). \\
+\textbf{Info. Model ($\Delta I$)} & Tensor Mode & Spin-2 & $h_{\mu\nu}$ & \textbf{Identity:} Traceless transverse metric perturbation. \\
+\textbf{Protocol ($MI$)} & Coupling ($\alpha_G$) & $B_{res} \cdot \alpha^{\Delta/2}$ & $\mathbf{10^{-45}}$ & \textbf{Efficiency:} Signal attenuation across depth. \\
+\textbf{Governor ($G$)} & Conservation & $\nabla_\mu T^{\mu\nu}=0$ & Action & \textbf{Stability:} Diffeomorphism invariance. \\
+\addlinespace
+\multicolumn{5}{l}{\textit{The Thermodynamic Taxes}} \\
+\textbf{Temporal Tax ($T$)} & Stiffness & $ds^2 \ge 0$ & $c$ & \textbf{Causality:} Enforcing the light cone limit. \\
+\textbf{Margin ($PM$)} & Planck Length ($\ell_P$) & $1/M_P$ & $\mathbf{10^{-35}}$ m & \textbf{Resolution:} The geometric bit size. \\
+\midrule
+\multicolumn{5}{c}{\textbf{Closure Condition:} $Z_G(M_P) = \sqrt{\alpha_G} \cdot (M_P/m_e) \equiv 1$} \\
+\multicolumn{5}{c}{\textit{The system impedance achieves Unity at the Planck Scale.}} \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+
+\begin{table*}[h]
+\centering
+\caption{\textbf{System VI: The Effective Field Limits.} The physical constants of the Standard Model derived as the operational outputs of the Vacuum Impedance on the $E_8$ lattice.}
 \label{tab:system_EffectiveFieldLimits}
 \renewcommand{\arraystretch}{1.5}
 \setlength{\tabcolsep}{6pt}
