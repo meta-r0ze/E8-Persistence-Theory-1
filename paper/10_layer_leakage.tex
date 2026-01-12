@@ -3,21 +3,23 @@
 \CatchFileBetweenTags{\CabibboAngleEq}{calculations/constants.tex}{CabibboAngleEq}
 
 \subsection{The Flavor Aperture: Cabibbo Angle (\texorpdfstring{$\theta_C$}{thetaC})}
-While the Weak Angle ($\theta_W$) governs the partition of forces, the Cabibbo Angle ($\theta_C$) governs the partition of generations (Flavor Mixing). In the Standard Model, this is an empirical parameter ($\sin\theta_C \approx 0.225$).
+While the Weak Angle ($\theta_W$) governs the partition of forces, the Cabibbo Angle ($\theta_C$) governs the partition of generations (Flavor Mixing). In the $E_8$-Persistence framework, this represents the **Geometric Leakage** between the resonant tiers of the lattice.
 
-In the $E_8$-Persistence framework, this angle represents the Geometric Leakage between the first and second resonant tiers of the lattice. It is determined by the ratio of the circular interface ($\pi$) to the active channel width ($\nu - \chi$):
+The leakage is determined by the ratio of the circular interface ($\pi$) to the active channel width of the flavor sector. The flavor width is the Total Chiral Capacity ($\nu$) minus the Topological Boundary ($\chi$):
 
 \begin{equation}
-    \sin \theta_C = \frac{\pi}{\nu - \chi} + \frac{\alpha}{\nu}
+\sin \theta_C = \frac{\text{Interface}}{\text{Flavor Channel}} = \frac{\pi}{\nu - \chi}
 \end{equation}
 
+Substituting $\nu=16$ and $\chi=2$:
 \begin{equation}
-    \sin \theta_C = \frac{\pi}{14} + \frac{\alpha}{16} \approx \mathbf{}
+\sin \theta_C = \frac{\pi}{14} \approx \mathbf{0.224399}
 \end{equation}
 
 \begin{itemize}
-    \item \textbf{Experimental Value:} \CabibboAngleExperimentalValue
-    \item \textbf{Accuracy:} The geometric prediction captures \textbf{99.9\%} of the observed mixing.
+    \item \textbf{Geometric Prediction:} \CabibboAngleExperimentalValue
+    \item \textbf{Experimental Value:} $0.2250 \pm 0.0007$
+    \item \textbf{Agreement:} Within $1\sigma$.
 \end{itemize}
 
-\textbf{Implication:} This confirms that flavor mixing is not random; it is the inevitable ``crosstalk" between lattice layers defined by the channel invariants.
+\textbf{Physical Function:} Flavor mixing is not a random quantum rotation. It is the inevitable geometric result of fitting a circular interaction ($\pi$) into a linear channel of width 14. The angle $\pi/14$ is the "Aperture" that allows matter to transition between generations.
