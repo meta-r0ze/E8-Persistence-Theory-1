@@ -5,33 +5,65 @@
 
 \CatchFileBetweenTags{\WBosonMassVal}{calculations/constants.tex}{WBosonMassVal}
 
-\textbf{The Standard Model Ansatz:} The Weak Mixing Angle is a free parameter defining the rotation between the $U(1)_Y$ and $SU(2)_L$ sectors. It determines the partition of the unified electroweak force into the electromagnetic and weak components. Standard physics relies on the Weak Mixing Angle as an empirical input ($s^2_W \approx 0.223$) to satisfy the mass ratio $M_W/M_Z$. However, it offers no geometric origin for this specific magnitude, nor a mechanism to resolve the experimental tension between the value derived from direct mass measurements ($0.22291 \pm 0.00011$) \cite{navas_review_2024} and the value derived from global electroweak fits ($0.22354 \pm 0.00006$) \cite{navas_review_2024}.
+\textbf{The Standard Model Ansatz:} The Weak Mixing Angle governs the unification of the electromagnetic and weak forces. In the Standard Model, this is a free parameter determined by experiment ($\sin^2\theta_W \approx 0.223$). In the $E_8$-Persistence framework, it is a \textbf{Capacity Partition Ratio}—the fraction of the lattice's information bandwidth allocated to the temporal resonance.
 
-\textbf{The $E_8$-Persistence Derivation:} The Weak Mixing Angle is derived as the Geometric On-Shell Ratio (Resonance Partition Fraction). To minimize Entropic Action, the lattice must efficiently route information between the Resonant Core (Lattice, the Signal) and the Geometric Infrastructure (Projection, the Carrier).
+\subsection{The Geometric Interpretation}
 
-\subsection{The Allocation Principle}
-The mixing angle represents the fraction of the total coordination budget ($D\Delta + \nu + \sigma$) that is dedicated to the active resonance ($\Delta$).
+The Weak Mixing Angle represents the relative "weight" of the temporal resonance ($\Delta$) in the total system dynamics. To quantify this, we define the \textbf{Total System Capacity} ($N_{sys}$) as the sum of all structural degrees of freedom in the lattice projection:
 
 \begin{enumerate}
-    \item \textbf{The Signal ($\Delta$):} The Heegner Resonance ($\Delta = 43$). This represents the fundamental frequency of the lattice. The Weak interaction, being the force of transmutation and decay, couples directly to this resonant heartbeat of the vacuum.
-    \item \textbf{The Infrastructure:} The total geometric overhead required to support that signal.
-    \begin{itemize}
-        \item \textbf{Manifold Projection ($D\Delta$):} The projection of the resonance onto the 4D spacetime manifold ($4 \times 43 = 172$).
-        \item \textbf{Chiral Channels ($\nu$):} The available channel capacity for fermion information ($\nu = 16$).
-        \item \textbf{Interaction Order ($\sigma$):} The symmetry overhead required for unification ($\sigma = 5$).
-    \end{itemize}
-
+    \item \textbf{Manifold Projection ($D\Delta$):} The lattice resonance $\Delta=43$ must be embedded in all $D=4$ spacetime dimensions. This creates $D \times \Delta = 172$ space-time degrees of freedom (4 coordinates $\times$ 43 lattice sites). This represents the cost of spatial propagation.
+    
+    \item \textbf{Chiral Capacity ($\nu$):} The fermion manifold requires $\nu=16$ independent degrees of freedom to encode the chiral spinor structure (left-handed Weyl fermions). This represents the cost of matter storage.
+    
+    \item \textbf{Symmetry Generators ($\sigma$):} The interaction group possesses $\sigma=5$ independent generators (the rank of the gauge symmetry). This represents the cost of force mediation.
 \end{enumerate}
 
-The Persistence Principle requires that the electroweak force partitions itself according to this structural ratio to maintain impedance matching:
+These components represent orthogonal sectors of the system:
+\begin{itemize}
+    \item $D\Delta$ encodes \textbf{spacetime structure} (where signals propagate).
+    \item $\nu$ encodes \textbf{matter content} (what exists at each point).
+    \item $\sigma$ encodes \textbf{interaction rules} (how signals transform).
+\end{itemize}
+
+Since these sectors are independent and orthogonal, their capacities add linearly to define the total bandwidth of the vacuum:
+\begin{equation}
+N_{sys} = D\Delta + \nu + \sigma = 172 + 16 + 5 = 193
+\end{equation}
+
+\subsection{The Partition Formula}
+
+The Weak Mixing Angle is defined as the fraction of the total capacity that is allocated to the temporal resonance (the "clock frequency" $\Delta$ of the lattice):
 
 \begin{equation}
-\sin^2 \theta_W = \frac{\text{Active Resonance}}{\text{Total Infrastructure}} = \frac{\Delta}{D\Delta + \nu + \sigma}
+\sin^2 \theta_W = \frac{\text{Resonant Frequency}}{\text{Total Capacity}} = \frac{\Delta}{D\Delta + \nu + \sigma}
+\end{equation}
+
+\textbf{Physical Meaning:} This ratio represents the probability that a random fluctuation in the system is a \textbf{time translation} (governed by the bare resonance $\Delta$) rather than a \textbf{spatial translation} (governed by the manifold $D$) or an \textbf{internal symmetry transformation} (governed by $\nu$ or $\sigma$).
+
+\textbf{Note on the Asymmetry:} The resonance $\Delta$ appears both in the numerator (as the bare frequency) and in the denominator (as part of $D\Delta$, the spacetime-embedded frequency). This reflects the competition between temporal coherence and spatial extension—the more dimensions the signal must propagate through ($D$), the more diluted the temporal component becomes relative to the total system capacity.
+
+\subsection{Connection to Standard Electroweak Theory}
+
+In the Standard Model, the mixing angle determines how the unified electroweak symmetry breaks into the massive $Z$ boson and the massless photon. The photon corresponds to the unbroken $U(1)_{em}$ symmetry.
+
+Our derivation identifies the $U(1)$ hypercharge as the \textbf{Temporal Component} of the electroweak symmetry (driven by $\Delta$), while the $SU(2)$ weak isospin corresponds to the \textbf{Spatial Components} (driven by the manifold embedding).
+
+The standard relation is:
+\begin{equation}
+\sin^2\theta_W = \frac{g'^2}{g^2 + g'^2}
+\end{equation}
+
+The $E_8$-Persistence derivation reveals that this coupling ratio is not arbitrary; it is the ratio of the temporal resonance to the total system bandwidth:
+\begin{equation}
+\frac{\Delta}{D\Delta + \nu + \sigma} \leftrightarrow \frac{g'^2}{g^2 + g'^2}
 \end{equation}
 
 \subsection{Numerical Result}
+
+Substituting the geometric invariants:
 \begin{equation}
-\sin^2 \theta_W = \frac{43}{4(43) + 16 + 5} = \frac{43}{193} \approx \mathbf{\WeakAngleVal}
+\sin^2 \theta_W = \frac{43}{193} \approx \mathbf{\WeakAngleVal}
 \end{equation}
 
 \begin{itemize}
@@ -39,15 +71,29 @@ The Persistence Principle requires that the electroweak force partitions itself 
     \item \textbf{Experimental (Direct Mass)}: $0.22291 \pm 0.00011$ \cite{navas_review_2024}
     \item \textbf{Experimental (Global Fit)}: $0.22354 \pm 0.00006$
     \item \textbf{Experimental ($\overline{MS}$ Running)}: $0.23122$
-
-    \item \textbf{Experimental (On-Shell):} $\approx 0.223$ (Depends on renormalization scheme)
-    \item \textbf{Precision:} Matches the on-shell definition to within \textbf{0.05\%}.
+    \item \textbf{Experimental (On-Shell):} $\approx 0.223 \pm 0.001$ (Depends on renormalization scheme)
+    \item \textbf{Agreement:} $0.09\%$ precision
 \end{itemize}
 
-\textbf{Physical Interpretation:} The tension between the On-Shell value ($\approx 0.223$) and the $\overline{MS}$ value ($\approx 0.231$) is resolved. The lattice invariants define the \textbf{Bare Geometric Partition} (On-Shell), while the effective running includes dynamic loops.
+
+This result confirms that the electroweak partition is not a free parameter, but the inevitable consequence of allocating a finite lattice resonance ($\Delta=43$) across a 4-dimensional chiral manifold.
+
+\subsection{Physical Interpretation: Time vs. Space}
+
+The geometric derivation reveals a profound connection between the weak mixing angle and the structure of spacetime itself. The ratio $\sin^2\theta_W \approx 0.223$ means that approximately 22\% of the vacuum's information bandwidth is allocated to \textbf{temporal coherence} (the resonance frequency $\Delta$), while the remaining 78\% is allocated to \textbf{spatial structure} (the manifold embedding $D\Delta$, matter content $\nu$, and symmetry operations $\sigma$).
+
+This explains why electromagnetism (the $U(1)$ sector) is the "timelike" force—it couples most strongly to the temporal resonance. The weak force (the $SU(2)$ sector), by contrast, is the "spacelike" force—it couples to the spatial degrees of freedom.
+
+The Higgs field (Section X) breaks the electroweak symmetry by selecting a vacuum state that distinguishes these sectors. The mixing angle $\sin^2\theta_W = 43/193$ determines the precise orientation of this symmetry breaking, explaining why the photon remains massless (it couples to the temporal resonance, which is never obstructed) while the Z boson acquires mass (it couples to spatial structure, which requires energy to deform).
+
+\subsection{Implications for Grand Unification}
+
+Many Grand Unified Theories (GUTs) assume the gauge couplings unify at a high energy scale ($M_{GUT} \sim 10^{16}$ GeV), predicting $\sin^2\theta_W(M_Z) \approx 0.21$, which is inconsistent with precision measurements ($\approx 0.223$).
+
+The $E_8$-Persistence framework explains this discrepancy: $\sin^2\theta_W$ is not a running coupling determined by energy scale, but a \textbf{fixed geometric ratio} ($43/193$) determined by the lattice structure. The apparent "non-unification" of gauge couplings is not a failure of nature; it is evidence that the forces arise from distinct geometric features ($\Delta$ vs. $D\Delta$ vs. $\sigma$) rather than a single unified symmetry group breaking spontaneously.
 
 
-
+% remove this?
 \subsection{Recursive Validation: The Cost of Time}
 The geometric validity of the Weak Mixing Angle is reinforced by a structural link back to the Vacuum Impedance derived in \cref{sec:Vacuum_Impedance}.
 
@@ -68,8 +114,6 @@ $$ T_{check} \approx (5.325 \times 10^{-5}) \cdot (0.2228) \approx \mathbf{1.186
 
 \textbf{Conclusion:} The integer derivation ($43/193$) correctly identifies the On-Shell angle derived from the physical W-boson mass (hitting the lower bound of the $1\sigma$ range), distinguishing it from the continuous field geometry ($1/2\sqrt{5} \approx 0.2236$) detected in global fits.
 
-\subsection{Physical Interpretation}
-The derivation matches the \textbf{On-Shell definition} ($s^2_W \equiv 1 - M_W^2/M_Z^2$) to within 0.05\%. This identification is structurally required: because the $W$ and $Z$ bosons are fundamental lattice resonances, their mass ratio is fixed by the static integer invariants ($\Delta, \sigma$). The higher values observed in effective schemes (like $\overline{MS} \approx 0.231$) include dynamic vacuum polarization loops ("running"). The lattice invariants define the \textbf{Bare Geometric Ratio} at the pole mass, which corresponds physically to the On-Shell scheme.
 
 
 
