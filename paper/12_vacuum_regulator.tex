@@ -105,13 +105,39 @@ Y_H = \frac{1}{\Delta^0} = 1
 
 This unitary charge ($Y=1$) combined with the topological boundary constraint ($\chi=2$) mandates the $SU(2)_L$ doublet structure ($\mathbf{2}$) required for the Information Model to interface with the Chiral Diode ($\nu=16$).
 
-\subsection{Coordination Protocol (\texorpdfstring{$MI_H$}{MI}): Self-Coupling (\texorpdfstring{$\lambda$}{lambda})}
-The self-coupling $\lambda$ represents the \textbf{Coordination Protocol} of the Higgs system. It determines the bandwidth allocated for self-interaction to maintain field coherence.
 
-$\lambda$ is defined as the fraction of the Total Systemic Capacity ($H_{sys}$) reserved for the Interaction Remainder (Color/Strong Force). However, to sustain temporal coherence against the lattice oscillation ($\Delta$), the system must pay a \textbf{Resonant Tax} of one unit of inverse-bandwidth ($1/\Delta$). This represents the metabolic cost of maintaining coherence across the fundamental oscillation period: as the lattice "breathes" at frequency $\Delta$, the Higgs field must continuously re-synchronize its phase, consuming bandwidth proportional to $1/\Delta$.
+
+
+
+\subsection{Coordination Protocol (\texorpdfstring{$MI_H$}{MI}): Self-Coupling (\texorpdfstring{$\lambda$}{lambda})}
+The self-coupling $\lambda$ represents the Coordination Protocol of the Higgs system. In Informational Energetics, coupling constants are bandwidth allocations. $\lambda$ determines what fraction of the total system capacity is reserved for the scalar field to maintain its own coherence (self-interaction).
 
 \begin{equation}
-\lambda = \frac{\text{Interaction Remainder} - \text{Resonant Tax}}{\text{System Capacity}} = \frac{(\sigma - \chi) - \frac{1}{\Delta}}{\nu + \sigma + \chi}
+\lambda = \frac{\text{Interaction Remainder} - \text{Resonant Tax}}{\text{System Capacity}} 
+\end{equation}
+
+We derive this coupling as the Net Available Bandwidth normalized by the Total Systemic Channel.
+
+\subsubsection{1. The Net Available Bandwidth}
+The bandwidth available for the scalar sector starts with the Interaction Remainder (the surplus symmetry capacity, $\sigma - \chi = 3$).
+
+However, the Higgs field is not static; it is a resonant excitation oscillating at the lattice frequency $\Delta$. To maintain phase coherence across the fundamental time period, the system must pay a Resonant Tax of one unit of inverse-bandwidth ($1/\Delta$). This acts as the "synchronization cost" or "clock cycle overhead" of the regulator.
+
+\begin{equation}
+\text{Net Bandwidth} = (\sigma - \chi) - \frac{1}{\Delta} = 3 - \frac{1}{43} \approx 2.9767
+\end{equation}
+
+\subsubsection{2. The Systemic Channel ($H_{sys}$)}
+This net bandwidth is normalized by the total active degrees of freedom in the system ($H_{sys}$), representing the full pipe through which the coupling must act.
+\begin{equation}
+H_{sys} = \nu + \sigma + \chi = 16 + 5 + 2 = 23
+\end{equation}
+
+\subsubsection{3. The Coupling Derivation}
+The self-coupling is the ratio of the net available bandwidth to the total channel capacity:
+
+\begin{equation}
+\lambda = \frac{(\sigma - \chi) - 1/\Delta}{H_{sys}}
 \end{equation}
 
 \begin{equation}
@@ -122,6 +148,9 @@ $\lambda$ is defined as the fraction of the Total Systemic Capacity ($H_{sys}$) 
     \item \textbf{Experimental Value:} \HiggsLambdaExperimentalValue
     \item \textbf{Accuracy:} \HiggsLambdaAccText
 \end{itemize}
+
+\textbf{Physical Interpretation:} The Higgs self-coupling is not an arbitrary number. It is the specific fraction of vacuum bandwidth ($\approx 13\%$) remaining for self-regulation after paying the entropic tax for temporal synchronization ($1/\Delta$). The high precision of this derivation ($0.3\%$ vs $1.1\%$ without the tax) confirms that the Higgs is a dynamic, resonant system, distinct from static geometric apertures like the Cabibbo angle.
+
 
 
 
