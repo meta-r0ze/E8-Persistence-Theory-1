@@ -291,11 +291,13 @@ Before calculating coupling strengths, we need to define the total bandwidth ava
 \begin{itemize}
     \item \textbf{The Systemic Channel ($H_{sys}$):} The sum of the active degrees of freedom available for information storage (Chiral + Interaction + Boundary).
     \begin{equation}
-    H_{sys} = \nu + \sigma + \chi = 16 + 5 + 2 = \mathbf{23}
+        \label{eq:hsys}
+        H_{sys} = \nu + \sigma + \chi = 16 + 5 + 2 = \mathbf{23}
     \end{equation}
             \item \textbf{The Full Persistence Budget ($H_{full}$):} The total operating cost for a persistent structure. This includes not only the internal complexity of the state ($H_{sys}$) but also the \textbf{Spacetime Embedding Cost}, the overhead required to anchor a quantum spinor to the manifold. This cost is $2D$. The factor of 2 arises from the \textbf{spinor double cover}; unlike a simple vector, a spinor must be rotated by $720^\circ$ to return to its original state. The system must therefore pay a cost for each of the $D$ dimensions twice to fully define the embedded state.
     \begin{equation}
-    H_{full} = H_{sys} + 2D = 23 + 8 = \mathbf{31}
+        \label{eq:hfull}
+        H_{full} = H_{sys} + 2D = 23 + 8 = \mathbf{31}
     \end{equation}
 \end{itemize}
 

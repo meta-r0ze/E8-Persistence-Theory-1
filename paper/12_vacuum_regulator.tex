@@ -204,27 +204,66 @@ m_H = \sqrt{2 (0.12942)} \cdot (\HiggsVEVVal \text{ GeV}) \approx \mathbf{\Higgs
     \item \textbf{Accuracy:} \HiggsMassAccText
 \end{itemize}
 
-\subsection{Persistence Margin (\texorpdfstring{$PM_H$}{PM}): The Electron Yukawa (\texorpdfstring{$y_e$}{ye})}
-The final component is the resolution floor of the regulator. The \textbf{Persistence Margin} ($PM$) derived in System II represents the smallest non-zero bit of mass the lattice can resolve against thermal noise. This sets the coupling of the lightest charged particle (the Electron).
+
+
+
+\subsection{Persistence Margin ($PM$): The Electron Yukawa ($y_e$)}
+
+The final component of the vacuum architecture is the resolution floor. The Persistence Margin ($PM$) represents the smallest non-zero bit of mass the lattice can resolve against thermal noise. This determines the coupling of the lightest charged particle (the Electron).
+
+We derive this scale as the Unit Bit (1) diluted over the Total Configuration Space Volume of the resonant system.
 
 \begin{equation}
-    y_{e, bare} = PM_{geo} = \frac{1}{H_{full} \cdot (\sigma + 1) \cdot \Delta^2} \approx 2.9077 \times 10^{-6}
+y_{e,bare} = \frac{1}{V_{config}} = \frac{1}{H_{full} \cdot (\text{Aperture}) \cdot (\text{Area})}
 \end{equation}
 
-Applying the standard electromagnetic self-energy correction $(1+\alpha)$:
+\begin{itemize}
+    \item \textbf{Operational Budget ($H_{full} = 31$):} The total number of degrees of freedom required to define a persistent state (\cref{eq:hfull}).
+    \item \textbf{Weak Aperture ($\sigma + 1 = 6$):} The electron couples via the weak interaction symmetry ($\sigma=5$) plus the vacuum unit ($1$).
+    \item \textbf{Resonant Area ($\Delta^2 = 43^2$):} The geometric area of the fundamental lattice resonance ($1849$ lattice sites).
+\end{itemize}
+
 \begin{equation}
-    y_{e, phys} \approx 2.9077 \times 10^{-6} (1.00730) \approx \ElectronYukawaVal
+y_{e,bare} = \frac{1}{31 \cdot 6 \cdot 43^2} = \frac{1}{343,914} \approx 2.9077 \times 10^{-6}
 \end{equation}
 
-\textbf{Validation:} This matches the Standard Model value $y_e = \sqrt{2}m_e/v$ to within $0.2\%$, confirming the electron exists at the absolute limit of the vacuum's resolution.
+\subsubsection{Radiative Correction}
+The bare geometric value represents the coupling of the naked topological knot. However, a charged particle cannot exist in isolation; it is surrounded by an electromagnetic field. We apply the self-energy correction factor $(1+\alpha)$ to account for the total effective coupling of the particle plus its field:
 
-\subsection{Closure: The Impedance Matching Condition}
+\begin{equation}
+y_{e,phys} \approx y_{e,bare} \cdot (1 + \alpha)
+\end{equation}
+
+Substituting $\alpha \approx 1/\AlphaInvVal$\dots:
+\begin{equation}
+y_{e,phys} \approx 2.9077 \times 10^{-6}  \cdot 1.00730 \approx \mathbf{\ElectronYukawaVal}
+\end{equation}
+
+\subsubsection{Validation}
+We compare this geometric derivation to the Standard Model definition of the Electron Yukawa coupling:
+\begin{equation}
+y_e^{SM} = \frac{\sqrt{2} m_e}{v} = \frac{\sqrt{2} \cdot 0.511 \text{ MeV}}{246.22 \text{ GeV}} \approx 2.93 \times 10^{-6}
+\end{equation}
+
+\textbf{Result:} Our geometric prediction matches the Standard Model value to within 0.2\%.
+
+\subsubsection{Physical Interpretation}
+The electron exists at the absolute limit of the vacuum's resolution, the "noise floor" of the universe. Any mass coupling smaller than $y_e \approx 3 \times 10^{-6}$ cannot be distinguished from background fluctuations and will not form a stable charged particle.
+
+This geometric floor explains several fundamental features of the particle spectrum:
+\begin{itemize}
+    \item \textbf{Why the electron is stable:} It sits at the minimum resolvable mass. There is no "lower shelf" to decay to; the configuration space volume sets a hard lower bound for charged knots.
+    \item \textbf{Why neutrinos are so light:} Neutrinos (if massive) must have Yukawa couplings $y_\nu \ll y_e$, pushing them below the resolution floor. This implies they cannot acquire mass through the standard Higgs mechanism (which stops at $y_e$) but require a different mechanism (explored in Paper II).
+    \item \textbf{Absence of lighter particles:} The configuration space volume ($V_{config} \approx 3.4 \times 10^5$) prohibits the existence of any charged particle lighter than the electron. Anything smaller dissolves into the lattice geometry.
+\end{itemize}
+
+\subsubsection{Closure: The Impedance Matching Condition}
 If the Higgs is a functional regulator, its total internal impedance must match the aperture of the force it mediates (the Weak Interaction).
 
 \begin{enumerate}
     \item \textbf{Weak Aperture:} From the System I invariants, the Weak Force acts through the aperture defined by Symmetry plus the Vacuum Unit:
     $$ \text{Aperture} = \sigma + 1 = 6 $$
-    \item \textbf{Higgs Impedance ($Z_H$):} Defined by the ratio of Capacity ($v$) to Protocol ($\lambda$), modulated by the Temporal Tax ($e^{-T_H} = e^{-2\lambda}$):
+    \item \textbf{Higgs Impedance ($Z_H$):} Defined as the \textbf{Inverse Protocol} ($1/\lambda$) modulated by the \textbf{Temporal Tax} ($e^{-T_H} = e^{-2\lambda}$), representing the effective resistance of the field after accounting for instability losses:
     \begin{equation}
     Z_H(\lambda) = \frac{1}{\lambda} e^{-2\lambda}
     \end{equation}
@@ -236,6 +275,10 @@ Z_H \approx \frac{1}{0.129424} \cdot e^{-0.2588} \approx 7.726 \cdot 0.772 \appr
 \end{equation}
 
 The result $5.966 \approx 6$ (error $< 0.6\%$) confirms that the Higgs sector is not arbitrary. It is the unique geometric solution that \textbf{impedance-matches} the Lattice Resonance to the Weak Force Aperture.
+
+
+
+
 
 
 \subsection{Validation: The Higgs Satisfies the Persistence Principle}
