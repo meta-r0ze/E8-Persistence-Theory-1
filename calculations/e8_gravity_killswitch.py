@@ -109,19 +109,19 @@ from dataclasses import dataclass
 class LatticeConfig:
     L: int = 16            # Lattice dimension
     D: int = 4             # Manifold Rank
-    Epsilon: float = 1e-3  # GW Amplitude
+    h_amplitude: float = 1e-3  # GW Amplitude
     k_mode: int = 1        # Wave number (n) for k = 2pi*n/L
 
 # ==========================================
 # PHYSICS KERNEL
 # ==========================================
 @njit(parallel=True, fastmath=True)
-def compute_gradient_action(L, D, epsilon, k_mode, apply_perturbation):
+def compute_entropic_action(L, D, h_amplitude, k_mode, apply_perturbation):
     """
     Calculates the Lattice Action based on TENSOR FIELD GRADIENTS.
     Implements: S ~ Sum [ (h(x+1) - h(x))^2 ]
     """
-    total_energy = 0.0
+    action_cost = 0.0
     N_sites = L**D
     
     # Momentum scalar k (propagating in x3)
@@ -154,18 +154,18 @@ def compute_gradient_action(L, D, epsilon, k_mode, apply_perturbation):
             # Site x
             c_curr = np.cos(phase_curr)
             s_curr = np.sin(phase_curr)
-            val_11_curr = epsilon * c_curr
-            val_22_curr = -epsilon * c_curr
-            val_12_curr = epsilon * s_curr
-            val_21_curr = epsilon * s_curr
+            val_11_curr = h_amplitude * c_curr
+            val_22_curr = -h_amplitude * c_curr
+            val_12_curr = h_amplitude * s_curr
+            val_21_curr = h_amplitude * s_curr
             
             # Site x+1
             c_next = np.cos(phase_next)
             s_next = np.sin(phase_next)
-            val_11_next = epsilon * c_next
-            val_22_next = -epsilon * c_next
-            val_12_next = epsilon * s_next
-            val_21_next = epsilon * s_next
+            val_11_next = h_amplitude * c_next
+            val_22_next = -h_amplitude * c_next
+            val_12_next = h_amplitude * s_next
+            val_21_next = h_amplitude * s_next
             
         # --- Finite Differences (Gradients) ---
         dh_11 = val_11_next - val_11_curr
@@ -177,9 +177,9 @@ def compute_gradient_action(L, D, epsilon, k_mode, apply_perturbation):
         # Contraction: (dh_uv) * (dh_uv)
         local_kinetic = (dh_11**2 + dh_22**2 + dh_12**2 + dh_21**2)
         
-        total_energy += local_kinetic
+        action_cost += local_kinetic
 
-    return total_energy
+    return action_cost
 
 # ==========================================
 # VERIFICATION ENGINE
@@ -198,21 +198,21 @@ class E8PersistenceVerifier:
     def run_check(self):
         print("\n[1/3] Compiling Physics Kernel...")
         # JIT Warmup
-        _ = compute_gradient_action(4, 4, 0.0, 1, False)
+        _ = compute_entropic_action(4, 4, 0.0, 1, False)
         
         # 1. Baseline
         print("[2/3] Measuring Vacuum State...")
-        E_0 = compute_gradient_action(self.config.L, self.config.D, 
-                                      self.config.Epsilon, self.config.k_mode, False)
+        E_0 = compute_entropic_action(self.config.L, self.config.D, 
+                                      self.config.h_amplitude, self.config.k_mode, False)
         
         # 2. Perturbed
         print("[3/3] Measuring Gravitational Wave State...")
-        E_h = compute_gradient_action(self.config.L, self.config.D, 
-                                      self.config.Epsilon, self.config.k_mode, True)
+        E_h = compute_entropic_action(self.config.L, self.config.D, 
+                                      self.config.h_amplitude, self.config.k_mode, True)
         
-        Delta_E = E_h - E_0
+        metabolic_cost = E_h - E_0
         
-        # 3. Kappa Extraction (Stiffness)
+        # 3. Kappa Extraction (Vacuum Stiffness)
         k_param = 2.0 * np.pi * self.config.k_mode / self.config.L
         
         # Geometry Factors for Analytic Normalization
@@ -220,7 +220,7 @@ class E8PersistenceVerifier:
         avg_sin_squared = self.config.L / 2.0
 
         # Wave Factors
-        # Note: We sum 4 components. h11, h22, h12, h21. All have amplitude epsilon.
+        # Note: We sum 4 components. h11, h22, h12, h21. All have amplitude h_amplitude.
         # So we multiply the single-component result by 4.
         num_components = 4.0 
         
@@ -228,20 +228,20 @@ class E8PersistenceVerifier:
         grad_factor = 4.0 * (np.sin(k_param / 2.0) ** 2)
         
         Expected_E = (vol_transverse * avg_sin_squared * 
-                      num_components * (self.config.Epsilon**2) * grad_factor)
+                      num_components * (self.config.h_amplitude**2) * grad_factor)
         
-        Kappa = Delta_E / Expected_E
+        Kappa = metabolic_cost / Expected_E
 
-        self.report_results(Delta_E, Expected_E, Kappa, k_param)
+        self.report_results(metabolic_cost, Expected_E, Kappa, k_param)
 
-    def report_results(self, Delta_E, Expected_E, Kappa, k):
+    def report_results(self, metabolic_cost, Expected_E, Kappa, k):
         print(f"\n{'-'*60}")
         print(f"RESULTS")
         print(f"{'-'*60}")
         print(f"Momentum (k):         {k:.4f}")
-        print(f"Delta Energy (Sim):   {Delta_E:.6e}")
+        print(f"Delta Energy (Sim):   {metabolic_cost:.6e}")
         print(f"Delta Energy (Exact): {Expected_E:.6e}")
-        print(f"Stiffness (Kappa):    {Kappa:.6f}")
+        print(f"Vacuum Stiffness (Kappa):    {Kappa:.6f}")
         print(f"{'-'*60}")
         
         # Tolerance checks
@@ -273,15 +273,15 @@ class E8PersistenceVerifier:
             vol_transverse = self.config.L ** (self.config.D - 1)
             avg_sin_sq = self.config.L / 2.0
             n_comps = 4.0
-            geom_base = vol_transverse * avg_sin_sq * n_comps * (self.config.Epsilon**2)
+            geom_base = vol_transverse * avg_sin_sq * n_comps * (self.config.h_amplitude**2)
 
             for k_n in k_modes:
                 # Run Simulation
-                E_0 = compute_gradient_action(self.config.L, self.config.D, 
-                                            self.config.Epsilon, k_n, False)
-                E_h = compute_gradient_action(self.config.L, self.config.D, 
-                                            self.config.Epsilon, k_n, True)
-                Delta_E = E_h - E_0
+                E_0 = compute_entropic_action(self.config.L, self.config.D, 
+                                            self.config.h_amplitude, k_n, False)
+                E_h = compute_entropic_action(self.config.L, self.config.D, 
+                                            self.config.h_amplitude, k_n, True)
+                metabolic_cost = E_h - E_0
                 
                 # Physics Parameters
                 k_val = 2.0 * np.pi * k_n / self.config.L
@@ -293,9 +293,9 @@ class E8PersistenceVerifier:
                 E_theory = geom_base * lattice_k2
                 
                 # Ratio (Should be 1.000 if massless)
-                ratio = Delta_E / E_theory
+                ratio = metabolic_cost / E_theory
                 
-                print(f"n={k_n:<3}  | {k_val:.4f}   | {Delta_E:.4e}   | {ratio:.6f}")
+                print(f"n={k_n:<3}  | {k_val:.4f}   | {metabolic_cost:.4e}   | {ratio:.6f}")
 
             print("-" * 55)
 
