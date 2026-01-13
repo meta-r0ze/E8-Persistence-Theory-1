@@ -13,3 +13,11 @@ To regenerate the values for $\alpha^{-1}$, $\alpha_s$, $G_F$, etc., run:
 ```bash
 python calculations/constants.py
 ```
+To re-generate the latex output that is used in the paper
+```bash
+python calculations/constants.py --latex
+```
+To run the lattice simulation to recover Einstein-Hilbert k^2 scaling and checking E(k) against Lattice Goldstone predictions
+```bash
+python calculations/e8_gravity_killswitch.py
+```
