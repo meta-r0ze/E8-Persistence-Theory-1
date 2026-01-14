@@ -11,7 +11,7 @@ The system is governed by the **Principle of Minimal Entropic Action**. The prob
 P(\psi) = \frac{1}{Z} e^{-S_{E_8}(\psi)} \quad \text{where} \quad Z = \sum_{\psi \in \Omega} e^{-S_{E_8}(\psi)}
 \end{equation}
 
-Here, $S_{E_8}$ is the Informational Action. This functional acts as the lattice \textbf{``Ice Rule''}: it assigns infinite entropic cost to any configuration that violates the geometric invariants, ensuring that only the state satisfying $\mathbb{S}$ survives in the thermodynamic limit ($\beta \to \infty$).
+Here, $S_{E_8}$ is the Entropic Action. This functional acts as the lattice \textbf{``Ice Rule''}: it assigns infinite entropic cost to any configuration that violates the geometric invariants, ensuring that only the state satisfying $\mathbb{S}$ survives in the thermodynamic limit ($\beta \to \infty$).
 
 \subsubsection{The Informational Hamiltonian}
 We define the effective Hamiltonian $H_{info}$ as a sum of four penalty potentials corresponding to the Persistence Filters: Unitarity, Causality, Solvency, and Symmetry.
@@ -189,7 +189,7 @@ This recovers the "Optical Metric" (derived cosmologically in Paper IV), where t
 \subsubsection{Recovery of Einstein-Hilbert Dynamics}
 To ensure this mode obeys Einstein-Hilbert dynamics rather than scalar gravity, we examine the coupling to the trace of the energy-momentum tensor.
 
-In lattice loop models (analogous to Spinfoam LQG), the interaction energy of a defect is minimized by minimizing the curvature of the connection. The Informational Action for the metric field is the cost of deviations from the uniform capacity $\nu$:
+In lattice loop models (analogous to Spinfoam LQG), the interaction energy of a defect is minimized by minimizing the curvature of the connection. The Entropic Action for the metric field is the cost of deviations from the uniform capacity $\nu$:
 \begin{equation}
 S_{grav} \propto \int d^4x \sqrt{-g} \left( \nu - C(x) \right)^2 \propto \int d^4x \sqrt{-g} R
 \end{equation}
@@ -306,12 +306,12 @@ A deviation $\kappa \neq 1$ (outside finite-size scaling errors) would imply tha
 \subsection{The Thermodynamic Dual (Closed System Constraints)}
 Open systems (biological organisms, economies) persist by importing energy to maintain structure. A closed universe has no external source. The persistence criterion must therefore shift: rather than maximizing energy intake, the vacuum must minimize information loss.
 
-For a fundamental substrate, the maximum Information Density ($\mathbf{K}_{max}$) is geometrically bounded by the lattice structure. With structural capacity fixed, persistence requires minimizing the rate of information loss: Minimize Dissipative Action ($\lambda \to 0$).
+For a fundamental substrate, the maximum Information Density ($\mathbf{K}_{max}$) is geometrically bounded by the lattice structure. With structural capacity fixed, persistence requires minimizing the rate of information loss: Minimize Entropic Action ($\lambda \to 0$).
 
 This yields the \textbf{Entropic Action} ($S_\Phi$)-functionally isomorphic to the Euclidean Action in Lattice Field Theory, acting as the Information-Theoretic Dual to the Principle of Least Action.
 
 \subsection{The Dissipation Functional (\texorpdfstring{$\Phi_{drag}$}{Phidrag})}
-To link geometry to thermodynamics we define the exact mathematical form of ``Metabolic Cost'' as the product of structural complexity and rate of change.
+To link geometry to thermodynamics we define the exact mathematical form of Entropic Action as the product of structural complexity and rate of change.
 
 We define the instantaneous minimization of Entropic Action, $\Phi_{drag}$, as the rate of irreversible information loss. According to \textbf{Landauer's Principle}, processing information requires energy, and erasing information generates heat (entropy). We define the functional:
 
@@ -327,7 +327,7 @@ Where:
 \end{itemize}
 
 \subsection{The Action Integral}
-To maintain a consistent history, we extend the instantaneous metabolic cost to a cosmic integral defining the Entropic Action ($S_\Phi$). The Persistence Principle is formally stated as the requirement that the vacuum geometry be a stationary point of this action, minimizing the total dissipated energy $\mathcal{E}_{loss}$ over the manifold history:
+To maintain a consistent history, we extend the instantaneous Entropic Action to a cosmic integral defining the Entropic Action ($S_\Phi$). The Persistence Principle is formally stated as the requirement that the vacuum geometry be a stationary point of this action, minimizing the total dissipated energy $\mathcal{E}_{loss}$ over the manifold history:
 
 \begin{equation}
 S_\Phi = \int d^4x \, \mathcal{L}_\Phi = \int d^4x \, \xi \cdot \mathbf{K}[\psi] \cdot \lambda[\psi]
@@ -394,7 +394,7 @@ Fermions are identified as a Topological Closure (a knot) in the lattice. Their 
 
 \begin{itemize}
     \item \textbf{The Dirac Operator ($i\gamma^\mu D_\mu$):} Natural consequence of spin-1/2 propagation on a chiral substrate. The projection operator $P_L$ (derived in Appendix A.1) restricts the active degrees of freedom to the left-handed doublet, enforcing parity violation in the weak sector.
-    \item \textbf{The Mass Term ($-m\bar{\psi}\psi$):} This term represents the \textbf{Manifold Coupling Impedance}. In this framework, $m$ is not an arbitrary parameter, but the calculated \textbf{Geometric Impedance of the Knot}, the metabolic cost required for a topological defect to maintain its structure against the vacuum flux. As demonstrated in the sequel, this value is strictly determined by the resonant geometry of the lattice excitation, manifesting in the effective field theory as the Yukawa coupling.
+    \item \textbf{The Mass Term ($-m\bar{\psi}\psi$):} This term represents the \textbf{Manifold Coupling Impedance}. In this framework, $m$ is not an arbitrary parameter, but the calculated \textbf{Geometric Impedance of the Knot}, the Entropic Action required for a topological defect to maintain its structure against the vacuum flux. As demonstrated in the sequel, this value is strictly determined by the resonant geometry of the lattice excitation, manifesting in the effective field theory as the Yukawa coupling.
 \end{itemize}
 
 \subsubsection{Synthesis: The Effective Lagrangian}
@@ -432,7 +432,7 @@ The lattice is not infinite; it is bounded by the topological limit $\chi$. The 
 
 This formalizes the selection principle not as a decision-maker, but as the stress term that arises when the complexity $\mathbf{K}$ approaches the state space limit $C_{node}$ bits. When $\mathbf{K} \to C_{node}$, the energy cost diverges, creating the "Ultraviolet Cutoff" naturally. The lattice does not need renormalization, it is already finite.
 
-This term acts as a \textbf{Soft Ultraviolet Cutoff}. Unlike standard QFT which requires manual renormalization to handle infinities, the lattice naturally suppresses high-energy states where $\mathbf{K} \to C_{node}$ by assigning them infinite metabolic cost.
+This term acts as a \textbf{Soft Ultraviolet Cutoff}. Unlike standard QFT which requires manual renormalization to handle infinities, the lattice naturally suppresses high-energy states where $\mathbf{K} \to C_{node}$ by assigning them infinite Entropic Action.
 
 \textbf{Conclusion:} The Standard Model Lagrangian is identified as the \textbf{Unique Minimal Solution} to the Entropic Action. Any simpler Lagrangian fails to support the invariants $\{\nu, \sigma, \chi\}$; any more complex Lagrangian contains terms that are either topologically forbidden or dissipate energy unnecessarily (violating $\delta S_\Phi = 0$).
 
