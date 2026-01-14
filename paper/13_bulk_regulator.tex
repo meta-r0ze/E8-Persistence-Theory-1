@@ -32,7 +32,7 @@ Gravity acts as a complete persistent system nested within the bulk lattice. We 
 \subsection{Protocol (\texorpdfstring{$MI$}{MI}): The Attenuation Logic}
 To maintain persistence, the Gravity Protocol must propagate on the Residual Capacity, the bandwidth left over after the primary gauge allocations are filled.
 
-\subsubsection{1. Residual Capacity ($B_{res}$)}
+\subsubsection{1. Residual Capacity (\texorpdfstring{$B_{res}$}{Bres})}
 The available bandwidth for gravity is the Total Chiral Capacity ($\nu$) minus the allocations for Topological Storage and Surface Gauge Load.
 \begin{equation}
 B_{res} = \nu - \frac{\chi}{\sigma-\chi} - \alpha
@@ -43,7 +43,7 @@ B_{res} \approx 16 - 0.666 - 0.007 \approx \mathbf{\ResidualCapVal}
 \end{equation}
 
 \subsubsection{2. Harmonic Attenuation (The Lattice Depth)}
-A signal propagating from the core to the surface attenuates by the Vacuum Impedance ($\alpha$) for every unit of lattice depth. In information-theoretic terms, the radius $r$ acts as the \textbf{Optical Depth} of the substrate. Each lattice layer constitutes a discrete \textbf{Impedance Step}. For a signal traversing $r$ impedance-matched layers with transmission coefficient $\alpha$, the cumulative factor is $\alpha^r$, analogous to the Beer-Lambert law ($e^{-\tau}$).
+A signal propagating from the core to the surface attenuates by the Geometric Impedance ($\alpha$) for every unit of lattice depth. In information-theoretic terms, the radius $r$ acts as the \textbf{Optical Depth} of the substrate. Each lattice layer constitutes a discrete \textbf{Impedance Step}. For a signal traversing $r$ impedance-matched layers with transmission coefficient $\alpha$, the cumulative factor is $\alpha^r$, analogous to the Beer-Lambert law ($e^{-\tau}$).
 
 Because Gravity is a fundamental bulk resonance (a standing wave), its origin lies at the \textbf{Center of Mass} of the excitation. For a wave with wavelength $\Delta=43$, the center lies at the continuous midpoint:
 \begin{equation}
@@ -57,7 +57,7 @@ Where the \textbf{Lattice Depth} $r = \Delta/2 = 21.5$ is the geometric path len
 
 \textbf{Physical Interpretation:} At the electromagnetic coupling $\alpha \approx 1/137$, traversing 21.5 lattice layers suppresses the signal by a factor of $\alpha^{21.5} \approx 10^{-46}$. This exponential attenuation explains why gravity appears $10^{40}$ times weaker than electromagnetism—it is not intrinsically weak, but deeply attenuated by geometric depth.
 
-\subsubsection{3. The Gravitational Coupling ($\alpha_G$)}
+\subsubsection{3. The Gravitational Coupling (\texorpdfstring{$\alpha_G$}{alphaG})}
 The gravitational coupling is the product of the spare capacity (Bandwidth) and the attenuation factor (Depth). This represents the **Maximal Efficient Coupling** possible without disrupting the surface fields.
 \begin{equation}
 \alpha_G = B_{res} \cdot \alpha^{\Delta/2}
