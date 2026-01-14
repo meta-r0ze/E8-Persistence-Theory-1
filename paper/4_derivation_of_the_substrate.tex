@@ -33,7 +33,7 @@ Having established the manifold rank $D=4$ via Kneser's theorem and the chiral c
 \subsubsection{The Spinor Constraint}
 The metric must support the mapped capacity of the lattice. We analyze the Clifford algebra $Cl(p,q)$ associated with the manifold:
 \begin{enumerate}
-    \item \textbf{Euclidean (4,0):} The algebra is $Cl(4,0) \cong \mathbb{H}(2)$. This supports only real (quaternionic) spinors, which cannot encode the complex phase information required by the Chiral Diode ($\nu=16$ complex states).
+    \item \textbf{Euclidean (4,0):} The algebra is $Cl(4,0) \cong \mathbb{H}(2)$. This supports only real (quaternionic) spinors, which cannot encode the complex phase information required by the Chiral Capacity ($\nu=16$ complex states).
     \item \textbf{Lorentzian (3,1):} The algebra is $Cl(3,1) \cong \mathbb{C}(4)$. This naturally supports complex Weyl spinors ($\mathbf{2} \oplus \overline{\mathbf{2}}$), providing the exact structure required to host the $\nu=16$ chiral degrees of freedom.
 \end{enumerate}
 
@@ -95,7 +95,7 @@ The act of projecting the $E_8$ lattice is not a choice but a constraint; it for
 The selection of $\nu=16$ is mandated by the requirement for \textbf{Complex Representations}.
 \begin{enumerate}
     \item The Kneser decomposition $E_8 \to D_4 \oplus D_4$ establishes a local $Spin(8)$ symmetry. However, $Spin(8)$ representations are real (self-conjugate), preventing the distinction between matter and antimatter (Time Reversal Symmetry).
-    \item To satisfy the \textbf{Chiral Diode} requirement (Arrow of Time), the symmetry must break to a subgroup supporting complex spinors.
+    \item To satisfy the \textbf{Chiral Capacity} requirement (Arrow of Time), the symmetry must break to a subgroup supporting complex spinors.
     \item The minimal extension of $Spin(8)$ allowing complex chirality is $Spin(10)$ (corresponding to $SO(10)$). Its fundamental spinor has dimension $\Delta_{\text{spin}} = 2^{5-1} = \mathbf{16}$.
 \end{enumerate}
 Thus, $\nu=16$ is not a choice of gauge group, but the degrees of freedom required to establish a causal arrow of time on a 4D manifold.
@@ -169,7 +169,7 @@ The projection of the $E_8$ lattice's full state space ($N=32$, comprising the 1
 
 \begin{itemize}
     \item \textbf{The Constraint:} By the \textbf{Pigeonhole Principle}, if the timeline cycle ($\Delta$) is shorter than the number of distinct channels ($N=32$), at least two distinct lattice states will map to the same temporal coordinate.
-    \item \textbf{The Physical Consequence:} This creates \textbf{Causal Aliasing}. Matter (Left-Chiral) and Mirror (Right-Chiral) signals would collide, destroying the Chiral Diode and breaking time-ordering.
+    \item \textbf{The Physical Consequence:} This creates \textbf{Causal Aliasing}. Matter (Left-Chiral) and Mirror (Right-Chiral) signals would collide, destroying the Chiral Capacity and breaking time-ordering.
     \item \textbf{Requirement:} $\Delta > N = 32$. (See Appendix \ref{sec:DerivationOfTheCausalityConstraint} for the formal derivation of this constraint)
     \item \textbf{Eliminated:} $\{1, 2, 3, 7, 11, 19\}$.
     \item \textbf{Remaining Candidates:} $\{43, 67, 163\}$.
@@ -208,7 +208,7 @@ Before calculating numerical values, we must establish that the geometric invari
 \subsubsection{Uniqueness of the Gauge Group}
 Having established the local manifold symmetry as $Spin(8)$ and the required chiral capacity as $\nu=16$, we can now trace the symmetry breaking path. The Persistence Principle acts as a filter on the mathematically allowed subgroup chains, which are comprehensively cataloged by Slansky \cite{slansky_group_1981}. We are not free to choose any path; the path must preserve the necessary structures for persistence.
 
-The primary constraint is that the subgroup must support the complex, 16-dimensional spinor representation required by the Chiral Diode. The maximal subgroups of $Spin(8)$ do not meet this requirement directly. Therefore, the symmetry must first extend to a larger group before breaking. The minimal extension of $Spin(8)$ that contains a 16-dimensional complex spinor is $Spin(10)$.
+The primary constraint is that the subgroup must support the complex, 16-dimensional spinor representation required by the Chiral Capacity. The maximal subgroups of $Spin(8)$ do not meet this requirement directly. Therefore, the symmetry must first extend to a larger group before breaking. The minimal extension of $Spin(8)$ that contains a 16-dimensional complex spinor is $Spin(10)$.
 
 From $Spin(10)$, the descent must lead to a group that can embed the Standard Model. The Persistence Principle again constrains the choice. The breaking of $Spin(10)$ to the Standard Model gauge group $SU(3) \times SU(2) \times U(1)$ via the intermediate $SU(5)$ group is the unique pathway that simultaneously:
 \begin{enumerate}
