@@ -1,4 +1,5 @@
-\section{The Geometric Invariants} \label{sec:SystemI}
+\section{The Geometric Invariants}
+\label{sec:SystemI}
 
 To determine the physical architecture of reality, we do not start with observation; we start with the requirements of persistence. We posit that the vacuum self-organizes to maximize its information processing capability. In this section, we identify the unique geometric structure that satisfies the simultaneous thermodynamic and information-theoretic constraints of Informational Energetics.
 
@@ -64,7 +65,7 @@ While other decompositions exist (e.g., $E_8 \to A_8$), the $D_4 \oplus D_4$ spl
 This decomposition partitions the 8 dimensions into two orthogonal sectors with distinct physical roles:
 \begin{enumerate}
     \item \textbf{Sector A (External Spacetime):} The first $D_4$ lattice defines the coordinate addresses of the lattice nodes. Since $\text{Rank}(D_4)=4$, the observable universe is strictly fixed at \textbf{$D=4$}.
-    \item \textbf{Sector B (Internal Symmetry):} The second $D_4$ lattice encodes the internal state (charge, spin, isospin) at each coordinate. These dimensions do not manifest as spatial directions but as the \textbf{Gauge Symmetries} of the Standard Model (detailed in Appendix \ref{sec:RootInventoryAndStatePartition}).
+    \item \textbf{Sector B (Internal Symmetry):} The second $D_4$ lattice encodes the internal state (charge, spin, isospin) at each coordinate. These dimensions do not manifest as spatial directions but as the \textbf{Gauge Symmetries} of the Standard Model (detailed in \cref{app:RootInventoryAndStatePartition}).
 \end{enumerate}
 This structural partition explains why the universe appears 4-dimensional while possessing complex internal forces, without requiring the hidden spatial dimensions of Kaluza-Klein theory.
 
@@ -145,16 +146,19 @@ Finally, we derive the fundamental frequency of the lattice. This is the only dy
 \subsubsection{Filter 1: Unitarity (The "History" Constraint)}
 For a quantum system to preserve information (Unitarity), the evolution of states must be reversible. In a lattice based on integer arithmetic, this requires that every composite state must decompose into prime components in exactly one way (Unique Factorization).
 \begin{itemize}
-    \item \textbf{The Problem:} If the mathematical field defining the lattice has a ``Class Number" $h > 1$, unique factorization fails (e.g., $6 = 2 \times 3$ but also $6 = a \times b$). The system loses the history of how the state was formed.
+    \item \textbf{The Problem:} If the mathematical field defining the lattice has a ``Class Number" $h > 1$, unique factorization fails (e.g., $6 = 2 \times 3$ but also $6 = a \times b$). The system loses the history of how the state was formed. \textbf{Formal Constraint:} This requirement is rigorously enforced by the \textbf{Unitarity Potential} ($V_U$) in the partition function (\cref{app:partition-function}). Any state with $h > 1$ carries a non-zero entropic penalty and is statistically suppressed in the thermodynamic limit.
     \item \textbf{The Constraint:} The resonant number $\Delta$ must belong to the special set of integers where $h=1$. These are the Heegner Numbers.
     \item \textbf{Search Space:} $\{1, 2, 3, 7, 11, 19, 43, 67, 163\}$. (By the Stark-Heegner Theorem, no others exist).
 \end{itemize}
 
 \subsubsection{Filter 2: Causality (The "Bandwidth" Constraint)}
 The system must map the total capacity of the lattice ($N = 32$ channels) onto the timeline defined by $\Delta$.
+
 \begin{itemize}
-    \item \textbf{The Problem:} If the timeline cycle ($\Delta$) is shorter than the number of channels ($N$), the Pigeonhole Principle forces two distinct states to map to the same time coordinate. This creates ``Causal Aliasing" (Signal Collision).
-    \item \textbf{The Constraint:} To ensure every state has a unique address, we require $\Delta > N = 32$.
+    \item \textbf{The Problem:} If the timeline cycle ($\Delta$) is shorter than the number of channels ($N$), the Pigeonhole Principle forces two distinct states to map to the same time coordinate. This creates ``Causal Aliasing'' (Signal Collision), violating the Generalized Nyquist Limit derived in Appendix \ref{app:DerivationOfTheCausalityConstraint}.
+    
+    \item \textbf{The Constraint:}: To ensure every state has a unique address, we require $\Delta > N = 32$. In the statistical mechanics of the lattice, this acts as the \textbf{Causality Potential} ($V_C$), assigning infinite energy cost to any configuration where temporal aliasing occurs (see  \cref{app:partition-function}).
+    
     \item \textbf{Remaining Candidates:} $\{43, 67, 163\}$.
 \end{itemize}
 
@@ -171,7 +175,8 @@ The resonant frequency determines the stiffness of the vacuum ($\alpha^{-1} \app
 \textbf{Result:} $\Delta = 43$ is the unique integer solution.
 
 \subsection{Conclusion: The Invariant Set}
-We have successfully derived the complete set of inputs $\mathbb{S} = \{D=4, \Delta=43, \nu=16, \sigma=5, \chi=2\}$ without reference to experimental tuning. These are the unique eigenvalues of a self-dual information processing substrate satisfying persistence, unitarity, and causality constraints within the framework of even lattices and simple Lie groups.
+We have successfully derived the complete set of inputs $\mathbb{S} = \{D=4, \Delta=43, \nu=16, \sigma=5, \chi=2\}$ without reference to experimental tuning. 
+Mathematically, we identify this set not merely as a geometric preference, but as the \textbf{Gibbs State} of the $E_8$ lattice, the unique vacuum configuration that minimizes the Entropic Action defined by the Hamiltonian $H_{info}$ (detailed in \ref{app:partition-function}). The Standard Model is the thermodynamic ground state of this invariant set. These are the unique eigenvalues of a self-dual information processing substrate satisfying persistence, unitarity, and causality constraints within the framework of even lattices and simple Lie groups.
     
 \subsection{The Derived Capacities (System Output)} \label{sec:SystemicCapacities}
 Before proceeding to the coupling calculations (System II), we must define the total bandwidth available to the system based on the derived invariants. We distinguish between the \textit{informational content} of the lattice and the \textit{persistence budget} required to sustain it.
