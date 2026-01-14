@@ -172,3 +172,25 @@ The resonant frequency determines the stiffness of the vacuum ($\alpha^{-1} \app
 
 \subsection{Conclusion: The Invariant Set}
 We have successfully derived the complete set of inputs $\mathbb{S} = \{D=4, \Delta=43, \nu=16, \sigma=5, \chi=2\}$ without reference to experimental tuning. These are the unique eigenvalues of a self-dual information processing substrate satisfying persistence, unitarity, and causality constraints within the framework of even lattices and simple Lie groups.
+    
+\subsection{The Derived Capacities (System Output)} \label{sec:SystemicCapacities}
+Before proceeding to the coupling calculations (System II), we must define the total bandwidth available to the system based on the derived invariants. We distinguish between the \textit{informational content} of the lattice and the \textit{persistence budget} required to sustain it.
+
+\begin{enumerate}
+    \item \textbf{The Systemic Channel ($H_{sys}$):} The sum of the active degrees of freedom available for internal information storage (Chiral + Interaction + Boundary).
+    \begin{equation}
+        \label{eq:hsys}
+        H_{sys} = \nu + \sigma + \chi = 16 + 5 + 2 = \mathbf{23}
+    \end{equation} 
+    
+    \item \textbf{The Full Persistence Budget ($H_{full}$):} The total operating cost for a persistent structure. This adds the Spacetime Embedding Cost to the internal channel.
+    \begin{itemize}
+        \item \textit{The Spinor Tax:} Unlike a vector, a spinor must be rotated by $720^\circ$ (4$\pi$) to return to its original state (the spinor double cover). Consequently, the system must pay the existence cost for each of the $D$ dimensions \textbf{twice} to fully define an embedded state.
+    \end{itemize}
+    \begin{equation}
+        \label{eq:hfull}
+        H_{full} = H_{sys} + 2D = 23 + 8 = \mathbf{31}
+    \end{equation}
+\end{enumerate}
+
+\noindent \textbf{Note on the Speed of Light:} In this framework, $c$ is not a fundamental velocity, but the emergent \textbf{Channel Capacity Limit} of the substrate, derived from the lattice update rate. (Detailed derivation provided in Paper IV).
