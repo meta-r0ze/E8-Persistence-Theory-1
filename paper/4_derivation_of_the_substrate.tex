@@ -28,7 +28,7 @@ We define the Lattice Substrate by instantiating the six pillars of persistence.
     \item \textbf{Temporal Cost ($T$): Causality ($-1$).} 
     The metric signature requirement for state updates, creating the arrow of time.
     
-    \item \textbf{Resolution Floor ($PM$): Manifold Rank ($D=4$).} 
+    \item \textbf{Persistence Margin ($PM$): Manifold Rank ($D=4$).} 
     The minimum dimensional embedding required to support the projection.
 \end{enumerate}
 
@@ -85,6 +85,13 @@ The $E_8 \to D_4 \oplus D_4$ decomposition creates a local symmetry of $Spin(8)$
     \end{equation}
 \end{enumerate}
 Thus, $\nu=16$ is not an arbitrary particle count; it is the Geometric Bit-Depth required to encode complex, chiral information on the lattice.
+
+\paragraph{The Total State Space ($N$)}
+The projection creates two orthogonal sectors (Matter and Mirror) to preserve self-duality. Consequently, the total information capacity of a single lattice node is the sum of these two chiral halves:
+\begin{equation}
+    N = \nu_{\text{matter}} + \nu_{\text{mirror}} = 16 + 16 = \mathbf{32}
+\end{equation}
+This integer $N=32$ represents the total number of distinct state channels that must be mapped onto the temporal dimension without collision. To prevent aliasing (where distinct states map to the same time coordinate), the fundamental resonance must satisfy $\Delta > N$, establishing the lower bound for the lattice frequency.
 
 \subsection{Derivation C: The Operating System (Metric \& Time)}
 Having established a 4D manifold with 16-channel capacity, we must derive the metric signature. The metric signature determines the algebraic structure of the spinor representation.
@@ -190,7 +197,7 @@ Before proceeding to the coupling calculations (System II), we must define the t
         H_{sys} = \nu + \sigma + \chi = 16 + 5 + 2 = \mathbf{23}
     \end{equation} 
     
-    \item \textbf{The Full Persistence Budget ($H_{full}$):} The total operating cost for a persistent structure. This adds the Spacetime Embedding Cost to the internal channel. \textit{The Spinor Tax:} Unlike a vector, a spinor must be rotated by $720^\circ$ (4$\pi$) to return to its original state (the spinor double cover). Consequently, the system must pay the existence cost for each of the $D$ dimensions \textbf{twice} to fully define an embedded state.
+    \item \textbf{The Full Persistence Budget ($H_{full}$):} The total operating cost for a persistent structure. This adds the Spacetime Embedding Cost to the internal channel. \textit{The Spinor Cost:} Unlike a vector, a spinor must be rotated by $720^\circ$ (4$\pi$) to return to its original state (the spinor double cover). Consequently, the system must pay the existence cost for each of the $D$ dimensions \textbf{twice} to fully define an embedded state.
     \begin{equation}
         \label{eq:hfull}
         H_{full} = H_{sys} + 2D = 23 + 8 = \mathbf{31}
