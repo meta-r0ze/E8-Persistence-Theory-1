@@ -347,12 +347,14 @@ def main():
     # Derived Capacities
     H_SYS = NU + SIGMA + CHI
     H_FULL = H_SYS + (2 * D)
+    H_STRUCT = (DELTA * D) + NU
     N = 2 * NU
 
     if LATEX_MODE:
         # Output basic invariants as tags too if needed
         print(f"%<*InvHSys>{H_SYS}%</InvHSys>")
         print(f"%<*InvHFull>{H_FULL}%</InvHFull>")
+        print(f"%<*InvHStruct>{H_STRUCT}%</InvHStruct>")
         print(f"%<*InvN>{N}%</InvN>")
     elif not LATEX_MODE:
         print(f"Capacities: H_sys={H_SYS}, H_full={H_FULL}, N={N}")
@@ -498,11 +500,8 @@ def main():
     )
 
     # --- Higgs VEV ---
-    # The Structural Overhead (Static Cost)
-    I_S = (D * DELTA) + NU
-
     # 1. Tree Level (Bare Geometric Floor)
-    V_MEV_BARE = ((CHI * pow(DELTA, 2)) - I_S) * ALPHA_INV_GEO * REFS["me"].value
+    V_MEV_BARE = ((CHI * pow(DELTA, 2)) - H_STRUCT) * ALPHA_INV_GEO * REFS["me"].value
 
     # 2. Radiative Correction (Topological Screening)
     # The field is screened by the Effective Dimension D_eff = D + Chi/4pi.
@@ -705,6 +704,38 @@ def main():
         ref_key="Mp",
         unit="GeV",
         context="hierarchy scale"
+    )
+
+    # --- Higgs Impedance (Validation) ---
+    # 1. Weak Aperture Target (with Manifold Friction)
+    # The ideal aperture is (Sigma + 1) = 6.
+    # The projection onto the manifold (D*Delta) introduces a friction term 1/(D*Delta).
+    APERTURE_IDEAL = SIGMA + 1.0
+    FRICTION_FACTOR = 1.0 - (1.0 / (D * DELTA))
+    APERTURE_PROJECTED = APERTURE_IDEAL * FRICTION_FACTOR
+    
+    # 2. Higgs Impedance Calculation
+    # Z_H = (1/lambda) * exp(-2*lambda)
+    Z_HIGGS = (1.0 / LAMBDA_GEO) * math.exp(-2.0 * LAMBDA_GEO)
+    
+    print_derivation(
+        name="Higgs Impedance (Z_H)",
+        tag="HiggsImpedance",
+        formula_sym="(1/λ) * e^(-2λ)",
+        latex_sym=r"\frac{1}{\lambda}e^{-2\lambda}",
+        formula_num=f"(1/{LAMBDA_GEO:.4f}) * exp(-{2*LAMBDA_GEO:.4f})",
+        result=Z_HIGGS,
+        latex_mode=LATEX_MODE
+    )
+    
+    print_derivation(
+        name="Weak Aperture (Projected)",
+        tag="WeakApertureProj",
+        formula_sym="6 * (1 - 1/DΔ)",
+        latex_sym=r"(\sigma+1)(1 - \frac{1}{D\Delta})",
+        formula_num=f"6 * (1 - 1/{D*DELTA})",
+        result=APERTURE_PROJECTED,
+        latex_mode=LATEX_MODE
     )
 
     if not LATEX_MODE:
