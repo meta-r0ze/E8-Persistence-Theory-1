@@ -62,16 +62,12 @@ We define the Higgs architecture by instantiating the six pillars of persistence
 We calculate the static potential minimum defined by the lattice invariants.
 
 \subsubsection{The Bare Geometric Floor}
-The VEV is derived from the Lattice Resonance ($\Delta$) scaled by the structural overhead ($I_s$) and the vacuum impedance ($\alpha^{-1}$).
+The VEV is derived from the Lattice Resonance ($\Delta$) scaled by the structural overhead ($H_{struct}$) and the vacuum impedance ($\alpha^{-1}$).
 \begin{equation}
-I_s = \underbrace{(\Delta \cdot D)}_{\text{Spacetime Load}} + \underbrace{\nu}_{\text{Chiral Load}} = (43 \times 4) + 16 = 188
+v_{geo} = (\chi \Delta^2 - H_{struct}) \cdot \alpha^{-1} \cdot m_e 
 \end{equation}
-The structural overhead represents the total lattice load: embedding the resonance in spacetime plus maintaining chiral capacity.
+Substituting the invariants ($H_{struct} = 188$ from System I):
 
-\begin{equation}
-v_{geo} = (\chi \Delta^2 - I_s) \cdot \alpha^{-1} \cdot m_e 
-\end{equation}
-Substituting the invariants:
 \begin{equation}
 \begin{split}
 v_{geo} = (2 \cdot 43^2 - 188) \cdot \AlphaInvVal \cdot \MeMeVPrint \text{ MeV} \\
