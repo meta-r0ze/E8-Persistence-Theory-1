@@ -350,6 +350,11 @@ def main():
     H_STRUCT = (DELTA * D) + NU
     N = 2 * NU
 
+    # --- Universal Manifold Friction ---
+    # Any integer capacity (N) projected onto the spacetime manifold (D*Delta)
+    # experiences a texture loss/friction defined by the inverse volume.
+    MANIFOLD_FRICTION = 1.0 - (1.0 / (D * DELTA)) # ~0.994186
+
     if LATEX_MODE:
         # Output basic invariants as tags too if needed
         print(f"%<*InvHSys>{H_SYS}%</InvHSys>")
@@ -468,7 +473,7 @@ def main():
     print_section("SYSTEM III: THE EFFECTIVE FIELD LIMITS", LATEX_MODE)
 
     # --- Strong Coupling ---
-    numerator_s = NU + (1.0 / D)
+    numerator_s = (NU*MANIFOLD_FRICTION) + (1.0 / D)
     ALPHA_S_GEO = numerator_s / ALPHA_INV_GEO
 
     print_derivation(
@@ -484,13 +489,13 @@ def main():
     )
 
     # --- Weak Mixing Angle ---
-    denom_weak = (D * DELTA) + NU + SIGMA
+    denom_weak = (D * DELTA) + (NU*MANIFOLD_FRICTION) + SIGMA
     SIN2_THETA_W_GEO = DELTA / denom_weak
 
     print_derivation(
         name="Weak Mixing Angle (sin²θ_W)",
         tag="WeakAngle",
-        formula_sym="Δ / (DΔ + ν + σ)",
+        formula_sym="Δ / (DΔ + (ν * MANIFOLD_FRICTION) + σ)",
         latex_sym=r"\frac{\Delta}{D\Delta + \nu + \sigma}",
         formula_num=f"{DELTA} / {denom_weak}",
         result=SIN2_THETA_W_GEO,
@@ -608,7 +613,7 @@ def main():
 
     # --- Jarlskog Invariant (Time Asymmetry) ---
     PHI = (1 + math.sqrt(5)) / 2
-    J_GEO = pow(PHI, 2) * comp_T
+    J_GEO = pow(PHI, 2) * comp_T * MANIFOLD_FRICTION
 
     print_derivation(
         name="Jarlskog Invariant (J)",
@@ -711,8 +716,7 @@ def main():
     # The ideal aperture is (Sigma + 1) = 6.
     # The projection onto the manifold (D*Delta) introduces a friction term 1/(D*Delta).
     APERTURE_IDEAL = SIGMA + 1.0
-    FRICTION_FACTOR = 1.0 - (1.0 / (D * DELTA))
-    APERTURE_PROJECTED = APERTURE_IDEAL * FRICTION_FACTOR
+    APERTURE_PROJECTED = APERTURE_IDEAL * MANIFOLD_FRICTION
     
     # 2. Higgs Impedance Calculation
     # Z_H = (1/lambda) * exp(-2*lambda)
