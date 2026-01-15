@@ -1,4 +1,4 @@
-\section{The Bulk Regulator: Gravity and the Planck Mass (\texorpdfstring{$\alpha_G, M_P$}{alphaGMP})} \label{sec:Bulk_Regulator}
+\section{System VI: The Bulk Regulator: Gravity and the Planck Mass (\texorpdfstring{$\alpha_G, M_P$}{alphaGMP})} \label{sec:Bulk_Regulator}
 \CatchFileBetweenTags{\AlphaInvVal}{calculations/constants.tex}{AlphaInvVal}
 \CatchFileBetweenTags{\MeMeVPrint}{calculations/constants.tex}{MeMeVPrint}
 \CatchFileBetweenTags{\ResidualCapVal}{calculations/constants.tex}{ResidualCapVal}
@@ -11,54 +11,71 @@
 \CatchFileBetweenTags{\PlanckMassExperimentalValue}{calculations/constants.tex}{PlanckMassExperimentalValue}
 \CatchFileBetweenTags{\PlanckMassAccText}{calculations/constants.tex}{PlanckMassAccText}
 
-\textbf{The Standard Model Ansatz:} Gravity is traditionally treated as a distinct fundamental force described by General Relativity, operating with a coupling constant $G$ that is inexplicably $10^{40}$ times weaker than the gauge forces. This extreme disparity, known as the Hierarchy Problem, forces the Planck Mass ($M_P \approx 10^{19}$ GeV) to be inserted as a manual scaling limit.
+\subsection{The Standard Model Ansatz}
+Gravity is traditionally treated as a distinct fundamental force described by General Relativity, operating with a coupling constant $G$ that is inexplicably $10^{40}$ times weaker than the gauge forces. This extreme disparity, known as the Hierarchy Problem, forces the Planck Mass ($M_P \approx 10^{19}$ GeV) to be inserted as a manual scaling limit.
 
-\textbf{The $E_8$-Persistence Derivation:} We identify Gravity not as a separate force, but as the \textbf{Bulk Regulator} of the lattice. Just as the Higgs regulates the energy density of Matter (local), Gravity regulates the structural integrity of Geometry (global).
+\subsection{The E8-Persistence Derivation}
+We identify Gravity not as a separate force, but as the \textbf{Bulk Regulator} of the lattice. Just as the Higgs regulates the energy density of Matter (local), Gravity regulates the structural integrity of Geometry (global).
 
 It is an \textbf{Attenuated Signal}. Gauge forces originate at the topological boundary (the particle's ``surface''), while gravity originates at the lattice centroid (the particle's ``core''). The $10^{40}$ hierarchy is simply the signal attenuation across this geometric depth. Electromagnetism is strong because it is local; Gravity is weak because it is distant.
 
-\subsection{System Specification: The Bulk Regulator (Gravity)}
+\subsection{The System Specification}
 The Bulk Regulator acts as a complete persistent system nested within the bulk lattice. We identify its six structural pillars:
 
-\begin{enumerate}
-    \item \textbf{Energy Vessel ($\Delta E$): The Planck Mass ($M_P$).} The unit of the bulk. It represents the energy scale where the lattice geometry itself acts as the charge carrier.
-    \item \textbf{Information Model ($\Delta I$): Spin-2 ($h_{\mu\nu}$).} The identity of the field is a rank-2 tensor, representing a metric perturbation rather than a vector flow.
-    \item \textbf{Protocol ($MI$): The Coupling ($\alpha_G$).} The efficiency of the connection between the core and the surface.
-    \item \textbf{Governor ($G$): Diffeomorphism Invariance.} The stabilizing mechanism preventing divergence. For gravity, the governor is the Einstein-Hilbert action $R\sqrt{-g}$, which enforces energy-momentum conservation ($\nabla_\mu T^{\mu\nu}=0$) and prevents the metric from tearing under load (derived in Appendix \ref{sec:emergent_gravity}).
-    \item \textbf{Temporal Cost ($T$): Causality.} The Entropic Action of maintaining causal ordering. Unlike the Higgs tax (which drives symmetry breaking), the gravitational tax enforces the \textbf{arrow of time} itself through the light cone structure. The constraint $ds^2 \geq 0$ is the geometric manifestation of the persistence requirement that updates propagate causally.
-    \item \textbf{Persistence Margin ($PM$): The Planck Length.} The resolution floor of the geometry itself.
-\end{enumerate}
+\begin{itemize}
+    \item \textbf{Capacity ($\Delta E$): The Planck Mass ($M_P$).} \\
+    The unit of the bulk. It represents the energy scale where the lattice geometry itself acts as the charge carrier.
+    
+    \item \textbf{Identity ($\Delta I$): Spin-2 ($h_{\mu\nu}$).} \\
+    The identity of the field is a rank-2 tensor representing metric perturbations. The lattice has fixed total capacity ($\nu=16$), so the trace of the metric (total volume) is conserved: $\delta(g^\mu_\mu) = 0$. This constraint forces all dynamical information into the \textbf{Traceless Transverse} channel ($h^\mu_\mu=0$), creating a pure Spin-2 field.
+    
+    \item \textbf{Protocol ($MI$): The Coupling ($\alpha_G$).} \\
+    The efficiency of the connection between the core and the surface. It is determined by the lattice depth attenuation.
+    
+    \item \textbf{Governor ($G$): Diffeomorphism Invariance.} \\
+    The stabilizing mechanism preventing divergence. For gravity, the governor is the \textbf{Einstein-Hilbert Action} ($R\sqrt{-g}$). This emerges as the hydrodynamic limit of the lattice capacity conservation law ($\nabla_\mu T^{\mu\nu}=0$), stabilizing the bulk geometry against tearing.\footnote{The Einstein-Hilbert action emerges as the long-wavelength limit of the lattice capacity conservation law. The spin-2 mode is the Goldstone boson of broken translational symmetry in the presence of matter ($T^{\mu\nu} \neq 0$).}
+    
+    \item \textbf{Temporal Cost ($T$): Causality ($ds^2 \ge 0$), Stiffness ($T \propto M_P^2 (\partial h)^2$).} \\
+    The entropic tax of maintaining causal ordering. The huge energy cost ($M_P^2$) required to perturb the metric defines the rigidity of spacetime, enforcing the light-cone limit ($ds^2 \ge 0$). Unlike the Higgs tax (which drives symmetry breaking), the gravitational tax enforces the \textbf{arrow of time} itself through the light cone structure.
 
-\subsection{Protocol (\texorpdfstring{$MI$}{MI}): The Attenuation Logic}
-To maintain persistence, the Bulk Protocol must propagate on the Residual Capacity, the bandwidth left over after the primary gauge allocations are filled.
+    \item \textbf{Persistence Margin ($PM$): The Planck Length ($\ell_P \approx 1.6 \times 10^{-35}$ m).} \\
+    The resolution floor of the geometry. Below this scale, the concept of ``manifold'' dissolves into the discrete node addressing of the lattice, providing a natural UV cutoff.
+\end{itemize}
 
-\subsubsection{1. Residual Capacity (\texorpdfstring{$B_{res}$}{Bres})}
+
+\subsection{Derivation A: Protocol (The Coupling \texorpdfstring{$\alpha_G$}{alphaG})}
+To maintain persistence, the Bulk Protocol must propagate on the \textbf{Residual Capacity}, the bandwidth left over after the primary gauge allocations are filled.
+
+\subsubsection{Residual Capacity (\texorpdfstring{$B_{res}$}{Bres})}
 The available bandwidth for gravity is the Total Chiral Capacity ($\nu$) minus the allocations for Topological Storage and Surface Gauge Load.
 \begin{equation}
-B_{res} = \nu - \frac{\chi}{\sigma-\chi} - \alpha
+B_{res} = \nu - \underbrace{\frac{\chi}{\sigma-\chi}}_{\text{Boundary Storage}} - \underbrace{\alpha}_{\text{Gauge Load}}
 \end{equation}
+\begin{itemize}
+    \item \textbf{Boundary Storage ($\approx 0.67$):} The capacity consumed by topological charge quantization.
+    \item \textbf{Gauge Load ($\approx 0.007$):} The bandwidth reserved for EM synchronization.
+\end{itemize}
 Substituting the invariants ($\nu=16, \sigma=5, \chi=2$):
 \begin{equation}
 B_{res} \approx 16 - 0.666 - 0.007 \approx \mathbf{\ResidualCapVal}
 \end{equation}
 
-\subsubsection{2. Harmonic Attenuation (The Lattice Depth)}
-A signal propagating from the core to the surface attenuates by the Geometric Impedance ($\alpha$) for every unit of lattice depth. In information-theoretic terms, the radius $r$ acts as the \textbf{Optical Depth} of the substrate. Each lattice layer constitutes a discrete \textbf{Impedance Step}. For a signal traversing $r$ impedance-matched layers with transmission coefficient $\alpha$, the cumulative factor is $\alpha^r$, analogous to the Beer-Lambert law ($e^{-\tau}$).
+\subsubsection{Harmonic Attenuation (The Lattice Depth)}
+A signal propagating from the core to the surface attenuates by the Geometric Impedance ($\alpha$) for every unit of lattice depth. In information-theoretic terms, the radius $r$ acts as the \textbf{Optical Depth} of the substrate.
 
-Because Gravity is a fundamental bulk resonance (a standing wave), its origin lies at the \textbf{Center of Mass} of the excitation. For a wave with wavelength $\Delta=43$, the center lies at the continuous midpoint:
+Because Gravity is a fundamental bulk resonance (a standing wave), its origin lies at the \textbf{Centroid} of the excitation. For a wave with wavelength $\Delta=43$, the center lies at the continuous midpoint:
 \begin{equation}
 r = \frac{\Delta}{2} = 21.5
 \end{equation}
-Where the \textbf{Lattice Depth} $r = \Delta/2 = 21.5$ is the geometric path length from the centroid to the boundary, setting the bulk attenuation scale for gravitational signals. This half-integer depth is unavoidable for any bulk resonance; attempting to force it to an integer site would break the symmetry between the two $D_4$ sublattices of the $E_8$ decomposition.
+The \textbf{Lattice Depth} ($r=21.5$) sets the bulk attenuation scale. This half-integer depth is unavoidable for any bulk resonance; forcing it to an integer site would favor one of the two $D_4$ sublattices created by the $E_8 \to D_4 \oplus D_4$ decomposition, breaking the self-duality required for persistence.
 
+The attenuation follows an exponential decay law (analogous to Beer-Lambert):
 \begin{equation}
 \text{Attenuation Factor} = \alpha^{\text{Radius}} = \alpha^{21.5} \approx \mathbf{1.143 \times 10^{-46}}
 \end{equation}
 
-\textbf{Physical Interpretation:} At the electromagnetic coupling $\alpha \approx 1/137$, traversing 21.5 lattice layers suppresses the signal by a factor of $\alpha^{21.5} \approx 10^{-46}$. This exponential attenuation explains why gravity appears $10^{40}$ times weaker than electromagnetism—it is not intrinsically weak, but deeply attenuated by geometric depth.
-
-\subsubsection{3. The Gravitational Coupling (\texorpdfstring{$\alpha_G$}{alphaG})}
-The gravitational coupling is the product of the spare capacity (Bandwidth) and the attenuation factor (Depth). This represents the **Maximal Efficient Coupling** possible without disrupting the surface fields.
+\subsubsection{The Gravitational Coupling Calculation}
+The coupling is the product of the spare capacity (Bandwidth) and the attenuation factor (Depth). This represents the \textbf{Maximal Efficient Coupling} possible without disrupting the surface fields.
 \begin{equation}
 \alpha_G = B_{res} \cdot \alpha^{\Delta/2}
 \end{equation}
@@ -66,12 +83,14 @@ The gravitational coupling is the product of the spare capacity (Bandwidth) and 
 \alpha_G = 15.326 \times (1.143 \times 10^{-46}) \approx \mathbf{\GravCouplingVal}
 \end{equation}
 
-\textbf{Validation:} This matches the experimental dimensionless coupling at the electron scale ($G m_e^2 / \hbar c$) to within $0.2\sigma$:
-\begin{equation}
-\alpha_{G,exp} \approx \GravCouplingExperimentalValue
-\end{equation}
+\begin{itemize}
+    \item \textbf{Experimental Value:} $\GravCouplingExperimentalValue$
+    \item \textbf{Accuracy:} \GravCouplingAccText
+\end{itemize}
 
-\subsection{Energy Vessel (\texorpdfstring{$\Delta E$}{dE}): The Unity Threshold (Planck Mass) (\texorpdfstring{$M_P$}{MP})}
+\textbf{Physical Interpretation:} Gravity appears $10^{40}$ times weaker than electromagnetism not because it is intrinsically weak, but because it is deeply attenuated by the 21.5 layers of the lattice substrate.
+
+\subsection{Derivation B: Capacity (The Planck Mass \texorpdfstring{$M_P$}{MP})}
 In the $E_8$-Persistence framework, the Planck Mass is the \textbf{Unity Threshold}. It is the mass scale at which the sheer magnitude of the signal compensates for the geometric attenuation, allowing the core to couple with unit strength ($\alpha_G \to 1$).
 
 It connects the natural unit of the Surface (the Electron, $m_e$) to the natural unit of the Core (the Planck Mass) via the geometry of the lattice.
@@ -79,8 +98,7 @@ It connects the natural unit of the Surface (the Electron, $m_e$) to the natural
 \begin{equation}
 M_P = m_e \cdot \frac{1}{\sqrt{\alpha_G}} = m_e \cdot \frac{1}{\sqrt{B_{res} \cdot \alpha^{\Delta/2}}}
 \end{equation}
-
-The square root arises because the coupling $\alpha_G$ scales with the square of the mass ($G \propto m^2$). Expanding the term reveals the dependence on the Fine Structure Constant and the Heegner Resonance:
+The square root arises because the gravitational force scales with the square of the mass ($G \propto m^2$). Expanding the term reveals the dependence on the Fine Structure Constant and the Heegner Resonance:
 
 \begin{equation}
 M_P = \frac{m_e}{\sqrt{B_{res}}} \cdot \alpha^{-\Delta/4}
@@ -91,49 +109,17 @@ M_P = \frac{m_e}{\sqrt{B_{res}}} \cdot \alpha^{-\Delta/4}
 M_P = \frac{\MeMeVPrint \text{ MeV}}{\sqrt{15.326}} \cdot (\AlphaInvVal)^{10.75}
 \end{equation}
 \begin{equation}
-M_P \approx 0.1305 \text{ MeV} \cdot (9.35 \times 10^{22}) \approx \mathbf{\PlanckMassVal} \text{ GeV}
+M_P \approx \mathbf{\PlanckMassVal} \text{ GeV}
 \end{equation}
 
 \begin{itemize}
-    \item \textbf{Geometric Prediction:} $\PlanckMassVal$ GeV
-    \item \textbf{Standard Value:} $\PlanckMassExperimentalValue$ GeV
-    \item \textbf{Result:} \PlanckMassAccText 
+    \item \textbf{Geometric Prediction:} $\PlanckMassVal$ \text{ GeV}
+    \item \textbf{Experimental Value:} $\PlanckMassExperimentalValue$ \text{ GeV}
+    \item \textbf{Accuracy:} \PlanckMassAccText
 \end{itemize}
 
-
-\subsection{Geometric Infrastructure (\texorpdfstring{$\Delta I, G, T, PM$}{Infrastructure})}
-With the coupling ($MI$) and energy scale ($\Delta E$) established, the remaining four pillars define the structural dynamics of the bulk lattice, recovering the familiar phenomenology of General Relativity.
-
-\subsubsection{Information Model (\texorpdfstring{$\Delta I$}{dI}): The Tensor Identity}
-The \textbf{Identity} of the gravitational field is defined by the lattice excitation mode. Unlike surface forces which couple to the boundary ($\chi=2$), gravity couples to the bulk lattice density ($\nu$). 
-Since the trace of the lattice density is fixed ($\nu=16$), the scalar mode ($h^\mu_\mu$) is non-dynamical. The information is forced into the \textbf{Traceless Transverse} channel ($h_{\mu\nu}$), creating a strictly \textbf{Spin-2} field. The Goldstone Mode is not a vector flow; it is a shear stress on the geometry.
-
-\subsubsection{Stabilizing Governor (\texorpdfstring{$G$}{G}): The Action Mechanism}
-The \textbf{Governor} prevents the metric deformation from diverging under load. In the low-energy limit, the lattice minimizes the Entropic Action of the metric perturbation. As derived in the hydrodynamic limit in Appendix \ref{app:emergent_gravity}, the unique governor compatible with the massless spin-2 Goldstone mode is the \textbf{Einstein-Hilbert Action}:
-
-\begin{equation}
-S_{Gov} = \int d^4x \sqrt{-g} R
-\end{equation}
-This term enforces Diffeomorphism Invariance ($\nabla_\mu T^{\mu\nu} = 0$), acting as the conservation law that stabilizes the bulk geometry.
-
-\subsubsection{Temporal Cost (\texorpdfstring{$T$}{T}): The Stiffness of Spacetime}
-The \textbf{Temporal Cost} represents the Entropic Action of updating the metric. It defines the "Stiffness" of spacetime against deformation. This tax ($T_{grav}$) scales with the square of the Planck Mass, enforcing the light-cone limit ($ds^2=0$):
-\begin{equation}
-T_{grav} \propto M_P^2 (\partial h)^2
-\end{equation}
-This huge energy cost ($10^{19}$ GeV) to perturb the metric is why spacetime appears rigid and why gravity waves are weak.
-
-\subsubsection{Persistence Margin (\texorpdfstring{$PM$}{PM}): The Planck Length}
-The \textbf{Persistence Margin} defines the resolution floor of the bulk geometry. It is the inverse of the Energy Vessel ($M_P$):
-\begin{equation}
-\ell_P = \frac{1}{M_P} \approx \sqrt{\frac{\hbar G}{c^3}} \approx 1.6 \times 10^{-35} \text{ m}
-\end{equation}
-Below this scale, the concept of "Geometry" dissolves into the discrete node addressing of the lattice ($N=32$). This provides a natural Ultraviolet Cutoff, rendering the theory finite without renormalization.
-
-
-
-\subsection{Validation: Gravity Satisfies the Persistence Principle}
-To confirm gravity is a legitimate persistent system, we verify it satisfies the impedance matching condition analogous to the Higgs closure (Section \ref{sec:Structural_Floor}). The gravitational impedance at the Planck scale must satisfy the unity condition:
+\subsection{Validation: The Impedance Matching Condition}
+To confirm gravity is a legitimate persistent system, we verify it satisfies the impedance matching condition analogous to the Higgs closure. The gravitational impedance at the Planck scale must satisfy the unity condition:
 
 \begin{equation}
 Z_G(M_P) = \sqrt{\frac{B_{res}}{\alpha^{\Delta/2}}} \cdot \frac{m_e}{M_P} = 1
@@ -141,47 +127,42 @@ Z_G(M_P) = \sqrt{\frac{B_{res}}{\alpha^{\Delta/2}}} \cdot \frac{m_e}{M_P} = 1
 
 Substituting the derived mass $M_P = m_e / \sqrt{\alpha_G}$:
 \begin{equation}
-Z_G(M_P) = \sqrt{\frac{B_{res}}{\alpha^{\Delta/2}}} \cdot \sqrt{\alpha_G} = \sqrt{\frac{B_{res}}{\alpha^{\Delta/2}}} \cdot \sqrt{B_{res} \cdot \alpha^{\Delta/2}} \equiv 1
+Z_G(M_P) = \sqrt{\frac{B_{res}}{\alpha^{\Delta/2}}} \cdot \sqrt{\alpha_G} \equiv 1
 \end{equation}
 
-This confirms the Planck Mass is the unique energy scale where the bulk impedance equals unity, satisfying the Persistence Principle for a core-originated force.
+This confirms the Planck Mass is the unique energy scale where the bulk impedance equals unity. Physically, this means signals propagate through the full lattice depth with unit efficiency. At energies below $M_P$, gravity is attenuated ($Z_G < 1$); at energies above $M_P$, quantum gravity effects would dominate ($Z_G > 1$, breakdown of classical GR).
 
-\textbf{Numerical Validation:} The emergent gravity mechanism is further verified by lattice field theory simulation in Section XI.E, which confirms the massless spin-2 dispersion relation $\omega^2 = c^2k^2$ with stiffness coefficient $\kappa = 1.000 \pm 0.001$.
 
-\subsection{Comparison: Surface Forces vs. Bulk Forces}
-\begin{table}[h]
-\centering
-\caption{Structural distinction between Surface Forces (originating at $r=0$) and Bulk Forces (originating at $r=\Delta/2$). The $10^{40}$ coupling difference arises purely from geometric attenuation, not fine-tuning.}
-\begin{tabular}{lcc}
-\hline
-\textbf{Property} & \textbf{Gauge Forces (Surface)} & \textbf{Gravity (Bulk)} \\
-\hline
-Origin & Boundary ($r=0$) & Centroid ($r=\Delta/2$) \\
-Coupling & $\alpha \sim 10^{-3}$ & $\alpha_G \sim 10^{-45}$ \\
-Attenuation & None & $\alpha^{21.5}$ \\
-Spin & 1 (vector) & 2 (tensor) \\
-Governor & Yang-Mills ($F^2$) & Einstein-Hilbert ($R$) \\
-Renormalization & Required & Finite (Lattice Cutoff) \\
-\hline
-\end{tabular}
-\end{table}
 
 \subsection{Implications}
 
-\subsubsection{1. Resolution of the Hierarchy Problem}
-The gap between the electron mass and the Planck mass ($10^{22}$) is not a result of arbitrary fine-tuning. It is exactly $\alpha^{-10.75}$. The Hierarchy is simply the inverse of the Lattice Depth. Gravity is not weak; it is distant.
+\subsubsection{Resolution of the Hierarchy Problem}
+\begin{center}
+\fbox{
+\begin{minipage}{0.96\columnwidth} % Matches the width of a single column
+\small % Slightly smaller text to ensure the math fits
+\centering
+The ratio $M_P/m_e \approx 10^{22}$ arises purely from geometric attenuation:
+\begin{equation}
+\begin{split}
+\frac{M_P}{m_e} = \frac{\alpha^{-\Delta/4}}{\sqrt{B_{res}}} \approx \frac{(137)^{10.75}}{\sqrt{15.3}} \approx 2.4 \times 10^{22}
+\end{split}
+\end{equation}
+No fine-tuning is required. The hierarchy is the \textbf{inverse} of the lattice depth, making gravity's weakness a consequence of its origin at the bulk centroid rather than the surface boundary.
+\end{minipage}
+}
+\end{center}
 
-\subsubsection{2. The Prohibition of Intermediate Forces}
-Standard theories often postulate "Fifth Forces" operating at intermediate scales. The $E_8$-Persistence Theory prohibits these based on \textbf{Topological Stability}. A persistent force requires a stable geometric origin. The lattice excitation possesses only two topologically distinct loci:
+\subsubsection{The Prohibition of Intermediate Forces}
+Standard theories often postulate ``Fifth Forces" operating at intermediate scales. The $E_8$-Persistence Theory prohibits these based on \textbf{Topological Stability}. A persistent force requires a stable geometric origin. The lattice excitation possesses only two topologically distinct loci:
 \begin{itemize}
     \item \textbf{The Boundary ($r=0$):} Defines Surface Forces (Gauge fields).
     \item \textbf{The Centroid ($r=\Delta/2$):} Defines Bulk Forces (Gravity).
 \end{itemize}
-Any signal originating at an intermediate depth (e.g., $r=10$) lacks a topological anchor. For example, a hypothetical force carrier at intermediate depth $r=10$ would have coupling:
-\begin{equation}
-\alpha_{int} \sim B_{res} \cdot \alpha^{10} \sim 10^{-21}
-\end{equation}
-This is 24 orders of magnitude weaker than electromagnetism but 24 orders of magnitude stronger than gravity. Critically, without a boundary or centroid anchor, such states cannot form stable resonances—they decay immediately into gauge bosons or gravitons. Consequently, the "Desert" between the Standard Model and Gravity is physically real and structurally enforced.
+Any signal originating at intermediate depth (e.g., $r=10$) lacks a topological anchor—neither boundary ($\chi=2$) nor centroid ($\Delta/2$)—and thus cannot form stable resonances. Such states decay immediately into gauge bosons or gravitons. Consequently, the "Desert" between the Standard Model and Gravity is physically real and structurally enforced.
 
-\subsubsection{3. Cosmological Extension}
-The cosmological extension of this emergent gravity framework (Paper IV) resolves the Vacuum Catastrophe and Hubble Tension by applying these same channel capacity limits to macroscopic scales.
+\subsubsection{The Planck Scale as Natural UV Cutoff}
+The Planck length $\ell_P = 1/M_P$ represents the resolution floor ($PM$) of the geometric substrate. Below this scale, spacetime loses meaning as a continuous manifold—the lattice node addressing becomes discrete. This provides a natural UV cutoff without requiring string theory or loop quantum gravity.
+
+\subsubsection{4. Cosmological Extension}
+\textbf{Forward Link:} The cosmological extension of this emergent gravity framework (Paper IV) resolves the Vacuum Catastrophe and Hubble Tension by applying these same channel capacity limits to macroscopic scales.
