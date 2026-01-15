@@ -13,12 +13,12 @@ The Weak Mixing Angle represents the relative "weight" of the Fundamental Resona
 \begin{enumerate}
     \item \textbf{Manifold Projection ($D\Delta$):} The lattice resonance $\Delta=43$ must be embedded in all $D=4$ spacetime dimensions. This creates $D \times \Delta = 172$ space-time degrees of freedom (4 coordinates $\times$ 43 lattice sites). This represents the cost of spatial propagation.
     
-    \item \textbf{Chiral Capacity ($\nu$):} The fermion manifold requires $\nu=16$ independent degrees of freedom to encode the chiral spinor structure (left-handed Weyl fermions). This represents the cost of matter storage.
+    \item \textbf{Chiral Capacity ($\nu \cdot \eta$):} The fermion manifold requires $\nu=16$ degrees of freedom to encode the chiral spinor structure (left-handed Weyl fermions). As a \textbf{Bulk Capacity} projected onto the discrete manifold, it is subject to Universal Manifold Friction. This represents the cost of matter storage.
     
     \item \textbf{Symmetry Generators ($\sigma$):} The interaction group possesses $\sigma=5$ independent generators (the rank of the gauge symmetry). This represents the cost of force mediation.
 \end{enumerate}
 
-These components represent orthogonal sectors of the system:
+These components represent orthogonal sectors of the system.
 \begin{itemize}
     \item $D\Delta$ encodes \textbf{spacetime structure} (where signals propagate).
     \item $\nu$ encodes \textbf{matter content} (what exists at each point).
@@ -27,7 +27,7 @@ These components represent orthogonal sectors of the system:
 
 Since these sectors are independent and orthogonal, their capacities add linearly to define the total bandwidth of the vacuum:
 \begin{equation}
-N_{sys} = D\Delta + \nu + \sigma = 172 + 16 + 5 = 193
+N_{sys} = D\Delta + (\nu \cdot \eta) + \sigma = 172 + 15.907 + 5 \approx \mathbf{192.907}
 \end{equation}
 
 \subsection{The Partition Formula}
@@ -35,7 +35,7 @@ N_{sys} = D\Delta + \nu + \sigma = 172 + 16 + 5 = 193
 The Weak Mixing Angle is defined as the fraction of the total capacity that is allocated to the Fundamental Resonance (the "clock frequency" $\Delta$ of the lattice):
 
 \begin{equation}
-\sin^2 \theta_W = \frac{\text{Fundamental Resonance}}{\text{Total Capacity}} = \frac{\Delta}{D\Delta + \nu + \sigma}
+\sin^2 \theta_W = \frac{\text{Fundamental Resonance}}{\text{Total Capacity}} = \frac{\Delta}{N_{sys}}
 \end{equation}
 
 \textbf{Physical Meaning:} This ratio represents the probability that a random fluctuation in the system is a \textbf{time translation} (governed by the bare resonance $\Delta$) rather than a \textbf{spatial translation} (governed by the manifold $D$) or an \textbf{internal symmetry transformation} (governed by $\nu$ or $\sigma$).
@@ -62,7 +62,7 @@ The $E_8$-Persistence derivation reveals that this coupling ratio is not arbitra
 
 Substituting the geometric invariants:
 \begin{equation}
-\sin^2 \theta_W = \frac{43}{193} \approx \mathbf{\WeakAngleVal}
+\sin^2 \theta_W = \frac{43}{192.907} \approx \mathbf{\WeakAngleVal}
 \end{equation}
 
 \begin{itemize}
@@ -142,10 +142,10 @@ M_W = M_Z \cos \theta_W = M_Z \sqrt{1 - \sin^2 \theta_W}
 \textbf{Calculation:}
 Using the experimental Z-boson mass ($M_Z = 91.1876$ GeV) as the volumetric reference scale:
 \begin{equation}
-M_W = 91.1876 \text{ GeV} \times \sqrt{1 - \frac{43}{193}}
+M_W = 91.1876 \text{ GeV} \times \sqrt{1 - \frac{43}{192.907}}
 \end{equation}
 \begin{equation}
-M_W = 91.1876 \times \sqrt{\frac{150}{193}} \approx 91.1876 \times 0.88164
+M_W = 91.1876 \times \sqrt{0.7771} \approx 80.38
 \end{equation}
 \begin{equation}
 M_W \approx \mathbf{\WBosonMassVal}
@@ -159,4 +159,4 @@ M_W \approx \mathbf{\WBosonMassVal}
 
 \textbf{Result:} The geometric prediction acts as the mediator. It confirms that the Standard Model prediction is too low (validating the direction of the CDF anomaly) while suggesting the CDF value may be slightly overestimated.
 
-\textbf{Conclusion:} The tension in the W mass arises because the Standard Model fits $\sin^2 \theta_W$ to global data ($\approx 0.2235$), whereas the lattice dictates a rigid integer partition ($0.2228$). The lattice geometry predicts a heavier W boson than the Standard Model, resolving the direction of the anomaly without requiring new particles.
+\textbf{Conclusion:} The tension in the W mass arises because the Standard Model fits $\sin^2 \theta_W$ to global data ($\approx 0.2235$), whereas the lattice dictates a rigid geometric partition ($\approx 0.2229$). The lattice geometry predicts a heavier W boson than the Standard Model, resolving the direction of the anomaly without requiring new particles.
