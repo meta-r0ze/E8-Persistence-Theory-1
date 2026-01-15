@@ -179,7 +179,7 @@ We have successfully derived the complete set of inputs $\mathbb{S} = \{D=4, \De
 Mathematically, we identify this set not merely as a geometric preference, but as the \textbf{Gibbs State} of the $E_8$ lattice, the unique vacuum configuration that minimizes the Entropic Action defined by the Hamiltonian $H_{info}$ (detailed in \ref{app:partition-function}). The Standard Model is the thermodynamic ground state of this invariant set. These are the unique eigenvalues of a self-dual information processing substrate satisfying persistence, unitarity, and causality constraints within the framework of even lattices and simple Lie groups.
     
 \subsection{The Derived Capacities (System Output)} \label{sec:SystemicCapacities}
-Before proceeding to the coupling calculations (System II), we must define the total bandwidth available to the system based on the derived invariants. We distinguish between the \textit{informational content} of the lattice and the \textit{persistence budget} required to sustain it.
+Before proceeding to the coupling calculations (System II), we must define the total bandwidth available to the system based on the derived invariants. We distinguish between the \textit{informational content} of the lattice and the \textit{persistence budget} required to sustain a state, and the \textit{static load} of the background geometry.
 
 \begin{enumerate}
     \item \textbf{The Systemic Channel ($H_{sys}$):} The sum of the active degrees of freedom available for internal information storage (Chiral + Interaction + Boundary).
@@ -188,22 +188,17 @@ Before proceeding to the coupling calculations (System II), we must define the t
         H_{sys} = \nu + \sigma + \chi = 16 + 5 + 2 = \mathbf{23}
     \end{equation} 
     
-    \item \textbf{The Full Persistence Budget ($H_{full}$):} The total operating cost for a persistent structure. This adds the Spacetime Embedding Cost to the internal channel.
-    \begin{itemize}
-        \item \textit{The Spinor Tax:} Unlike a vector, a spinor must be rotated by $720^\circ$ (4$\pi$) to return to its original state (the spinor double cover). Consequently, the system must pay the existence cost for each of the $D$ dimensions \textbf{twice} to fully define an embedded state.
-    \end{itemize}
+    \item \textbf{The Full Persistence Budget ($H_{full}$):} The total operating cost for a persistent structure. This adds the Spacetime Embedding Cost to the internal channel. \textit{The Spinor Tax:} Unlike a vector, a spinor must be rotated by $720^\circ$ (4$\pi$) to return to its original state (the spinor double cover). Consequently, the system must pay the existence cost for each of the $D$ dimensions \textbf{twice} to fully define an embedded state.
     \begin{equation}
         \label{eq:hfull}
         H_{full} = H_{sys} + 2D = 23 + 8 = \mathbf{31}
     \end{equation}
 
-    \item \textbf{The Structural Overhead ($H_{struct}$):} The total geometric load required to support the fundamental resonance within the manifold. This combines the spacetime projection cost of the resonance ($\Delta \cdot D$) with the chiral storage capacity ($\nu$).
+    \item \textbf{The Structural Overhead ($H_{struct}$):} The total geometric load required to support the fundamental resonance within the manifold. This combines the spacetime projection cost of the resonance ($\Delta \cdot D$) with the chiral storage capacity ($\nu$). This value represents the static background load against which vacuum potentials (like the Higgs VEV) must be normalized.
     \begin{equation}
         \label{eq:Hstruct}
         H_{struct} = (\Delta \cdot D) + \nu = (43 \times 4) + 16 = \mathbf{188}
     \end{equation}
-    This value represents the static background load against which vacuum potentials (like the Higgs VEV) must be normalized.
-    
 \end{enumerate}
 
 \noindent \textbf{Note on the Speed of Light:} In this framework, $c$ is not a fundamental velocity, but the emergent \textbf{Channel Capacity Limit} of the substrate, derived from the lattice update rate. (Detailed derivation provided in Paper IV).
