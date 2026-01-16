@@ -19,9 +19,20 @@ We derive the Strong Force as the \textbf{Channel Saturation Limit}, characteriz
     \item \textbf{Rigidity ($\beta_0$):} The geometric resistance to gauge field deformation.
 \end{enumerate}
 
+\begin{mdframed}[backgroundcolor=gray!10, linewidth=0pt, skipabove=10pt, skipbelow=10pt]
+\small This bridges multiple domains. Key physics terms map directly to information and control theory:
+\begin{itemize}
+    \item \textbf{Channel Capacity} $\leftrightarrow$ Bandwidth / Throughput (Information Theory)
+    \item \textbf{Geometric Impedance} $\leftrightarrow$ Transmission Resistance (Electrical Engineering)
+    \item \textbf{Saturation} $\leftrightarrow$ Full Resource Utilization (Control Theory)
+    \item \textbf{Vacuum Rigidity} $\leftrightarrow$ System Stability Coefficient (Mechanical Engineering)
+    \item \textbf{Screening} $\leftrightarrow$ Signal Attenuation (Signal Processing)
+    \item \textbf{Beta Function} $\leftrightarrow$ Scaling Law / Transfer Function (Control Theory)
+\end{itemize}
+\end{mdframed}
 
 \subsection{Derivation A: Magnitude (The Saturation Ratio)}
-To maintain a confined color-singlet state, the vacuum must fully saturate the available geometry. We derive $\alpha_s$ as the ratio of the \textbf{Total Active State Capacity }to the \textbf{Geometric Impedance}.
+To maintain a confined color-singlet state, the vacuum must fully saturate the available geometry. We derive $\alpha_s$ as the ratio of the \textbf{Total Active State Capacity} to the \textbf{Geometric Impedance}, the information load divided by the transmission resistance.
 
 The total substrate load is mandated by two persistence requirements:
 \begin{enumerate}
@@ -38,11 +49,9 @@ The coupling is derived by normalizing this total load by the geometric impedanc
 
 \textbf{Geometric Interpretation:} This relation reveals that the Strong Force is approximately $\nu \approx 16$ times stronger than Electromagnetism because it utilizes the full channel capacity of the lattice.
 \begin{itemize}
-    \item \textbf{Electromagnetism ($\alpha$):} A signal utilizing a single channel (Unit Flux).
-    \item \textbf{Strong Force ($\alpha_s$):} A signal utilizing the full chiral capacity ($\sim 16 \times$ Unit Flux).
+    \item \textbf{Electromagnetism ($\alpha$):} A signal utilizing a single channel (Sparse Mode / Unit Flux).
+    \item \textbf{Strong Force ($\alpha_s$):} A signal utilizing the full chiral capacity (Saturated Mode / Max Flux).
 \end{itemize}
-
-
 
 \subsection{Derivation B: Rigidity (The Beta Function)}
 
@@ -73,11 +82,6 @@ Combining Rigidity and Screening, we recover the exact QCD Beta Function:
 \begin{equation} \label{eq:beta_qcd}
     \beta_0 = (D\chi) + (\sigma-\chi) - \frac{\chi}{n_{gen}} n_f = 11 - \frac{2}{3}n_f
 \end{equation}
-
-
-
-
-
 
 \subsection{Validation: Static and Dynamic Consistency}
 We test this geometric architecture against experimental data at two energy scales, verifying both the magnitude (saturation) and evolution (stiffness) predictions simultaneously.
@@ -110,8 +114,7 @@ Substituting the values:
 This aligns with the experimental value $\alpha_s(M_\tau) = 0.330 \pm 0.014$ (PDG 2024), confirming that the integers 11 and 2/3 correctly describe the geometric evolution of the force.
 
 \paragraph{Physical Consequence: Asymptotic Freedom}
-For $n_f \leq 16$, we have $\beta_0 > 0$, meaning $\alpha_s$ decreases logarithmically at high energy (asymptotic freedom). This emerges because Geometric Stiffness ($11$) exceeds Topological Screening ($2n_f/3$) for all Standard Model quark flavors. The strong force weakens at short distances because the vacuum's geometric rigidity dominates the fermion screening contribution.
-
+For $n_f \leq 16$, we have $\beta_0 > 0$, meaning $\alpha_s$ decreases logarithmically at high energy—a phenomenon called \textit{asymptotic freedom}, which is strictly analogous to \textbf{negative feedback} in control systems. This emerges because Geometric Stiffness ($11$) exceeds Topological Screening ($2n_f/3$) for all Standard Model quark flavors. The strong force weakens at short distances because the vacuum's geometric rigidity dominates the fermion screening contribution.
 
 \subsubsection{Test 3: Geometric Universality (QED Screening)}
 If the beta function coefficients are truly geometric properties rather than group-theoretic accidents, the same construction rules must apply universally to all gauge theories. We test this universality by deriving the QED coefficient from identical geometric principles:
