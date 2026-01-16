@@ -56,7 +56,7 @@ The coefficient ``11" represents the total structural resistance of the vacuum t
 \begin{enumerate}
     \item \textbf{The Spacetime Anchor ($D\chi$):} The topological boundary ($\chi=2$) must be anchored in the spacetime manifold ($D=4$).
     \[ \text{Anchor Cost} = D \times \chi = 8 \]
-    \item \textbf{The Symmetry Pressure ($\sigma - \chi$):} The internal symmetry ($\sigma=5$) exceeds the topological capacity of the boundary ($\chi=2$). The surplus generators ($\sigma - \chi = 3$) cannot be supported on the boundary.  The surplus symmetry "leaks" out, creating an expansive pressure.
+    \item \textbf{The Symmetry Pressure ($\sigma - \chi$):} The internal symmetry ($\sigma=5$) exceeds the topological capacity of the boundary ($\chi=2$). The surplus generators ($\sigma - \chi = 3$) cannot be topologically supported on the boundary and must "float" in the bulk, creating outward pressure.
    \[ \text{Internal Pressure} = \sigma - \chi = 3 \]
 \end{enumerate}
 Total Vacuum Rigidity is the sum of the Anchor and the Pressure:
@@ -76,7 +76,7 @@ Combining Rigidity and Screening, we recover the exact QCD Beta Function:
 \end{equation}
 
 \paragraph{Physical Consequence: Asymptotic Freedom}
-For $n_f \leq 16$, we have $\beta_0 > 0$, meaning $\alpha_s$ decreases logarithmically at high energy—a phenomenon called \textit{asymptotic freedom}, which is strictly analogous to \textbf{negative feedback} in control systems. This emerges because Geometric Stiffness ($11$) exceeds Topological Screening ($2n_f/3$) for all Standard Model quark flavors. The strong force weakens at short distances because the vacuum's geometric rigidity dominates the fermion screening contribution.
+For $n_f \leq 16$, we have $\beta_0 > 0$, meaning $\alpha_s$ decreases logarithmically at high energy—a phenomenon called \textit{asymptotic freedom}, analogous to \textbf{negative feedback} in control systems. This emerges because Geometric Stiffness ($11$) exceeds Topological Screening ($2n_f/3$) for all Standard Model quark flavors. The strong force weakens at short distances because the vacuum's geometric rigidity dominates the fermion screening contribution.
 
 \subsection{Validation: Static and Dynamic Consistency}
 We test this geometric architecture against experimental data at two energy scales, verifying both the magnitude (saturation) and evolution (stiffness) predictions simultaneously.
@@ -84,7 +84,7 @@ We test this geometric architecture against experimental data at two energy scal
 \subsubsection{Test 1: QCD Saturation (The Z-Pole)}
 At the mass of the Z-boson ($M_Z$), the channel is saturated. Substituting the invariants into Eq. \eqref{eq:alphas_saturation}:
 
-\begin{equation} \label{eq:alphas_saturation}
+\begin{equation}
 \alpha_s(M_Z) = \frac{\nu \cdot \eta + 1/D}{\alpha^{-1}}
 \approx \mathbf{\AlphaSVal}
 \end{equation}
@@ -131,7 +131,7 @@ The effective coupling at high saturation is therefore:
 
 \textbf{Physical Interpretation:} This correction is not an \textit{ad hoc} fitting parameter. The factor $15/16$ is uniquely determined by the chiral capacity $\nu=16$ derived in System I. It represents the finite bit-depth of the vacuum becoming manifest at strong coupling, analogous to how digital communication channels experience overhead as they approach maximum throughput.
 
-
+\paragraph{Prediction:} This saturation correction should be negligible in the perturbative regime ($\alpha_s \lesssim 0.2$) but becomes significant when $\alpha_s \gtrsim 0.3$. Future lattice QCD calculations should recover this effect through explicit finite-$\nu$ sum rules rather than continuum renormalization.
 
 
 
