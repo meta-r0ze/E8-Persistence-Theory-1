@@ -640,31 +640,23 @@ def main():
         context="observed mass"
     )
 
-    # --- Electron Yukawa ---
-    # The Persistence Margin (PM) defines the BARE resolution floor.
-    # The physical electron includes first-order electromagnetic self-energy (1+α).
-    # A 0.2% residual tension remains, attributed to geometric renormalization.
-    # The complete derivation, including the sigma/D projection factor, is in Paper II.
-    
+    # --- Electron Yukawa (y_e) ---
     YE_BARE = comp_PM
-    SELF_ENERGY_CORRECTION = 1.0 + ALPHA_GEO  # First-order QED only
+    PROJECTION_COEFF = SIGMA / D  # 1.25
+    SELF_ENERGY_CORRECTION = 1.0 + (PROJECTION_COEFF * ALPHA_GEO)
     YE_CORRECTED = YE_BARE * SELF_ENERGY_CORRECTION
     
-    # Calculate the SM expectation
-    YE_SM_EXPECTED = (math.sqrt(2) * (REFS["me"].value/1000.0)) / REFS["vev"].value
-    # REFS["ye_sm"] = YE_SM_EXPECTED
-
     print_derivation(
-        name="Electron Yukawa (y_e) [1st Order]",
+        name="Electron Yukawa (y_e) [Geometric]",
         tag="ElectronYukawa",
-        formula_sym="PM * (1 + α)",
-        latex_sym=r"PM_{geo} (1 + \alpha)",
-        formula_num=f"{YE_BARE:.4e} * (1 + {ALPHA_GEO:.4f})",
+        formula_sym="PM * (1 + (σ/D)α)",
+        latex_sym=r"PM_{geo} \left(1 + \frac{\sigma}{D}\alpha \right)",
+        formula_num=f"{YE_BARE:.4e} * (1 + 1.25*{ALPHA_GEO:.4f})",
         result=YE_CORRECTED,
         latex_mode=LATEX_MODE,
         ref_key="ye_sm",
-        context="Standard Model expectation (0.2\\% residual, see Paper II)",
-        formula_step=YE_BARE
+        context="Includes geometric charge projection (Sigma/D)",
+        formula_step=YE_CORRECTED
     )
 
     # --- Jarlskog Invariant (Time Asymmetry) ---

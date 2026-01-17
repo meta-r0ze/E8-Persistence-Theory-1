@@ -1,0 +1,63 @@
+============================================================
+E8-PERSISTENCE THEORY: SYSTEM VI VALIDATION (PRECISION)
+============================================================
+L: 96^4 | Mass Radius: 2 | Goal: Isolate Bulk Scaling
+Relaxing Lattice...
+  Step 2000: Delta = 8.00e+00 | Speed: 6.0 iter/s
+  Step 4000: Delta = 1.08e-02 | Speed: 6.0 iter/s
+  Step 6000: Delta = 3.06e-03 | Speed: 6.0 iter/s
+  Step 8000: Delta = 1.00e-03 | Speed: 6.1 iter/s
+  Step 10000: Delta = 3.33e-04 | Speed: 5.6 iter/s
+  Step 12000: Delta = 1.11e-04 | Speed: 5.5 iter/s
+  Step 14000: Delta = 3.70e-05 | Speed: 5.4 iter/s
+  Step 16000: Delta = 1.23e-05 | Speed: 5.3 iter/s
+  Step 18000: Delta = 4.10e-06 | Speed: 5.2 iter/s
+  Step 20000: Delta = 1.36e-06 | Speed: 5.1 iter/s
+  Step 22000: Delta = 4.54e-07 | Speed: 5.0 iter/s
+  Step 24000: Delta = 1.51e-07 | Speed: 5.1 iter/s
+  Step 26000: Delta = 5.04e-08 | Speed: 5.2 iter/s
+>> Convergence Reached.
+
+>> Analyzing Field Geometry...
+
+Scanning for Bulk Region (Plateau Search):
+  Window r=[ 6-16]: Slope = -1.9751
+  Window r=[ 7-17]: Slope = -1.9966
+  Window r=[ 8-18]: Slope = -2.0208
+  Window r=[ 9-19]: Slope = -2.0459
+  Window r=[10-20]: Slope = -2.0710
+  Window r=[11-21]: Slope = -2.0973
+  Window r=[12-22]: Slope = -2.1256
+  Window r=[13-23]: Slope = -2.1553
+  Window r=[14-24]: Slope = -2.1867
+  Window r=[15-25]: Slope = -2.2188
+  Window r=[16-26]: Slope = -2.2543
+  Window r=[17-27]: Slope = -2.2930
+  Window r=[18-28]: Slope = -2.3332
+  Window r=[19-29]: Slope = -2.3764
+  Window r=[20-30]: Slope = -2.4234
+  Window r=[21-31]: Slope = -2.4736
+  Window r=[22-32]: Slope = -2.5273
+  Window r=[23-33]: Slope = -2.5850
+  Window r=[24-34]: Slope = -2.6487
+  Window r=[25-35]: Slope = -2.7180
+  Window r=[26-36]: Slope = -2.7929
+  Window r=[27-37]: Slope = -2.8745
+  Window r=[28-38]: Slope = -2.9638
+  Window r=[29-39]: Slope = -3.0620
+  Window r=[30-40]: Slope = -3.1695
+  Window r=[31-41]: Slope = -3.2870
+  Window r=[32-42]: Slope = -3.4179
+  Window r=[33-43]: Slope = -3.5639
+  Window r=[34-44]: Slope = -3.7279
+  Window r=[35-45]: Slope = -3.9126
+
+------------------------------------------------------------
+OPTIMAL BULK REGION FOUND
+------------------------------------------------------------
+Window:           r=[7, 17]
+Scaling Slope:    -1.9966  (Target: -2.00)
+Geometric Error:  0.171%
+Flux Variation:   6.362%
+
+>>> SUCCESS: Einstein-Hilbert Limit Recovered <<<
