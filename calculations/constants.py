@@ -116,6 +116,16 @@ REFS = {
         "Ohms",
         "CODATA 2022"
     ),
+
+    # --- Vacuum Polarization (QFT Background) ---
+    # Total shift in alpha due to fermion loops (leptons + hadrons)
+    # Source: PDG 2024 / Jegerlehner (2019)
+    "delta_alpha_mz": MeasuredVal(
+        0.0590,
+        0.0001,
+        "",
+        "PDG 2024 (Delta Alpha_lep + had)"
+    ),
 }
 
 
@@ -510,7 +520,8 @@ def main():
     # 1. Screening Fog
     # The standard fermionic contribution to vacuum polarization approx 8.1
     # This leaves the integer '1' as the structural resonance.
-    SCREENING_FOG = 8.1 
+    QFT_POLARIZATION = REFS['delta_alpha_mz'].value
+    SCREENING_FOG = ALPHA_INV_GEO * QFT_POLARIZATION
     
     # 2. Resonant Transition (With Manifold Friction)
     # The Z-boson couples to the Scalar Ground State (Delta^0 = 1).
@@ -530,7 +541,7 @@ def main():
         result=ALPHA_INV_MZ_CALC,
         latex_mode=LATEX_MODE,
         ref_key="alpha_inv_mz",
-        context="Test 3 Validation (1.3 sigma)"
+        context="Test 3 Validation"
     )
 
     # --- Weak Mixing Angle ---
