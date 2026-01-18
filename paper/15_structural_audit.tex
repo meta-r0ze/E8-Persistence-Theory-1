@@ -2,13 +2,9 @@
 \CatchFileBetweenTags{\AlphaInvVal}{calculations/constants.tex}{AlphaInvVal}
 \CatchFileBetweenTags{\MeMeVPrint}{calculations/constants.tex}{MeMeVPrint}
 
-\section{Structural Audit: The Zero-DOF Constraint}
-\CatchFileBetweenTags{\AlphaInvVal}{calculations/constants.tex}{AlphaInvVal}
-
 The ultimate test of the $E_8$-Persistence Theory is replacing the free parameters of the Standard Model global fit. Unlike Effective Field Theories (EFTs) which allow parameters to float to fit data, this framework creates a rigid dependency graph where the inputs are integers.
 
 Consequently, the theory generates specific "Hard Constraints" that serve as falsification criteria. We propose the following analyses for groups with access to electroweak fit packages (e.g., Gfitter, HEPfit).
-
 
 \subsection{The Zero-Degree-of-Freedom Electroweak Fit}
 
@@ -58,96 +54,3 @@ The framework makes specific structural claims that allow for rigorous theoretic
 
 
 
-
-
-\section{Numerical Validation}
-
-To verify the theoretical derivations, we implemented a suite of computational audits simulating the physics of the projected $E_8$ lattice. These simulations act as "Kill-Switches": any deviation from the predicted values (Stiffness $\kappa=1$, Mass=0, $c=1$) would falsify the geometric hypothesis.
-
-\subsection{Audit 1: The Emergent Gravity Kill-Switch}
-
-We verified the derivation of gravity as a Goldstone mode (System VI) by injecting a transverse-traceless gravitational wave perturbation $h_{\mu\nu}$ onto a $16^4$ lattice and measuring the entropic action cost.
-
-\textbf{Methodology:} The simulation calculates the \textbf{Vacuum Stiffness} ($\kappa$) by comparing the numerically computed lattice action ($S_{sim}$) against the analytic prediction of the linearized Einstein-Hilbert action ($S_{GR}$).
-
-\textbf{Results:} Across six momentum modes ($n = 1 \dots 6$), the simulation confirmed the emergent dynamics to numerical precision:
-
-\begin{itemize}
-    \item \textbf{Vacuum Stiffness:} $\kappa = 1.000000$ (Pass). Confirms recovery of the Einstein-Hilbert action.
-    \item \textbf{Masslessness:} $E(k=0) = 0.00$ (Pass). Confirms the Goldstone Shift Symmetry (no massive gravity).
-    \item \textbf{Lorentz Invariance (Light Speed):} $c_{eff} = 1.000000$ (Pass). Confirms the lattice treats space and time isotropically.
-    \item \textbf{Parity Symmetry:} Energy($+h$) = Energy($-h$) (Pass). Confirms the excitation is a pure spin-2 tensor.
-\end{itemize}
-
-This computationally proves that General Relativity is the unique hydrodynamic limit of the $E_8$ substrate's capacity conservation law.
-
-\subsection{Audit 2: The Dynamic Origin of \texorpdfstring{$\alpha^{-1}$}{alpha1}}
-
-To verify that the ``Structural Friction" terms in the Fine-Structure Constant derivation are real physical effects, we performed a Lattice Diffusion Audit.
-
-\textbf{Methodology:} We simulated the propagation of $N=500,000$ massless walkers (photons) on the projected $E_8$ lattice. By measuring the Mean Squared Displacement (MSD) relative to a continuum random walk, we extracted the Lattice Conductivity Ratio.
-
-\textbf{Results:} The simulation tracked the effective coupling across lattice time scales ($T$). At long timescales ($T=5000$), the lattice dynamics spontaneously generate the precise conductivity correction ($~1.00038$) required to map the geometric base ($137.088$) to the physical constant ($137.036$).
-
-\begin{table}[h]
-\centering
-\begin{tabular}{r c c c}
-\hline
-\textbf{Time (T)} & \textbf{Conductivity Ratio} & \textbf{Simulated $\alpha^{-1}$} & \textbf{Error (vs CODATA)} \\
-\hline
-10 & 1.000423 & 137.0305 & 0.0040\% \\
-100 & 1.001184 & 136.9263 & 0.0800\% \\
-1000 & 1.000408 & 137.0325 & 0.0025\% \\
-\textbf{5000} & \textbf{1.000376} & \textbf{137.0369} & \textbf{0.0007\%} \\
-\hline
-\end{tabular}
-\caption{Dynamic validation of the Fine-Structure Constant via Lattice Diffusion. The Monte Carlo result converges to the analytic prediction within error bars.}
-\label{tab:alpha_diffusion}
-\end{table}
-
-\subsection{Audit 3: The Geometry of the Substrate}
-
-We performed a structural audit of the projected roots to verify the topological invariants used in the derivation.
-
-\textbf{Results:}
-\begin{itemize}
-    \item \textbf{Kissing Number ($K=48$):} The simulation detected 48 nearest neighbors in the 4D projection. This confirms the presence of the Matter-Mirror Overlay (two inter-penetrating $D_4$ lattices), validating the unification topology.
-    \item \textbf{H4 Symmetry:} The 2D projection (Figure \ref{fig:e8_projection}) reveals a quasi-crystalline structure with 5-fold rotational symmetry, confirming the presence of the $H_4$ subgroup responsible for the geometric frustration ($\phi^2$) observed in CP violation.
-    \item \textbf{Discretization:} The Radial Distribution Function (Figure \ref{fig:vacuum_rdf}) shows sharp peaks at discrete geometric intervals ($r=1, \sqrt{2}, \sqrt{3}$), confirming that the vacuum is a rigid crystal rather than a continuous fluid.
-\end{itemize}
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.8\linewidth]{calculations/e8_projection.png}
-    \caption{\textbf{The Geometry of the Substrate.} A 2D projection of the active chiral sector of the $E_8$ lattice ($\nu=16$ degrees of freedom). The color gradient represents the depth in the 4th dimension. The complex, quasi-crystalline structure confirms the presence of $H_4$ (Golden Ratio) symmetry elements, which create the geometric frustration required for CP violation (Section IX.F).}
-    \label{fig:e8_projection}
-\end{figure}
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.9\linewidth]{calculations/vacuum_rdf.png}
-    \caption{\textbf{The Discrete Structure of Space.} The Radial Distribution Function (RDF) of the projected vacuum. The discrete peaks at $r=1, \sqrt{2}, \sqrt{3}, 2$ demonstrate that the vacuum is not a continuum but a rigid geometric lattice. The empty regions between peaks represent geometrically forbidden zones, establishing the physical basis for the quantization of angular momentum and the mass gap.}
-    \label{fig:vacuum_rdf}
-\end{figure}
-
-As a final consistency check, we performed a zero-degree-of-freedom global fit evaluating five fundamental observables against PDG 2024 world averages. All parameters were locked to their geometric derivations (no floating inputs).
-
-\begin{table}[h]
-\centering
-\begin{tabular}{l l l r}
-\hline
-\textbf{Observable} & \textbf{Geometric Value} & \textbf{Exp. Value (PDG)} & \textbf{Deviation} \\
-\hline
-$\alpha^{-1}$ & 137.035999212 & 137.035999177 & $+0.42\sigma$ \\
-$G_F$ (GeV$^{-2}$) & $1.1663788 \times 10^{-5}$ & $1.1663788 \times 10^{-5}$ & $+0.04\sigma$ \\
-$\sin^2\theta_W$ & $0.222905$ & $0.222910$ & $-0.04\sigma$ \\
-$\alpha_s(M_Z)$ & $0.117903$ & $0.117900$ & $0.00\sigma$ \\
-$M_H$ (GeV) & $125.269$ & $125.250$ & $+0.11\sigma$ \\
-\hline
-\textbf{Total $\chi^2$} & \multicolumn{2}{c}{\textbf{0.587}} & \\
-\textbf{Reduced $\chi^2$} & \multicolumn{2}{c}{\textbf{0.117} (5 DOF)} & \\
-\hline
-\end{tabular}
-\caption{The Zero-DOF Global Fit. The reduced $\chi^2 \ll 1$ indicates that the geometric constraints naturally encode the physical correlations present in the experimental data.}
-\label{tab:global_fit}
-\end{table}
