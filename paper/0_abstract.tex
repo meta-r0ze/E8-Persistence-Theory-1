@@ -15,6 +15,9 @@
 \CatchFileBetweenTags{\WBosonMassVal}{calculations/constants.tex}{WBosonMassVal}
 \CatchFileBetweenTags{\CabibboAngleEq}{calculations/constants.tex}{CabibboAngleEq}
 
+\CatchFileBetweenTags{\bosonictotalchiVal}{calculations/constants.tex}{bosonictotalchiVal}
+\CatchFileBetweenTags{\bosonicreducedchiVal}{calculations/constants.tex}{bosonicreducedchiVal}
+
 We derive the fundamental constants of the Standard Model as necessary boundary conditions of a finite-capacity information-processing substrate. By treating the vacuum as a discrete $E_8$ lattice governed by the minimization of Entropic Action, we identify the unique projection satisfying unitarity, causality, and topological stability.
 
 This projection is uniquely defined by five geometric integers $\mathbb{S} = \{D{=}4, \Delta{=}43, \nu{=}16, \sigma{=}5, \chi{=}2\}$, which resolve the structural arbitrariness of the Standard Model. The gauge group ($SU(3) \times SU(2) \times U(1)$) emerges from the topological decomposition ($\sigma=5, \chi=2$), the generation count is fixed by the symmetry remainder ($n_{\text{gen}} = \sigma - \chi = 3$), and the chiral capacity ($\nu=16$) structurally prohibits extensions like supersymmetry or a fourth generation.
@@ -32,7 +35,7 @@ We derive the fundamental constants via global impedance matching with \textbf{z
 Numerical validation confirms the theory's dynamic consistency: 
 (1) A lattice simulation of the emergent gravity mechanism recovers the Einstein-Hilbert action with \textbf{Vacuum Stiffness $\kappa = 1.000000$} and effective light speed $c_{eff}=1.000000$, confirming Lorentz invariance on the discrete grid;
 (2) A Monte Carlo diffusion audit derives the Fine-Structure Constant from lattice topology with $0.0007\%$ precision ($\alpha^{-1}_{sim} \approx 137.037$), verifying the geometric impedance derivation; and 
-(3) a zero-degree-of-freedom global fit of five fundamental observables ($\alpha^{-1}$, $G_F$, $m_W$, $\alpha_s$, $m_H$) yields a total $\chi^2 = 0.587$ (Reduced $\chi^2 = 0.117$), confirming the geometric derivation captures physical correlations to high precision.
+(3) a zero-degree-of-freedom global fit of five fundamental observables ($\alpha^{-1}$, $G_F$, $m_W$, $\alpha_s$, $m_H$) yields a total $\chi^2 = \bosonictotalchiVal$ (Reduced $\chi^2 = \bosonicreducedchiVal$), confirming the geometric derivation captures physical correlations to high precision.
 
 This framework replaces parameter fitting with geometric derivation, providing falsifiable predictions for the fermion spectrum. This is Paper I of a series deriving the fermion spectrum (II), flavor mixing (III), cosmology (IV), and quantum foundations (V).
 \end{abstract}
