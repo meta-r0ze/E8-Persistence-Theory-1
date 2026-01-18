@@ -242,7 +242,7 @@ def print_derivation(name, tag, formula_sym, latex_sym, formula_num, result,
 
     print("")
 
-def run_global_audit(results_dict, refs):
+def run_global_audit(results_dict, refs, latex_mode=False):
     # --- TIER 1: BOSONIC STRUCTURE ---
     tier1_checklist = [
         ("AlphaInv",    "alpha_inv", "Alpha^-1"),
@@ -261,18 +261,19 @@ def run_global_audit(results_dict, refs):
         ("VonKlitzing",  "rk",       "Von Klitzing Const")
     ]
 
-    run_global_audit_tier(results_dict, refs, tier1_checklist)
-    run_global_audit_tier(results_dict, refs, tier2_checklist)
+    run_global_audit_tier(results_dict, refs, tier1_checklist, latex_mode, "bosonic")
+    run_global_audit_tier(results_dict, refs, tier2_checklist, latex_mode, "spectrum")
     
 
-def run_global_audit_tier(results_dict, refs, checklist):
+def run_global_audit_tier(results_dict, refs, checklist, latex_mode=False, name=""):
     """
     Performs Chi-Squared Audit using MeasuredVal objects.
     Outputs in a vertical, human-readable list format for precise digit comparison.
     """
-    print("\n" + "="*60)
-    print(f"{'GLOBAL GEOMETRIC AUDIT':^60}")
-    print("="*60)
+    if not latex_mode:
+        print("\n" + "="*60)
+        print(f"{'GLOBAL GEOMETRIC AUDIT':^60}")
+        print("="*60)
 
     total_chi2 = 0.0
     dof = 0
@@ -298,30 +299,37 @@ def run_global_audit_tier(results_dict, refs, checklist):
                 fmt = ".9f"
                 err_fmt = ".8f"
             
-            # 4. Print Block
-            print(f"[{display}]")
-            print(f"  Experimental: {ref.value:{fmt}} +/- {ref.uncertainty:{err_fmt}}")
-            print(f"  Geometric:    {calc_val:{fmt}}")
-            # Source and Unit line
-            src_str = f"({ref.source})"
-            print(f"  Context:      {ref.units:<6} {src_str}")
-            print(f"  Deviation:    {sigma:+.2f} sigma")
-            print(f"  Chi^2:        {chi2:.4f}")
-            print("-" * 60)
+            if not latex_mode:
+                # 4. Print Block
+                print(f"[{display}]")
+                print(f"  Experimental: {ref.value:{fmt}} +/- {ref.uncertainty:{err_fmt}}")
+                print(f"  Geometric:    {calc_val:{fmt}}")
+                # Source and Unit line
+                src_str = f"({ref.source})"
+                print(f"  Context:      {ref.units:<6} {src_str}")
+                print(f"  Deviation:    {sigma:+.2f} sigma")
+                print(f"  Chi^2:        {chi2:.4f}")
+                print("-" * 60)
             
             total_chi2 += chi2
             dof += 1
-            
-    print("=" * 60)
-    print(f"TOTAL CHI^2:   {total_chi2:.4f}")
-    print(f"DOF:           {dof}")
-    print(f"REDUCED CHI^2: {total_chi2/dof:.4f}")
+
+    if not latex_mode:            
+        print("=" * 60)
+        print(f"TOTAL CHI^2:   {total_chi2:.4f}")
+        print(f"DOF:           {dof}")
+        print(f"REDUCED CHI^2: {total_chi2/dof:.4f}")
     
-    if total_chi2 < 25.0:
-        print(">>> STATUS: VALIDATED (Theory matches Experiment)")
+        if total_chi2 < 25.0:
+            print(">>> STATUS: VALIDATED (Theory matches Experiment)")
+        else:
+            print(">>> STATUS: TENSION DETECTED")
+        print("="*60 + "\n")
     else:
-        print(">>> STATUS: TENSION DETECTED")
-    print("="*60 + "\n")
+        tag=name+"totalchi"
+        print(f"%<*{tag}Val>{total_chi2:.4f}%</{tag}Val>")
+        tag=name+"reducedchi"
+        print(f"%<*{tag}Val>{total_chi2/dof:.4f}%</{tag}Val>")
 
 def main():
     parser = argparse.ArgumentParser(description="Calculate E8 Persistence Constants")
@@ -790,21 +798,19 @@ def main():
         latex_mode=LATEX_MODE
     )
 
-    if not LATEX_MODE:
-        RESULTS = {}
-        RESULTS["AlphaInv"] = ALPHA_INV_GEO
-        RESULTS["FermiConst"] = GF_GEO
-        RESULTS["WBosonMass"] = MW_GEO
-        RESULTS["AlphaS"] = ALPHA_S_GEO
-        RESULTS["HiggsMass"] = MH_GEO
+    RESULTS = {}
+    RESULTS["AlphaInv"] = ALPHA_INV_GEO
+    RESULTS["FermiConst"] = GF_GEO
+    RESULTS["WBosonMass"] = MW_GEO
+    RESULTS["AlphaS"] = ALPHA_S_GEO
+    RESULTS["HiggsMass"] = MH_GEO
 
-        RESULTS["VonKlitzing"] = RK_GEO
-        RESULTS["WeakAngle"] = SIN2_THETA_W_GEO
-        RESULTS["CabibboAngle"] = SIN_THETA_C_GEO
-        RESULTS["Jarlskog"] = J_GEO
-        RESULTS["PlanckMass"] = MP_GEV_GEO
-
-        run_global_audit(RESULTS, REFS)
+    RESULTS["VonKlitzing"] = RK_GEO
+    RESULTS["WeakAngle"] = SIN2_THETA_W_GEO
+    RESULTS["CabibboAngle"] = SIN_THETA_C_GEO
+    RESULTS["Jarlskog"] = J_GEO
+    RESULTS["PlanckMass"] = MP_GEV_GEO
+    run_global_audit(RESULTS, REFS, LATEX_MODE)
 
 if __name__ == "__main__":
     main()
