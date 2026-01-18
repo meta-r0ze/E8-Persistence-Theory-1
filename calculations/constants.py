@@ -14,7 +14,7 @@ class MeasuredVal:
     value: float
     uncertainty: float
     units: str
-    source: str = "PDG 2024"  # Default source
+    citation: str
 
     @property
     def rel_precision(self):
@@ -24,107 +24,151 @@ class MeasuredVal:
     
 REFS = {
     # --- Fundamental Constants (CODATA 2022) ---
-    "me": MeasuredVal(0.51099895000, 0.00000000015, "MeV", "CODATA 2022"),
+    "me": MeasuredVal(
+        0.51099895000, 
+        0.00000000015, 
+        "MeV", 
+        "mohr_codata_2025"
+    ),
     
     "alpha_inv": MeasuredVal(
         137.035999177, 
         0.000000085, 
         "", 
-        "CODATA 2022"
+        "mohr_codata_2025"
     ),
 
-    # --- Running Constants (High Energy) ---
-    "alpha_inv_mz": MeasuredVal(
-        127.955, 
-        0.010, 
-        "", 
-        "PDG 2024 (MS-bar)"
+    "rk": MeasuredVal(
+        25812.80745,
+        0.00001,
+        "Ohms",
+        "mohr_codata_2025"
     ),
 
-    "gf": MeasuredVal(
-        1.1663788e-5,    # PDG 2024 Value
-        0.0000006e-5,    # Uncertainty (6 in the last digit)
-        "GeV^-2", 
-        "PDG 2024"
-    ),
-
-    "vev": MeasuredVal(
-        246.21965, 
-        0.00006, 
+    "Mp": MeasuredVal(
+        1.22091e19, 
+        0.00001e19, 
         "GeV", 
-        "Derived from GF"
+        "mohr_codata_2025"
+    ),
+
+    # --- Electroweak & Higgs (PDG 2024) ---
+    "gf": MeasuredVal(
+        1.1663788e-5,    
+        0.0000006e-5,    
+        "GeV^-2", 
+        "navas_review_2024"
+    ),
+
+    "mz": MeasuredVal(
+        91.1876,
+        0.0021,
+        "GeV",
+        "navas_review_2024"
     ),
 
     "mw": MeasuredVal(
         80.377,
         0.012,
-        "GeV"
+        "GeV",
+        "navas_review_2024"  # Global Fit
     ),
-    "mz": MeasuredVal(
-        91.1876,
-        0.0021,
-        "GeV"
+
+    # Specific W-Mass measurements for tension analysis
+    "mw_cdf": MeasuredVal(
+        80.4335,
+        0.0094,
+        "GeV",
+        "cdf_collaboration_high-precision_2022"
+    ),
+
+    "mw_atlas": MeasuredVal(
+        80.360,
+        0.016,
+        "GeV",
+        "aaboud_improved_2023"
     ),
 
     "sin2_w": MeasuredVal(
         0.22291,
         0.00011,
-        ""
-    ), # On-Shell
-
-    # --- QCD & Higgs ---
-    "alpha_s": MeasuredVal(0.1179, 0.0009, ""),
-    
-    "mh": MeasuredVal(125.25, 0.17, "GeV"),
-    
-    "lambda": MeasuredVal(
-        0.129, 
-        0.005, 
-        "", 
-        "SM Derived (mH^2/2v^2)"
+        "",
+        "navas_review_2024"
     ),
 
-    # --- Flavor & Yukawas ---
-    "ye_sm": MeasuredVal(
-        2.935e-6, 
-        0.001e-6, 
-        "", 
-        "SM Expectation (me/v)"
+    "mh": MeasuredVal(
+        125.25, 
+        0.17, 
+        "GeV",
+        "navas_review_2024"
     ),
 
-    "vus": MeasuredVal(0.22500, 0.00067, ""),
-    "jarlskog": MeasuredVal(3.08e-5, 0.15e-5, ""),
+    # --- Strong Coupling (QCD) ---
+    "alpha_s": MeasuredVal(
+        0.1179, 
+        0.0009, 
+        "",
+        "denterria_strong_2024" 
+    ),
+
+    # --- Flavor Physics (CKM) ---
+    "vus": MeasuredVal(
+        0.22500, 
+        0.00067, 
+        "",
+        "navas_review_2024"
+    ),
+
+    "jarlskog": MeasuredVal(
+        3.08e-5, 
+        0.15e-5, 
+        "",
+        "navas_review_2024"
+    ),
+
+    # --- Running Constants & Background ---
+    "alpha_inv_mz": MeasuredVal(
+        127.955, 
+        0.010, 
+        "", 
+        "navas_review_2024"
+    ),
+
+    "delta_alpha_mz": MeasuredVal(
+        0.0590,
+        0.0001,
+        "",
+        "navas_review_2024"
+    ),
 
     # --- Gravity ---
     "G_coupling": MeasuredVal(
         1.752e-45, 
         0.001e-45, 
         "", 
-        "CODATA 2022 (Derived)"
-    ),
-    
-    "Mp": MeasuredVal(
-        1.22091e19, 
-        0.00001e19, 
-        "GeV", 
-        "CODATA 2022"
-    ),
-    
-    "rk": MeasuredVal(
-        25812.80745,
-        0.00001,
-        "Ohms",
-        "CODATA 2022"
+        "mohr_codata_2025"
     ),
 
-    # --- Vacuum Polarization (QFT Background) ---
-    # Total shift in alpha due to fermion loops (leptons + hadrons)
-    # Source: PDG 2024 / Jegerlehner (2019)
-    "delta_alpha_mz": MeasuredVal(
-        0.0590,
-        0.0001,
-        "",
-        "PDG 2024 (Delta Alpha_lep + had)"
+    # --- Derived Comparisons ---
+    "vev": MeasuredVal(
+        246.21965, 
+        0.00006, 
+        "GeV", 
+        "navas_review_2024"
+    ),
+
+    "lambda": MeasuredVal(
+        0.129, 
+        0.005, 
+        "", 
+        "navas_review_2024"
+    ),
+
+    "ye_sm": MeasuredVal(
+        2.935e-6, 
+        0.001e-6, 
+        "", 
+        "navas_review_2024"
     ),
 }
 
@@ -158,8 +202,13 @@ def print_derivation(name, tag, formula_sym, latex_sym, formula_num, result,
                      formula_step=None):
 
     # Auto-detect unit from REFS if not provided
-    if unit is None and ref_key and f"{ref_key}_unit" in REFS:
-        unit = REFS[f"{ref_key}_unit"]
+    if unit is None and ref_key and ref_key in REFS:
+        # Check if the object has a 'unit' attribute, or look for _unit string key
+        if hasattr(REFS[ref_key], 'unit'):
+            unit = REFS[ref_key].unit
+        elif f"{ref_key}_unit" in REFS:
+            unit = REFS[f"{ref_key}_unit"]
+    
     if unit is None: 
         unit = ""
 
@@ -178,22 +227,33 @@ def print_derivation(name, tag, formula_sym, latex_sym, formula_num, result,
 
         # 3. Accuracy/Diff Tags (if ref exists)
         if ref_key and ref_key in REFS:
-            target = REFS[ref_key].value
-            err_val = REFS[ref_key].uncertainty
+            ref_obj = REFS[ref_key]
+            target = ref_obj.value
+            err_val = ref_obj.uncertainty
+            
+            # --- NEW: Extract Citation ---
+            # Checks for .citation attribute, defaults to empty if missing
+            cite_key = getattr(ref_obj, 'citation', None)
+            cite_str = f"~\\cite{{{cite_key}}}" if cite_key else ""
 
             diff = result - target
             sigma = 0.0
             if err_val > 0:
                 sigma = diff / err_val
 
-            # Experimental Value Tag (Val \pm Err)
-            exp_str = to_latex_sci(target, 5)
-            # Simple formatter for standard floats to avoid 10^0
+            # Experimental Value Tag (Val \pm Err + Citation)
+            # Case A: Standard Float (e.g. 0.2229)
             if 0.001 < abs(target) < 1000:
-                 print(f"%<*{tag}ExperimentalValue>\\qty{{{target} \\pm {err_val}}}{{{unit}}}%</{tag}ExperimentalValue>")
+                 # Uses siunitx \qty{val \pm err}{unit} + \cite{key}
+                 out_str = f"\\qty{{{target} \\pm {err_val}}}{{{unit}}}{cite_str}"
+                 print(f"%<*{tag}ExperimentalValue>{out_str}%</{tag}ExperimentalValue>")
+            
+            # Case B: Scientific Notation (e.g. 1.22e19)
             else:
-                 # Logic to split sci notation for error if needed, simplifed here:
-                 print(f"%<*{tag}ExperimentalValue>{exp_str}%</{tag}ExperimentalValue>") 
+                 # Generate sci-notation string
+                 exp_str = to_latex_sci(target, 5)
+                 # Append citation
+                 print(f"%<*{tag}ExperimentalValue>{exp_str}{cite_str}%</{tag}ExperimentalValue>") 
 
             # Accuracy Sentence Logic
             abs_sigma = abs(sigma)
