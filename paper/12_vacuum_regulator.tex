@@ -180,31 +180,56 @@ m_H = \sqrt{2 (0.12942)} \cdot (\HiggsVEVVal \text{ GeV}) \approx \\
 \end{itemize}
 
 
+\subsection{Derivation D: Resolution Floor (The Electron Yukawa \texorpdfstring{$y_e$}{ye})}
 
-\subsection{Derivation D: Resolution Floor (The Electron Yukawa)}
-The Persistence Margin ($PM$) represents the smallest non-zero bit of mass the lattice can resolve against thermal noise.  This determines the coupling of the lightest charged particle (the Electron). We derive this scale as the Unit Bit (1) diluted over the \textbf{Total Configuration Space Volume}.
+The Persistence Margin ($PM$) represents the smallest non-zero bit of mass the lattice can resolve against thermal noise. This determines the coupling of the lightest charged particle (the Electron). We derive this scale as the Unit Bit (1) diluted over the \textbf{Total Configuration Space Volume}.
 
 \begin{equation}
 y_{e,bare} = \frac{1}{V_{config}} = \frac{1}{\underbrace{H_{full}}_{\text{Budget}} \cdot \underbrace{(\sigma+1)}_{\text{Aperture}} \cdot \underbrace{\Delta^2}_{\text{Area}}}
 \end{equation}
 
-\subsubsection{Radiative Correction}
-The bare geometric value represents the coupling of the naked topological knot. However, a charged particle cannot exist in isolation; it is surrounded by an electromagnetic field. We apply the self-energy correction factor $(1+\alpha)$ to account for the total effective coupling of the particle plus its field:
+\subsubsection{Derivation E: The Geometric Self-Energy Correction}
 
+Standard field theory treats the difference between bare and physical parameters as "Renormalization" arising from virtual particle loops. In the $E_8$-Persistence framework, this difference is the **Geometric Stress** of embedding the knot's internal symmetry into the spacetime manifold.
+
+A charged particle possesses an interaction structure of rank $\sigma=5$ (from System I), but it must exist within a manifold of rank $D=4$. This dimensional mismatch ($\sigma > D$) creates an irreducible "Overpressure" on the surrounding lattice.
+
+We define the **Projection Coefficient** ($\mathcal{P}$) as the ratio of the internal load to the manifold capacity:
 \begin{equation}
-y_{e,phys} \approx y_{e,bare} \cdot (1 + \alpha)
+\mathcal{P} = \frac{\text{Interaction Rank}}{\text{Manifold Rank}} = \frac{\sigma}{D} = \frac{5}{4} = 1.25
 \end{equation}
 
-Using the invariants $H_{full}=31$, Weak Aperture ($\sigma+1=6$), and Resonant Area ($\Delta^2$):
+The total effective coupling ($y_{phys}$) is the bare geometric floor ($y_{bare}$) enhanced by this projection stress acting through the vacuum impedance ($\alpha$):
+
 \begin{equation}
-y_{e,phys} \approx \frac{1}{31 \cdot 6 \cdot 43^2} \cdot (1 + \alpha) \approx \mathbf{\ElectronYukawaVal}
+y_{e,phys} = y_{e,bare} \cdot \left(1 + \mathcal{P} \cdot \alpha \right) = y_{e,bare} \cdot \left(1 + \frac{\sigma}{D}\alpha \right)
 \end{equation}
 
-\subsubsection{Validation}
-We compare this geometric derivation to the Standard Model definition of the Electron Yukawa coupling:
+\textbf{Numerical Validation:}
+Substituting the invariants ($H_{full}=31, \sigma+1=6, \Delta=43$) and the derived $\alpha$:
+
 \begin{equation}
-y_e^{SM} = \frac{\sqrt{2} m_e}{v} = \frac{\sqrt{2} \cdot 0.511 \text{ MeV}}{246.22 \text{ GeV}} \approx 2.93 \times 10^{-6}
+y_{e,phys} \approx \left(\frac{1}{31 \cdot 6 \cdot 43^2}\right) \cdot \left(1 + 1.25 \cdot \frac{1}{137.036}\right)
 \end{equation}
+
+\begin{equation}
+y_{e,phys} \approx 2.9077 \times 10^{-6} \cdot (1.00912) \approx \mathbf{2.9342 \times 10^{-6}}
+\end{equation}
+
+\begin{itemize}
+    \item \textbf{Geometric Prediction:} $\ElectronYukawaVal$
+    \item \textbf{Experimental Value (SM):} $\ElectronYukawaExperimentalValue$
+    \item \textbf{Accuracy:} \ElectronYukawaAccText
+\end{itemize}
+
+\subsubsection{Physical Consequences of the Floor}
+This geometric floor explains several fundamental features of the particle spectrum:
+\begin{itemize}
+    \item \textbf{Why the electron is stable:} It sits at the minimum resolvable mass. There is no "lower shelf" to decay to; the configuration space volume sets a hard lower bound for charged knots.
+    \item \textbf{Why neutrinos are so light:} Neutrinos (if massive) must have Yukawa couplings $y_\nu \ll y_e$, pushing them below the resolution floor. This implies they cannot acquire mass through the standard Higgs mechanism (which stops at $y_e$) but require a different mechanism (Phonon Duality, explored in Paper II).
+    \item \textbf{Absence of lighter particles:} The configuration space volume ($V_{config} \approx 3.4 \times 10^5$) prohibits the existence of any charged particle lighter than the electron. Anything smaller dissolves into the lattice geometry.
+\end{itemize}
+
 
 \textbf{Physical Consequence:} This establishes the electron as the lightest possible charged particle. Any knot with $y < y_e$ falls below the vacuum resolution floor and dissolves.
 \textbf{Forward Link:} The electron mass is recovered via $m_e = y_e \cdot v/\sqrt{2} \approx 0.511$ MeV. The masses of all other fermions are derived in Paper II via the Residual-Lifetime Power Law.
