@@ -98,12 +98,15 @@ At the mass of the Z-boson ($M_Z$), the channel is saturated. Substituting the i
 \CatchFileBetweenTags{\AlphaSTauLinearVal}{calculations/constants.tex}{AlphaSTauLinearVal}
 \CatchFileBetweenTags{\AlphaSTauCorrectedVal}{calculations/constants.tex}{AlphaSTauCorrectedVal}
 
-\subsubsection{Test 2: QCD Evolution (Running to \texorpdfstring{$M_\tau$}{Mtau})}
-To verify the Stiffness derivation ($\beta_0$), we run the coupling down to the Tau mass ($M_\tau \approx 1.777$ GeV). Using the one-loop renormalization group equation with our derived values ($\alpha_s(M_Z) = 0.1179$ and $\beta_0 = 9$ for $n_f=3$ active flavors):
+\subsubsection{Test 2: Geometric Scaling (Running to \texorpdfstring{$M_\tau$}{Mtau})}
+
+To verify the Stiffness derivation ($\beta_0$), we trace the coupling evolution across energy scales. In the lattice framework, energy scale corresponds to inverse resolution ($\mu \sim 1/r$). The evolution of the coupling is governed by the \textbf{Lattice Scaling Law}, where the logarithmic term $\ln(M_1/M_2)$ represents the number of \textbf{Scale Octaves} (doublings) between the two resolutions.
 
 \begin{equation}
 \alpha_s(M_\tau) = \frac{\alpha_s(M_Z)}{1 + \frac{\beta_0}{2\pi} \alpha_s(M_Z) \ln(M_\tau/M_Z)}
 \end{equation}
+
+This form, functionally identical to the perturbative Renormalization Group Equation, emerges here as the linear response of the lattice stiffness ($\beta_0$) to scale transformations.
 
 Substituting the values:
 \begin{equation}
