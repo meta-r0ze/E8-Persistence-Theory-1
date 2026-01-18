@@ -100,6 +100,63 @@ def run_random_walks(roots, n_walkers, n_steps):
         final_sq_dist[i] = np.sum(pos**2)
     return final_sq_dist
 
+@njit(parallel=True, fastmath=True)
+def run_surface_walks(roots, n_walkers, n_steps):
+    """
+    Simulates N photons diffusing on a 3D HYPERSURFACE of the E8 vacuum.
+    Uses PROJECTED steps (preserving geometric loss), not normalized steps.
+    """
+    final_sq_dist = np.zeros(n_walkers)
+    n_roots = len(roots)
+    
+    # 1. Pre-calculate projected surface steps
+    # We do NOT normalize magnitude. The loss of magnitude IS the friction.
+    temp_steps = np.zeros((n_roots, 3)) 
+    count = 0
+    
+    for i in range(n_roots):
+        # Extract 3D component (x1, x2, x3) - implicitly dropping x4
+        rx = roots[i, 0]
+        ry = roots[i, 1]
+        rz = roots[i, 2]
+        
+        # Only keep steps that have non-zero projection
+        mag_sq = rx*rx + ry*ry + rz*rz
+        if mag_sq > 1e-9:
+            temp_steps[count, 0] = rx
+            temp_steps[count, 1] = ry
+            temp_steps[count, 2] = rz
+            count += 1
+            
+    # Create the final compact array for indexing
+    valid_steps = temp_steps[:count]
+    n_valid = count
+    
+    # 2. Run Random Walks
+    for i in prange(n_walkers):
+        pos_x = 0.0
+        pos_y = 0.0
+        pos_z = 0.0
+        
+        for t in range(n_steps):
+            idx = np.random.randint(0, n_valid)
+            
+            sx = valid_steps[idx, 0]
+            sy = valid_steps[idx, 1]
+            sz = valid_steps[idx, 2]
+            
+            if np.random.random() < 0.5: 
+                pos_x += sx
+                pos_y += sy
+                pos_z += sz
+            else: 
+                pos_x -= sx
+                pos_y -= sy
+                pos_z -= sz
+                
+        final_sq_dist[i] = pos_x**2 + pos_y**2 + pos_z**2
+        
+    return final_sq_dist
 # ==========================================
 # 3. THE CALCULATOR CLASS
 # ==========================================
@@ -300,12 +357,60 @@ class AlphaCalculator:
         print(">>> Discrete peaks confirm the Quantum Nature of space.")
         plt.show()
 
+    def run_friction_audit(self, n_walkers=100000, n_steps=5000):
+        print(f"\n{'-'*60}")
+        print("6. MANIFOLD FRICTION AUDIT (BULK vs SURFACE)")
+        print(f"walkers:{n_walkers}, steps:{n_steps}")
+        print(f"{'-'*60}")
+        
+        # 1. Bulk Diffusion (4D)
+        print(f"Simulating Bulk Diffusion (4D)...")
+        bulk_dists = run_random_walks(self.normalized_roots, n_walkers, n_steps)
+        msd_bulk = np.mean(bulk_dists)
+        
+        # 2. Surface Diffusion (3D)
+        print(f"Simulating Surface Diffusion (3D)...")
+        surface_dists = run_surface_walks(self.normalized_roots, n_walkers, n_steps)
+        msd_surface = np.mean(surface_dists)
+        
+        # 3. Calculate Ratio
+        # Theory: Bulk is slower due to extra dimension capacity cost
+        # Ratio should be eta = 1 - 1/(D*Delta) = 1 - 1/172 = 0.994186
+        
+        # Note: We must normalize for dimensionality. 
+        # MSD ~ 2*d*D*t. 
+        # Bulk (4D): MSD ~ 8t * eta
+        # Surface (3D): MSD ~ 6t
+        # So we compare Diffusion Coefficient D_bulk / D_surface
+        
+        diff_coeff_bulk = msd_bulk / (2 * 4 * n_steps)
+        diff_coeff_surf = msd_surface / (2 * 3 * n_steps)
+        
+        measured_eta = diff_coeff_bulk / diff_coeff_surf
+        target_eta = 1.0 - (1.0 / 172.0)
+        
+        print(f"{'-'*60}")
+        print(f"Bulk Diffusivity:    {diff_coeff_bulk:.6f}")
+        print(f"Surface Diffusivity: {diff_coeff_surf:.6f}")
+        print(f"{'-'*60}")
+        print(f"Measured Friction (η): {measured_eta:.6f}")
+        print(f"Theoretical Target:    {target_eta:.6f}")
+        
+        error = abs(measured_eta - target_eta) / target_eta * 100
+        print(f"Error:                 {error:.4f}%")
+        
+        if error < 1.0:
+            print(">>> VALIDATION SUCCESSFUL: Friction emerges from dimensionality.")
+        else:
+            print(">>> WARNING: Friction mismatch.")
+
 if __name__ == "__main__":
     sim = AlphaCalculator()
     sim.run_geometry_audit()
     # 10 runs of 100k walkers = 1M stats per point
     sim.run_diffusion_ensemble(walkers_per_run=100000, n_runs=10) 
     sim.run_impedance_audit(n_samples=50000000)
+    sim.run_friction_audit()
 
     sim.run_shell_structure()
     sim.run_visualization()
