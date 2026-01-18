@@ -34,6 +34,7 @@ The Bulk Regulator acts as a complete persistent system nested within the bulk l
     
     \item \textbf{Governor ($G$): Diffeomorphism Invariance.} \\
     The stabilizing mechanism preventing divergence. For gravity, the governor is the \textbf{Einstein-Hilbert Action} ($R\sqrt{-g}$). This emerges as the hydrodynamic limit of the lattice capacity conservation law ($\nabla_\mu T^{\mu\nu}=0$), stabilizing the bulk geometry against tearing.\footnote{The Einstein-Hilbert action emerges as the long-wavelength limit of the lattice capacity conservation law. The spin-2 mode is the Goldstone boson of broken translational symmetry in the presence of matter ($T^{\mu\nu} \neq 0$).}
+    \textit{Scaling:} The zero-point energy of the gravitational Goldstone mode is canceled by this counter-term, leaving a residual entropic scaling of $\Lambda \approx M_P^4 \cdot \alpha^{\Delta} \approx 10^{-120} M_P^4$ (Detailed in Paper IV).
     
     \item \textbf{Temporal Cost ($T$): Causality ($ds^2 \ge 0$), Stiffness ($T \propto M_P^2 (\partial h)^2$).} \\
     The entropic tax of maintaining causal ordering. The huge energy cost ($M_P^2$) required to perturb the metric defines the rigidity of spacetime, enforcing the light-cone limit ($ds^2 \ge 0$). Unlike the Higgs cost (which drives symmetry breaking), the gravitational cost enforces the \textbf{arrow of time} itself through the light cone structure.
@@ -82,6 +83,12 @@ The coupling is the product of the spare capacity (Bandwidth) and the attenuatio
 \begin{equation}
 \alpha_G = 15.326 \times (1.143 \times 10^{-46}) \approx \mathbf{\GravCouplingVal}
 \end{equation}
+
+This fractional depth is not an ad hoc choice but a boundary condition of the fundamental mode. For a standing wave $\Psi(n) = \cos(2\pi n / \Delta)$ constrained by the lattice boundaries, the energy density peak lies strictly at the continuous geometric midpoint:
+\begin{equation}
+r_{core} = \frac{1}{\Delta} \int_0^\Delta n \, dn = \frac{\Delta}{2} = 21.5
+\end{equation}
+Forcing $r$ to an integer site would favor one of the two $D_4$ sublattices, breaking the self-duality required for persistence.
 
 \begin{itemize}
     \item \textbf{Experimental Value:} $\GravCouplingExperimentalValue$
