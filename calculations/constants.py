@@ -179,17 +179,41 @@ PI = math.pi
 # 1. HELPER FUNCTIONS
 # ==========================================
 
+def format_float_latex(num, precision=9):
+    """
+    Formats a float as a simple decimal string, avoiding scientific notation 
+    for numbers within the standard range (0.001 < x < 1000).
+    """
+    return f"{num:.{precision}f}".rstrip('0').rstrip('.')
+
 def to_latex_sci(num, precision=4):
     """Converts a float to LaTeX scientific notation."""
     if num == 0: return "0"
     exponent = int(math.floor(math.log10(abs(num))))
     mantissa = num / (10**exponent)
-    if exponent >= -1 and exponent < 6:
+    
+    # Standard range: Just return the number as a string
+    if -3 <= exponent < 6:
         # Avoid unnecessary decimals for integers
         if abs(num - round(num)) < 1e-9:
             return f"{int(num)}"
-        return f"{num:.{precision}f}"
+        return f"{num:.{precision}f}".rstrip('0').rstrip('.')
+        
     return f"{mantissa:.{precision}f} \\times 10^{{{exponent}}}"
+
+def to_latex_sci_with_err(val, err, precision=4):
+    """
+    Handles scientific notation for Value +/- Error pairs.
+    Ensures both share the same exponent for clean LaTeX: (1.2 +/- 0.1) x 10^19
+    """
+    if val == 0: return f"0 \\pm {err}"
+    exponent = int(math.floor(math.log10(abs(val))))
+    
+    # Normalize both by the main exponent
+    mantissa_val = val / (10**exponent)
+    mantissa_err = err / (10**exponent)
+    
+    return f"({mantissa_val:.{precision}f} \\pm {mantissa_err:.{precision}f}) \\times 10^{{{exponent}}}"
 
 def print_section(title, latex_mode=False):
     if latex_mode: return
@@ -203,7 +227,6 @@ def print_derivation(name, tag, formula_sym, latex_sym, formula_num, result,
 
     # Auto-detect unit from REFS if not provided
     if unit is None and ref_key and ref_key in REFS:
-        # Check if the object has a 'unit' attribute, or look for _unit string key
         if hasattr(REFS[ref_key], 'unit'):
             unit = REFS[ref_key].unit
         elif f"{ref_key}_unit" in REFS:
@@ -214,46 +237,58 @@ def print_derivation(name, tag, formula_sym, latex_sym, formula_num, result,
 
     # --- LATEX OUTPUT MODE ---
     if latex_mode:
+        # 1. Step Value Tag (Optional intermediate calculation)
         if formula_step is not None:
-            val_step_str = f"{formula_step:.9f}" if 0.001 < abs(formula_step) < 1000 else to_latex_sci(formula_step, 5)
+            val_step_str = format_float_latex(formula_step) if 0.001 < abs(formula_step) < 1000 else to_latex_sci(formula_step, 5)
             print(f"%<*{tag}StepVal>{val_step_str}%</{tag}StepVal>")
 
-        # 1. Value Tag
-        val_str = f"{result:.9f}" if 0.001 < abs(result) < 1000 else to_latex_sci(result, 5)
+        # 2. Geometric Value Tag (THEORY PREDICTION)
+        # We DO NOT add +/- 0 here. Theoretical values are presented as exact numbers.
+        val_str = format_float_latex(result) if 0.001 < abs(result) < 1000 else to_latex_sci(result, 5)
         print(f"%<*{tag}Val>{val_str}%</{tag}Val>")
 
-        # 2. Formula Tag
+        # 3. Formula Tag
         print(f"%<*{tag}Eq>{latex_sym}%</{tag}Eq>")
 
-        # 3. Accuracy/Diff Tags (if ref exists)
+        # 4. Experimental Comparison logic
         if ref_key and ref_key in REFS:
             ref_obj = REFS[ref_key]
             target = ref_obj.value
             err_val = ref_obj.uncertainty
             
-            # --- NEW: Extract Citation ---
-            # Checks for .citation attribute, defaults to empty if missing
+            # Extract Citation
             cite_key = getattr(ref_obj, 'citation', None)
             cite_str = f"~\\cite{{{cite_key}}}" if cite_key else ""
 
+            # Calculate Sigma
             diff = result - target
             sigma = 0.0
             if err_val > 0:
                 sigma = diff / err_val
 
-            # Experimental Value Tag (Val \pm Err + Citation)
-            # Case A: Standard Float (e.g. 0.2229)
+            # --- EXPERIMENTAL VALUE TAG GENERATION ---
+            
+            # Case A: Standard Float (e.g. 0.2229 +/- 0.0001)
+            # We use format_float_latex to force decimal representation (0.0009) 
+            # instead of scientific (9e-4) to prevent siunitx parsing errors.
             if 0.001 < abs(target) < 1000:
-                 # Uses siunitx \qty{val \pm err}{unit} + \cite{key}
-                 out_str = f"\\qty{{{target} \\pm {err_val}}}{{{unit}}}{cite_str}"
+                 t_str = format_float_latex(target)
+                 e_str = format_float_latex(err_val)
+                 out_str = f"\\qty{{{t_str} \\pm {e_str}}}{{{unit}}}{cite_str}"
                  print(f"%<*{tag}ExperimentalValue>{out_str}%</{tag}ExperimentalValue>")
             
-            # Case B: Scientific Notation (e.g. 1.22e19)
+            # Case B: Scientific Notation (e.g. 1.22e19 +/- 0.05e19)
+            # We format the string manually to ensure (Val +/- Err) x 10^N structure
             else:
-                 # Generate sci-notation string
-                 exp_str = to_latex_sci(target, 5)
-                 # Append citation
-                 print(f"%<*{tag}ExperimentalValue>{exp_str}{cite_str}%</{tag}ExperimentalValue>") 
+                 exp_str = to_latex_sci_with_err(target, err_val, 5)
+                 # We put the string inside \qty, relying on siunitx to parse the complex string 
+                 # or we just output the string if units are simple. 
+                 # Safer method for complex sci-notation is raw LaTeX math mode + unit
+                 if unit:
+                     out_str = f"${exp_str}$ \\unit{{{unit}}}{cite_str}"
+                 else:
+                     out_str = f"${exp_str}${cite_str}"
+                 print(f"%<*{tag}ExperimentalValue>{out_str}%</{tag}ExperimentalValue>") 
 
             # Accuracy Sentence Logic
             abs_sigma = abs(sigma)
@@ -365,8 +400,8 @@ def run_global_audit_tier(results_dict, refs, checklist, latex_mode=False, name=
                 print(f"  Experimental: {ref.value:{fmt}} +/- {ref.uncertainty:{err_fmt}}")
                 print(f"  Geometric:    {calc_val:{fmt}}")
                 # Source and Unit line
-                src_str = f"({ref.source})"
-                print(f"  Context:      {ref.units:<6} {src_str}")
+                src_str = f"({ref.citation})"
+                print(f"  Citation:     {ref.units:<6} {src_str}")
                 print(f"  Deviation:    {sigma:+.2f} sigma")
                 print(f"  Chi^2:        {chi2:.4f}")
                 print("-" * 60)
