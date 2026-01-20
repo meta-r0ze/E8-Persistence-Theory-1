@@ -5,6 +5,9 @@
 \CatchFileBetweenTags{\MeMeVPrint}{calculations/constants.tex}{MeMeVPrint}
 
 % Delta E
+
+\CatchFileBetweenTags{\HiggsVEVStepOneVal}{calculations/constants.tex}{HiggsVEVStepOneVal}
+\CatchFileBetweenTags{\HiggsVEVStepTwoVal}{calculations/constants.tex}{HiggsVEVStepTwoVal}
 \CatchFileBetweenTags{\HiggsVEVVal}{calculations/constants.tex}{HiggsVEVVal}
 \CatchFileBetweenTags{\HiggsVEVExperimentalValue}{calculations/constants.tex}{HiggsVEVExperimentalValue}
 \CatchFileBetweenTags{\HiggsVEVAccText}{calculations/constants.tex}{HiggsVEVAccText}
@@ -25,6 +28,7 @@
 
 % PM
 \CatchFileBetweenTags{\ElectronYukawaVal}{calculations/constants.tex}{ElectronYukawaVal}
+\CatchFileBetweenTags{\ElectronYukawaStepOneVal}{calculations/constants.tex}{ElectronYukawaStepOneVal}
 \CatchFileBetweenTags{\ElectronYukawaExperimentalValue}{calculations/constants.tex}{ElectronYukawaExperimentalValue}
 \CatchFileBetweenTags{\ElectronYukawaAccText}{calculations/constants.tex}{ElectronYukawaAccText}
 
@@ -73,8 +77,8 @@ Substituting the invariants ($H_{struct} = 188$ from System I):
 
 \begin{equation}
 \begin{split}
-v_{geo} = (2 \cdot 43^2 - 188) \cdot \AlphaInvVal \cdot \MeMeVPrint \text{ MeV} \\
-\approx 245.789 \text{ GeV}
+v_{geo} &= (2 \cdot 43^2 - 188) \cdot \AlphaInvVal \cdot \MeMeVPrint \text{ MeV} \\
+&\approx \HiggsVEVStepOneVal
 \end{split}
 \end{equation}
 
@@ -87,7 +91,7 @@ D_{eff} = D + \frac{\chi}{4\pi} \approx 4.15915
 
 The effective capacity is the geometric floor diluted by this fractional dimension acting through the vacuum coupling:
 \begin{equation}
-v_{screened} = v_{geo} \left( 1 + \frac{\alpha}{D_{eff}} \right) \approx 246.2201 \text{ GeV}
+v_{screened} = v_{geo} \left( 1 + \frac{\alpha}{D_{eff}} \right) \approx  \HiggsVEVStepTwoVal
 \end{equation}
 
 
@@ -96,13 +100,13 @@ Finally, we account for the \textbf{Persistence Margin} ($PM$). Since the vacuum
 \begin{equation}
 v_{phys} = v_{screened} \left( 1 - \frac{PM}{3} \right)
 \end{equation}
-Substituting $PM \approx 2.91 \times 10^{-6}$:
+Substituting $PM \approx \ElectronYukawaStepOneVal$:
 \begin{equation}
-v_{phys} \approx \textbf{$\HiggsVEVVal$} \text{ GeV}
+v_{phys} \approx \textbf{$\HiggsVEVVal$}
 \end{equation}
 
 \begin{itemize}
-    \item \textbf{Geometric Prediction:} $\HiggsVEVVal$ GeV
+    \item \textbf{Geometric Prediction:} $\HiggsVEVVal$
     \item \textbf{Experimental Value:} \HiggsVEVExperimentalValue
     \item \textbf{Accuracy:} \HiggsVEVAccText
 \end{itemize}
@@ -110,7 +114,7 @@ v_{phys} \approx \textbf{$\HiggsVEVVal$} \text{ GeV}
 \subsubsection*{Derived Limit: The Fermi Constant (\texorpdfstring{$G_F$}{GF})}
 $G_F$ is the inverse squared cross-section of this stability floor, normalized by the topological boundary ($\chi=2$):
 \begin{equation}
-G_F = \frac{1}{\sqrt{\chi} v^2} \approx \mathbf{\FermiConstVal \text{ GeV}^{-2}}
+G_F = \frac{1}{\sqrt{\chi} v^2} \approx \mathbf{\FermiConstVal}
 \end{equation}
 
 \textbf{Experimental Value:} \FermiConstExperimentalValue
@@ -171,8 +175,8 @@ m_H = \sqrt{2\lambda} v_{phys}
 \end{equation}
 \begin{equation}
 \begin{split}
-m_H = \sqrt{2 (0.12942)} \cdot (\HiggsVEVVal \text{ GeV}) \approx \\
-\mathbf{\HiggsMassVal \text{ GeV}}
+m_H = \sqrt{2 (0.12942)} \cdot (\HiggsVEVVal) \approx \\
+\mathbf{\HiggsMassVal}
 \end{split}
 \end{equation}
 
@@ -192,7 +196,7 @@ y_{e,bare} = \frac{1}{V_{config}} = \frac{1}{\underbrace{H_{full}}_{\text{Budget
 
 \subsubsection{Derivation E: The Geometric Self-Energy Correction}
 
-Standard field theory treats the difference between bare and physical parameters as "Renormalization" arising from virtual particle loops. In the $E_8$-Persistence framework, this difference is the \textbf{Geometric Stress} of embedding the knot's internal symmetry into the spacetime manifold.
+Standard field theory treats the difference between bare and physical parameters as ``Renormalization" arising from virtual particle loops. In the $E_8$-Persistence framework, this difference is the \textbf{Geometric Stress} of embedding the knot's internal symmetry into the spacetime manifold.
 
 A charged particle possesses an interaction structure of rank $\sigma=5$ (from System I), but it must exist within a manifold of rank $D=4$. This dimensional mismatch ($\sigma > D$) creates an irreducible "Overpressure" on the surrounding lattice.
 
@@ -215,7 +219,7 @@ y_{e,phys} \approx \left(\frac{1}{31 \cdot 6 \cdot 43^2}\right) \cdot \left(1 + 
 \end{equation}
 
 \begin{equation}
-y_{e,phys} \approx 2.9077 \times 10^{-6} \cdot (1.00912) \approx \mathbf{2.9342 \times 10^{-6}}
+y_{e,phys} \approx \ElectronYukawaStepOneVal \cdot (1.00912) \approx \mathbf{2.9342 \times 10^{-6}}
 \end{equation}
 
 \begin{itemize}
