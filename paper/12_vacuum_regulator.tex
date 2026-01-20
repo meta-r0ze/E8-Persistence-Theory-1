@@ -91,14 +91,14 @@ D_{eff} = D + \frac{\chi}{4\pi} \approx 4.15915
 
 The effective capacity is the geometric floor diluted by this fractional dimension acting through the vacuum coupling:
 \begin{equation}
-v_{screened} = v_{geo} \left( 1 + \frac{\alpha}{D_{eff}} \right) \approx  \HiggsVEVStepTwoVal
+v_{topo} = v_{geo} \left( 1 + \frac{\alpha}{D_{eff}} \right) \approx  \HiggsVEVStepTwoVal
 \end{equation}
 
 
 \subsubsection{The Thermodynamic Noise Floor}
 Finally, we account for the \textbf{Persistence Margin} ($PM$). Since the vacuum stability floor supports $n_{gen}=3$ generations ($\sigma - \chi = 3$), the noise amplitude per generation is partitioned linearly:
 \begin{equation}
-v_{phys} = v_{screened} \left( 1 - \frac{PM}{3} \right)
+v_{phys} = v_{topo} \left( 1 - \frac{PM}{3} \right)
 \end{equation}
 Substituting $PM \approx \ElectronYukawaStepOneVal$:
 \begin{equation}
@@ -228,17 +228,17 @@ y_{e,phys} \approx \ElectronYukawaStepOneVal \cdot (1.00912) \approx \mathbf{2.9
     \item \textbf{Accuracy:} \ElectronYukawaAccText
 \end{itemize}
 
-\subsubsection{Physical Consequences of the Floor}
-This geometric floor explains several fundamental features of the particle spectrum:
+\subsubsection{Physical Consequences: The Spectral Floor}
+
+This geometric floor establishes the lower bound of information storage in the vacuum, explaining several fundamental features of the particle spectrum:
+
 \begin{itemize}
-    \item \textbf{Why the electron is stable:} It sits at the minimum resolvable mass. There is no "lower shelf" to decay to; the configuration space volume sets a hard lower bound for charged knots.
-    \item \textbf{Why neutrinos are so light:} Neutrinos (if massive) must have Yukawa couplings $y_\nu \ll y_e$, pushing them below the resolution floor. This implies they cannot acquire mass through the standard Higgs mechanism (which stops at $y_e$) but require a different mechanism (Phonon Duality, explored in Paper II).
+    \item \textbf{Why the electron is stable:} It sits at the minimum resolvable mass. There is no ``lower shelf'' to decay to; the configuration space volume sets a hard lower bound for charged knots. Any topological knot with coupling $y < y_e$ falls below the vacuum resolution floor and dissolves.
+    \item \textbf{Why neutrinos are so light:} Massive neutrinos possess Yukawa couplings $y_\nu \ll y_e$, pushing them below the resolution floor. This structurally prohibits them from acquiring mass via the standard Higgs mechanism (which terminates at $y_e$), necessitating the alternative phonon mechanism derived in Paper II.
     \item \textbf{Absence of lighter particles:} The configuration space volume ($V_{config} \approx 3.4 \times 10^5$) prohibits the existence of any charged particle lighter than the electron. Anything smaller dissolves into the lattice geometry.
 \end{itemize}
 
-
-\textbf{Physical Consequence:} This establishes the electron as the lightest possible charged particle. Any knot with $y < y_e$ falls below the vacuum resolution floor and dissolves.
-\textbf{Forward Link:} The electron mass is recovered via $m_e = y_e \cdot v/\sqrt{2} \approx 0.511$ MeV. The masses of all other fermions are derived in Paper II via the Residual-Lifetime Power Law.
+\textbf{Forward Link:} This derivation establishes the electron as the lightest possible charged particle. Its physical mass is recovered via $m_e = y_e \cdot v/\sqrt{2} \approx 0.511$ MeV. The masses of all heavier fermions are derived in Paper II via the Residual-Lifetime Power Law.
 
 \subsection{Validation: The Impedance Matching Condition}
 The ultimate structural test of the Higgs sector is whether it minimizes entropic drag. If the Higgs is a functional regulator, its total internal impedance ($Z_H$) must match the \textbf{Projected Aperture} of the force it mediates (the Weak Interaction).
