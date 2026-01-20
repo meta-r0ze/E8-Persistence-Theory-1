@@ -221,9 +221,16 @@ def print_section(title, latex_mode=False):
     print(f"  {title}")
     print(f"{'#'*70}\n")
 
+def print_latex_value(tag, valueToPrint, unit):
+    valueToPrintStr = format_float_latex(valueToPrint) if 0.001 < abs(valueToPrint) < 1000 else to_latex_sci(valueToPrint, 5)
+    if unit != "":
+        valueToPrintStr += f" \\unit{{{unit}}}"
+    print(f"%<*{tag}>{valueToPrintStr}%</{tag}>")
+
 def print_derivation(name, tag, formula_sym, latex_sym, formula_num, result,
                      latex_mode=False, ref_key=None, unit=None, context="observed value",
-                     formula_step=None):
+                     formula_step1=None,
+                     formula_step2=None):
 
     # Auto-detect unit from REFS if not provided
     if unit is None and ref_key and ref_key in REFS:
@@ -238,14 +245,14 @@ def print_derivation(name, tag, formula_sym, latex_sym, formula_num, result,
     # --- LATEX OUTPUT MODE ---
     if latex_mode:
         # 1. Step Value Tag (Optional intermediate calculation)
-        if formula_step is not None:
-            val_step_str = format_float_latex(formula_step) if 0.001 < abs(formula_step) < 1000 else to_latex_sci(formula_step, 5)
-            print(f"%<*{tag}StepVal>{val_step_str}%</{tag}StepVal>")
+        if formula_step1 is not None:
+            print_latex_value(tag+"StepOneVal", formula_step1, unit)
+        if formula_step2 is not None:
+            print_latex_value(tag+"StepTwoVal", formula_step2, unit)
 
         # 2. Geometric Value Tag (THEORY PREDICTION)
         # We DO NOT add +/- 0 here. Theoretical values are presented as exact numbers.
-        val_str = format_float_latex(result) if 0.001 < abs(result) < 1000 else to_latex_sci(result, 5)
-        print(f"%<*{tag}Val>{val_str}%</{tag}Val>")
+        print_latex_value(tag+"Val", result, unit)
 
         # 3. Formula Tag
         print(f"%<*{tag}Eq>{latex_sym}%</{tag}Eq>")
@@ -671,15 +678,21 @@ def main():
     # The field is screened by the Effective Dimension D_eff = D + Chi/4pi.
     D_EFF = D + (CHI / (4.0 * math.pi))
     POLARIZATION = 1.0 + (ALPHA_GEO / D_EFF)
+    V_MEV_TOP = V_MEV_BARE * POLARIZATION
 
     # 3. Thermodynamic Noise Correction (Generation Partitioning)
     # The Persistence Margin (PM) is partitioned across the 3 generation channels.
     N_GEN = SIGMA - CHI
     NOISE_CORRECTION = 1.0 - (comp_PM / N_GEN)
+    V_MEV_PHYS = V_MEV_TOP * NOISE_CORRECTION
     
     # Final Physical VEV
-    V_MEV_PHYS = V_MEV_BARE * POLARIZATION * NOISE_CORRECTION
-    V_GEV_PHYS = V_MEV_PHYS / 1000.0
+    V_GEV_PHYS = V_MEV_PHYS
+
+    # in GeV
+    V_MEV_BARE /= 1000.0
+    V_MEV_TOP /= 1000.0
+    V_GEV_PHYS /= 1000.0 
 
     print_derivation(
         name="Higgs VEV (v)",
@@ -687,13 +700,14 @@ def main():
         # Updated formula showing the 3-step derivation clearly
         formula_sym="v_tree * (1 + α/D_eff) * (1 - PM/3)",
         latex_sym=r"v_{geo} \left( 1 + \frac{\alpha}{D + \chi/4\pi} \right) \left( 1 - \frac{PM}{3} \right)",
-        formula_num=f"{V_MEV_BARE/1000.0:.3f} * {POLARIZATION:.6f} * {NOISE_CORRECTION:.8f}",
+        formula_num=f"{V_MEV_BARE:.3f} * {POLARIZATION:.6f} * {NOISE_CORRECTION:.8f}",
         result=V_GEV_PHYS,
         latex_mode=LATEX_MODE,
         ref_key="vev",
         unit="GeV",
         context="electroweak scale",
-        formula_step=V_MEV_BARE
+        formula_step1=V_MEV_BARE,
+        formula_step2=V_MEV_TOP
     )
 
     # --- Fermi Constant ---
@@ -759,7 +773,7 @@ def main():
         latex_mode=LATEX_MODE,
         ref_key="ye_sm",
         context="Includes geometric charge projection (Sigma/D)",
-        formula_step=YE_CORRECTED
+        formula_step1=YE_BARE
     )
 
     # --- Jarlskog Invariant (Time Asymmetry) ---
