@@ -82,27 +82,42 @@ v_{geo} &= (2 \cdot 43^2 - 188) \cdot \AlphaInvVal \cdot \MeMeVPrint \text{ MeV}
 \end{split}
 \end{equation}
 
-\subsubsection{Geometric Dilution (Topology Correction)}
+\subsubsection{The Geometric Corrections}
+The physical vacuum is not a static abstract background; it is a topological manifold subject to thermodynamic fluctuations. To bridge the ideal geometric floor ($v_{geo}$) to physical reality, we identify two independent correction factors mandated by the lattice projection.
+
+\paragraph{Topological Dilution (Spatial Geometry)}
 The regulator energy is diluted by the topology of the charge boundaries. We define the \textbf{Effective Dimension} ($D_{eff}$) of the space as the manifold rank ($D=4$) augmented by the topological boundary ($\chi=2$) distributed over the spherical gauge geometry ($4\pi$).
 
 \begin{equation}
 D_{eff} = D + \frac{\chi}{4\pi} \approx 4.15915
 \end{equation}
 
-The effective capacity is the geometric floor diluted by this fractional dimension acting through the vacuum coupling:
+This creates a geometric dilution factor based on the vacuum coupling:
 \begin{equation}
-v_{topo} = v_{geo} \left( 1 + \frac{\alpha}{D_{eff}} \right) \approx  \HiggsVEVStepTwoVal
+\delta_{topo} = \left( 1 + \frac{\alpha}{D_{eff}} \right)
 \end{equation}
 
+\paragraph{Thermodynamic Noise (Temporal Stability)}
+We must also account for the \textbf{Persistence Margin} ($PM$). Since the vacuum stability floor supports $n_{gen}=3$ generations ($\sigma - \chi = 3$), the noise amplitude per generation is partitioned linearly. This creates a thermodynamic reduction factor:
 
-\subsubsection{The Thermodynamic Noise Floor}
-Finally, we account for the \textbf{Persistence Margin} ($PM$). Since the vacuum stability floor supports $n_{gen}=3$ generations ($\sigma - \chi = 3$), the noise amplitude per generation is partitioned linearly:
 \begin{equation}
-v_{phys} = v_{topo} \left( 1 - \frac{PM}{3} \right)
+\delta_{noise} = \left( 1 - \frac{PM}{\sigma - \chi} \right)
 \end{equation}
-Substituting $PM \approx \ElectronYukawaStepOneVal$:
+
+\subsubsection{Synthesis: The Physical VEV}
+The physical Vacuum Expectation Value is the geometric floor modulated by the simultaneous application of these topological and thermodynamic factors.
+
 \begin{equation}
-v_{phys} \approx \textbf{$\HiggsVEVVal$}
+v_{phys} = v_{geo} \cdot \delta_{topo} \cdot \delta_{noise}
+\end{equation}
+
+Substituting the derived values:
+\begin{equation}
+\begin{split}
+v_{phys} &= (\HiggsVEVStepOneVal) \\
+& \cdot \left( 1 + \frac{\alpha}{4.159} \right) \cdot \left( 1 - \frac{\ElectronYukawaStepOneVal}{3} \right) \\
+& \approx \textbf{$\HiggsVEVVal$}
+\end{split}
 \end{equation}
 
 \begin{itemize}
