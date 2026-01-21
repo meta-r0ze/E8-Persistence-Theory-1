@@ -225,4 +225,11 @@ Before proceeding to the coupling calculations (System II), we must define the t
     \end{equation}
 \end{enumerate}
 
-\noindent \textbf{Note on the Speed of Light:} In this framework, $c$ is not a fundamental velocity, but the emergent \textbf{Channel Capacity Limit} of the substrate, derived from the lattice update rate. (Detailed derivation provided in Paper IV).
+\subsubsection{The Bandwidth Limit ($c_{eff}$)}
+Because the lattice is discrete, information propagates via neighbor-to-neighbor updates. The maximum rate of causality is bounded by the lattice node spacing ($\ell$) divided by the update frequency ($\Delta$).
+
+Consequently, Lorentz Invariance is identified not as a geometric axiom, but as the \textbf{Shannon Channel Capacity ($C_{max}$)} of the substrate. The speed of light $c \equiv 1$ represents the maximum bandwidth of the vacuum protocol.
+\begin{equation}
+    c_{eff} = \frac{\text{Lattice Spacing}}{\text{Update Cycle}} \equiv 1
+\end{equation}
+This enforces the causality constraint derived in Appendix B: any signal attempting to propagate faster than the protocol allows results in temporal aliasing (Causal Violation) and is filtered by the Causality Potential ($V_C$).
