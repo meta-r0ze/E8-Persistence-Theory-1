@@ -11,6 +11,8 @@
 \CatchFileBetweenTags{\PlanckMassExperimentalValue}{calculations/constants.tex}{PlanckMassExperimentalValue}
 \CatchFileBetweenTags{\PlanckMassAccText}{calculations/constants.tex}{PlanckMassAccText}
 
+\CatchFileBetweenTags{\VacuumEnergyScaleVal}{calculations/constants.tex}{VacuumEnergyScaleVal}
+
 \subsection{The Standard Model Ansatz}
 Gravity is traditionally treated as a distinct fundamental force described by General Relativity, operating with a coupling constant $G$ that is inexplicably $10^{40}$ times weaker than the gauge forces. This extreme disparity, known as the Hierarchy Problem, forces the Planck Mass ($M_P \approx 10^{19}$ GeV) to be inserted as a manual scaling limit.
 
@@ -34,7 +36,7 @@ The Bulk Regulator acts as a complete persistent system nested within the bulk l
     
     \item \textbf{Governor ($G$): Diffeomorphism Invariance.} \\
     The stabilizing mechanism preventing divergence. For gravity, the governor is the \textbf{Einstein-Hilbert Action} ($R\sqrt{-g}$). This emerges as the hydrodynamic limit of the lattice capacity conservation law ($\nabla_\mu T^{\mu\nu}=0$), stabilizing the bulk geometry against tearing.\footnote{The Einstein-Hilbert action emerges as the long-wavelength limit of the lattice capacity conservation law. The spin-2 mode is the Goldstone boson of broken translational symmetry in the presence of matter ($T^{\mu\nu} \neq 0$).}
-    \textit{Scaling:} The zero-point energy of the gravitational Goldstone mode is canceled by this counter-term, leaving a residual entropic scaling of $\Lambda \approx M_P^4 \cdot \alpha^{\Delta} \approx 10^{-120} M_P^4$ (Detailed in Paper IV).
+    \textit{Scaling:} The zero-point energy of the gravitational Goldstone mode is canceled by this counter-term, leaving a residual entropic scaling of $\Lambda \approx M_P^4 \cdot \alpha^{\Delta} \approx 10^{-120} M_P^4$ (Derived in \cref{sec:vacuum_energy}).
     
     \item \textbf{Temporal Cost ($T$): Causality ($ds^2 \ge 0$), Stiffness ($T \propto M_P^2 (\partial h)^2$).} \\
     The entropic tax of maintaining causal ordering. The huge energy cost ($M_P^2$) required to perturb the metric defines the rigidity of spacetime, enforcing the light-cone limit ($ds^2 \ge 0$). Unlike the Higgs cost (which drives symmetry breaking), the gravitational cost enforces the \textbf{arrow of time} itself through the light cone structure.
@@ -139,12 +141,79 @@ This confirms the Planck Mass is the unique energy scale where the bulk impedanc
 
 
 
+\subsection{Derivation C: The Vacuum Energy (Resolution of the Cosmological Constant)}
+\label{sec:vacuum_energy}
+
+Standard Quantum Field Theory predicts a vacuum energy density $\rho_{vac} \sim M_P^4$, summing zero-point fluctuations up to the Planck scale. This yields the ``Vacuum Catastrophe": a prediction $10^{120}$ times larger than cosmological observations.
+
+In the E8-Persistence framework, we distinguish between two resolution floors:
+\begin{itemize}
+    \item \textbf{The Matter Floor ($m_e \approx 0.511$ MeV):} The lightest stable \emph{Topological Knot}, derived in System V as the Persistence Margin for chiral states.
+    \item \textbf{The Lattice Floor ($M_{min}$):} The minimum resolvable \emph{Bulk Vibration} (Phonon), set by the thermal noise limit of the discrete substrate.
+\end{itemize}
+
+While matter requires topological closure ($\chi = 2$), bulk vibrations are constrained only by the \textbf{Information-Theoretic Noise Floor} of the lattice.
+
+\subsubsection{Derivation: The Thermal Resolution Limit}
+The minimum resolvable energy $M_{min}$ is determined by the Nyquist sampling theorem applied to the lattice phase space:
+\begin{equation}
+    M_{min} = m_e \cdot \frac{\mathcal{A}_{thermal}}{\mathcal{V}_{modes}}
+\end{equation}
+where:
+\begin{itemize}
+    \item \textbf{Thermal Coupling ($\mathcal{A}_{thermal} = \pi\alpha$):} The geometric cross-section ($\pi$) modulated by the vacuum admittance ($\alpha$). This represents the fraction of thermal energy that can couple to a bulk mode through the circular manifold interface.
+    \item \textbf{Mode Density ($\mathcal{V}_{modes} = \nu\Delta^3$):} The total number of orthogonal phase space cells, given by the chiral capacity ($\nu = 16$) distributed across the resonant volume ($\Delta^3 = 43^3$).
+\end{itemize}
+
+Thus, the ground state frequency is:
+\begin{equation}
+    M_{min} = m_e \cdot \frac{\pi\alpha}{\nu\Delta^3} 
+    \approx 9.2 \times 10^{-12} \text{ GeV}
+\end{equation}
+
+This energy scale corresponds to a characteristic wavelength:
+\begin{equation}
+    \lambda_{min} = \frac{1}{M_{min}} \approx 21 \, \mu\text{m}
+\end{equation}
+This confirms that the lattice noise floor is macroscopic (biological scale), serving as the fundamental thermodynamic limit for vacuum fluctuations.
+
+\subsubsection{The Vacuum Energy Density}
+The cosmological constant is the zero-point energy density of oscillations at this minimum frequency:
+\begin{equation}
+    \rho_{vac} = \frac{\alpha}{2} M_{min}^4
+\end{equation}
+(The factor $\alpha/2$ arises from the zero-point energy $\frac{1}{2}\hbar\omega$ gated by the admittance $\alpha$).
+
+Normalizing to the Planck density:
+\begin{equation}
+    \frac{\rho_{vac}}{M_P^4} = \frac{\alpha}{2} \left(\frac{M_{min}}{M_P}\right)^4 
+    \approx \VacuumEnergyScaleVal
+\end{equation}
+This precise value ($\sim 10^{-123}$) matches the observed cosmological constant $\rho_{obs} \approx (2.3 \times 10^{-3} \text{ eV})^4$ to within observational uncertainty. \cite{planck_collaboration_planck_2020}
+
+\subsubsection{Physical Interpretation}
+The $10^{120}$ discrepancy arises from different assumptions about the vacuum structure:
+\begin{itemize}
+    \item \textbf{Standard QFT:} Assumes the vacuum is a continuum fluctuating at all scales up to $M_P$, yielding $\rho_{QFT} \sim M_P^4$.
+    \item \textbf{E8-Persistence:} Treats the vacuum as a finite-bandwidth information channel. High-energy modes cancel out (via the Solvency constraint), leaving only the thermal noise floor $M_{min}$, yielding $\rho_{E8} \sim M_{min}^4$.
+\end{itemize}
+
+The ratio is purely geometric:
+\begin{equation}
+    \frac{\rho_{QFT}}{\rho_{E8}} \sim \left(\frac{M_P}{M_{min}}\right)^4 
+    \sim \left(\frac{\nu\Delta^3}{\pi\alpha}\right)^4 
+    \sim 10^{123}
+\end{equation}
+
+This is not fine-tuning; it is the geometric consequence of imposing a physical UV cutoff at the information-theoretic capacity limit.
+
+\subsubsection{System Integration}
+This derivation identifies Dark Energy as the \textbf{Volumetric Persistence Margin} of the Bulk Regulator (System VI). Just as the Electron mass ($m_e$) is the metabolic cost of maintaining a \emph{bit of matter} against thermal noise, $\Lambda$ is the irreducible metabolic cost of maintaining a \emph{bit of volume} against lattice collapse.
+
+
+
 \subsection{Implications}
 
-\begin{center}
-\fbox{
-\begin{minipage}{0.96\columnwidth} % Matches the width of a single column
-\small % Slightly smaller text to ensure the math fits
 \subsubsection{Resolution of the Hierarchy Problem}
 The ratio $M_P/m_e \approx 10^{22}$ arises purely from geometric attenuation:
 \begin{equation}
@@ -153,9 +222,6 @@ The ratio $M_P/m_e \approx 10^{22}$ arises purely from geometric attenuation:
 \end{split}
 \end{equation}
 No fine-tuning is required. The hierarchy is the \textbf{inverse} of the lattice depth, making gravity's weakness a consequence of its origin at the bulk centroid rather than the surface boundary.
-\end{minipage}
-}
-\end{center}
 
 \subsubsection{The Prohibition of Intermediate Forces}
 Some theories have proposed a ``Fifth Force", operating at intermediate scales, to explain anomalous observations that do not fit standard theory. The $E_8$-Persistence Theory prohibits these based on \textbf{Topological Stability}. A persistent force requires a stable geometric origin. The lattice excitation possesses only two topologically distinct loci:
@@ -169,4 +235,4 @@ Any signal originating at intermediate depth (e.g., $r=10$) lacks a topological 
 The Planck length $\ell_P = 1/M_P$ represents the resolution floor ($PM$) of the geometric substrate. Below this scale, spacetime loses meaning as a continuous manifold—the lattice node addressing becomes discrete. This provides a natural UV cutoff without requiring string theory or loop quantum gravity.
 
 \subsubsection{4. Cosmological Extension}
-\textbf{Forward Link:} The cosmological extension of this emergent gravity framework (Paper IV) resolves the Vacuum Catastrophe and Hubble Tension by applying these same channel capacity limits to macroscopic scales.
+\textbf{Forward Link:} The cosmological extension of this emergent gravity framework (Paper IV) resolves the Hubble Tension by applying these same channel capacity limits to macroscopic scales.
