@@ -907,6 +907,54 @@ def main():
         latex_mode=LATEX_MODE
     )
 
+    # ==========================================
+    # 6. VACUUM ENERGY (THE 10^120 SOLUTION)
+    # ==========================================
+    
+    # Derivation C: The Thermal Resolution Limit
+    # M_min = m_e * (Thermal Coupling / Mode Density)
+    #       = m_e * (pi * alpha) / (nu * Delta^3)
+    
+    # 1. Thermal Coupling (Admittance * Geometry)
+    THERMAL_COUPLING = PI * ALPHA_GEO
+    
+    # 2. Mode Density (Capacity * Volume)
+    MODE_DENSITY = NU * pow(DELTA, 3)
+    
+    # 3. Minimum Geometric Resolution (The Noise Floor)
+    # Units: MeV (inherited from m_e)
+    M_GEO_MIN = REFS['me'].value * (THERMAL_COUPLING / MODE_DENSITY)
+    
+    # 4. Vacuum Density (rho_vac)
+    # The entropic noise of the ground state, gated by admittance (alpha).
+    # rho = (alpha/2) * M_min^4
+    RHO_VAC_MEV4 = (ALPHA_GEO / 2.0) * pow(M_GEO_MIN, 4)
+    
+    # 5. Hierarchy Ratio (rho_vac / M_P^4)
+    # Comparing the Vacuum Floor to the Planck Ceiling.
+    # Uses MP_MEV_GEO derived in the Gravity section.
+    VACUUM_HIERARCHY = RHO_VAC_MEV4 / pow(MP_MEV_GEO, 4)
+
+    print_derivation(
+        name="Vacuum Energy Scaling (rho_vac / M_P^4)",
+        tag="VacuumEnergyScale",
+        formula_sym="(alpha/2) * (M_min / M_P)^4",
+        latex_sym=r"\frac{\alpha}{2} \left( \frac{M_{min}}{M_P} \right)^4",
+        formula_num=f"({ALPHA_GEO:.4f}/2) * ({M_GEO_MIN:.4e}/{MP_MEV_GEO:.4e})^4",
+        result=VACUUM_HIERARCHY,
+        latex_mode=LATEX_MODE,
+        context="10^-120 Hierarchy Solution (Target ~1e-123)"
+    )
+    
+    # Optional: Print the physical wavelength for debugging/sanity check
+    # h_bar * c approx 197.327 MeV*fm
+    # lambda = (2 * pi * h_bar * c) / M_min
+    if not LATEX_MODE:
+        HBAR_C_MICRON = 0.197327 # MeV * micrometer
+        LAMBDA_MICRON = (2 * PI * HBAR_C_MICRON) / M_GEO_MIN
+        print(f"  Physical Wavelength (lambda_min): {LAMBDA_MICRON:.2f} micrometers")
+        print("-" * 60 + "\n")
+
     RESULTS = {}
     RESULTS["AlphaInv"] = ALPHA_INV_GEO
     RESULTS["FermiConst"] = GF_GEO
