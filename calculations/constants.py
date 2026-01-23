@@ -923,11 +923,12 @@ def main():
     
     # 3. Minimum Geometric Resolution (The Noise Floor)
     # Units: MeV (inherited from m_e)
+    # This represents the minimum energy scale, not frequency in Hz.
     M_GEO_MIN = REFS['me'].value * (THERMAL_COUPLING / MODE_DENSITY)
     
     # 4. Vacuum Density (rho_vac)
     # The entropic noise of the ground state, gated by admittance (alpha).
-    # rho = (alpha/2) * M_min^4
+    # rho = (alpha/2) * M_min^4 (Natural Units)
     RHO_VAC_MEV4 = (ALPHA_GEO / 2.0) * pow(M_GEO_MIN, 4)
     
     # 5. Hierarchy Ratio (rho_vac / M_P^4)
