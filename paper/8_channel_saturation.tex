@@ -49,8 +49,9 @@ The coupling is derived by normalizing this total load by the geometric impedanc
 
 A valid field theory must predict not only the static coupling but how it evolves across energy scales. In the E8-Persistence framework, the QCD Beta function coefficients are not group-theoretical artifacts, but \textbf{Geometric Stiffness} parameters describing the vacuum's resistance to deformation.
 
-\textit{Note: We formally validate this interpretation in Appendix \ref{app:beta_function}, demonstrating that the integers 11 and 2/3 emerge as exact eigenvalues of the lattice Transfer Matrix.}
-
+We validate this interpretation via ab initio computational audit (\texttt{beta\_function\_audit.py}
+\footnote{All computational audits referenced in this paper are available at: \url{https://github.com/meta-r0ze/E8-Persistence-Theory-1}}
+, Supplementary Code). The script constructs rigidity operators acting on the tangent space of the projection $\mathbb{S} = \{D=4, \sigma=5, \chi=2\}$ and calculates their eigenvalues.
 \subsubsection{Geometric Stiffness: The Anti-Screening Term}
 The coefficient ``11" represents the total structural resistance of the vacuum to non-Abelian gauge field deformation. This arises from two independent geometric constraints acting on orthogonal degrees of freedom. In engineering terms, this is the \textbf{Elastic Modulus} of the lattice. It arises from the sum of External Stress (spacetime anchor) and Internal Pressure (containing the symmetry).
 \begin{enumerate}
