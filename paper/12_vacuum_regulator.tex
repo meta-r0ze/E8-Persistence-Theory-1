@@ -2,6 +2,7 @@
 \label{sec:Vacuum_Regulator}
 
 \CatchFileBetweenTags{\AlphaInvVal}{calculations/constants.tex}{AlphaInvVal}
+\CatchFileBetweenTags{\CompPM}{calculations/constants.tex}{CompPM}
 \CatchFileBetweenTags{\MeMeVPrint}{calculations/constants.tex}{MeMeVPrint}
 
 % Delta E
@@ -102,6 +103,10 @@ We must also account for the \textbf{Persistence Margin} ($PM$). Since the vacuu
 
 \begin{equation}
 \delta_{noise} = \left( 1 - \frac{PM}{\sigma - \chi} \right)
+\end{equation}
+
+\begin{equation}
+PM = \frac{1}{H_{full} \cdot (\sigma + 1) \cdot \Delta^2} = \frac{1}{31 \cdot 6 \cdot 43^2} \approx \CompPM
 \end{equation}
 
 \subsubsection{Synthesis: The Physical VEV}
