@@ -110,7 +110,7 @@ def run_surface_walks(roots, n_walkers, n_steps):
     n_roots = len(roots)
     
     # 1. Pre-calculate projected surface steps
-    # We do NOT normalize magnitude. The loss of magnitude IS the friction.
+    # We do NOT normalize magnitude. The loss of magnitude IS the quantization efficiency.
     temp_steps = np.zeros((n_roots, 3)) 
     count = 0
     
@@ -357,9 +357,9 @@ class AlphaCalculator:
         print(">>> Discrete peaks confirm the Quantum Nature of space.")
         plt.show()
 
-    def run_friction_audit(self, n_walkers=100000, n_steps=5000):
+    def run_efficiency_audit(self, n_walkers=100000, n_steps=5000):
         print(f"\n{'-'*60}")
-        print("6. MANIFOLD FRICTION AUDIT (BULK vs SURFACE)")
+        print("6. Manifold Quantization Efficiency AUDIT (BULK vs SURFACE)")
         print(f"walkers:{n_walkers}, steps:{n_steps}")
         print(f"{'-'*60}")
         
@@ -393,16 +393,16 @@ class AlphaCalculator:
         print(f"Bulk Diffusivity:    {diff_coeff_bulk:.6f}")
         print(f"Surface Diffusivity: {diff_coeff_surf:.6f}")
         print(f"{'-'*60}")
-        print(f"Measured Friction (η): {measured_eta:.6f}")
+        print(f"Measured efficiency (η): {measured_eta:.6f}")
         print(f"Theoretical Target:    {target_eta:.6f}")
         
         error = abs(measured_eta - target_eta) / target_eta * 100
         print(f"Error:                 {error:.4f}%")
         
         if error < 1.0:
-            print(">>> VALIDATION SUCCESSFUL: Friction emerges from dimensionality.")
+            print(">>> VALIDATION SUCCESSFUL: efficiency emerges from dimensionality.")
         else:
-            print(">>> WARNING: Friction mismatch.")
+            print(">>> WARNING: Efficiency mismatch.")
 
 if __name__ == "__main__":
     sim = AlphaCalculator()
@@ -410,7 +410,7 @@ if __name__ == "__main__":
     # 10 runs of 100k walkers = 1M stats per point
     sim.run_diffusion_ensemble(walkers_per_run=100000, n_runs=10) 
     sim.run_impedance_audit(n_samples=50000000)
-    sim.run_friction_audit()
+    sim.run_efficiency_audit()
 
     sim.run_shell_structure()
     sim.run_visualization()
