@@ -66,9 +66,11 @@ B_{res} \approx 16 - 0.666 - 0.007 \approx \mathbf{\ResidualCapVal}
 \subsubsection{Harmonic Attenuation (The Lattice Depth)}
 A signal propagating from the core to the surface attenuates by the Geometric Impedance ($\alpha$) for every unit of lattice depth. In information-theoretic terms, the radius $r$ acts as the \textbf{Optical Depth} of the substrate.
 
-Because Gravity is a fundamental bulk resonance (a standing wave), its origin lies at the \textbf{Centroid} of the excitation. For a wave with wavelength $\Delta=43$, the center lies at the continuous midpoint:
+The origin of this bulk signal is dictated by the foundational symmetry of the lattice. For the $E_8 \to D_4 \oplus D_4$ projection to be stable, it must preserve the self-duality of the parent lattice. A resonance centered on an integer-valued lattice site would inherently favor one $D_4$ sublattice over the other, violating this core persistence requirement.
+
+Therefore, any fundamental bulk resonance must be centered at the continuous geometric midpoint of the lattice wavelength, treating both sublattices symmetrically. This physical constraint manifests as a standing wave, $\Psi(n) = \cos(2\pi n / \Delta)$, whose energy density is maximal at this \textbf{Centroid}. For a wavelength of $\Delta=43$, the origin is uniquely fixed at:
 \begin{equation}
-r = \frac{\Delta}{2} = 21.5
+r_{core} = \frac{1}{\Delta} \int_0^\Delta n \, dn = \frac{\Delta}{2} = 21.5
 \end{equation}
 The \textbf{Lattice Depth} ($r=21.5$) sets the bulk attenuation scale. The attenuation follows an exponential decay law (analogous to Beer-Lambert):
 \begin{equation}

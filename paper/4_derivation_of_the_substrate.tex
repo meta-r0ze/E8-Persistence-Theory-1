@@ -6,9 +6,6 @@ To determine the physical architecture of reality, we do not start with observat
 \subsection{The Standard Model Ansatz}
 In standard physics, the dimensionality of spacetime ($D=4$), the existence of chiral fermions, and the specific gauge groups are treated as axiomatic backgrounds, a pre-existing stage upon which fields act. Standard theory offers no structural reason why the universe is 4-dimensional rather than 10-dimensional, why time exists as a distinct metric signature, or why the fine-structure constant has a specific value necessary for structural complexity. These fundamental properties are inputs, not outputs.
 
-\subsection{The E8-Persistence Derivation}
-We derive the vacuum not as empty space, but as the thermodynamic limit of a finite-capacity information processing substrate. We identify the unique projection of the $E_8$ lattice onto a 4-dimensional manifold as the only configuration that satisfies the constraints of Persistence (Information Conservation) and Causality (Non-aliasing update sequences).
-
 \subsection{The System Specification}
 We define the Lattice Substrate by instantiating the six pillars of persistence. These five integers constitute the complete input set $\mathbb{S}$ from which the physical universe emerges.
 
@@ -49,13 +46,18 @@ Mathematical constraint restricts our search space.\cite{kneser_klassenzahlen_19
 \[ D \in \{8, 16, 24, \dots\} \]
 This strictly eliminates any lattice solution in dimensions $D<8$.
 
-\subsubsection{The Principle of Minimal Action}
-To minimize the Entropic Action of the substrate, the system must select the lowest-dimensional solution that satisfies self-duality.
+\subsubsection{The Principle of Minimum Configurational Entropy}
+To minimize the Entropic Action of the substrate, the system must not only minimize geometric complexity (dimension) but also eliminate arbitrary selection parameters. We analyze the population of even, self-dual lattices permitted by Kneser's Theorem ($D = 8k$):
+
 \begin{itemize}
-    \item $D=8$: The $E_8$ Lattice. (Unique).
-    \item $D=16$: The $E_8 \oplus E_8$ and $D_{16}^+$ Lattices. (Higher complexity).
+    \item \textbf{D=8:} A unique solution exists (The $E_8$ lattice).
+    \item \textbf{D=16:} Two distinct solutions exist ($E_8 \oplus E_8$ and $D_{16}^+$).
+    \item \textbf{D=24:} Twenty-four distinct solutions exist (The Niemeier lattices).
 \end{itemize}
-The $E_8$ lattice is the unique minimal solution. It serves as the parent geometry.
+
+A vacuum established at $D=16$ would possess an irreducible \textbf{Configurational Entropy} of $S_{config} = k_B \ln(2)$, representing the information required to distinguish between the two topological isomers. A vacuum at $D=24$ would have $S_{config} = k_B \ln(24)$.
+
+The $E_8$ lattice ($D=8$) is the unique solution where $S_{config} = k_B \ln(1) = 0$. It is selected not merely for its low dimensionality, but because it is the only self-dual geometry that forms a deterministic ground state without inherent topological ambiguity.
 
 \subsection{Derivation B: The Projection (Why \texorpdfstring{$D=4$}{D=4} and \texorpdfstring{$\nu=16$}{nu=16}?)}
 A static 8-dimensional block cannot process information; processing requires a flow (Input vs. Output). The system must break the $E_8$ symmetry to distinguish the ``Observer" (Spacetime) from the ``System" (Internal States).
