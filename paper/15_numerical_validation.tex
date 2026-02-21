@@ -1,48 +1,16 @@
 \section{Numerical Validation}
 
-\CatchFileBetweenTags{\bosonictotalchiVal}{calculations/constants.tex}{bosonictotalchiVal}
-\CatchFileBetweenTags{\bosonicreducedchiVal}{calculations/constants.tex}{bosonicreducedchiVal}
+\CatchFileBetweenTags{\bosonictotalchiVal}{constants.tex}{bosonictotalchiVal}
+\CatchFileBetweenTags{\bosonicreducedchiVal}{constants.tex}{bosonicreducedchiVal}
 
 To verify the theoretical derivations, we implemented a suite of computational audits simulating the physics of the projected $E_8$ lattice. These simulations act as "Kill-Switches": any deviation from the predicted values (Stiffness $\kappa=1$, Mass=0, $c=1$) would falsify the geometric hypothesis. The complete source code is available as Supplementary Material.
 
-\subsection{Audit 1: The Emergent Gravity Kill-Switch}
+\subsection{Audit 1: The Dynamic Origin of Constants}
 
-We verified the derivation of gravity as a Goldstone mode (System VI) through two independent lattice simulations: dynamic wave propagation and static potential relaxation.
-
-\textbf{Test A: Dynamic Stiffness (Gravitational Waves)}
-We injected a transverse-traceless metric perturbation $h_{\mu\nu}$ onto a $16^4$ lattice and measured the entropic action cost.
-\begin{itemize}
-    \item \textbf{Vacuum Stiffness:} $\kappa = 1.000000$ (Matches Einstein-Hilbert).
-    \item \textbf{Effective Light Speed:} $c_{eff} = 1.000000$ (Lorentz Invariance preserved).
-    \item \textbf{Mass Term:} $m^2 = 0.000000$ (Massless Goldstone mode verified).
-\end{itemize}
-
-\textbf{Test B: Static Capacity (Newtonian Limit)}
-We simulated a static mass defect on a $96^4$ lattice ($8.5 \times 10^7$ nodes) and relaxed the system to minimize entropic action. Using a rolling-window regression to isolate the bulk behavior from boundary screening:
-\begin{itemize}
-    \item \textbf{Scaling Law:} The potential follows a power law $\Phi(r) \propto r^\beta$ with $\beta = -1.997 \pm 0.003$.
-    \item \textbf{Agreement:} This matches the Green's function for 4D gravity ($1/r^2$) to within $\mathbf{0.17\%}$, definitively ruling out screened (Yukawa) or lower-dimensional interactions.
-    \item \textbf{Flux Conservation:} The information flux satisfies Gauss's Law in 4D, with a mean variation of $6.4\%$ across the bulk, confirming that the ``Capacity Deficit" behaves as a conserved charge (Mass).
-\end{itemize}
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=1.0\linewidth]{calculations/gravity_audit.png}
-    \caption{\textbf{Numerical Verification of System VI (Emergent Gravity).} 
-    \textbf{Left:} The static potential $\Delta n(r)$ measured on a $96^4$ lattice (blue dots) recovers the Newtonian inverse-square law with a fitted slope of $-1.997$, matching the theoretical 4D Green's function ($-2.00$) to within $0.15\%$. 
-    \textbf{Right:} The information flux integral is conserved across the bulk radius (Coefficient of Variation $\approx 6.4\%$), verifying that lattice capacity behaves as a conserved topological charge obeying Gauss's Law.}
-    \label{fig:gravity_audit}
-\end{figure}
-
-\subsection{Audit 2: The Dynamic Origin of Constants}
-
-\textbf{Test A: The Fine-Structure Constant (Diffusion)}
-We simulated the propagation of $N=500,000$ massless walkers to measure the effective lattice conductivity. At long timescales ($T=5000$), the lattice dynamics spontaneously generate the precise conductivity correction ($~1.00038$) required to map the geometric base ($137.088$) to the physical constant ($137.036$), matching CODATA to within $0.0007\%$.
-
-\textbf{Test B: Manifold  Quantization Efficiency ($\eta$)}
+\textbf{Test A: Manifold  Quantization Efficiency ($\eta$)}
 To verify the geometric origin of the Manifold  Quantization Efficiency, we compared bulk (4D) vs. surface (3D) random walks. The simulation recovered the friction coefficient $\eta_{sim} \approx 0.988$, agreeing with the theoretical resonant value $\eta_{th} \approx 0.994$ to within $0.7\%$. This confirms that $\eta$ is not a free parameter, but the irreducible geometric cost of dimensional projection.
 
-\subsection{Audit 3: The Global Geometric Fit}
+\subsection{Audit 2: The Global Geometric Fit}
 
 As a final consistency check, we performed a zero-degree-of-freedom global fit evaluating five fundamental observables against PDG 2024 world averages. All parameters were locked to their geometric derivations (no floating inputs). Table ~\ref{tab:global_fit}
 

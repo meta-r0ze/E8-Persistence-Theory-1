@@ -1,40 +1,40 @@
 \section{System V: The Surface Regulator (The Higgs Sector) (\texorpdfstring{$v, \lambda, m_H, y_e$}{vlambdamhye})}
 \label{sec:Vacuum_Regulator}
 
-\CatchFileBetweenTags{\AlphaInvVal}{calculations/constants.tex}{AlphaInvVal}
-\CatchFileBetweenTags{\CompPM}{calculations/constants.tex}{CompPM}
-\CatchFileBetweenTags{\MeMeVPrint}{calculations/constants.tex}{MeMeVPrint}
+\CatchFileBetweenTags{\AlphaInvVal}{constants.tex}{AlphaInvVal}
+\CatchFileBetweenTags{\CompPM}{constants.tex}{CompPM}
+\CatchFileBetweenTags{\MeMeVPrint}{constants.tex}{MeMeVPrint}
 
 % Delta E
 
-\CatchFileBetweenTags{\HiggsVEVStepOneVal}{calculations/constants.tex}{HiggsVEVStepOneVal}
-\CatchFileBetweenTags{\HiggsVEVStepTwoVal}{calculations/constants.tex}{HiggsVEVStepTwoVal}
-\CatchFileBetweenTags{\HiggsVEVVal}{calculations/constants.tex}{HiggsVEVVal}
-\CatchFileBetweenTags{\HiggsVEVExperimentalValue}{calculations/constants.tex}{HiggsVEVExperimentalValue}
-\CatchFileBetweenTags{\HiggsVEVAccText}{calculations/constants.tex}{HiggsVEVAccText}
+\CatchFileBetweenTags{\HiggsVEVStepOneVal}{constants.tex}{HiggsVEVStepOneVal}
+\CatchFileBetweenTags{\HiggsVEVStepTwoVal}{constants.tex}{HiggsVEVStepTwoVal}
+\CatchFileBetweenTags{\HiggsVEVVal}{constants.tex}{HiggsVEVVal}
+\CatchFileBetweenTags{\HiggsVEVExperimentalValue}{constants.tex}{HiggsVEVExperimentalValue}
+\CatchFileBetweenTags{\HiggsVEVAccText}{constants.tex}{HiggsVEVAccText}
 
-\CatchFileBetweenTags{\FermiConstVal}{calculations/constants.tex}{FermiConstVal}
-\CatchFileBetweenTags{\FermiConstExperimentalValue}{calculations/constants.tex}{FermiConstExperimentalValue}
-\CatchFileBetweenTags{\FermiConstAccText}{calculations/constants.tex}{FermiConstAccText}
+\CatchFileBetweenTags{\FermiConstVal}{constants.tex}{FermiConstVal}
+\CatchFileBetweenTags{\FermiConstExperimentalValue}{constants.tex}{FermiConstExperimentalValue}
+\CatchFileBetweenTags{\FermiConstAccText}{constants.tex}{FermiConstAccText}
 
 % MI
-\CatchFileBetweenTags{\HiggsLambdaVal}{calculations/constants.tex}{HiggsLambdaVal}
-\CatchFileBetweenTags{\HiggsLambdaExperimentalValue}{calculations/constants.tex}{HiggsLambdaExperimentalValue}
-\CatchFileBetweenTags{\HiggsLambdaAccText}{calculations/constants.tex}{HiggsLambdaAccText}
+\CatchFileBetweenTags{\HiggsLambdaVal}{constants.tex}{HiggsLambdaVal}
+\CatchFileBetweenTags{\HiggsLambdaExperimentalValue}{constants.tex}{HiggsLambdaExperimentalValue}
+\CatchFileBetweenTags{\HiggsLambdaAccText}{constants.tex}{HiggsLambdaAccText}
 
 % T
-\CatchFileBetweenTags{\HiggsMassVal}{calculations/constants.tex}{HiggsMassVal}
-\CatchFileBetweenTags{\HiggsMassExperimentalValue}{calculations/constants.tex}{HiggsMassExperimentalValue}
-\CatchFileBetweenTags{\HiggsMassAccText}{calculations/constants.tex}{HiggsMassAccText}
+\CatchFileBetweenTags{\HiggsMassVal}{constants.tex}{HiggsMassVal}
+\CatchFileBetweenTags{\HiggsMassExperimentalValue}{constants.tex}{HiggsMassExperimentalValue}
+\CatchFileBetweenTags{\HiggsMassAccText}{constants.tex}{HiggsMassAccText}
 
 % PM
-\CatchFileBetweenTags{\ElectronYukawaVal}{calculations/constants.tex}{ElectronYukawaVal}
-\CatchFileBetweenTags{\ElectronYukawaStepOneVal}{calculations/constants.tex}{ElectronYukawaStepOneVal}
-\CatchFileBetweenTags{\ElectronYukawaExperimentalValue}{calculations/constants.tex}{ElectronYukawaExperimentalValue}
-\CatchFileBetweenTags{\ElectronYukawaAccText}{calculations/constants.tex}{ElectronYukawaAccText}
+\CatchFileBetweenTags{\ElectronYukawaVal}{constants.tex}{ElectronYukawaVal}
+\CatchFileBetweenTags{\ElectronYukawaStepOneVal}{constants.tex}{ElectronYukawaStepOneVal}
+\CatchFileBetweenTags{\ElectronYukawaExperimentalValue}{constants.tex}{ElectronYukawaExperimentalValue}
+\CatchFileBetweenTags{\ElectronYukawaAccText}{constants.tex}{ElectronYukawaAccText}
 
-\CatchFileBetweenTags{\HiggsImpedanceVal}{calculations/constants.tex}{HiggsImpedanceVal}
-\CatchFileBetweenTags{\WeakApertureProjVal}{calculations/constants.tex}{WeakApertureProjVal}
+\CatchFileBetweenTags{\HiggsImpedanceVal}{constants.tex}{HiggsImpedanceVal}
+\CatchFileBetweenTags{\WeakApertureProjVal}{constants.tex}{WeakApertureProjVal}
  
 \subsection{The Standard Model Ansatz}
 In the Standard Model, the electroweak sector is parameterized by independent inputs ($v, \lambda, \mu^2$) to generate the Higgs potential $V(\phi) = -\mu^2|\phi|^2 + \lambda|\phi|^4$. While effective, this offers no structural reason for the specific energy scale ($v \approx 246$ GeV) or the coupling strength ($\lambda \approx 0.13$). It requires manual tuning to stabilize the mass against radiative corrections (The Hierarchy Problem).
@@ -46,22 +46,22 @@ We identify the Higgs Field not merely as a boson, but as the \textbf{Surface Re
 We define the Higgs architecture by instantiating the six pillars of persistence:
 
 \begin{itemize}
-    \item \textbf{Capacity ($\Delta E$): The Vacuum Expectation Value ($v$).} \\
+    \item \textbf{Capacity (CAP): The Vacuum Expectation Value ($v$).} \\
     The energy depth of the regulator. It acts as the fundamental \textbf{Mass Unit} against which the vacuum potential is normalized.
     
-    \item \textbf{Identity ($\Delta I$): Scalar Hypercharge ($Y=1$).} \\
+    \item \textbf{Identity (MAP): Scalar Hypercharge ($Y=1$).} \\
     The address of the regulator. It corresponds to the inverse of the lattice Unitary Ground State ($\Delta^0=1$), mandating an $SU(2)$ doublet structure.
     
-    \item \textbf{Protocol ($MI$): Self-Coupling ($\lambda$).} \\
+    \item \textbf{Protocol (PRO): Self-Coupling ($\lambda$).} \\
     The bandwidth fraction allocated for self-interaction. It determines the stiffness of the field.
     
-    \item \textbf{Governor ($G$): The Quartic Potential ($\lambda|\phi|^4$).} \\
+    \item \textbf{Governor (GOV): The Quartic Potential ($\lambda|\phi|^4$).} \\
     The geometric constraint enforcing the topological boundary ($\chi=2$) to prevent field divergence under negative pressure.
     
-    \item \textbf{Temporal Cost ($T$): Instability Factor ($\mu^2$).} \\
+    \item \textbf{Temporal Cost (TOL): Instability Factor ($\mu^2$).} \\
     The entropic cost of maintaining the broken symmetry state (The False Vacuum).
     
-    \item \textbf{Resolution Floor ($PM$): The Electron Yukawa ($y_e$).} \\
+    \item \textbf{Resolution Floor (MAR): The Electron Yukawa ($y_e$).} \\
     The minimum mass bit resolvable against thermal noise, setting the floor for the fermion spectrum.
 \end{itemize}
 
@@ -99,7 +99,7 @@ This creates a geometric dilution factor based on the vacuum coupling:
 \end{equation}
 
 \paragraph{Thermodynamic Noise (Temporal Stability)}
-We must also account for the \textbf{Persistence Margin} ($PM$). Since the vacuum stability floor supports $n_{gen}=3$ generations ($\sigma - \chi = 3$), the noise amplitude per generation is partitioned linearly. This creates a thermodynamic reduction factor:
+We must also account for the \textbf{Persistence Margin} (MAR). Since the vacuum stability floor supports $n_{gen}=3$ generations ($\sigma - \chi = 3$), the noise amplitude per generation is partitioned linearly. This creates a thermodynamic reduction factor:
 
 \begin{equation}
 \delta_{noise} = \left( 1 - \frac{PM}{\sigma - \chi} \right)
@@ -208,7 +208,7 @@ m_H = \sqrt{2 (0.12942)} \cdot (\HiggsVEVVal) \approx \\
 
 \subsection{Derivation D: Resolution Floor (The Electron Yukawa \texorpdfstring{$y_e$}{ye})}
 
-The Persistence Margin ($PM$) represents the smallest non-zero bit of mass the lattice can resolve against thermal noise. This determines the coupling of the lightest charged particle (the Electron). We derive this scale as the Unit Bit (1) diluted over the \textbf{Total Configuration Space Volume}.
+The Persistence Margin (MAR) represents the smallest non-zero bit of mass the lattice can resolve against thermal noise. This determines the coupling of the lightest charged particle (the Electron). We derive this scale as the Unit Bit (1) diluted over the \textbf{Total Configuration Space Volume}.
 
 \begin{equation}
 y_{e,bare} = \frac{1}{V_{config}} = \frac{1}{\underbrace{H_{full}}_{\text{Budget}} \cdot \underbrace{(\sigma+1)}_{\text{Aperture}} \cdot \underbrace{\Delta^2}_{\text{Area}}}

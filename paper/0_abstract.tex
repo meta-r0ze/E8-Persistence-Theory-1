@@ -1,41 +1,34 @@
 \begin{abstract}
-\CatchFileBetweenTags{\AlphaInvVal}{calculations/constants.tex}{AlphaInvVal}
-\CatchFileBetweenTags{\AlphaSVal}{calculations/constants.tex}{AlphaSVal}
-\CatchFileBetweenTags{\WeakAngleVal}{calculations/constants.tex}{WeakAngleVal}
+\CatchFileBetweenTags{\AlphaInvVal}{constants.tex}{AlphaInvVal}
+\CatchFileBetweenTags{\AlphaSVal}{constants.tex}{AlphaSVal}
+\CatchFileBetweenTags{\WeakAngleVal}{constants.tex}{WeakAngleVal}
 
-\CatchFileBetweenTags{\HiggsVEVVal}{calculations/constants.tex}{HiggsVEVVal}
-\CatchFileBetweenTags{\FermiConstVal}{calculations/constants.tex}{FermiConstVal}
-\CatchFileBetweenTags{\HiggsMassVal}{calculations/constants.tex}{HiggsMassVal}
-\CatchFileBetweenTags{\ElectronYukawaVal}{calculations/constants.tex}{ElectronYukawaVal}
+\CatchFileBetweenTags{\HiggsVEVVal}{constants.tex}{HiggsVEVVal}
+\CatchFileBetweenTags{\FermiConstVal}{constants.tex}{FermiConstVal}
+\CatchFileBetweenTags{\HiggsMassVal}{constants.tex}{HiggsMassVal}
+\CatchFileBetweenTags{\ElectronYukawaVal}{constants.tex}{ElectronYukawaVal}
 
-\CatchFileBetweenTags{\JarlskogEq}{calculations/constants.tex}{JarlskogEq}
-\CatchFileBetweenTags{\JarlskogVal}{calculations/constants.tex}{JarlskogVal}
-\CatchFileBetweenTags{\CabibboAngleVal}{calculations/constants.tex}{CabibboAngleVal}
+\CatchFileBetweenTags{\JarlskogEq}{constants.tex}{JarlskogEq}
+\CatchFileBetweenTags{\JarlskogVal}{constants.tex}{JarlskogVal}
+\CatchFileBetweenTags{\CabibboAngleVal}{constants.tex}{CabibboAngleVal}
 
-\CatchFileBetweenTags{\WBosonMassVal}{calculations/constants.tex}{WBosonMassVal}
-\CatchFileBetweenTags{\CabibboAngleEq}{calculations/constants.tex}{CabibboAngleEq}
+\CatchFileBetweenTags{\WBosonMassVal}{constants.tex}{WBosonMassVal}
+\CatchFileBetweenTags{\CabibboAngleEq}{constants.tex}{CabibboAngleEq}
 
-\CatchFileBetweenTags{\bosonictotalchiVal}{calculations/constants.tex}{bosonictotalchiVal}
-\CatchFileBetweenTags{\bosonicreducedchiVal}{calculations/constants.tex}{bosonicreducedchiVal}
+\CatchFileBetweenTags{\bosonictotalchiVal}{constants.tex}{bosonictotalchiVal}
+\CatchFileBetweenTags{\bosonicreducedchiVal}{constants.tex}{bosonicreducedchiVal}
 
-\CatchFileBetweenTags{\VacuumEnergyScaleVal}{calculations/constants.tex}{VacuumEnergyScaleVal}
+\CatchFileBetweenTags{\VacuumEnergyScaleVal}{constants.tex}{VacuumEnergyScaleVal}
 
-We demonstrate that the fundamental constants of the Standard Model are not arbitrary, but are the necessary boundary conditions of a finite-capacity information-processing substrate. By treating the vacuum as a discrete $E_8$ lattice governed by the minimization of Entropic Action, we identify the singular, thermodynamically-stable solution set (Gibbs State) as $\mathbb{S} = \{D{=}4, \Delta{=}43, \nu{=}16, \sigma{=}5, \chi{=}2\}$. This unique set of geometric invariants resolves the structural arbitrariness of the Standard Model: the gauge group ($SU(3) \times SU(2) \times U(1)$) emerges from the topological decomposition ($\sigma=5, \chi=2$), \textbf{which also provides a geometric resolution to the Strong CP problem}; the generation count is fixed by the symmetry remainder ($n_{\text{gen}} = \sigma - \chi = 3$), and the chiral capacity ($\nu=16$) structurally prohibits extensions like supersymmetry or a fourth generation.
+We demonstrate that the fundamental constants of the Standard Model are not arbitrary, but are the necessary boundary conditions of a finite-capacity information-processing substrate.
 
-The Standard Model Lagrangian emerges as the Entropic Action of this lattice, while General Relativity appears as the Goldstone mode of broken translational symmetry in the presence of matter, not a separate force, but the geometric response of the substrate to energy density.
+We derive the remaining fundamental constants with \textbf{zero free parameters}:
 
-We derive the fundamental constants via global impedance matching with \textbf{zero free parameters}:
-
-\textbf{Tier 1 (Dimensionless Control):} Fine-Structure Constant ($\alpha^{-1} = \AlphaInvVal$, within 0.6$\sigma$ of CODATA); Strong Coupling ($\alpha_s = \AlphaSVal$); Weak Mixing Angle ($\sin^2\theta_W = \WeakAngleVal$, 0.09\% precision); Cabibbo Angle ($\theta_C = \CabibboAngleVal$); Jarlskog Invariant ($J = \JarlskogVal$).
+\textbf{Tier 1 (Dimensionless Control):} Strong Coupling ($\alpha_s = \AlphaSVal$); Weak Mixing Angle ($\sin^2\theta_W = \WeakAngleVal$, 0.09\% precision); Cabibbo Angle ($\theta_C = \CabibboAngleVal$); Jarlskog Invariant ($J = \JarlskogVal$).
 
 \textbf{Tier 2 (Mass Scales):} Higgs VEV ($v = \HiggsVEVVal$); Fermi Constant ($G_F = \FermiConstVal$); W-Boson Mass ($M_W = \WBosonMassVal$, resolving the CDF II tension); Higgs Mass ($m_H = \HiggsMassVal$).
 
 \textbf{Tier 3 (Hierarchies):} The Planck/Electron mass ratio ($M_P/m_e \propto \alpha^{-\Delta/4}$) and the Vacuum Energy density ($\rho_{vac}/M_P^4 \approx \VacuumEnergyScaleVal$), simultaneously resolving the Gravitational Hierarchy ($10^{40}$) and the Vacuum Catastrophe ($10^{120}$) via geometric attenuation across lattice depth.
 
-Numerical validation confirms the theory's dynamic consistency via three independent audits: 
-(1) A Monte Carlo diffusion audit derives the Fine-Structure Constant from lattice topology with $0.0007\%$ precision, verifying the geometric impedance mechanism; and 
-(2) A lattice simulation of the emergent gravity mechanism recovers the Einstein-Hilbert action with \textbf{Vacuum Stiffness $\kappa = 1.000000$}, the Newtonian potential ($1/r^2$ scaling) to within $0.15\%$; and effective light speed $c_{eff}=1.000000$, confirming Lorentz invariance on the discrete grid;
-(3) a zero-degree-of-freedom global fit of five fundamental observables ($\alpha^{-1}$, $G_F$, $m_W$, $\alpha_s$, $m_H$) yields a total $\chi^2 = \bosonictotalchiVal$ (Reduced $\chi^2 = \bosonicreducedchiVal$), confirming the geometric derivation captures physical correlations to high precision.
-
-This framework replaces parameter fitting with geometric derivation, providing falsifiable predictions for the fermion spectrum. This is Paper I of a series deriving the fermion spectrum (II), flavor mixing (III), and cosmology (IV).
+Numerical validation confirms the theory's dynamic consistency via three independent audits: A zero-degree-of-freedom global fit of five fundamental observables ($\alpha^{-1}$, $G_F$, $m_W$, $\alpha_s$, $m_H$) yields a total $\chi^2 = \bosonictotalchiVal$ (Reduced $\chi^2 = \bosonicreducedchiVal$), confirming the geometric derivation captures physical correlations to high precision.
 \end{abstract}

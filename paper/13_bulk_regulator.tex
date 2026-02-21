@@ -1,17 +1,17 @@
 \section{System VI: The Bulk Regulator: Gravity and the Planck Mass (\texorpdfstring{$\alpha_G, M_P$}{alphaGMP})} \label{sec:Bulk_Regulator}
-\CatchFileBetweenTags{\AlphaInvVal}{calculations/constants.tex}{AlphaInvVal}
-\CatchFileBetweenTags{\MeMeVPrint}{calculations/constants.tex}{MeMeVPrint}
-\CatchFileBetweenTags{\ResidualCapVal}{calculations/constants.tex}{ResidualCapVal}
+\CatchFileBetweenTags{\AlphaInvVal}{constants.tex}{AlphaInvVal}
+\CatchFileBetweenTags{\MeMeVPrint}{constants.tex}{MeMeVPrint}
+\CatchFileBetweenTags{\ResidualCapVal}{constants.tex}{ResidualCapVal}
 
-\CatchFileBetweenTags{\GravCouplingVal}{calculations/constants.tex}{GravCouplingVal}
-\CatchFileBetweenTags{\GravCouplingExperimentalValue}{calculations/constants.tex}{GravCouplingExperimentalValue}
-\CatchFileBetweenTags{\GravCouplingAccText}{calculations/constants.tex}{GravCouplingAccText}
+\CatchFileBetweenTags{\GravCouplingVal}{constants.tex}{GravCouplingVal}
+\CatchFileBetweenTags{\GravCouplingExperimentalValue}{constants.tex}{GravCouplingExperimentalValue}
+\CatchFileBetweenTags{\GravCouplingAccText}{constants.tex}{GravCouplingAccText}
 
-\CatchFileBetweenTags{\PlanckMassVal}{calculations/constants.tex}{PlanckMassVal}
-\CatchFileBetweenTags{\PlanckMassExperimentalValue}{calculations/constants.tex}{PlanckMassExperimentalValue}
-\CatchFileBetweenTags{\PlanckMassAccText}{calculations/constants.tex}{PlanckMassAccText}
+\CatchFileBetweenTags{\PlanckMassVal}{constants.tex}{PlanckMassVal}
+\CatchFileBetweenTags{\PlanckMassExperimentalValue}{constants.tex}{PlanckMassExperimentalValue}
+\CatchFileBetweenTags{\PlanckMassAccText}{constants.tex}{PlanckMassAccText}
 
-\CatchFileBetweenTags{\VacuumEnergyScaleVal}{calculations/constants.tex}{VacuumEnergyScaleVal}
+\CatchFileBetweenTags{\VacuumEnergyScaleVal}{constants.tex}{VacuumEnergyScaleVal}
 
 \subsection{The Standard Model Ansatz}
 Gravity is traditionally treated as a distinct fundamental force described by General Relativity, operating with a coupling constant $G$ that is inexplicably $10^{40}$ times weaker than the gauge forces. This extreme disparity, known as the Hierarchy Problem, forces the Planck Mass ($M_P \approx 10^{19}$ GeV) to be inserted as a manual scaling limit.
@@ -25,23 +25,23 @@ It is an \textbf{Attenuated Signal}. Gauge forces originate at the topological b
 The Bulk Regulator acts as a complete persistent system nested within the bulk lattice. We identify its six structural pillars:
 
 \begin{itemize}
-    \item \textbf{Capacity ($\Delta E$): The Planck Mass ($M_P$).} \\
+    \item \textbf{Capacity (CAP): The Planck Mass ($M_P$).} \\
     The unit of the bulk. It represents the energy scale where the lattice geometry itself acts as the charge carrier.
     
-    \item \textbf{Identity ($\Delta I$): Spin-2 ($h_{\mu\nu}$).} \\
+    \item \textbf{Identity (MAP): Spin-2 ($h_{\mu\nu}$).} \\
     The identity of the field is a rank-2 tensor representing metric perturbations. The lattice has fixed total capacity ($\nu=16$), so the trace of the metric (total volume) is conserved: $\delta(g^\mu_\mu) = 0$. This constraint forces all dynamical information into the \textbf{Traceless Transverse} channel ($h^\mu_\mu=0$), creating a pure Spin-2 field.
     
-    \item \textbf{Protocol ($MI$): The Coupling ($\alpha_G$).} \\
+    \item \textbf{Protocol (PRO): The Coupling ($\alpha_G$).} \\
     The efficiency of the connection between the core and the surface. It is determined by the lattice depth attenuation.
-    
-    \item \textbf{Governor ($G$): Diffeomorphism Invariance.} \\
-    The stabilizing mechanism preventing divergence. For gravity, the governor is the \textbf{Einstein-Hilbert Action} ($R\sqrt{-g}$). This emerges as the hydrodynamic limit of the lattice capacity conservation law ($\nabla_\mu T^{\mu\nu}=0$), stabilizing the bulk geometry against tearing.\footnote{The Einstein-Hilbert action emerges as the long-wavelength limit of the lattice capacity conservation law. The spin-2 mode is the Goldstone boson of broken translational symmetry in the presence of matter ($T^{\mu\nu} \neq 0$).}
+
+    \item \textbf{Governor (GOV): Diffeomorphism Invariance.} \\
+    The stabilizing mechanism preventing divergence. For gravity, the governor is the \textbf{Einstein-Hilbert Action} ($R\sqrt{-g}$). This emerges as the hydrodynamic limit of the lattice capacity conservation law ($\nabla_\mu T^{\mu\nu}=0$), stabilizing the bulk geometry against tearing. \textbf{The formal derivation of this limit as a spin-2 Goldstone mode is provided in \cref{app:hydrodynamic_limit}.}\footnote{The Einstein-Hilbert action emerges as the long-wavelength limit of the lattice capacity conservation law. The spin-2 mode is the Goldstone boson of broken translational symmetry in the presence of matter ($T^{\mu\nu} \neq 0$).}
     \textit{Scaling:} The zero-point energy of the gravitational Goldstone mode is canceled by this counter-term, leaving a residual entropic scaling of $\Lambda \approx M_P^4 \cdot \alpha^{\Delta} \approx 10^{-120} M_P^4$ (Derived in \cref{sec:vacuum_energy}).
-    
-    \item \textbf{Temporal Cost ($T$): Causality ($ds^2 \ge 0$), Stiffness ($T \propto M_P^2 (\partial h)^2$).} \\
+
+    \item \textbf{Temporal Cost (TOL): Causality ($ds^2 \ge 0$), Stiffness ($T \propto M_P^2 (\partial h)^2$).} \\
     The entropic tax of maintaining causal ordering. The huge energy cost ($M_P^2$) required to perturb the metric defines the rigidity of spacetime, enforcing the light-cone limit ($ds^2 \ge 0$). Unlike the Higgs cost (which drives symmetry breaking), the gravitational cost enforces the \textbf{arrow of time} itself through the light cone structure.
 
-    \item \textbf{Persistence Margin ($PM$): The Planck Length ($\ell_P \approx 1.6 \times 10^{-35}$ m).} \\
+    \item \textbf{Persistence Margin (MAR): The Planck Length ($\ell_P \approx 1.6 \times 10^{-35}$ m).} \\
     The resolution floor of the geometry. Below this scale, the concept of ``manifold'' dissolves into the discrete node addressing of the lattice, providing a natural UV cutoff.
 \end{itemize}
 
@@ -213,8 +213,7 @@ The ratio is purely geometric:
 This is not fine-tuning; it is the geometric consequence of imposing a physical UV cutoff at the information-theoretic capacity limit.
 
 \subsubsection{System Integration}
-This derivation identifies Dark Energy as the \textbf{Volumetric Persistence Margin} of the Bulk Regulator (System VI). Just as the Electron mass ($m_e$) is the metabolic cost of maintaining a \emph{bit of matter} against thermal noise, $\Lambda$ is the irreducible metabolic cost of maintaining a \emph{bit of volume} against lattice collapse.
-
+This derivation identifies Dark Energy as the \textbf{Volumetric Persistence Margin} of the Bulk Regulator (System VI). Just as the Electron mass ($m_e$) is the entropic cost of maintaining a \emph{bit of matter} against thermal noise, $\Lambda$ is the irreducible entropic cost of maintaining a \emph{bit of volume} against lattice collapse.
 
 \subsection{Implications}
 
@@ -233,10 +232,10 @@ Some theories have proposed a ``Fifth Force", operating at intermediate scales, 
     \item \textbf{The Boundary ($r=0$):} Defines Surface Forces (Gauge fields).
     \item \textbf{The Centroid ($r=\Delta/2$):} Defines Bulk Forces (Gravity).
 \end{itemize}
-Any signal originating at intermediate depth (e.g., $r=10$) lacks a topological anchor—neither boundary ($\chi=2$) nor centroid ($\Delta/2$)—and thus cannot form stable resonances. Such states decay immediately into gauge bosons or gravitons. Consequently, the ``Desert" between the Standard Model and Gravity is physically real and structurally enforced.
+Any signal originating at intermediate depth (e.g., $r=10$) lacks a topological anchor—neither boundary ($\chi=2$) nor centroid ($\Delta/2$)—and thus cannot form stable resonances. Such states decay immediately into gauge bosons. Consequently, the ``Desert" between the Standard Model and Gravity is physically real and structurally enforced.
 
 \subsubsection{The Planck Scale as Natural UV Cutoff}
-The Planck length $\ell_P = 1/M_P$ represents the resolution floor ($PM$) of the geometric substrate. Below this scale, spacetime loses meaning as a continuous manifold—the lattice node addressing becomes discrete. This provides a natural UV cutoff without requiring string theory or loop quantum gravity.
+The Planck length $\ell_P = 1/M_P$ represents the resolution floor (MAR) of the geometric substrate. Below this scale, spacetime loses meaning as a continuous manifold—the lattice node addressing becomes discrete. This provides a natural UV cutoff without requiring string theory or loop quantum gravity.
 
 \subsubsection{Cosmological Extension}
 \textbf{Forward Link:} The cosmological extension of this emergent gravity framework (Paper IV) resolves the Hubble Tension by applying these same channel capacity limits to macroscopic scales.

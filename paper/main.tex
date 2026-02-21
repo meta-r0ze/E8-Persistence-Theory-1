@@ -4,6 +4,12 @@
 \usepackage{amsmath}  % Math formulas
 \usepackage{amssymb}  % Math symbols (like \mathbb, \mathcal)
 \usepackage{graphicx} % Images
+\graphicspath{{calculations/}}
+
+\makeatletter
+\providecommand*{\input@path}{}
+\g@addto@macro\input@path{{calculations/}} % Add your folder here
+\makeatother
 \usepackage[pdfencoding=auto]{hyperref} % Hyperlinks
 \usepackage{bm}       % Bold math
 \usepackage{booktabs} % For professional table formatting
@@ -31,7 +37,7 @@
 \begin{document}
 
 % Title Area
-\title{The \texorpdfstring{$E_8$}{E8}-Persistence Theory I: Geometric Initialization of the Standard Model}
+\title{The \texorpdfstring{$E_8$}{E8}-Persistence Theory: Geometric Initialization of the Standard Model}
 
 \author{Kate Lenore Meyer}
 \affiliation{Independent Researcher} % Or your institution if applicable
@@ -46,15 +52,10 @@
 % Main Content
 \input{calculations/constants}
 \input{paper/1_introduction}
-\input{paper/2_ie}
+
 \input{paper/3_geometric_cascade}
 
-\part* {System I: The Lattice Substrate}
-\input{paper/4_derivation_of_the_substrate}
-
-\part* {Systems II \& III: The Dynamics}
-\input{paper/5_geometric_impedance}
-\input{paper/6_entropic_action}
+\input{paper/4_spin}
 
 \part* {Systems IV, V, VI: The Effective Field Architecture }
 \input{paper/7_geometric_control_architecture}
@@ -71,14 +72,11 @@
 \input{paper/15_structural_audit}
 \input{paper/16_conclusion}
 
-\appendix
-\input{paper/4_appendix_distler-garibaldi}
-\input{paper/4_appendix_root_inventory}
-\input{paper/4_appendix_causality_constraint}
-\input{paper/4_appendix_partition_function}
-\input{paper/12_appendix_hypercharge}
-
 % Bibliography
 \bibliography{articles}
+
+\appendix
+\input{paper/13_appendix_hydrodynamic_limit}
+\input{paper/12_appendix_hypercharge}
 
 \end{document}
