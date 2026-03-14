@@ -1,6 +1,5 @@
 \documentclass[aps,prd,twocolumn,showpacs,superscriptaddress,groupedaddress,nofootinbib,english]{revtex4-2}  
 
-% Packages you will need
 \usepackage{amsmath}  % Math formulas
 \usepackage{amssymb}  % Math symbols (like \mathbb, \mathcal)
 \usepackage{graphicx} % Images
@@ -37,46 +36,52 @@
 \begin{document}
 
 % Title Area
-\title{The \texorpdfstring{$E_8$}{E8}-Persistence Theory: Geometric Initialization of the Standard Model}
+\title{The \texorpdfstring{$E_8$}{E8}-Persistence Theory: The Geometric Constants}
 
 \author{Kate Lenore Meyer}
-\affiliation{Independent Researcher} % Or your institution if applicable
+\affiliation{Independent Researcher}
 \email{kate.physics@meyerhome.net}
 
 \date{\today}
 
-\input{paper/0_abstract}
+\input{0_abstract}
 
 \maketitle % Generates the title block
 
 % Main Content
-\input{calculations/constants}
-\input{paper/1_introduction}
+\input{1_introduction}
 
-\input{paper/3_geometric_cascade}
+% System 4
+\input{2_the_partition_architecture}
+\input{3_channel_saturation}
+\input{4_cp}
+\input{5_geometric_partition_ratio}
+\input{6_layer_leakage}
+\input{7_time_asymmetry}
 
-\input{paper/4_spin}
+% System 5
+\input{8_vacuum_regulator}
 
-\part* {Systems IV, V, VI: The Effective Field Architecture }
-\input{paper/7_geometric_control_architecture}
-\input{paper/8_channel_saturation}
-\input{paper/8_cp}
-\input{paper/9_geometric_partition_ratio}
-\input{paper/10_layer_leakage}
-\input{paper/11_time_asymmetry}
-\input{paper/12_vacuum_regulator}
-\input{paper/13_bulk_regulator}
-\input{paper/14_geometric_control_architecture_closure}
+% System 6
+\input{9_bulk_regulator}
 
-\input{paper/15_numerical_validation}
-\input{paper/15_structural_audit}
-\input{paper/16_conclusion}
+% Validation
+\input{10_geometric_control_architecture_closure}
+\input{11_numerical_validation}
+\input{12_structural_audit}
+%\input{13_entanglement}
+
+\input{14_conclusion}
+\input{17_geometric_cascade}
 
 % Bibliography
 \bibliography{articles}
 
 \appendix
-\input{paper/13_appendix_hydrodynamic_limit}
-\input{paper/12_appendix_hypercharge}
+\input{8_appendix_hypercharge}
 
 \end{document}
+
+\typeout{get arXiv to do 4 passes: Label(s) may have changed. Rerun}
+
+% Follow idea would be applying IE to the "Error-Threshold" Paradox which it solves.

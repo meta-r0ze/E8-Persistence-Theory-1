@@ -1,5 +1,6 @@
-\section{System V: The Surface Regulator (The Higgs Sector) (\texorpdfstring{$v, \lambda, m_H, y_e$}{vlambdamhye})}
+\section{System 5: The Surface Regulator (The Higgs Sector) (\texorpdfstring{$v, \lambda, m_H, y_e$}{vlambdamhye})}
 \label{sec:Vacuum_Regulator}
+\label{sec:system5}
 
 \CatchFileBetweenTags{\AlphaInvVal}{constants.tex}{AlphaInvVal}
 \CatchFileBetweenTags{\CompPM}{constants.tex}{CompPM}
@@ -131,14 +132,17 @@ v_{phys} &= (\HiggsVEVStepOneVal) \\
     \item \textbf{Accuracy:} \HiggsVEVAccText
 \end{itemize}
 
-\subsubsection*{Derived Limit: The Fermi Constant (\texorpdfstring{$G_F$}{GF})}
-$G_F$ is the inverse squared cross-section of this stability floor, normalized by the topological boundary ($\chi=2$):
+\subsubsection{Derived Limit: The Fermi Constant (\texorpdfstring{$G_F$}{GF})}
+In the Standard Model, the effective 4-fermion weak interaction cross-section contains a $1/\sqrt{2}$ normalization factor arising from the algebraic definition of the $SU(2)_L$ currents. In the $E_8$-Persistence framework, this is not an algebraic convention, but a strict geometric projection.
+
+The weak interaction mediates flux across the 2D spherical topological boundary ($\chi=2$) of the node. For this 2D boundary flux to interact with a 1D chiral fermion trajectory, the flux must be projected onto the 1D interaction axis. By Pythagorean normalization across the two orthogonal basis vectors of the boundary, the geometric cross-section is attenuated by exactly $\sqrt{\chi} = \sqrt{2}$. 
+
+Therefore, the Fermi constant ($G_F$) is precisely the inverse squared VEV attenuated by this topological flux projection:
 \begin{equation}
-G_F = \frac{1}{\sqrt{\chi} v^2} \approx \mathbf{\FermiConstVal}
+    G_F = \frac{1}{\sqrt{\chi}v_{phys}^2} \approx \mathbf{\FermiConstVal}
 \end{equation}
 
 \textbf{Experimental Value:} \FermiConstExperimentalValue
-
 \textbf{Accuracy:} \FermiConstAccText
 
 \subsection{Identity (\texorpdfstring{$\Delta I$}{DeltaI}): Scalar Hypercharge (\texorpdfstring{$Y=1$}{Y1})} 
