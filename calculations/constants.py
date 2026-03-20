@@ -3,6 +3,7 @@
 import math
 import argparse
 import sys
+from decimal import Decimal, getcontext
 
 # ==========================================
 # 0. EXTERNAL REFERENCE VALUES (Experimental Truth)
@@ -33,15 +34,36 @@ REFS = {
     
     "alpha_inv": MeasuredVal(
         137.035999177, 
-        0.000000085, 
+        0.000000021, 
         "", 
         "mohr_codata_2025"
+    ),
+
+    "alpha_inv_morel": MeasuredVal(
+        137.035999206,
+          0.000000011,
+        "", 
+        "morel_determination_2020"
+    ),
+
+    "alpha_inv_parker": MeasuredVal(
+        137.035999046,
+          0.000000027,
+        "", 
+        "parker_measurement_2018"
+    ),
+
+    "alpha_inv_fan": MeasuredVal(
+        137.035999166,
+          0.000000015,
+        "", 
+        "fan_measurement_2023"
     ),
 
     "rk": MeasuredVal(
         25812.80745,
         0.00001,
-        "Ohms",
+        "\\Omega",
         "mohr_codata_2025"
     ),
 
@@ -172,7 +194,7 @@ REFS = {
     ),
 }
 
-
+getcontext().prec = 5000
 PI = math.pi
 
 # ==========================================
@@ -224,22 +246,19 @@ def print_section(title, latex_mode=False):
 def print_latex_value(tag, valueToPrint, unit):
     valueToPrintStr = format_float_latex(valueToPrint) if 0.001 < abs(valueToPrint) < 1000 else to_latex_sci(valueToPrint, 5)
     if unit != "":
-        valueToPrintStr += f" \\unit{{{unit}}}"
+        valueToPrintStr = f"\\qty{{{valueToPrintStr}}}{{{unit}}}"
     print(f"%<*{tag}>{valueToPrintStr}%</{tag}>")
 
 def print_derivation(name, tag, formula_sym, latex_sym, formula_num, result,
-                     latex_mode=False, ref_key=None, unit=None, context="observed value",
+                     latex_mode=False, ref_key=None,context="observed value",
                      formula_step1=None,
                      formula_step2=None):
 
     # Auto-detect unit from REFS if not provided
-    if unit is None and ref_key and ref_key in REFS:
-        if hasattr(REFS[ref_key], 'unit'):
-            unit = REFS[ref_key].unit
-        elif f"{ref_key}_unit" in REFS:
-            unit = REFS[f"{ref_key}_unit"]
-    
-    if unit is None: 
+    unit = None
+    if ref_key is not None:
+        unit = REFS[ref_key].units    
+    else:
         unit = ""
 
     # --- LATEX OUTPUT MODE ---
@@ -278,7 +297,7 @@ def print_derivation(name, tag, formula_sym, latex_sym, formula_num, result,
             # Case A: Standard Float (e.g. 0.2229 +/- 0.0001)
             # We use format_float_latex to force decimal representation (0.0009) 
             # instead of scientific (9e-4) to prevent siunitx parsing errors.
-            if 0.001 < abs(target) < 1000:
+            if 0.001 < abs(target) < 100000:
                  t_str = format_float_latex(target)
                  e_str = format_float_latex(err_val)
                  out_str = f"\\qty{{{t_str} \\pm {e_str}}}{{{unit}}}{cite_str}"
@@ -300,7 +319,7 @@ def print_derivation(name, tag, formula_sym, latex_sym, formula_num, result,
             # Accuracy Sentence Logic
             abs_sigma = abs(sigma)
             if abs_sigma < 1.0:
-                acc_text = f"The geometric derivation matches the experimental consensus to within ${abs_sigma:.2f}\\sigma$."
+                acc_text = f"The geometric derivation matches the experimental value to within ${abs_sigma:.2f}\\sigma$."
             elif abs_sigma < 3.0:
                 acc_text = f"The geometric prediction lies within ${abs_sigma:.2f}\\sigma$ of the {context}."
             else:
@@ -464,10 +483,10 @@ def main():
     if not LATEX_MODE:
         print(f"Invariants: S = {{ D={D}, Delta={DELTA}, Sigma={SIGMA}, Nu={NU}, Chi={CHI} }}")
 
-    # Derived Capacities
-    H_SYS = NU + SIGMA + CHI
-    H_FULL = H_SYS + (2 * D)
-    H_STRUCT = (DELTA * D) + NU
+    # Derived Loads
+    L_INTRINSIC = NU + SIGMA + CHI
+    L_EMBED = L_INTRINSIC + (2 * D)
+    L_SUBSTRATE = (DELTA * D) + NU
     N = 2 * NU
 
     # --- Universal Manifold Friction ---
@@ -476,13 +495,13 @@ def main():
     MANIFOLD_FRICTION = 1.0 - (1.0 / (D * DELTA)) # ~0.994186
 
     if LATEX_MODE:
-        # Output basic invariants as tags too if needed
-        print(f"%<*InvHSys>{H_SYS}%</InvHSys>")
-        print(f"%<*InvHFull>{H_FULL}%</InvHFull>")
-        print(f"%<*InvHStruct>{H_STRUCT}%</InvHStruct>")
+        # Output basic invariants as tags
+        print(f"%<*InvLIntrinsic>{L_INTRINSIC}%</InvLIntrinsic>")
+        print(f"%<*InvLEmbed>{L_EMBED}%</InvLEmbed>")
+        print(f"%<*InvLSubstrate>{L_SUBSTRATE}%</InvLSubstrate>")
         print(f"%<*InvN>{N}%</InvN>")
     elif not LATEX_MODE:
-        print(f"Capacities: H_sys={H_SYS}, H_full={H_FULL}, N={N}")
+        print(f"Capacities: L_INTRINSIC={L_INTRINSIC}, L_EMBED={L_EMBED}, N={N}")
 
     # ==========================================
     # 3. SYSTEM II: THE VACUUM IMPEDANCE
@@ -505,7 +524,7 @@ def main():
     comp_T = (1 / pow(N, 3)) * (CHI / SIGMA) * (1 - (SIGMA / (D * DELTA)))
 
     # 6. Persistence Margin (Resolution)
-    comp_PM = 1 / (H_FULL * (SIGMA + 1) * pow(DELTA, 2))
+    comp_PM = 1 / (L_EMBED * (SIGMA + 1) * pow(DELTA, 2))
 
     # Summation
     ALPHA_INV_GEO = comp_DE + comp_DI + comp_MI + comp_G + comp_T + comp_PM
@@ -545,6 +564,37 @@ def main():
         latex_mode=LATEX_MODE,
         ref_key="alpha_inv"
     )
+    print_derivation(
+        name="Fine Structure Constant Inverse (morel)",
+        tag="AlphaInvMorel",
+        formula_sym="Sum(Components)",
+        latex_sym=r"\pi\Delta + \chi - \frac{1}{D\Delta - \sigma} - \frac{\chi}{\Delta} + T + PM",
+        formula_num="See Table",
+        result=ALPHA_INV_GEO,
+        latex_mode=LATEX_MODE,
+        ref_key="alpha_inv_morel"
+    )
+    print_derivation(
+        name="Fine Structure Constant Inverse (parker)",
+        tag="AlphaInvParker",
+        formula_sym="Sum(Components)",
+        latex_sym=r"\pi\Delta + \chi - \frac{1}{D\Delta - \sigma} - \frac{\chi}{\Delta} + T + PM",
+        formula_num="See Table",
+        result=ALPHA_INV_GEO,
+        latex_mode=LATEX_MODE,
+        ref_key="alpha_inv_parker"
+    )
+
+    print_derivation(
+        name="Fine Structure Constant Inverse (fan)",
+        tag="AlphaInvFan",
+        formula_sym="Sum(Components)",
+        latex_sym=r"\pi\Delta + \chi - \frac{1}{D\Delta - \sigma} - \frac{\chi}{\Delta} + T + PM",
+        formula_num="See Table",
+        result=ALPHA_INV_GEO,
+        latex_mode=LATEX_MODE,
+        ref_key="alpha_inv_fan"
+    )
 
     # --- Von Klitzing Constant (Quantum Resistance) ---
     Z0_SI = 4 * PI * (10**-7) * 299792458
@@ -559,9 +609,27 @@ def main():
         result=RK_GEO,
         latex_mode=LATEX_MODE,
         ref_key="rk",
-        unit="Ohms",
         context="Quantum Hall resistance"
     )
+
+    # --- Planck Charge Ratio & Vacuum Breakdown ---
+    CHARGE_RATIO = 1.0 / math.sqrt(ALPHA_INV_GEO)  # e / q_P
+    CHARGE_ATTENUATION = math.sqrt(ALPHA_INV_GEO)  # q_P / e
+    CHARGE_RATIO_PCT = CHARGE_RATIO * 100.0
+
+    print_derivation(
+        name="Planck Charge Ratio (e/q_P)",
+        tag="PlanckChargeRatio",
+        formula_sym="1 / sqrt(Z_geo)",
+        latex_sym=r"\frac{1}{\sqrt{Z_{geo}}}",
+        formula_num=f"1 / sqrt({ALPHA_INV_GEO:.4f})",
+        result=CHARGE_RATIO,
+        latex_mode=LATEX_MODE
+    )
+    if LATEX_MODE:
+        # Output tags specifically for the text formulation
+        print(f"%<*ChargeAtten>{CHARGE_ATTENUATION:.1f}%</ChargeAtten>")
+        print(f"%<*ChargeRatioPct>{CHARGE_RATIO_PCT:.1f}\\%%</ChargeRatioPct>")
 
     # ==========================================
     # 4. SYSTEM IV: THE GEOMETRIC CONTROL ARCHITECTURE
@@ -672,7 +740,7 @@ def main():
 
     # --- Higgs VEV ---
     # 1. Tree Level (Bare Geometric Floor)
-    V_MEV_BARE = ((CHI * pow(DELTA, 2)) - H_STRUCT) * ALPHA_INV_GEO * REFS["me"].value
+    V_MEV_BARE = ((CHI * pow(DELTA, 2)) - L_SUBSTRATE) * ALPHA_INV_GEO * REFS["me"].value
 
     # 2. Radiative Correction (Topological Screening)
     # The field is screened by the Effective Dimension D_eff = D + Chi/4pi.
@@ -704,7 +772,6 @@ def main():
         result=V_GEV_PHYS,
         latex_mode=LATEX_MODE,
         ref_key="vev",
-        unit="GeV",
         context="electroweak scale",
         formula_step1=V_MEV_BARE,
         formula_step2=V_MEV_TOP
@@ -722,22 +789,21 @@ def main():
         result=GF_GEO,
         latex_mode=LATEX_MODE,
         ref_key="gf",
-        unit="GeV^-2",
         context="experimental value"
     )
 
     # --- Higgs Parameters ---
     # Resonant Tax (Dynamics): 
     # The lattice oscillates at frequency Delta. We must subtract 1 unit of bandwidth (1/Delta)
-    LAMBDA_GEO = ((SIGMA - CHI) - (1.0 / DELTA)) / H_SYS
+    LAMBDA_GEO = ((SIGMA - CHI) - (1.0 / DELTA)) / L_INTRINSIC
     MH_GEO = math.sqrt(2 * LAMBDA_GEO) * V_GEV_PHYS
 
     print_derivation(
         name="Higgs Self-Coupling (λ)",
         tag="HiggsLambda",
-        formula_sym="((σ - χ) - 1/Δ) / H_sys",
+        formula_sym="((σ - χ) - 1/Δ) / H_{intrinsic}",
         latex_sym=r"\frac{(\sigma - \chi) - \frac{1}{\Delta}}{H_{sys}}",
-        formula_num=f"({SIGMA} - {CHI} - 1/{DELTA}) / {H_SYS}",
+        formula_num=f"({SIGMA} - {CHI} - 1/{DELTA}) / {L_INTRINSIC}",
         result=LAMBDA_GEO,
         latex_mode=LATEX_MODE,
         ref_key="lambda",
@@ -753,7 +819,6 @@ def main():
         result=MH_GEO,
         latex_mode=LATEX_MODE,
         ref_key="mh",
-        unit="GeV",
         context="observed mass"
     )
 
@@ -805,7 +870,6 @@ def main():
         result=MW_GEO,
         latex_mode=LATEX_MODE,
         ref_key="mw",
-        unit="GeV",
         context="CDF/ATLAS Tension Mediator"
     )
 
@@ -872,7 +936,6 @@ def main():
         result=MP_GEV_GEO,
         latex_mode=LATEX_MODE,
         ref_key="Mp",
-        unit="GeV",
         context="hierarchy scale"
     )
 
