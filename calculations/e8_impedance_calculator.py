@@ -82,22 +82,37 @@ def monte_carlo_impedance(projected_roots, n_samples):
     return total / n_samples
 
 @njit(parallel=True, fastmath=True)
-def run_random_walks(roots, n_walkers, n_steps):
+def run_random_walks(roots, n_walkers, n_steps, burn_in=0):
     """
-    Simulates N photons diffusing through the E8 vacuum.
-    Uses NORMALIZED roots to ensure isotropic diffusion.
+    burn_in: number of steps to discard before measurement starts
     """
     final_sq_dist = np.zeros(n_walkers)
     n_roots = len(roots)
     
     for i in prange(n_walkers):
         pos = np.zeros(4)
+        
+        # Burn-in phase (not measured)
+        for t in range(burn_in):
+            idx = np.random.randint(0, n_roots)
+            step = roots[idx]
+            if np.random.random() < 0.5: pos += step
+            else: pos -= step
+        
+        # Reset position measurement
+        initial_pos = pos.copy()
+        
+        # Measurement phase
         for t in range(n_steps):
             idx = np.random.randint(0, n_roots)
             step = roots[idx]
             if np.random.random() < 0.5: pos += step
             else: pos -= step
-        final_sq_dist[i] = np.sum(pos**2)
+        
+        # Measure displacement from burn-in endpoint
+        displacement = pos - initial_pos
+        final_sq_dist[i] = np.sum(displacement**2)
+    
     return final_sq_dist
 
 @njit(parallel=True, fastmath=True)
@@ -170,15 +185,20 @@ class AlphaCalculator:
     def prepare_lattice(self):
         roots_8d = generate_e8_roots()
         roots_4d = np.array([project_to_spacetime(r) for r in roots_8d])
-        self.active_roots = []      
-        self.normalized_roots = []  
+        self.active_roots = []
+        # Keep UNNORMALIZED roots for diffusion
         for v in roots_4d:
             mag = np.sqrt(np.sum(v**2))
             if mag > 1e-6:
                 self.active_roots.append(v)
-                self.normalized_roots.append(v / mag)
+        
         self.active_roots = np.array(self.active_roots)
-        self.normalized_roots = np.array(self.normalized_roots)
+        
+        # Calculate average step size squared (for MSD normalization)
+        self.mean_step_sq = np.mean(np.sum(self.active_roots**2, axis=1))
+        
+        print(f"Lattice prepared: {len(self.active_roots)} active roots")
+        print(f"Mean step² = {self.mean_step_sq:.6f}")
 
     def run_geometry_audit(self):
         print(f"\n{'-'*60}")
@@ -203,52 +223,51 @@ class AlphaCalculator:
         else:
             print(f">>> TOPOLOGY: Anomalous (K={neighbors})")
 
-    def run_diffusion_ensemble(self, walkers_per_run=100000, n_runs=10):
+    def run_diffusion_audit_geometric(self, n_walkers=5_000_000, n_steps=20000):
+        """
+        Measures the vacuum impedance by comparing E8 lattice diffusion
+        to the theoretical geometric baseline.
+        
+        INPUT: The geometric baseline (π*Δ + χ) from the invariants
+        OUTPUT: The emergent vacuum impedance (α⁻¹)
+        """
         print(f"\n{'-'*60}")
-        print("2. DIFFUSION AUDIT (ENSEMBLE AVERAGE)")
+        print("DIFFUSION AUDIT (GEOMETRIC IMPEDANCE)")
         print(f"{'-'*60}")
-        print(f"Walkers/Run: {walkers_per_run} | Runs: {n_runs} | Total Stats: {walkers_per_run*n_runs:.0e}")
-        print("-" * 75)
-        print(f"{'Time (T)':<8} | {'Alpha^-1':<12} | {'Std Err':<10} | {'Status':<10}")
-        print("-" * 75)
         
-        mean_step_sq = 1.0 # Normalized
-        time_scales = [100, 1000, 5000, 10000] # Long times
-        Z_0 = np.pi * 43.0 + 2.0 
+        # Theoretical baseline from lattice geometry
+        # This comes from Paper I, Eq. (6): The base Wilson loop
+        Delta = 43  # Heegner number (from Kneser's theorem)
+        chi = 2     # Topological boundary (from Gauss-Bonnet)
+        Z_geometric = np.pi * Delta + chi  # ≈ 137.088
         
-        final_mean = 0.0
-        final_err = 0.0
+        print(f"Geometric Baseline (π*Δ + χ): {Z_geometric:.6f}")
+        print(f"This is the 'bare' impedance without friction corrections.")
+        print(f"\nNow measuring friction via diffusion...")
         
-        for t_steps in time_scales:
-            # Ensemble Loop
-            alphas = []
-            for r in range(n_runs):
-                final_dists = run_random_walks(self.normalized_roots, walkers_per_run, t_steps)
-                msd_sim = np.mean(final_dists)
-                msd_continuum = t_steps * mean_step_sq
-                ratio = msd_sim / msd_continuum
-                alpha_inv = Z_0 / ratio
-                alphas.append(alpha_inv)
-            
-            # Statistics
-            mean_alpha = np.mean(alphas)
-            std_alpha = np.std(alphas)
-            sem_alpha = std_alpha / np.sqrt(n_runs) # Standard Error of Mean
-            
-            # Check overlap with Target within 2-sigma
-            target = 137.036
-            z_score = abs(mean_alpha - target) / sem_alpha
-            status = "MATCH" if z_score < 2.0 else "DRIFT"
-            
-            print(f"{t_steps:<8} | {mean_alpha:.6f}     | ±{sem_alpha:.4f}    | {status}")
-            
-            final_mean = mean_alpha
-            final_err = sem_alpha
-
-        print("-" * 75)
-        print(f"Diffusion Result:    {final_mean:.6f} ± {final_err:.6f}")
-        print(f"Analytic Target:     137.035999")
-        print(">>> VALIDATION: Diffusion confirms analytic prediction within error bars.")
+        # Run simulation
+        final_dists = run_random_walks(self.active_roots, n_walkers, n_steps, burn_in=2000)
+        msd_sim = np.mean(final_dists)
+        
+        # Expected MSD for ideal random walk
+        mean_step_sq = self.mean_step_sq
+        msd_ideal = n_steps * mean_step_sq
+        
+        # The conductivity measures how much "friction" the discrete projection adds
+        conductivity = msd_sim / msd_ideal
+        
+        print(f"\nMeasured Conductivity: {conductivity:.6f}")
+        print(f"  (1.0 = frictionless, <1.0 = impedance from discretization)")
+        
+        # The physical impedance includes the friction
+        alpha_inv = Z_geometric / conductivity
+        
+        print(f"\nEmergent Vacuum Impedance:")
+        print(f"  α⁻¹ = {alpha_inv:.6f}")
+        print(f"  Target (CODATA): 137.035999")
+        print(f"  Deviation: {abs(alpha_inv - 137.036):.6f}")
+        
+        return alpha_inv
 
     def run_impedance_audit(self, n_samples=50000000):
         print(f"\n{'-'*60}")
@@ -357,7 +376,7 @@ class AlphaCalculator:
         print(">>> Discrete peaks confirm the Quantum Nature of space.")
         plt.show()
 
-    def run_efficiency_audit(self, n_walkers=100000, n_steps=5000):
+    def run_efficiency_audit(self, n_walkers=5_000_000, n_steps=10_000):
         print(f"\n{'-'*60}")
         print("6. Manifold Quantization Efficiency AUDIT (BULK vs SURFACE)")
         print(f"walkers:{n_walkers}, steps:{n_steps}")
@@ -408,9 +427,9 @@ if __name__ == "__main__":
     sim = AlphaCalculator()
     sim.run_geometry_audit()
     # 10 runs of 100k walkers = 1M stats per point
-    sim.run_diffusion_ensemble(walkers_per_run=100000, n_runs=10) 
-    sim.run_impedance_audit(n_samples=50000000)
-    sim.run_efficiency_audit()
+    sim.run_diffusion_audit_geometric()
+    #sim.run_impedance_audit(n_samples=50000000)
+    #sim.run_efficiency_audit()
 
-    sim.run_shell_structure()
-    sim.run_visualization()
+    #sim.run_shell_structure()
+    #sim.run_visualization()
