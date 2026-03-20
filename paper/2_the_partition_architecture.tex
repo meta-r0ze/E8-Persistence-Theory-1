@@ -1,18 +1,9 @@
-\section{System 4: The Partition Architecture}
-\label{sec:geometric_control}
-\label{sec:system4}
+\section{The Partition Architecture}
+\label{sec:partition_architecture}
 
-Having established the lattice substrate (System 1), the geometric impedance (System 2), and the field dynamics (System 3), we now derive the dimensional structure of physical forces. We identify this as the integrated partitioning mechanism that allocates the finite channel capacity ($\nu=16$) among the fundamental interactions.
+The Entropic Lagrangian derived in the companion paper contains gauge fields ($A_\mu$) and coupling parameters ($g, \lambda, m$) whose functional forms are uniquely determined by the persistence architecture, but whose numerical values remain unspecified. In standard QFT, these values appear as independent empirical inputs: the Strong Coupling ($\alpha_s \approx 0.118$), the Weak Mixing Angle ($\sin^2\theta_W \approx 0.223$), the Cabibbo Angle ($\theta_C \approx 0.225$), and the QCD beta function coefficients. No known structural relationships connect them.
 
-\subsection{The Standard Model Ansatz}
-
-In standard physics, the coupling constants and mixing angles appear as independent parameters: the Strong Coupling ($\alpha_s \approx 0.118$), the Weak Mixing Angle ($\sin^2\theta_W \approx 0.223$), the Cabibbo Angle ($\theta_C \approx 0.225$), and the QCD beta function coefficients. These dimensionless ratios govern the relative strengths of forces but exhibit no known structural relationships. They function as empirical inputs required to match experimental data.
-
-\subsection{The E8-Persistence Derivation}
-
-We demonstrate that these ratios are not independent parameters but \textbf{geometric partition coefficients}, the unique solution to allocating finite lattice bandwidth across orthogonal interaction channels without aliasing or overflow. The architecture operates as a constraint-satisfaction system: given the total capacity ($\nu=16$), the gauge topology ($\sigma=5, \chi=2$), and the manifold structure ($D=4, \Delta=43$), the couplings are uniquely determined by impedance matching requirements.
-
-This system defines the \textit{dimensionless} control structure, the relative allocation of resources, independent of absolute energy scales. It answers: ``What fraction of the vacuum's processing capacity is assigned to each force?"
+In the $E_8$-Persistence theory the substrate possesses a finite channel capacity ($\nu = 16$) that must be fully allocated across all interaction sectors without overflow or aliasing. Given the total capacity ($\nu=16$), the gauge topology ($\sigma=5, \chi=2$), and the manifold structure ($D=4, \Delta=43$), the couplings are uniquely determined as \textbf{Partition Coefficients}: the solution to distributing finite bandwidth across orthogonal gauge channels. This system defines the dimensionless control structure, the relative allocation of the vacuum's processing capacity across forces, independent of absolute energy scales.
 
 \subsection{The System Specification}
 
@@ -57,17 +48,13 @@ The following derivations demonstrate that these dimensionless constants are uni
 \end{itemize}
 \end{mdframed}
 
-
-
 \subsection{The Coordinate Overhead: Manifold Quantization Efficiency (\texorpdfstring{$\eta$}{eta})}
 
 A central challenge in discrete physics is mapping a lattice of finite cardinality onto a continuous differentiable manifold. We identify the correction factor $\eta$ not as an arbitrary tuning parameter, but as the \textbf{Manifold Quantization Efficiency}. It represents the irreducible information-theoretic overhead required to embed discrete nodes into a continuous coordinate volume.
 
 \subsubsection{Derivation: The Gauge Fixing Overhead}
 
-In an ideal mathematical continuum, information density is infinite and reference frames can be defined continuously without consuming physical resources. However, the $E_8$-Persistence substrate is discrete and strictly finite. 
-
-As derived in System I, the local causal neighborhood possesses a \textbf{Manifold Resolution} of $R_M = D \times \Delta = 4 \times 43 = 172$ spacetime addresses per fundamental cycle. To establish a valid coordinate system within this local volume, the lattice must satisfy \textbf{Gauge Fixing}. One degree of freedom must be fixed to break translational symmetry and establish the local reference frame (the origin). 
+Because the $E_8$-Persistence substrate is discrete and strictly finite, the local causal neighborhood possesses a \textbf{Manifold Resolution} of $R_M = D \times \Delta = 4 \times 43 = 172$ spacetime addresses per fundamental cycle. To establish a valid coordinate system within this local volume, the lattice must satisfy \textbf{Gauge Fixing}. One degree of freedom must be fixed to break translational symmetry and establish the local reference frame (the origin). 
 
 In information theory, this is identical to \textbf{Data Framing overhead}. To transmit a packet of $N$ bits, at least one bit must act as the synchronization anchor (the ``start'' bit), leaving $N-1$ bits for the payload. In discrete geometry, this is the \textbf{Fencepost Principle}: $N$ discrete points define $N-1$ addressable intervals.
 

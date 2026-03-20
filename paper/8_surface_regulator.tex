@@ -1,6 +1,5 @@
-\section{System 5: The Surface Regulator (The Higgs Sector) (\texorpdfstring{$v, \lambda, m_H, y_e$}{vlambdamhye})}
-\label{sec:Vacuum_Regulator}
-\label{sec:system5}
+\section{The Resonant Interface (Electroweak Scale) (\texorpdfstring{$v, \lambda, m_H, y_e$}{vlambdamhye})}
+\label{sec:surface_regulator}
 
 \CatchFileBetweenTags{\AlphaInvVal}{constants.tex}{AlphaInvVal}
 \CatchFileBetweenTags{\CompPM}{constants.tex}{CompPM}
@@ -40,7 +39,7 @@
 \subsection{The Standard Model Ansatz}
 In the Standard Model, the electroweak sector is parameterized by independent inputs ($v, \lambda, \mu^2$) to generate the Higgs potential $V(\phi) = -\mu^2|\phi|^2 + \lambda|\phi|^4$. While effective, this offers no structural reason for the specific energy scale ($v \approx 246$ GeV) or the coupling strength ($\lambda \approx 0.13$). It requires manual tuning to stabilize the mass against radiative corrections (The Hierarchy Problem).
 
-\subsection{The E8-Persistence Derivation}
+\subsection{The \texorpdfstring{$E_8$}{E8}-Persistence Derivation}
 We identify the Higgs Field not merely as a boson, but as the \textbf{Surface Regulator} of the lattice. It is a nested persistent system designed to impedance-match the high-frequency lattice resonance ($\Delta$) to the specific aperture of the Weak Interaction. It acts as a ``voltage regulator,'' stepping down the energy density to create the stable \textbf{Matter Scale}.
 
 \subsection{The System Specification}
@@ -71,11 +70,11 @@ We define the Higgs architecture by instantiating the six pillars of persistence
 We calculate the static potential minimum defined by the lattice invariants.
 
 \subsubsection{The Bare Geometric Floor}
-The VEV is derived from the Lattice Resonance ($\Delta$) scaled by the structural overhead ($H_{struct}$) and the vacuum impedance ($\alpha^{-1}$).
+The VEV is derived from the Lattice Resonance ($\Delta$) scaled by the structural overhead ($L_{substrate}$) and the vacuum impedance ($\alpha^{-1}$).
 \begin{equation}
-v_{geo} = (\chi \Delta^2 - H_{struct}) \cdot \alpha^{-1} \cdot m_e 
+v_{geo} = (\chi \Delta^2 - L_{substrate}) \cdot \alpha^{-1} \cdot m_e 
 \end{equation}
-Substituting the invariants ($H_{struct} = 188$ from System I):
+Substituting the invariants ($L_{substrate} = 188$):
 
 \begin{equation}
 \begin{split}
@@ -107,7 +106,7 @@ We must also account for the \textbf{Persistence Margin} (MAR). Since the vacuum
 \end{equation}
 
 \begin{equation}
-PM = \frac{1}{H_{full} \cdot (\sigma + 1) \cdot \Delta^2} = \frac{1}{31 \cdot 6 \cdot 43^2} \approx \CompPM
+PM = \frac{1}{L_{embed} \cdot (\sigma + 1) \cdot \Delta^2} = \frac{1}{31 \cdot 6 \cdot 43^2} \approx \CompPM
 \end{equation}
 
 \subsubsection{Synthesis: The Physical VEV}
@@ -159,15 +158,15 @@ The bandwidth available for the scalar sector is the Interaction Remainder ($\si
 \end{equation}
 The factor $1/\Delta$ represents the fractional bandwidth consumed by temporal synchronization. Without this reservation, the field would drift out of phase with the lattice update cycle, causing decoherence.
 
-\subsubsection{The Systemic Channel (\texorpdfstring{$H_{sys}$}{Hsys})}
+\subsubsection{The Systemic Channel (\texorpdfstring{$L_{intrinsic}$}{Hsys})}
 The total active degrees of freedom in the system:
 \begin{equation}
-H_{sys} = \nu + \sigma + \chi = 16 + 5 + 2 = 23
+L_{intrinsic} = \nu + \sigma + \chi = 16 + 5 + 2 = 23
 \end{equation}
 
 \subsubsection{The Coupling Calculation}
 \begin{equation}
-\lambda = \frac{(\sigma - \chi) - 1/\Delta}{H_{sys}} = \frac{2.976744}{23} \approx \mathbf{\HiggsLambdaVal}
+\lambda = \frac{(\sigma - \chi) - 1/\Delta}{L_{intrinsic}} = \frac{2.976744}{23} \approx \mathbf{\HiggsLambdaVal}
 \end{equation}
 \begin{itemize}
     \item \textbf{Experimental Value:} \HiggsLambdaExperimentalValue
@@ -215,7 +214,7 @@ m_H = \sqrt{2 (0.12942)} \cdot (\HiggsVEVVal) \approx \\
 The Persistence Margin (MAR) represents the smallest non-zero bit of mass the lattice can resolve against thermal noise. This determines the coupling of the lightest charged particle (the Electron). We derive this scale as the Unit Bit (1) diluted over the \textbf{Total Configuration Space Volume}.
 
 \begin{equation}
-y_{e,bare} = \frac{1}{V_{config}} = \frac{1}{\underbrace{H_{full}}_{\text{Budget}} \cdot \underbrace{(\sigma+1)}_{\text{Aperture}} \cdot \underbrace{\Delta^2}_{\text{Area}}}
+y_{e,bare} = \frac{1}{V_{config}} = \frac{1}{\underbrace{L_{embed}}_{\text{Budget}} \cdot \underbrace{(\sigma+1)}_{\text{Aperture}} \cdot \underbrace{\Delta^2}_{\text{Area}}}
 \end{equation}
 
 \subsubsection{Physical Interpretation: The Landauer Limit}
@@ -227,7 +226,7 @@ The electron is stable because it is the \textbf{Minimum Viable Particle}—the 
 
 Standard field theory treats the difference between bare and physical parameters as ``Renormalization" arising from virtual particle loops. In the $E_8$-Persistence framework, this difference is the \textbf{Geometric Stress} of embedding the knot's internal symmetry into the spacetime manifold.
 
-A charged particle possesses an interaction structure of rank $\sigma=5$ (from System I), but it must exist within a manifold of rank $D=4$. This dimensional mismatch ($\sigma > D$) creates an irreducible ``Overpressure" on the surrounding lattice.
+A charged particle possesses an interaction structure of rank $\sigma=5$ (from System 1), but it must exist within a manifold of rank $D=4$. This dimensional mismatch ($\sigma > D$) creates an irreducible ``Overpressure" on the surrounding lattice.
 
 We define the \textbf{Projection Coefficient} ($\mathcal{P}$) as the ratio of the internal load to the manifold capacity:
 \begin{equation}
@@ -241,7 +240,7 @@ y_{e,phys} = y_{e,bare} \cdot \left(1 + \mathcal{P} \cdot \alpha \right) = y_{e,
 \end{equation}
 
 \textbf{Numerical Validation:}
-Substituting the invariants ($H_{full}=31, \sigma+1=6, \Delta=43$) and the derived $\alpha$:
+Substituting the invariants ($L_{embed}=31, \sigma+1=6, \Delta=43$) and the derived $\alpha$:
 
 \begin{equation}
 y_{e,phys} \approx \left(\frac{1}{31 \cdot 6 \cdot 43^2}\right) \cdot \left(1 + 1.25 \cdot \frac{1}{137.036}\right)
