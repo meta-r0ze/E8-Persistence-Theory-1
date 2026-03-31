@@ -1,0 +1,212 @@
+\section{System 6: The Geometric Depth \texorpdfstring{($\alpha_G, M_P, \rho_{vac}$)}{(alphaG, MP, rhovac)}}
+\label{sec:geometric_depth}
+
+\CatchFileBetweenTags{\AlphaInvVal}{constants.tex}{AlphaInvVal}
+\CatchFileBetweenTags{\MeMeVPrint}{constants.tex}{MeMeVPrint}
+\CatchFileBetweenTags{\ResidualCapVal}{constants.tex}{ResidualCapVal}
+
+\CatchFileBetweenTags{\GravCouplingVal}{constants.tex}{GravCouplingVal}
+\CatchFileBetweenTags{\GravCouplingExperimentalValue}{constants.tex}{GravCouplingExperimentalValue}
+\CatchFileBetweenTags{\GravCouplingAccText}{constants.tex}{GravCouplingAccText}
+
+\CatchFileBetweenTags{\PlanckMassVal}{constants.tex}{PlanckMassVal}
+\CatchFileBetweenTags{\PlanckMassExperimentalValue}{constants.tex}{PlanckMassExperimentalValue}
+\CatchFileBetweenTags{\PlanckMassAccText}{constants.tex}{PlanckMassAccText}
+
+\CatchFileBetweenTags{\VacuumEnergyScaleVal}{constants.tex}{VacuumEnergyScaleVal}
+
+\subsection{The Architectural Requirement}
+Gravity is traditionally treated as a distinct fundamental force described by General Relativity, operating with a coupling constant $G$ that is inexplicably $10^{40}$ times weaker than the gauge forces, and a vacuum energy $10^{120}$ times smaller than QFT predictions. This extreme disparity forces the Planck Mass ($M_P$) and Cosmological Constant ($\Lambda$) to be inserted into the Standard Model as manual scaling limits.
+
+We identify Gravity not as a separate force, but as the \textbf{Geometric Depth} of the lattice. Just as the Higgs regulates the energy density of Matter at the local surface, Gravity is the nested regulatory subsystem that maintains the structural integrity of the bulk geometry. It is an \textbf{Attenuated Signal}. Gauge forces originate at the topological boundary (the particle's ``surface''), while gravity originates at the lattice centroid (the particle's ``core''). The $10^{40}$ hierarchy is strictly the signal attenuation across this geometric depth.
+
+As derived in \textit{Informational Energetics: Entropic Action} \cite{meyer_ieaction_2026}, the Bulk Regulator's architectural pillars mathematically necessitate the Einstein-Hilbert action (a massless spin-2 field preserving diffeomorphism invariance) to conserve local capacity and maintain volumetric resolution. In this section, we assume those derived functional forms and focus exclusively on calculating their exact numerical partition coefficients using the nested partitioning rules established in Section II: the gravitational coupling ($\alpha_G$), the Planck Mass ($M_P$), and the Cosmological Constant ($\Lambda$).
+
+To satisfy \textbf{Rule 3: Impedance Matching}, the internal bandwidth of this bulk regulator is rigidly partitioned using the lattice invariants:
+
+\begin{itemize}
+    \item \textbf{Capacity ($M_P$):} The Unity Threshold where the bulk geometric impedance equals 1.
+    \item \textbf{Map ($h_{\mu\nu}$):} The Traceless Transverse metric perturbation.
+    \item \textbf{Protocol ($\alpha_G$):} The core-to-surface attenuation efficiency.
+    \item \textbf{Governor (Diffeomorphism Invariance):} The local capacity conservation strain.
+    \item \textbf{Toll ($M_P^2 (\partial h)^2$):} The causal update cost enforcing the light-cone limit.
+    \item \textbf{Margin ($\rho_{vac}$):} The bulk resolution floor (Vacuum Energy).
+\end{itemize}
+
+\subsection{Protocol: The Gravitational Coupling \texorpdfstring{$\alpha_G$}{alphaG} (Capacity Partitioning)}
+To maintain persistence under \textbf{Rule 1: Capacity Partitioning}, the Bulk Protocol must propagate on the \textbf{Residual Capacity}, the bandwidth strictly left over after the primary surface gauge allocations are filled.
+
+\subsubsection{Residual Capacity (\texorpdfstring{$B_{res}$}{Bres})}
+The available bandwidth for gravity is the Total Chiral Capacity ($\nu$) minus the allocations for Topological Storage and Surface Gauge Load.
+\begin{equation}
+B_{res} = \nu - \underbrace{\frac{\chi}{\sigma-\chi}}_{\text{Boundary Storage}} - \underbrace{\alpha}_{\text{Gauge Load}}
+\end{equation}
+\begin{itemize}
+    \item \textbf{Boundary Storage ($\frac{2}{3} \approx 0.67$):} The capacity consumed by topological charge quantization. Geometrically, this is the strict ratio of the topological boundary ($\chi=2$) to the internal interaction bulk ($\sigma-\chi=3$), representing the informational overhead required to map the 2D surface boundary onto the 3D internal bulk generators.
+    \item \textbf{Gauge Load ($\approx 0.007$):} The bandwidth reserved for Electromagnetic synchronization.
+\end{itemize}
+Substituting the invariants ($\nu=16, \sigma=5, \chi=2$):
+\begin{equation}
+B_{res} \approx 16 - \frac{2}{3} - 0.00729 \approx \mathbf{\ResidualCapVal}
+\end{equation}
+
+\subsubsection{Harmonic Attenuation (The Lattice Depth)}
+A signal propagating from the core to the surface attenuates by the Geometric Impedance ($\alpha$) for every unit of lattice depth. In information-theoretic terms, the radius $r$ acts as the \textbf{Optical Depth} of the substrate.
+
+The origin of this bulk signal is strictly dictated by the foundational symmetry of the lattice. For the $E_8 \to D_4 \oplus D_4$ projection to be persistent, it must preserve the self-duality of the parent lattice. This requires the bulk resonance to treat both orthogonal $D_4$ sublattices perfectly symmetrically. Any excitation centered on an integer-valued lattice node would inherently break this symmetry by selecting one sublattice over the other. 
+
+Therefore, the fundamental bulk resonance must manifest as a continuous standing wave, $\Psi(n) = \cos(2\pi n / \Delta)$, spanning the causal loop. To preserve exact self-duality, the geometric origin (the point of maximal bulk energy density) must be located exactly at the continuous geometric midpoint, the \textbf{Centroid} of the wavelength. For a causal period of $\Delta=43$, this uniquely fixes the origin at:
+\begin{equation}
+r_{core} = \frac{\Delta}{2} = 21.5
+\end{equation}
+The \textbf{Lattice Depth} ($r=21.5$) sets the bulk attenuation scale. The attenuation follows an exponential decay law (analogous to the Beer-Lambert law):
+\begin{equation}
+\text{Attenuation Factor} = \alpha^{\text{Radius}} = \alpha^{21.5} \approx \mathbf{1.143 \times 10^{-46}}
+\end{equation}
+
+\subsubsection{The Gravitational Coupling Calculation}
+The coupling is the product of the spare capacity (Bandwidth) and the attenuation factor (Depth). This represents the \textbf{Maximal Efficient Coupling} possible without disrupting the surface fields.
+\begin{equation}
+\alpha_G = B_{res} \cdot \alpha^{\Delta/2}
+\end{equation}
+\begin{equation}
+\alpha_G = 15.326 \times (1.143 \times 10^{-46}) \approx \mathbf{\GravCouplingVal}
+\end{equation}
+\begin{itemize}
+    \item \textbf{Experimental Value:} \GravCouplingExperimentalValue
+    \item \textbf{Accuracy:} \GravCouplingAccText
+\end{itemize}
+\textbf{Physical Interpretation:} Gravity appears $10^{40}$ times weaker than electromagnetism not because it is intrinsically weak, but because it is deeply attenuated by the 21.5 layers of the lattice substrate.
+
+\subsection{Capacity: The Planck Mass \texorpdfstring{$M_P$}{MP} (The Unity Threshold)}
+Under \textbf{Rule 3: Impedance Matching}, the Planck Mass is the unique energy scale where the bulk geometric impedance achieves unity, enabling lossless signal transmission across the full lattice depth.
+
+In the $E_8$-Persistence theory, the Planck Mass is the \textbf{Unity Threshold}. It is the mass scale at which the sheer magnitude of the signal exactly compensates for the geometric attenuation, allowing the core to couple to the surface with unit strength ($\alpha_G \to 1$).
+
+It connects the natural unit of the Surface (the Electron, $m_e$) to the natural unit of the Core (the Planck Mass). In standard natural units, the dimensionless gravitational coupling between two electrons is defined as $\alpha_G = G m_e^2 = (m_e/M_P)^2$. Therefore, the mass ratio is strictly the inverse square root of the coupling:
+\begin{equation}
+M_P = m_e \cdot \frac{1}{\sqrt{\alpha_G}} = m_e \cdot \frac{1}{\sqrt{B_{res} \cdot \alpha^{\Delta/2}}}
+\end{equation}
+Expanding the term reveals the direct parameter-free dependence on the Fine-Structure Constant and the Heegner Resonance:
+\begin{equation}
+M_P = \frac{m_e}{\sqrt{B_{res}}} \cdot \alpha^{-\Delta/4}
+\end{equation}
+
+\subsubsection{Numerical Result}
+\begin{equation}
+M_P = \frac{\MeMeVPrint \text{ MeV}}{\sqrt{15.326}} \cdot (\AlphaInvVal)^{10.75}
+\end{equation}
+\begin{equation}
+M_P \approx \mathbf{\PlanckMassVal}
+\end{equation}
+\begin{itemize}
+    \item \textbf{Geometric Prediction:} $\PlanckMassVal$
+    \item \textbf{Experimental Value:} \PlanckMassExperimentalValue
+    \item \textbf{Accuracy:} \PlanckMassAccText
+\end{itemize}
+
+\subsection{Margin: The Vacuum Energy \texorpdfstring{$\rho_{vac}$}{rhovac} (Lattice Resolution Floor)}
+\label{sec:vacuum_energy}
+
+Under \textbf{Rule 1: Capacity Partitioning}, the vacuum energy density is set by the thermal noise floor of the discrete substrate — the minimum resolvable bulk vibration after all higher-energy modes are allocated to the gauge and matter sectors.
+
+Standard Quantum Field Theory predicts a vacuum energy density $\rho_{vac} \sim M_P^4$, summing zero-point fluctuations up to the Planck scale. This yields the ``Vacuum Catastrophe": a prediction $10^{120}$ times larger than cosmological observations.
+
+In the $E_8$-Persistence theory, we distinguish between two distinct resolution floors:
+\begin{itemize}
+    \item \textbf{The Matter Floor ($m_e \approx 0.511$ MeV):} The lightest stable \emph{Topological Knot}, derived in System 5 as the Margin for chiral states.
+    \item \textbf{The Lattice Floor ($M_{min}$):} The minimum resolvable \emph{Bulk Vibration} (Phonon), set by the thermal noise limit of the discrete substrate.
+\end{itemize}
+
+While stable matter requires topological closure ($\chi = 2$), bulk vibrations are constrained only by the \textbf{Information-Theoretic Noise Floor} of the lattice.
+
+\subsubsection{The Thermal Resolution Limit}
+The minimum resolvable energy $M_{min}$ is determined by the Nyquist-Shannon sampling limit applied to the lattice phase space. The lowest recoverable frequency corresponds to a single quantum of thermal action distributed across the maximum available coordinate volume:
+\begin{equation}
+    M_{min} = m_e \cdot \frac{\mathcal{A}_{thermal}}{\mathcal{V}_{modes}}
+\end{equation}
+where:
+\begin{itemize}
+    \item \textbf{Thermal Coupling ($\mathcal{A}_{thermal} = \pi\alpha$):} The exact geometric phase cross-section ($\pi$) modulated by the linear vacuum admittance ($\alpha$). \textit{(Scope Defense: Unlike stable matter, which requires a 2D spherical topological boundary ($\chi=2$) to anchor itself, transient thermal fluctuations are unanchored. They couple to the bulk strictly through the minimal 1D phase boundary---the unscaled Wilson Loop circumference, $\pi$, derived in Section \ref{subsec:generation_coupling}. Because these are minimal perturbative excitations, they couple linearly through the bare transmission probability ($\alpha^1$), representing the exact geometric fraction of thermal energy that can excite a bulk phonon).}
+    \item \textbf{Mode Density ($\mathcal{V}_{modes} = \nu\Delta^3$):} The total number of orthogonal phase space cells, given by the chiral capacity ($\nu=16$) distributed across the 3-dimensional spatial resonant volume ($\Delta^3 = 43^3$). \textit{(Scope Defense: Spatial volume $\Delta^3$ is used instead of spacetime volume $\Delta^4$ because thermal equilibrium is rigorously defined across a spacelike hypersurface of the causal manifold).}
+\end{itemize}
+
+Thus, the ground state frequency is:
+\begin{equation}
+    M_{min} = m_e \cdot \frac{\pi\alpha}{\nu\Delta^3} 
+    \approx 9.2 \times 10^{-12} \text{ GeV}
+\end{equation}
+
+This energy scale corresponds to a characteristic wavelength:
+\begin{equation}
+    \lambda_{min} = \frac{1}{M_{min}} \approx 21 \, \mu\text{m}
+\end{equation}
+This confirms that the lattice noise floor is macroscopic (biological scale), serving as the fundamental thermodynamic limit for vacuum fluctuations.
+
+\subsubsection{The Vacuum Energy Density}
+The cosmological constant is the zero-point energy density of oscillations at this minimum energy scale:
+\begin{equation}
+    \rho_{vac} = \frac{\alpha}{2} M_{min}^4
+\end{equation}
+where the factor $\alpha/2$ arises strictly from:
+\begin{itemize}
+    \item $1/2$: The zero-point energy averaging ($\langle E \rangle = \frac{1}{2}\hbar\omega$).
+    \item $\alpha$: The vacuum admittance (the fraction of modes thermally accessible to the boundary).
+\end{itemize}
+
+Normalizing to the Planck density:
+\begin{equation}
+    \frac{\rho_{vac}}{M_P^4} = \frac{\alpha}{2} \left(\frac{M_{min}}{M_P}\right)^4 
+    \approx \VacuumEnergyScaleVal
+\end{equation}
+This precise value ($\sim 10^{-123}$) matches the observed cosmological constant $\rho_{obs} \approx (2.3 \times 10^{-3} \text{ eV})^4$ to within observational uncertainty.
+
+\subsubsection{Physical Interpretation}
+The $10^{120}$ discrepancy arises entirely from different assumptions about the vacuum structure:
+\begin{itemize}
+    \item \textbf{Standard QFT:} Assumes the vacuum is a continuous manifold fluctuating at all scales up to $M_P$, yielding $\rho_{QFT} \sim M_P^4$.
+    \item \textbf{$E_8$-Persistence:} Treats the vacuum as a finite-bandwidth information channel. High-energy modes mathematically cancel out (via the Solvency constraint), leaving only the thermal noise floor $M_{min}$, yielding $\rho_{E8} \sim M_{min}^4$.
+\end{itemize}
+
+The ratio is purely geometric:
+\begin{equation}
+    \frac{\rho_{QFT}}{\rho_{E8}} \sim \left(\frac{M_P}{M_{min}}\right)^4 
+    \sim \left(\frac{\nu\Delta^3}{\pi\alpha}\right)^4 
+    \sim 10^{123}
+\end{equation}
+This is not fine-tuning; it is the direct, parameter-free geometric consequence of imposing a physical UV cutoff at the information-theoretic capacity limit.
+
+\subsection{Consistency Check: Bulk Impedance Closure}
+To confirm gravity is a mathematically closed persistent subsystem, we verify that the network equations close flawlessly at the Planck scale. While the Higgs impedance matching (System 5) tested independent geometric quantities against each other, the gravitational scale $M_P$ is explicitly defined by the unity coupling condition. Therefore, this serves as a rigorous \textbf{algebraic consistency check} rather than an independent validation: the defined parameters must naturally close the network equations without generating residual scalar mismatches.
+
+The gravitational impedance at the Planck scale must strictly satisfy the unity condition:
+\begin{equation}
+Z_G(M_P) = \sqrt{\frac{B_{res}}{\alpha^{\Delta/2}}} \cdot \frac{m_e}{M_P} \equiv 1
+\end{equation}
+
+Substituting the derived mass ratio $M_P = m_e / \sqrt{\alpha_G}$:
+\begin{equation}
+Z_G(M_P) = \sqrt{\frac{B_{res}}{\alpha^{\Delta/2}}} \cdot \sqrt{\alpha_G} \equiv 1
+\end{equation}
+
+This closure condition confirms that the Planck Mass is consistently identified as the unique geometric saturation point where the bulk impedance equals unity. Physically, this means signals propagate through the full lattice depth with unit efficiency at exactly $M_P$. At energies below $M_P$, gravity is geometrically attenuated ($Z_G < 1$); at energies above $M_P$, quantum gravity effects would dominate ($Z_G > 1$, signaling the breakdown of classical GR and the saturation of the substrate).
+
+\subsection{Implications}
+
+\subsubsection{Resolution of the Hierarchy Problem}
+The ratio $M_P/m_e \approx 10^{22}$ arises purely from geometric attenuation:
+\begin{equation}
+\frac{M_P}{m_e} = \frac{\alpha^{-\Delta/4}}{\sqrt{B_{res}}} \approx \frac{(137)^{10.75}}{\sqrt{15.3}} \approx 2.4 \times 10^{22}
+\end{equation}
+No fine-tuning is required. The hierarchy is exactly the \textbf{inverse} of the lattice depth, making gravity's apparent weakness a consequence of its origin at the bulk centroid rather than the surface boundary.
+
+\subsubsection{The Prohibition of Intermediate Forces}
+Some theories propose a ``Fifth Force'' operating at intermediate scales to explain anomalous observations. The $E_8$-Persistence Theory prohibits these based on \textbf{Topological Stability}. A persistent force requires a stable geometric origin. The lattice excitation possesses only two topologically distinct loci:
+\begin{itemize}
+    \item \textbf{The Boundary ($r=0$):} Defines Surface Forces (Gauge fields).
+    \item \textbf{The Centroid ($r=\Delta/2$):} Defines Bulk Forces (Gravity).
+\end{itemize}
+Any signal originating at an intermediate depth (e.g., $r=10$) lacks a topological anchor—neither boundary ($\chi=2$) nor centroid ($\Delta/2$)—and thus cannot form stable resonances. Such states decay immediately into gauge bosons. Consequently, the ``Desert" between the Standard Model and Gravity is physically real and structurally enforced. (\textit{This serves as a rigid falsification criterion, as detailed in Section IX}).
+
+\subsubsection{The Planck Scale as a Natural UV Cutoff}
+The Planck length $\ell_P = 1/M_P$ represents the resolution floor (Margin) of the geometric substrate. Below this scale, spacetime loses meaning as a continuous manifold—the lattice node addressing becomes discrete. This provides a natural, physical UV cutoff strictly governed by channel capacity, inherently resolving infinities without requiring string theory or loop quantum gravity.

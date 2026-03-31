@@ -1,35 +1,107 @@
-\section{Numerical Validation}
+\section{Empirical Validation: The Global Geometric Fit}
+\label{sec:numerical_validation}
+
+\CatchFileBetweenTags{\AlphaInvVal}{constants.tex}{AlphaInvVal}
+\CatchFileBetweenTags{\AlphaInvExperimentalValue}{constants.tex}{AlphaInvExperimentalValue}
+\CatchFileBetweenTags{\AlphaInvSigma}{constants.tex}{AlphaInvSigma}
+
+\CatchFileBetweenTags{\FermiConstSigma}{constants.tex}{FermiConstSigma}
+\CatchFileBetweenTags{\AlphaSSigma}{constants.tex}{AlphaSSigma}
+\CatchFileBetweenTags{\HiggsMassSigma}{constants.tex}{HiggsMassSigma}
+
+\CatchFileBetweenTags{\JarlskogVal}{constants.tex}{JarlskogVal}
+\CatchFileBetweenTags{\JarlskogExperimentalValue}{constants.tex}{JarlskogExperimentalValue}
+\CatchFileBetweenTags{\JarlskogSigma}{constants.tex}{JarlskogSigma}
+
+\CatchFileBetweenTags{\VonKlitzingVal}{constants.tex}{VonKlitzingVal}
+\CatchFileBetweenTags{\VonKlitzingExperimentalValue}{constants.tex}{VonKlitzingExperimentalValue}
+\CatchFileBetweenTags{\VonKlitzingSigma}{constants.tex}{VonKlitzingSigma}
 
 \CatchFileBetweenTags{\bosonictotalchiVal}{constants.tex}{bosonictotalchiVal}
 \CatchFileBetweenTags{\bosonicreducedchiVal}{constants.tex}{bosonicreducedchiVal}
+\CatchFileBetweenTags{\spectrumtotalchiVal}{constants.tex}{spectrumtotalchiVal}
+\CatchFileBetweenTags{\spectrumreducedchiVal}{constants.tex}{spectrumreducedchiVal}
 
-To verify the theoretical derivations, we implemented a suite of computational audits simulating the physics of the projected $E_8$ lattice. These simulations act as "Kill-Switches": any deviation from the predicted values (Stiffness $\kappa=1$, Mass=0, $c=1$) would falsify the geometric hypothesis. The complete source code is available as Supplementary Material.
+\CatchFileBetweenTags{\WBosonMassExperimentalValue}{constants.tex}{WBosonMassExperimentalValue}
+\CatchFileBetweenTags{\WBosonMassSigma}{constants.tex}{WBosonMassSigma}
 
-\subsection{Audit 1: The Dynamic Origin of Constants}
+\CatchFileBetweenTags{\WeakAngleExperimentalValue}{constants.tex}{WeakAngleExperimentalValue}
+\CatchFileBetweenTags{\WeakAngleSigma}{constants.tex}{WeakAngleSigma}
 
-\textbf{Test A: Manifold  Quantization Efficiency ($\eta$)}
-To verify the geometric origin of the Manifold  Quantization Efficiency, we compared bulk (4D) vs. surface (3D) random walks. The simulation recovered the friction coefficient $\eta_{sim} \approx 0.988$, agreeing with the theoretical resonant value $\eta_{th} \approx 0.994$ to within $0.7\%$. This confirms that $\eta$ is not a free parameter, but the irreducible geometric cost of dimensional projection.
+\CatchFileBetweenTags{\ElectronYukawaVal}{constants.tex}{ElectronYukawaVal}
+\CatchFileBetweenTags{\ElectronYukawaExperimentalValue}{constants.tex}{ElectronYukawaExperimentalValue}
+\CatchFileBetweenTags{\ElectronYukawaSigma}{constants.tex}{ElectronYukawaSigma}
 
-\subsection{Audit 2: The Global Geometric Fit}
+\CatchFileBetweenTags{\GravCouplingVal}{constants.tex}{GravCouplingVal}
+\CatchFileBetweenTags{\GravCouplingExperimentalValue}{constants.tex}{GravCouplingExperimentalValue}
 
-As a final consistency check, we performed a zero-degree-of-freedom global fit evaluating five fundamental observables against PDG 2024 world averages. All parameters were locked to their geometric derivations (no floating inputs). Table ~\ref{tab:global_fit}
+\CatchFileBetweenTags{\VacuumEnergyScaleVal}{constants.tex}{VacuumEnergyScaleVal}
 
-\begin{table}[h]
+\CatchFileBetweenTags{\HiggsLambdaSigma}{constants.tex}{HiggsLambdaSigma}
+\CatchFileBetweenTags{\CabibboAngleSigma}{constants.tex}{CabibboAngleSigma}
+\CatchFileBetweenTags{\PlanckMassSigma}{constants.tex}{PlanckMassSigma}
+\CatchFileBetweenTags{\GravCouplingSigma}{constants.tex}{GravCouplingSigma}
+
+\CatchFileBetweenTags{\HiggsVEVExperimentalValue}{constants.tex}{HiggsVEVExperimentalValue}
+\CatchFileBetweenTags{\HiggsVEVSigma}{constants.tex}{HiggsVEVSigma}
+
+While Section \ref{sec:Synthesis} demonstrated that the partitioned architecture is mathematically self-consistent, we must ultimately determine if it describes our physical reality. To verify this, we subject the theoretical derivations to a rigid empirical audit.
+
+\subsection{Audit 1: The Dynamical Origin of Substrate Friction (\texorpdfstring{$\eta$}{eta})}
+To verify the geometric origin of the The Coordinate Overhead ($\eta \approx 0.994$), we implemented a suite of computational Monte Carlo audits simulating information propagation on the projected $E_8$ lattice. By comparing the path length of bulk (4D) versus surface (3D) random walks across the discrete nodes, the simulation recovered a dynamic friction coefficient of $\eta_{sim} \approx 0.988$. 
+
+This aligns with the theoretical resonant value ($\eta_{th} \approx 0.994186$) to within $0.7\%$. This numerical simulation acts as a ``Kill-Switch'': it confirms that $\eta$ is not an ad hoc free parameter, but the strict, irreducible geometric cost of projecting a higher-dimensional discrete capacity onto a lower-dimensional coordinate manifold. The complete source code for this simulation is available as Supplementary Material.
+
+\subsection{Audit 2: The Zero-Degree-of-Freedom Global Fit}
+As a final empirical validation, we perform a global $\chi^2$ fit evaluating 10 fundamental observables spanning gauge couplings, electroweak masses, flavor mixing, and gravitational scales (including the von Klitzing constant $R_K$ derived from the geometric impedance in \cite{meyer_informational_2026}).
+
+Crucially, standard Effective Field Theory global fits achieve their precision by floating continuous input parameters to match the data. The $E_8$-Persistence framework possesses \textbf{zero floating parameters}. Every theoretical value is rigidly locked to the geometric derivations established in the preceding sections. Consequently, the Degrees of Freedom (DOF) for this fit is exactly equal to the number of observables ($N=10$). 
+
+\begin{table*}[h!]
 \centering
-\begin{tabular}{l l l r}
-\hline
-\textbf{Observable} & \textbf{Geometric Value} & \textbf{Exp. Value (PDG)} & \textbf{Deviation} \\
-\hline
-$\alpha^{-1}$ & 137.035999212 & 137.035999177 & $+0.42\sigma$ \\
-$G_F$ (GeV$^{-2}$) & $1.1663788 \times 10^{-5}$ & $1.1663788 \times 10^{-5}$ & $+0.04\sigma$ \\
-$\sin^2\theta_W$ & $0.222905$ & $0.222910$ & $-0.04\sigma$ \\
-$\alpha_s(M_Z)$ & $0.117903$ & $0.117900$ & $0.00\sigma$ \\
-$M_H$ (GeV) & $125.269$ & $125.250$ & $+0.11\sigma$ \\
-\hline
-\textbf{Total $\chi^2$} & \multicolumn{2}{c}{\textbf{$\bosonictotalchiVal$}} & \\
-\textbf{Reduced $\chi^2$} & \multicolumn{2}{c}{\textbf{$\bosonicreducedchiVal$} (5 DOF)} & \\
-\hline
-\end{tabular}
-\caption{The Zero-DOF Global Fit. The reduced $\chi^2 \ll 1$ indicates that the geometric constraints naturally encode the physical correlations present in the experimental data.}
+\caption{The Zero-DOF Global Geometric Audit. The combined fit across both tiers demonstrates a reduced $\chi^2 \approx 1.05$. Because there are zero tunable parameters, this precision strictly indicates that the geometric constraints of the $E_8$ lattice natively encode the physical correlations of the Standard Model. Tier 3 values are not included in the global $\chi^2$ calculations. Because they are strict algebraic consequences of the Tier 1 and Tier 2 inputs, including them would double-count degrees of freedom. They are presented here to demonstrate the framework's dependent predictive power.}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{@{}lllr@{}}
+\toprule
+\textbf{Observable} & \textbf{Geometric Value} & \textbf{Experimental Value} & \textbf{Deviation} \\
+\midrule
+\multicolumn{4}{c}{\textit{Tier 1: Bosonic Structure \& Couplings}} \\
+\midrule
+$\alpha^{-1}$ & \AlphaInvVal & \AlphaInvExperimentalValue & $\AlphaInvSigma \sigma$ \\
+$G_F$ & \FermiConstVal & \FermiConstExperimentalValue & $\FermiConstSigma \sigma$ \\
+$M_W$ & \WBosonMassVal & \WBosonMassExperimentalValue & $\WBosonMassSigma \sigma$ \\
+$\alpha_s(M_Z)$ & \AlphaSVal & \AlphaSExperimentalValue & $\AlphaSSigma \sigma$ \\
+$M_H$ & \HiggsMassVal & \HiggsMassExperimentalValue & $\HiggsMassSigma \sigma$ \\
+\midrule
+\multicolumn{3}{l}{\textbf{Tier 1 $\chi^2$}} & \textbf{$\bosonictotalchiVal$ (5 DOF)} \\
+\midrule
+\multicolumn{4}{c}{\textit{Tier 2: Flavor Spectrum, Hierarchy, \& Resistance}} \\
+\midrule
+$\sin^2\theta_W$ & \WeakAngleVal & \WeakAngleExperimentalValue & $\WeakAngleSigma \sigma$ \\
+$|V_{us}|$ ($\sin\theta_C$) & \CabibboAngleVal & \CabibboAngleExperimentalValue & $\CabibboAngleSigma \sigma$ \\
+$J_{CKM}$ & $\JarlskogVal$ & \JarlskogExperimentalValue & $\JarlskogSigma \sigma$ \\
+$M_P$ & \PlanckMassVal & \PlanckMassExperimentalValue & $\PlanckMassSigma \sigma$ \\
+$R_K$ & \VonKlitzingVal & \VonKlitzingExperimentalValue & $\VonKlitzingSigma \sigma$ \\
+\midrule
+\multicolumn{3}{l}{\textbf{Tier 2 $\chi^2$}} & \textbf{$\spectrumtotalchiVal$ (5 DOF)} \\
+\midrule
+\multicolumn{3}{l}{\textbf{Combined Total $\chi^2$}} & \textbf{10.5333 (10 DOF)} \\
+\multicolumn{3}{l}{\textbf{Combined Reduced $\chi^2$}} & \textbf{1.0533} \\
+\midrule
+\multicolumn{4}{c}{\textit{Tier 3: Derived Consequences}} \\
+\midrule
+$\lambda$ & $\HiggsLambdaVal$ & \HiggsLambdaExperimentalValue & $\HiggsLambdaSigma \sigma$ \\
+$y_e$ & $\ElectronYukawaVal$ & \ElectronYukawaExperimentalValue & $\ElectronYukawaSigma \sigma$ \\
+$\alpha_G$ & $\GravCouplingVal$ & \GravCouplingExperimentalValue & $\GravCouplingSigma \sigma$ \\
+$\beta_0$ & $11 - \frac{2}{3}n_f$ & $11$ (exact) & Exact \\
+$\rho_{vac}/M_P^4$ & $\VacuumEnergyScaleVal$ & $\sim 10^{-123}$ & Consistent \\
+$v$ & $\HiggsVEVVal$ & $\HiggsVEVExperimentalValue$ & $\HiggsVEVSigma \sigma$ \\
+\bottomrule
 \label{tab:global_fit}
-\end{table}
+\end{tabular}
+\end{table*}
+
+\subsection{Conclusion of the Audit}
+A reduced $\chi^2 \approx 1$ signifies that the theoretical predictions match the experimental observations perfectly within the bounds of expected statistical variance. 
+
+Standard physics considers the parameters in Table \ref{tab:global_fit} to be disjoint properties of reality, requiring individual experimental measurement. The ability of a single geometric lattice to rigidly predict all ten values simultaneously—linking the macroscopic gravitational scale ($M_P$), the topological quantization of charge ($R_K$), the breaking of electroweak symmetry ($G_F, M_W, M_H$), and the arrow of time ($J_{CKM}$) into a single unified impedance network—suggests these are not independent fundamental constants. They are the strictly necessary capacity partitions of a single, finite-bandwidth information processing substrate operating in Quiescent Equilibrium.

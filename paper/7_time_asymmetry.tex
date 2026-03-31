@@ -1,57 +1,53 @@
-\section{System 4-D: The Geometric Frustration (Jarlskog Invariant: \texorpdfstring{$J$}{J})}
+\subsection{The Projection Frustration (Jarlskog Invariant \texorpdfstring{$J$}{J})}
+\label{subsec:jarlskog}
 
 \CatchFileBetweenTags{\JarlskogVal}{constants.tex}{JarlskogVal}
 \CatchFileBetweenTags{\JarlskogExperimentalValue}{constants.tex}{JarlskogExperimentalValue}
 \CatchFileBetweenTags{\JarlskogAccText}{constants.tex}{JarlskogAccText}
 
-\textbf{The Standard Model Ansatz:} The Jarlskog Invariant ($J \approx 3 \times 10^{-5}$) quantifies the strength of CP violation, the fundamental asymmetry between matter and antimatter. In the Standard Model, it is a parameter of the CKM matrix determined by experiment. The theory offers no reason why this value is non-zero yet so small, nor why it is required for the universe to exist.
+\subsubsection{The Architectural Requirement}
+Under \textbf{Rule 2: Reversible Encoding}, the irreducible geometric mismatch of projecting 5-fold symmetry onto a 4-fold manifold cannot be erased; it must be stored as the measurable thermodynamic friction of the causal projection.
 
-\textbf{The $E_8$-Persistence Derivation:} We identify $J$ not as an arbitrary mixing parameter, but as the \textbf{Geometric Frustration} of the vacuum. It is the irreducible entropic cost of mapping the 5-fold internal symmetry of the lattice ($\sigma=5$) onto the 4-dimensional spacetime manifold ($D=4$). This geometric mismatch creates the directional bias required for the Arrow of Time.
+The \textbf{Toll} pillar of the Capacity Partition is the \textbf{Causal Toll}: the irreducible thermodynamic friction of mapping the 5-fold internal symmetry of the lattice ($\sigma=5$) onto the 4-dimensional spacetime manifold ($D=4$). In the Standard Model, this manifests as the Jarlskog Invariant ($J \approx 3 \times 10^{-5}$), which quantifies CP violation but whose magnitude has no structural explanation.
 
-
-\subsection{The System Specification}
-Time asymmetry arises from the interaction between the intrinsic cost of state updates and the geometry of the projection.
+We identify $J$ geometrically not as an arbitrary mixing parameter, but as this exact \textbf{Projection Frustration}. Time asymmetry arises directly from the interaction between the intrinsic entropic cost of state updates and the geometry of this projection. We define this using three established, parameter-free invariants of the substrate:
 
 \begin{enumerate}
-    \item \textbf{The Temporal Cost ($T_{geo}$):} As derived in the Fine-structure constant equation, the entropic cost of a single state transition is determined by the Total Lattice Capacity ($N=\nu * 2=32$).
-    $$ T_{geo} = \frac{1}{N^3} \cdot \frac{\chi}{\sigma} \cdot \left(1 - \frac{\sigma}{D\Delta}\right) \approx 1.185 \times 10^{-5} $$
-    \textit{Note:} The cubic dependence ($1/N^3$) reflects the 3-body decay phase space of Weak Interactions, where the initial state and two final states each require an $N$-fold aperture allocation.
+    \item \textbf{The Base Toll ($T_{geo}$):} As derived in the geometric impedance of the substrate \cite{meyer_informational_2026}, the entropic cost of a single causal state transition (the Toll pillar) is determined by the Total Node Capacity ($N = \nu_{\text{Space}} + \nu_{\text{Internal}} = 16 + 16 = 32$) and the coupling to the topological boundary:
+    \begin{equation}
+        T_{geo} = \frac{1}{N^3} \cdot \frac{\chi}{\sigma} \cdot \left(1 - \frac{\sigma}{D\Delta}\right) \approx 1.185 \times 10^{-5}
+    \end{equation}
+    \textit{Note:} The cubic dependence ($1/N^3$) was derived in \cite{meyer_informational_2026} from the minimal three-point vertex on the self-dual lattice; it manifests physically as the 3-body phase space of Weak decays.
     
-    \item \textbf{The Projection Frustration ($\phi^2$):} The $E_8$ lattice contains the non-crystallographic $H_4$ Coxeter group (the 600-cell) as a folded geometric projection, a property fundamental to the mathematics of quasicrystals \cite{moody1993quasicrystals}. This group is characterized by 5-fold icosahedral symmetry, which cannot tile 4D Euclidean space without introducing topological defects. The area deficit (frustration) of projecting 5-fold geometry onto a 4-fold manifold scales with the Golden Ratio $\phi = (1+\sqrt{5})/2$ as $\phi^2 \approx 2.618$.
+    \item \textbf{The Projection Frustration ($\phi^2$):} The internal interaction space is characterized by 5-fold symmetry ($\sigma=5$), which geometrically manifests the non-crystallographic $H_4$ Coxeter group (the 600-cell). However, a fundamental theorem of crystallography dictates that 5-fold icosahedral symmetries cannot perfectly, periodically tile a 4D discrete lattice without introducing topological defects. When projecting this $H_4$ geometry onto the periodic 4-dimensional causal manifold, the eigenvalue of the projection matrix strictly defines the geometric area deficit (frustration). This eigenvalue is exactly $\phi^2 = ((1+\sqrt{5})/2)^2 \approx 2.618$, the squared Golden Ratio. This is a rigorous consequence of $H_4$ Coxeter geometry \cite{moody_quasicrystals_1993}, not a fitted parameter.
     
-    \item \textbf{Manifold  Quantization Efficiency ($\eta$):} Since this frustration signal propagates through the bulk lattice (depth $\Delta/2$) before manifesting at the 4D boundary, it incurs the efficiency factor $\eta = 1 - 1/(D\Delta) \approx 0.994$, derived in System 2.
+    \item \textbf{The Coordinate Overhead ($\eta$):} Because this frustration signal is a volumetric effect that propagates through the bulk lattice before manifesting at the 4D boundary, it is subject to the Coordinate Overhead ($\eta$).
 \end{enumerate}
 
-\subsection{Derivation: The Frustration Formula}
-The Jarlskog Invariant is the Temporal Cost ($T_{geo}$) amplified by the Projection Frustration. The frustration acts as a geometric multiplier: every temporal state transition occurs within the constrained 4D projection, and the $\phi^2$-scaled area deficit accumulates as an additional entropic cost.
+\subsubsection{The Frustration Formula}
+The Jarlskog Invariant is the fundamental causal Toll ($T_{geo}$) amplified by the Projection Frustration. The frustration acts as a geometric multiplier: every temporal state transition occurs within the constrained 4D projection, and the $\phi^2$-scaled area deficit accumulates as an additional irreducible entropic cost.
 
 \begin{equation}
-J_{geo} = (\phi^2 \cdot \eta) \cdot T_{geo}
+\begin{split}
+    J_{geo} &= (\phi^2 \cdot \eta) \cdot T_{geo} \\
+    &= (2.61803 \cdot 0.994186) \cdot \CompTOL \\
+    & \approx \mathbf{\JarlskogVal}
+\end{split}
 \end{equation}
 
-\textbf{Numerical Calculation:}
-Substituting the derived values:
-\begin{equation}
-J_{geo} = (2.61803 \cdot 0.994186) \cdot (1.1852 \times 10^{-5})
-\end{equation}
-\begin{equation}
-J_{geo} \approx 2.6028 \times (1.1852 \times 10^{-5}) \approx \mathbf{\JarlskogVal}
-\end{equation}
-
-\subsection{Validation: CP Violation}
+\subsubsection{Validation: CP Violation}
 \begin{itemize}
-    \item \textbf{Geometric Prediction:} $\JarlskogVal$
     \item \textbf{Experimental Value (PDG):} \JarlskogExperimentalValue
     \item \textbf{Accuracy:} \JarlskogAccText
 \end{itemize}
 
-\subsection{Physical Interpretation: The Golden Shadow}
-CP violation is not a random accident. Just as a pentagonal prism casts a shadow with 5-fold symmetry onto a flat surface (losing perfect symmetry), the $E_8$ lattice casts a ``Golden Shadow" onto 4D spacetime. This shadow is the Jarlskog Invariant—the geometric signature of Time's directional flow.
+\subsubsection{Physical Interpretation: Projection Frustration and CP Violation}
+CP violation is not a random accident. Just as a pentagonal prism casts a shadow with 5-fold symmetry onto a flat 2D surface (losing perfect symmetry in the projection), the $E_8$ lattice casts a ``Golden Shadow" onto 4D spacetime. This shadow is the Jarlskog Invariant—the geometric signature of Time's directional flow.
 
 \begin{itemize}
-    \item \textbf{Why CP violation is weak:} The frustration ($\phi^2 \approx 2.6$) amplifies the Temporal Cost, but the base cost ($T_{geo} \approx 10^{-5}$) is inherently small due to the efficiency of the weak aperture.
+    \item \textbf{Why CP violation is weak:} The geometric frustration ($\phi^2 \approx 2.6$) amplifies the Toll, but the base transition cost ($T_{geo} \approx 10^{-5}$) is inherently small due to the efficiency of the weak aperture.
     
-    \item \textbf{Why matter dominates:} Without CP violation ($J=0$), the universe would be symmetric and annihilate. The non-zero $J$ creates a topological bias favoring matter, which is amplified by cosmological expansion.
+    \item \textbf{Why matter dominates:} Without CP violation ($J=0$), the universe would be perfectly symmetric and annihilate. The non-zero $J$ creates a topological bias favoring matter over antimatter, which is subsequently amplified by cosmological expansion.
     
-    \item \textbf{The Baryogenesis Gap:} While $J_{geo}$ matches the Quark Sector mixing ($J_{CKM}$), this magnitude is insufficient to explain the total observed baryon asymmetry ($\eta \sim 10^{-9}$) through CKM physics alone. This necessitates significant additional CP violation in the Lepton Sector (PMNS matrix), which is derived in Paper III via the neutrino lattice mechanism.
+    \item \textbf{The Baryogenesis Gap:} While $J_{geo}$ precisely matches the Quark Sector mixing ($J_{CKM}$), this magnitude is insufficient to explain the total observed baryon asymmetry ($\eta_B \sim 10^{-9}$) through CKM physics alone. This structurally necessitates significant additional CP violation in the Lepton Sector (the PMNS matrix), which is derived in subsequent work detailing the neutrino lattice mechanism.
 \end{itemize}
