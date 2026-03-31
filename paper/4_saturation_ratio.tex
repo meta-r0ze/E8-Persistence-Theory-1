@@ -1,0 +1,258 @@
+\subsection{The Saturation Ratio (Strong Coupling \texorpdfstring{$\alpha_s$}{alpha\_s})}
+\label{subsec:saturation_ratio}
+
+\CatchFileBetweenTags{\AlphaInvVal}{constants.tex}{AlphaInvVal}
+\CatchFileBetweenTags{\AlphaSVal}{constants.tex}{AlphaSVal}
+\CatchFileBetweenTags{\AlphaSExperimentalValue}{constants.tex}{AlphaSExperimentalValue}
+\CatchFileBetweenTags{\AlphaSAccText}{constants.tex}{AlphaSAccText}
+
+\CatchFileBetweenTags{\AlphaRunningVal}{constants.tex}{AlphaRunningVal}
+\CatchFileBetweenTags{\AlphaRunningExperimentalValue}{constants.tex}{AlphaRunningExperimentalValue}
+\CatchFileBetweenTags{\AlphaRunningAccText}{constants.tex}{AlphaRunningAccText}
+
+\CatchFileBetweenTags{\AlphaSTauVal}{constants.tex}{AlphaSTauVal}
+
+\subsubsection{The Architectural Requirement}
+
+Under the \textbf{Capacity Partitioning} rule, the \textbf{Saturation Ratio} represents the maximum fractional allocation of chiral bandwidth that can be simultaneously utilized for transmission. It is characterized by two geometric properties:
+\begin{enumerate}
+    \item \textbf{Magnitude ($\alpha_s$):} The saturation ratio of available capacity to vacuum impedance.
+    \item \textbf{Rigidity ($\beta_0$):} The geometric resistance to gauge field deformation (the \textbf{Governor} of this subsystem).
+\end{enumerate}
+
+\subsubsection{Magnitude: The Saturation Ratio}
+
+To maintain a confined state within the internal interaction bulk (the $\sigma - \chi = 3$ degrees of freedom, physically observed as ``color'' charge), the vacuum must fully saturate the available geometry. We derive $\alpha_s$ as the ratio of the \textbf{Total Active State Capacity} to the \textbf{Geometric Impedance} (the information load divided by the transmission resistance). The total substrate load is mandated by two persistence requirements:
+\begin{enumerate}
+    \item \textbf{Chiral Saturation ($\nu \cdot \eta$):} A confined state requires the synchronization of the full chiral rank ($\nu=16$) to prevent information leakage. As a bulk capacity, it is strictly subject to the The Coordinate Overhead ($\eta$).
+    \item \textbf{Flux Normalization ($1/D$):} To localize an internal charge within a $D$-dimensional manifold, a single unit of flux must be equipartitioned across the $D$ independent, orthogonal dimensions, yielding a geometric normalization factor of $1/D$.
+\end{enumerate}
+
+The coupling is derived by normalizing this total load by the geometric impedance ($\alpha^{-1}$):
+
+\begin{equation} \label{eq:alphas_saturation}
+\alpha_s(M_Z) = \frac{\text{Max Capacity}}{\text{Impedance}} 
+= \frac{\nu \cdot \eta + 1/D}{\alpha^{-1}}
+\end{equation}
+
+This is the first Partition Coefficient of the Capacity Partition: the precise fraction of total bandwidth allocated to confined color transmission.
+
+\textbf{Geometric Interpretation:} This relation reveals that the Strong Force is approximately $\nu = 16$ times stronger than Electromagnetism because it utilizes the full channel capacity of the lattice.
+\begin{itemize}
+    \item \textbf{Electromagnetism ($\alpha$):} A signal utilizing a single channel (Sparse Mode / Unit Flux).
+    \item \textbf{Strong Force ($\alpha_s$):} A signal utilizing the full chiral capacity (Saturated Mode / Max Flux).
+\end{itemize}
+
+\subsubsection{Rigidity: The Beta Function (\texorpdfstring{$\beta_0$}{beta\_0})}
+
+The \textbf{Governor} pillar of the Capacity Partition requires structural rigidity: the partition ratios must resist deformation under localized perturbations. The QCD beta function coefficients are the exact geometric encoding of this stiffness\footnote{All computational audits referenced in this paper, including the rigidity operator eigenspectrum on the $\mathbb{S} = \{D=4, \sigma=5, \chi=2\}$ tangent space, are available at: \url{https://github.com/meta-r0ze/Informational-Energetics-Nested-Persistence}}.
+
+\paragraph{Geometric Stiffness: The Anti-Screening Term}
+The coefficient ``11'' represents the total structural resistance of the vacuum to non-Abelian gauge field deformation. In lattice operator terms, it is the trace (eigenvalue) of the rigidity operator acting on the local Hilbert space. It arises from the sum of two orthogonal tensor ranks:
+\begin{enumerate}
+    \item \textbf{The Spacetime Anchor ($D \times \chi$):} The topological boundary ($\chi=2$) must be anchored to the spacetime manifold ($D=4$), representing a tensor product space of rank $4 \times 2 = 8$.
+    \item \textbf{The Symmetry Pressure ($\sigma - \chi$):} The internal symmetry ($\sigma=5$) exceeds the topological capacity of the boundary ($\chi=2$). The surplus generators ($\sigma - \chi = 3$) act as an internal pressure on the bulk, representing a subspace of rank $3$.
+\end{enumerate}
+The total vacuum rigidity is the trace of these combined structural tensors:
+\begin{equation}
+    \beta_0^{\text{stiff}} = \text{Tr}(T_{anchor}) + \text{Tr}(T_{pressure}) = 8 + 3 = \mathbf{11}
+\end{equation}
+
+\paragraph{Topological Distribution: The Screening Term}
+Fermions screen the charge by distributing the boundary topology ($\chi=2$) across the generation manifold ($n_{gen}=3$, derived strictly from the Triality of the $D_4$ internal sector in \textit{Informational Energetics: A Universal Architecture of Persistence}\cite{meyer_informational_2026}) is geometrically isomorphic to the available degrees of freedom in the internal color bulk ($\sigma - \chi = 5 - 2 = 3$). Distributing the boundary evenly across these internal dimensions yields the exact fractional screening per flavor:
+\begin{equation}
+    \beta_0^{\text{screen}} = \left( \frac{\chi}{n_{gen}} \right) \cdot n_f = \frac{2}{3} n_f
+\end{equation}
+
+Combining Rigidity and Screening, we recover the exact QCD Beta Function:
+\begin{equation} \label{eq:beta_qcd}
+    \beta_0 = (D\chi) + (\sigma-\chi) - \frac{\chi}{n_{gen}} n_f = 11 - \frac{2}{3}n_f
+\end{equation}
+
+\textbf{Physical Consequence (Asymptotic Freedom):} For $n_f \leq 16$, we have $\beta_0 > 0$, meaning $\alpha_s$ decreases logarithmically at high energy, a phenomenon called \textit{asymptotic freedom}, analogous to \textbf{negative feedback} in control systems. This emerges because Geometric Stiffness ($11$) exceeds Topological Screening ($2n_f/3$) for all Standard Model quark flavors. The strong force weakens at short distances because the vacuum's geometric rigidity dominates the fermion screening contribution.
+
+\subsubsection{Validation 1: Static Saturation (The Z-Pole)}
+The geometric formula \eqref{eq:alphas_saturation} defines the coupling at complete, unattenuated lattice saturation. Physically, this strictly corresponds to the electroweak resonant scale ($M_Z$), the exact energy density where the full chiral capacity of the vacuum is illuminated before spontaneous symmetry breaking and geometric attenuation set in. Substituting the invariants:
+
+\begin{equation}
+\alpha_s(M_Z) = \frac{\nu \cdot \eta + 1/D}{\alpha^{-1}}
+\approx \mathbf{\AlphaSVal}
+\end{equation}
+
+\begin{itemize}
+\item \textbf{Geometric Prediction:} \AlphaSVal
+\item \textbf{Experimental Value:} \AlphaSExperimentalValue
+\item \textbf{Accuracy:} \AlphaSAccText
+\end{itemize}
+
+\CatchFileBetweenTags{\AlphaSTauLinearVal}{constants.tex}{AlphaSTauLinearVal}
+\CatchFileBetweenTags{\AlphaSTauCorrectedVal}{constants.tex}{AlphaSTauCorrectedVal}
+
+\subsubsection{Validation 2: Geometric Scaling (Running to \texorpdfstring{$M_\tau$}{Mtau})}
+
+To verify the Stiffness derivation ($\beta_0$), we trace the coupling evolution across energy scales. In the lattice framework, energy scale corresponds to inverse resolution ($\mu \sim 1/r$). The evolution of the coupling is governed by the \textbf{Lattice Scaling Law}, where the logarithmic term $\ln(M_\tau/M_Z)$ represents the number of \textbf{Scale Octaves} (doublings) between the two resolutions.
+
+\begin{equation}
+\alpha_s(M_\tau) = \frac{\alpha_s(M_Z)}{1 + \frac{\beta_0}{2\pi} \alpha_s(M_Z) \ln(M_\tau/M_Z)}
+\end{equation}
+
+This form, functionally identical to the perturbative Renormalization Group Equation, emerges here as the linear response of the lattice stiffness ($\beta_0$) to scale transformations.
+
+\textit{Note on the Active Degrees of Freedom:} Standard perturbative QCD requires manually patching the RGE across quark mass thresholds (e.g., shifting from $n_f=5$ at $M_Z$ down to $n_f=3$ at $M_\tau$). In the $E_8$-Persistence theory, the global lattice stiffness ($\beta_0$) is a topological invariant of the bulk, driven by the $n_{gen}=3$ generation manifold rather than local kinematic mass thresholds. Therefore, the global geometric scaling utilizes the structural base state ($n_f = 3 \implies \beta_0 = 9$) across the entire macroscopic resolution interval. 
+
+Substituting the values:
+\begin{equation}
+\alpha_s^{\text{(1-loop)}}(M_\tau) \approx \frac{0.1179}{1 + \frac{9}{2\pi}(0.1179)(-3.93)} \approx \AlphaSTauLinearVal
+\end{equation}
+
+\CatchFileBetweenTags{\AlphaSTauLinearVal}{constants.tex}{AlphaSTauLinearVal}
+\CatchFileBetweenTags{\AlphaSTauCorrectedVal}{constants.tex}{AlphaSTauCorrectedVal}
+
+\subsubsection{The Finite Capacity Correction (The Sterile Channel)}
+
+The linear one-loop prediction ($\alpha_s^{\text{(1-loop)}} \approx \AlphaSTauLinearVal$) overshoots the experimental value ($0.330 \pm 0.014$) by approximately $1.6\sigma$. This discrepancy arises because the standard renormalization group equation assumes continuum field theory, which treats the vacuum as having infinite capacity.
+
+In the $E_8$-Persistence theory, the channel capacity is strictly finite ($\nu=16$). As the Saturation Ratio $\alpha_s$ approaches maximum throughput ($\gtrsim 0.3$), the lattice becomes \textbf{capacity-limited}, analogous to a communication channel approaching maximum bandwidth.
+
+\textbf{The Geometric Mechanism:}
+In a discrete lattice with $\nu$ chiral channels, the coupling $\alpha_s$ represents the fraction of channels actively transmitting color charge. In the continuum limit (weak coupling), channels operate independently. However, at saturation:
+
+\begin{enumerate}
+    \item \textbf{Unitarity Constraint:} Conservation of probability imposes $\sum_{i=1}^{\nu} p_i = 1$, which strictly locks exactly one degree of freedom. 
+    
+    \item \textbf{Capacity Saturation:} When all $\nu$ channels are driven to capacity, the system cannot distinguish between ``signal'' and ``saturation noise.'' To maintain coherent transmission, the locked channel must remain partially open as a \textbf{reference state} (analogous to a pilot tone in dense signaling).
+    
+    \item \textbf{Effective Coupling:} Because of this reference lock, the maximum active signal capacity is limited to exactly $\nu-1$ independent channels, while the geometric impedance ($\alpha^{-1}$) is normalized to the full capacity $\nu$.
+
+    \item \textbf{The Sterile Channel ($\nu_R$):} Geometrically, the $E_8 \to D_4 \oplus D_4$ projection isolates exactly one of the $\nu=16$ chiral channels as a topological singlet (it lacks a coupling to the active boundary). This strictly leaves 15 active channels capable of transmitting force (physically manifesting as the quarks and active leptons), and 1 sterile channel (the right-handed neutrino). Consequently, at full saturation, only 15/16ths of the lattice capacity is actively available to propagate gauge flux.
+\end{enumerate}
+
+The effective coupling at saturation becomes:
+\begin{equation}
+\alpha_s^{\text{(eff)}} = \alpha_s^{\text{(1-loop)}} \cdot \frac{\text{Active Channels}}{\text{Total Capacity}} 
+= \alpha_s^{\text{(1-loop)}} \cdot \frac{\nu-1}{\nu}
+\end{equation}
+
+Numerically:
+\begin{equation}
+\alpha_s^{\text{(eff)}}(M_\tau) = \AlphaSTauLinearVal \times \frac{15}{16} = \mathbf{\AlphaSTauCorrectedVal}
+\end{equation}
+
+\begin{itemize}
+    \item \textbf{Corrected Prediction:} \AlphaSTauCorrectedVal
+    \item \textbf{Experimental Value (PDG):} $0.330 \pm 0.014$
+    \item \textbf{Accuracy:} The corrected prediction matches the experimental mean exactly ($0.0\sigma$).
+\end{itemize}
+
+\textbf{Physical Interpretation:} This correction is not \textit{ad hoc}, the factor $15/16$ is uniquely determined by the chiral capacity $\nu=16$. Standard QFT recovers this effect through higher-order loop diagrams ($\alpha_s^2, \alpha_s^3, \ldots$). We obtain the same result directly via the geometric capacity limit, demonstrating that infinite perturbative loop expansions are merely the continuous Taylor approximations of a strict, finite geometric capacity limit.
+
+\textbf{Prediction:} This finite-capacity correction should be:
+\begin{itemize}
+    \item Negligible in the perturbative regime ($\alpha_s \lesssim 0.2$).
+    \item Significant at strong coupling ($\alpha_s \gtrsim 0.3$).
+    \item Observable in lattice QCD simulations evaluated at finite volume.
+\end{itemize}
+\subsubsection{Validation 3: Geometric Universality (QED Screening)}
+
+Having validated the QCD stiffness coefficients through running coupling predictions, we now test whether these geometric construction rules extend beyond the Strong Force. If the beta function coefficients are truly geometric properties rather than group-theoretic accidents, the same rules must apply universally to all gauge theories. We test this by deriving the QED coefficient from identical geometric principles.
+
+The QED Beta function coefficient arises from the polarization of the vacuum by virtual pairs:
+\begin{enumerate}
+    \item \textbf{Topological Load ($2\chi$):} A virtual particle-antiparticle pair creates two topological boundaries ($\chi=2 \times 2 = 4$).
+    \item \textbf{Spatial Dilution ($D-1$):} The electric flux distributes over the 3-dimensional spatial volume.
+\end{enumerate}
+
+The QED Beta coefficient is the exact ratio of topology to spatial dilution, perfectly matching the standard one-loop result:
+\begin{equation}
+    \beta_0^{\text{QED}} = \frac{2\chi}{D-1} = \frac{4}{3}
+\end{equation}
+
+\textbf{Numerical Proof (The Unitary Resonance):}
+To test the QED screening effect at the Z-Pole ($M_Z$), we adopt the experimentally evaluated vacuum polarization ``Screening Fog'' $\Delta \alpha_{\text{total}} \approx 0.0590$ (PDG 2024) as an external input; deriving this quantity from the lattice requires integrating over the full particle spectrum (the subject of future work). Applying this shift to the static vacuum impedance yields a standard effective coupling of $\alpha^{-1}_{QFT} \approx 137.036 - 8.085 = 128.951$ (where the absolute shift is $\alpha^{-1}_{geo} \cdot \Delta \alpha_{\text{total}} \approx 8.085$). This leaves a glaring $\approx 1.0$ discrepancy against the experimental value of $127.955$.
+
+The $E_8$-Persistence framework explicitly resolves this gap. At the exact energy of the Z-Pole ($M_Z$), the vacuum undergoes a \textbf{Resonant Transition}, coupling to the Scalar Ground State ($\Delta^0 = 1$). This unitary geometric step is projected onto the physical manifold and is therefore subjected to the The Coordinate Overhead ($\eta$). The true geometric impedance is:
+
+\begin{equation}
+\alpha^{-1}(M_Z) = \left[ \alpha^{-1}_{geo} - \text{Screening} \right] - \Delta^0 \cdot \eta
+\end{equation}
+
+\begin{equation}
+\begin{split}   
+\alpha^{-1}(M_Z) 
+& \approx (\AlphaInvVal - 8.085) - 0.994 \\
+& \approx \mathbf{\AlphaRunningVal}
+\end{split}
+\end{equation}
+
+\begin{itemize}
+    \item \textbf{Geometric Prediction:} \AlphaRunningVal
+    \item \textbf{Experimental Value:} \AlphaRunningExperimentalValue
+    \item \textbf{Accuracy:} \AlphaRunningAccText
+\end{itemize}
+
+\textbf{Physical Interpretation:} The precision of this match confirms that the difference between the low-energy coupling ($\sim 137$) and the Z-pole coupling ($\sim 128$) is not arbitrary. It is the exact sum of standard fermion screening (QFT) and exactly one unit of geometric resonance ($\Delta^0=1$), corrected for manifold projection efficiency ($\eta$).
+
+\textit{Scope Defense:} We utilize the experimental value of $\Delta\alpha_{total}$ strictly to isolate and validate the geometric projection overhead ($\eta$) at the Z-Pole. The ab initio derivation of the full fermion spectrum required to calculate $\Delta\alpha_{total}$ purely from geometry is the subject of a companion paper. This temporary empirical anchor does not introduce a free parameter into the fundamental architecture.
+
+\subsubsection{Summary: The Geometric Nature of Gauge Couplings}
+The Strong Force emerges as the unique solution to maximizing information throughput within the lattice constraints. Its magnitude ($\alpha_s \approx 0.1179$) represents channel saturation, while its evolution ($\beta_0 = 11 - 2n_f/3$) encodes the geometric stiffness of the vacuum. Both properties derive strictly from the invariant set $\{D=4, \chi=2, \sigma=5, n_{gen}=3\}$, with no adjustable parameters.
+
+This derivation demonstrates that the Casimir invariants of the Standard Model are not fundamental inputs, but are the \textbf{algebraic projections} of the underlying lattice topology. The successful prediction of QED screening ($4/3$) from identical geometric principles confirms this is not a coincidence, but a fundamental property of embedding topological charges in 4-dimensional spacetime.
+
+\subsection{Corollary: The Strong CP Prohibition (\texorpdfstring{$\theta_{QCD} \equiv 0$}{theta\_QCD = 0})}
+\label{sec:strong_cp_prohibition}
+
+While the primary objective of this section is the numerical derivation of the partition coefficients, the geometric isolation of the Capacity Partition yields an immediate, structural resolution to a major open problem in physics: the Strong CP problem. We briefly outline this topological prohibition here, as it demonstrates the predictive power of the partitioned architecture.
+
+In standard QFT, the QCD Lagrangian permits a CP-violating topological term, $g^2\theta_{QCD}/(32\pi^2) G\tilde{G}$, where $\theta$ is an arbitrary angular parameter. Experimental limits on the neutron electric dipole moment (nEDM), however, constrain $|\theta_{QCD}| < 10^{-10}$. Standard physics offers no structural mechanism for this extreme fine-tuning, motivating \textit{ad hoc} additions like dynamical relaxation via the Peccei-Quinn mechanism and the axion.
+
+The $E_8$-Persistence theory resolves the Strong CP problem not by dynamic suppression, but by \textbf{Topological Prohibition}. The interaction subspace that hosts the Strong Force ($\sigma-\chi=3$) is geometrically orthogonal to the spacetime boundary ($\chi=2$) where topological winding numbers are defined. This prohibition is enforced by two independent and mutually reinforcing information-theoretic principles:
+
+\subsubsection{Argument 1: The Entropic Ground State Constraint}
+A non-zero $\theta_{QCD}$ requires the gauge field to possess a topological winding number around the spacetime manifold ($\pi_3(S^3)$). On a discrete, finite-capacity substrate, this imposes two prohibitive entropic costs:
+\begin{enumerate}
+    \item \textbf{Specification Cost:} Because the $E_8$ substrate is discrete, any non-zero phase angle must manifest as a specific rational geometric ratio of the substrate's integer invariants (as will be demonstrated by the Cabibbo and Weak mixing angles). Encoding an arbitrary, continuous parameter $\theta \in[0, 2\pi)$ would require infinite precision, carrying an unbounded Shannon entropy that the finite node capacity ($\nu=16$) cannot physically support.
+    \item \textbf{Coupling Cost:} For a discrete winding number to be meaningful, the color field (residing strictly in the internal $\sigma-\chi=3$ subspace) would have to maintain a persistent correlation with the spacetime boundary ($\chi=2$ surface). Because these sectors are geometrically orthogonal, this cross-sector coupling requires continuous, irreducible informational overhead to maintain against vacuum decoherence.
+\end{enumerate}
+The decoupled state where $\theta_{QCD}$ is geometrically undefined entirely avoids both entropic costs ($S_{spec}=0$, $S_{couple}=0$). By the Principle of Least Entropic Action, the vacuum strictly relaxes to the state of minimal information content—the geometric ground state where the winding number simply does not exist:
+\begin{equation}
+    \theta_{QCD} \equiv 0 \quad \text{(Entropic Ground State)}
+\end{equation}
+
+\subsubsection{Argument 2: The Unitary CP Budget and Lorentzian Projection}
+The lattice's finite capacity imposes a strict conservation law on time-reversal symmetry breaking, quantified by the Jarlskog invariant, $J$ (which serves as the \textbf{Toll} pillar of the Capacity Partition, derived formally in subsequent sections). 
+
+The $E_8 \to D_4 \oplus D_4$ projection assigns the Lorentzian metric signature (and thus the active temporal generator $\partial_t$) exclusively to the spacetime sector. Consequently, the geometric structure allocates the entire CP violation capacity to the chiral spacetime boundary ($\chi=2$), where it manifests as the CKM phase ($J \approx 3 \times 10^{-5}$), consuming the available temporal budget (as quantified by the Jarlskog invariant derived in \cref{subsec:jarlskog})
+
+The internal symmetry space ($\sigma-\chi=3$) that hosts the Strong Force is strictly Euclidean; it lacks a projection onto the temporal boundary. The color sector is therefore \textbf{informationally isolated from the Arrow of Time}. Because it possesses no temporal generator, its contribution to the CP budget must be identically zero:
+\begin{equation}
+    J_{strong} \equiv 0 \quad \implies \quad \theta_{QCD} = 0
+\end{equation}
+
+\subsubsection{Comparison to the Axion Mechanism}
+This geometric resolution is fundamentally different from the dynamical relaxation proposed by the Peccei-Quinn mechanism. The two solutions are mutually exclusive, as summarized in \cref{tab:cp_solutions}.
+
+\begin{table}[htbp]
+\centering
+\caption{Strong CP: Axion vs. Geometric Prohibition}
+\begin{tabular}{@{}lcc@{}}
+\toprule
+\textbf{Feature} & \textbf{Peccei-Quinn} & \textbf{$E_8$-Persistence} \\
+\midrule
+Mechanism & Dynamic relaxation & Topological prohibition \\
+New Particle & Yes (the Axion) & No \\
+New Symmetry & Yes ($U(1)_{PQ}$) & No \\
+$\theta_{QCD}$ value & Dynamically driven & Geometrically fixed ($\equiv 0$) \\
+Testable via & Axion search & Null results in axion search \\
+\bottomrule
+\end{tabular}
+\label{tab:cp_solutions}
+\end{table}
+
+\subsubsection{Falsifiable Predictions}
+This geometric prohibition generates two hard-falsifiable predictions:
+\begin{enumerate}
+    \item \textbf{No QCD Axion:} Because $\theta_{QCD}=0$ is the geometric ground state, no dynamical relaxation mechanism is needed. The QCD axion, as proposed to solve the Strong CP problem, is therefore predicted not to exist. A confirmed discovery of the QCD axion with its theoretically expected couplings would explicitly falsify this framework. (\textit{Note: This does not exclude other axion-like particles (ALPs) whose existence is not tied to the Peccei-Quinn mechanism.})
+    
+    \item \textbf{Zero Strong-Sector nEDM:} The contribution to the neutron electric dipole moment from $\theta_{QCD}$ is exactly zero. The only non-zero contribution arises from the CKM phase (a weak interaction effect), calculated to be $d_n^{weak} \sim 10^{-32} \, e\cdot\text{cm}$ \cite{pospelov_electric_2005}. Given the current experimental limit of $|d_n| < 1.8 \times 10^{-26} \, e\cdot\text{cm}$ \cite{abel_measurement_2020}, any confirmed measurement of $d_n > 10^{-30} \, e\cdot\text{cm}$ would constitute a major deviation from the Standard Model background and would falsify the $E_8$-Persistence Theory.
+\end{enumerate}

@@ -1,0 +1,51 @@
+\section{System 4: The Capacity Partition}
+\label{sec:capacity_partition}
+
+In the $E_8$-Persistence theory, the vacuum is not an infinite, passive arena; it is a resource-constrained computational substrate. As established in \textit{Informational Energetics: A Universal Architecture of Persistence} \cite{meyer_informational_2026}, each localized node possesses a strictly finite channel capacity ($\nu = 16$). 
+
+This strict hardware limit presents a catastrophic systemic threat: \textbf{Bandwidth Exhaustion}. If the spatial geometry, the temporal updates, and the internal force generators all attempt to saturate the node simultaneously, the local complexity will exceed the 16 available channels. This would trigger Causal Aliasing and the local causal structure becomes unresolvable. The three rules of Nested Persistence (\cref{sec:nested_persistence}) resolve this threat by mandating a strict partitioning of the $\nu = 16$ budget across orthogonal interaction sectors.
+
+\subsection{The System Specification}
+
+We define the Capacity Partition by instantiating the six architectural pillars of persistence:
+
+\begin{enumerate}
+    \item \textbf{Capacity: The Chiral Bandwidth ($\nu = 16$).} 
+    The vacuum possesses 16 chiral degrees of freedom. This is the absolute processing budget that must be allocated without overflow.
+    
+    \item \textbf{Map: The Gauge Topology ($\sigma=5, \chi=2$).} 
+    The system must map the internal interaction generators (rank $\sigma=5$) and the localized boundaries ($\chi=2$) onto the substrate. These topological invariants define the number of distinct interaction apertures that require bandwidth.
+        
+    \item \textbf{Protocol: The Geometric Partitions ($\alpha_s, \sin^2\theta_W, \theta_C$).}
+    These three dimensionless ratios serve as the mathematically independent partition coefficients of the Standard Model. In standard Quantum Field Theory, the individual gauge couplings ($g_1, g_2, g_3$) are treated as fundamental, independent primitives; here, they are algebraic composites. The true fundamental constants are these three dimensionless partition coefficients, which specify exactly what fraction of the total capacity ($\nu$) is routed to each geometric sector to prevent signal collision:
+
+    \begin{itemize}
+        \item \textbf{Saturation Ratio} (Strong Coupling $\alpha_s$): The fraction of total chiral bandwidth utilized.
+        \item \textbf{Spacetime Partition} (Weak Angle $\sin^2\theta_W$): The split between temporal and spatial bandwidth allocation.
+        \item \textbf{Generation Coupling} (Cabibbo Angle $\theta_C$): The controlled leakage rate between generational tiers.
+    \end{itemize}
+    
+    \item \textbf{Governor: Field Rigidity ($\beta_0$).} 
+    To prevent high-energy localized perturbations from warping the partition ratios and causing an overflow, the vacuum must possess structural rigidity. The QCD beta function coefficients encode this exact anti-screening resistance to gauge field deformation.
+ 
+    \item \textbf{Toll: Projection Frustration ($J$).} 
+    The system cannot perfectly map a 5-fold internal symmetry ($H_4$ icosahedral structure) onto a 4-dimensional spacetime manifold ($D=4$). This irreducible geometric mismatch manifests as the Jarlskog Invariant, the measurable thermodynamic friction of the causal projection, which acts as the physical origin of CP violation.
+
+    \item \textbf{Margin: Minimum Resolvable Impedance ($y_e$).} 
+    The partition must maintain a noise floor. The Electron Yukawa coupling represents the smallest non-zero fractional allocation distinguishable from vacuum fluctuations. (As this sets the absolute baseline for mass generation, its exact mathematical derivation is executed alongside the mass scales in System 5).
+\end{enumerate}
+
+\subsection{The Coordinate Overhead (\texorpdfstring{$\eta$}{eta})}
+
+Before the Protocol can assign bandwidth to the individual forces, the Capacity Partitioning rule demands it first pay the structural cost of establishing a coordinate system. In information theory, this is identical to \textbf{Data Framing overhead}. To transmit a packet of $N$ bits, at least one bit must act as the synchronization anchor (the ``start'' bit), leaving $N-1$ bits for the payload. By the \textbf{Fencepost Principle}, $N$ discrete points define exactly $N-1$ addressable intervals.
+
+The $E_8$ substrate's local causal neighborhood possesses a finite Manifold Resolution of $R_M = D \times \Delta = 4 \times 43 = 172$ spacetime addresses per fundamental cycle. On a discrete lattice, permanently defining a coordinate origin consumes exactly one site, leaving $171$ relative, addressable coordinate states. The Coordinate Overhead $\eta$ is therefore the strict ratio of Addressable Capacity to Total Geometric Volume:
+
+\begin{equation}
+\label{eq:coordinate_overhead}
+\eta \equiv \frac{N_{addressable}}{N_{total}} = \frac{D\Delta - 1}{D\Delta} = 1 - \frac{1}{172} \approx 0.994186
+\end{equation}
+
+\textit{Scope Defense:} Note that the temporal resonance ($\Delta = 43$) does not incur this overhead: as a periodic cycle with no endpoints, it requires no origin fixing. The coordinate overhead applies strictly to the spatial manifold volume ($D\Delta = 172$), where a discrete reference frame must be established.
+
+Because the Coordinate Overhead arises from fixing a reference frame within the $D=4$ manifold volume, it applies exclusively to quantities that integrate over this bulk volume (4-forms), such as the channel saturation that determines $\alpha_s$. Quantities defined by boundary topology (1-forms, Wilson Loops, the Euler characteristic $\chi$) do not reference the internal coordinate grid and are therefore geometrically exact; this is why the Fine-Structure Constant ($\alpha^{-1}$) required no such correction. When an operator involves both boundary topology and bulk integration, $\eta$ applies strictly to the volumetric component, not to the topological invariants.

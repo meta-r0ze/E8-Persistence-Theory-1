@@ -1,0 +1,32 @@
+Having written paper 1 (IE pillars) and paper 2 (IE Entropic Action) we are working on paper 3 (on nested persistence).  We want to start by reviewing the general outline of the paper as is.  The high level flow.  Names of sections, order of presentation, name of the paper and section, etc.  We will go through each section in detail later.  Below is the general review guidelines:
+
+Please review and classify every issue you find into these categorie(s), and lead with the category label:
+FATAL-IDEA (Map failure): The core logic or mathematics is wrong in a way that undermines the paper's central claims. Would cause rejection regardless of presentation.
+SHARE (gov failure): Should be fixed before widely sharing as an idea.  Most will interpret the spirit of what is written, but the text needs to be more exact to prevent inaccurate readings.
+CRITICAL-PUBLISH (protocol failure): Does not affect the core logic but would likely cause rejection by a referee or editor. Must be fixed before submission.
+IMPROVE (Mar optimization): Makes the paper clearer or stronger but is not blocking. Worth fixing if the work is not burdensome.
+REMOVE-SIMPLIFY (cap/tol optimization): Anything that is over verbose and can be simplified or should be removed.
+POLISH (substrate alignment): Stylistic, LaTeX, or presentational. Fix if convenient, ignore if not.
+For each issue, also estimate: (a) does fixing it change the math or logic, (b) does fixing it change the narrative or tone, (c) is it visible to a casual reader vs. only a specialist referee.
+SCOPE-DEFENSE: (cap failure) articulate just enough for this paper.  Never introduce a generalized concept without immediately bounding its application in the current text. If you mention a broader implication, you must instantly tell the referee, "I am only using X to solve Y in this paper; the general case of X is the subject of a companion paper.  Are my forward-references clearly labeled as 'future work' versus 'derived later in this text'?
+PARAMETER-FREE CHECK: (Toll optimization): derivations contain strictly zero free parameters and rely only on discrete geometric counting/invariants. Explicitly flag any step where a continuous tunable parameter, an arbitrary scaling factor, or an unstated physical assumption sneaks into the math.
+NAME-CHECK: Informational Energetics or IE refers to the general framework around systems that can persist.  $E_8$-Persistence theory is the name of the physics theory that applies this to find an E8 lattice substrate
+SHARE (gov failure) The abstract should answer 'what', the introduction should answer 'why', the conclusion should say 'what changed', What do they now know that they didn't before and what comes next 
+
+General guidelines
+- Respect that the reader is an adult who can evaluate a bold claim on its merits and don’t bikeshed or goalpost shift. Every paper has wording that is debatable the best way to present it and can bounce between two different prose depending on the reviewer. Does an issue actually identify something the paper gets wrong?
+- This is not published yet and we can change anything, a name, the layout, the example, literally anything to make the paper better.
+- For anything you find also suggest latex fixes that can be inserted/edited into the paper as well as if multiple places need to be fixed to fully resolve the issue.
+
+If you find no FATAL-IDEA issues, say so explicitly at the top of your review.  Would a complex systems scientist want to read this in its current form? Would a physicist want to read this in its current form?  
+
+Details about the paper. 
+- This paper builds upon the IE. It introduces the partitioning rules for persistent systems and then tests/validates them by applying them to the the E8 substrate/lagrangian derived in the first two papers. The 3 systems presented here cascade on the systems and apply those rules. They should ideally reference the rules, how each system uses 1 or more and don't re-explain what is in paper 1 or 2 beyond a quick reminder.
+- IE applies to all persistence system and the IE parts of introduction, partitioning rules, etc should avoid when possible discussing physics and instead discuss the generic case.  The physics is just the validation, this is a complex systems IE paper first.
+
+DEPENDENCY-CHECK: This paper is the numerical culmination of Papers 1 and 2.
+- If the text tries to justify the geometry of the substrate that should be a citation to paper 1, flag it for removal/simplification.
+- If the text tries to justify the functional form of an operator (e.g., why the Higgs has a quartic potential, or why gravity is the Ricci scalar) (aka something already in paper 2), flag it for removal and replace with a citation to Paper 2.
+- Paper 3 must focus on partitioning and the numerical allocation and geometric ratios.
+- It should be consistent with paper 1 and 2 in all ways from general physics discussions to minor things like names of pillars.
+- The introduction should refresh on paper 1 and 2 as needed to reduce/prevent constant citations across the paper.
